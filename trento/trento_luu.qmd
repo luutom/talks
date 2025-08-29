@@ -1,0 +1,693 @@
+---
+title: "Strong-Coupling QCD on a Quantum Annealer"
+abstract: "Blah Blah Blah"
+author:
+  name: Thomas Luu
+  affiliation: IAS-4, FZJ & HISKP, Uni. Bonn
+  email: t.luu@fz-juelich.de
+format:
+  revealjs:
+    slide-number: true
+    incremental: true
+---
+
+## Outline
++ Motivation
+  - QCD in the strong coupling limit
+  - EFT for strong coupled QCD
+  
++ Quantum Annealer
+  - D-Wave 
+  - What is supposedly going on under the hood
+  
++ Combinatorial Optimization
+  - Mapping QCD into a discrete optimization problem
+	- QUBO formalism
+	
++ Results
+
+:::{.r-stack .fragment}
+J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arXiv:2311.07209](https://arxiv.org/abs/2311.07209), [arXiv:2412.11677](https://arxiv.org/abs/2412.11677)
+:::
+
+# QCD in the strong coupling limit
+
+## Strong coupling limit of QCD (SC-LQCD)
+
++ Strong coupling limit: $\beta=\frac{2 N_c}{g^2}\to 0$
+  - $\implies S=S_g+S_f\to S_f$
+  - gauge action vanishes
+  
++ Change order of integration ([Rossi & Wolff '84](https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub))
+  - First integrate out gauge fields
+  - Then integrate over Grassmann fields
+  
+    :::{style='font-size:70%'}
+    $$
+    Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
+    \underbrace{\prod_{b=(x,\hat{\mu})}\frac{(N_c-k_b)!}{N_c!k_b!}\gamma^{2k_b\delta_{\hat{0},\hat{\mu}}}}_{\text{meson hoppings}}
+    \underbrace{\prod_{x}\frac{N_c!}{n_x!}(2am_q)^{n_x}}_{\text{chiral condensate}}
+    \underbrace{\prod_{\ell}w(\ell,\mu)}_{\text{baryon hoppings}}
+    $$
+    :::
+  
++ Confinement is manifest, giving new degrees of freedom
+  - monomers, dimers (mesons), polymers (baryons)
+  - all color singlets
+  
+---
+
+### Why is SC-LQCD interesting?
+
+:::{style='font-size:80%'}
+
+:::{.columns}
+
+:::{.column width=50%}
+
+:::{.r-stack}
+Phase diagram[^2]
+:::
+
+![](assets/phaseDiagram.png){fig-align='center' width=100%}
+
+[^2]: Fromm & de Forcrand [PoS LATTICE2008 (2008) 191](https://arxiv.org/abs/0811.1931), Nishida [Phys.Rev.D 69 (2004) 094501](https://journals.aps.org/prd/abstract/10.1103/PhysRevD.69.094501)
+
+:::
+
+:::{.column width=50%}
+
++ Expected to exhibit chiral phase transition
+
++ Sign-problem with dual variables is ***milder***
+  - Easier to simulate at $\mu_B\ne 0$
+  
++ Past investigations have included
+  - Mean-field (citations!)
+  - Monte-Carlo ([Karsch & Mütter '89](https://www.sciencedirect.com/science/article/pii/0550321389903969?via%3Dihub))
+    * Ergodic? ([Aloisio et al. '00](https://www.sciencedirect.com/science/article/pii/S0550321399006355?via%3Dihub))
+  - Worm algorithm (citations!)
+
++ Understanding exact nature and location of phase transition requires low-$T$ simulations
+  - Worm algorithm, updating single link per step, is highly inefficient in this realm
+
+:::
+
+:::
+
+:::{.callout-note icon=false .fragment}
+## Goal
+Simulate SC-LQCD on a Quantum Annealer where temperature plays no role
+:::
+
+:::
+
+# Quantum Annealing
+
+## Simulated (thermal) annealing
+
+:::{.columns}
+
+:::{.column width=50%}
+
+:::{style='font-size:70%'}
+$$
+H_{Ising}=\sum_{i<j}K_{ij}\sigma_i^z\sigma_j^z-\sum_i h_i\sigma_i^z\quad;\quad\sigma_i^z=\begin{pmatrix}1&0\\0&-1\end{pmatrix}
+$$
+:::
+
+:::{style='font-size:80%'}
+:::{.r-stack .fragment}
+What is the absolute ground state of this system?
+:::
+:::
+
+:::{.r-stack .fragment}
+![](assets/energyLandscape.png){fig-align='center' width=60%}
+:::
+
+:::{.callout-warning .fragment}
+Determining the absolute dground state is a non-deterministic polynomially (NP) hard problem
+:::
+
+:::
+:::{.column width=10%}
+
+:::
+
+:::{.column width=40%}
+:::{style='font-size:80%'}
+
++ Initialize system at some temperature $kT> E_{max}$
+
++ Slowly reduce the temperature
+  ![](assets/annealingT.png){width=70% fig-align='right'}
+
++ Escaping local minima via ***thermal fluctuations***
+
++ System settles to lowest energy configuration (hopefully)
+
++ Has physical interpretation
+  - annealing of metals, glasses, etc.
+  
++ Monte-Carlo via Metropolis-Hastings
+
+:::
+:::
+
+:::
+
+## Simulated Quantum Annealing
+
+:::{style='font-size:80%'}
+
+:::{.columns}
+
+:::{.column width=60%}
++ Introduce a non-commuting term to "target" Hamiltonian:
+
+  :::{style='font-size:80%'}
+  $$
+  H(s)=-A(s) \sum_{i}\sigma_i^x+B(s) H_{Ising}\quad;\quad\sigma_i^x=\begin{pmatrix}0&1\\1&0\end{pmatrix}
+  $$
+  $$
+  [\sigma^x,\sigma^z]\ne 0
+  $$
+  :::
+  
++ Keep temperature fixed, but vary $A(s)$ and $B(s)$
+
++ System evolves from the ground state of transverse field to ground state of target Hamiltonian
+
+:::{.callout-tip icon=false .fragment}
+## Quantum fluctuations
+Transverse field introduces ***quantum fluctuations*** that enables “tunnelling” between barriers, ensuring (hopefully) that the ground state of the instantaneous Hamiltonian $H(s)$ is reachable during evolution of $s$
+:::
+  
++ Simulated quantum annealing (via quantum Monte Carlo) has been shown to be more efficient than simulated (thermal) annealing for various spin models[^3]
+
+[^3]: Santoro et al., [Science v295 5564 (2247-2430)](https://www.science.org/doi/10.1126/science.1068774)
+
+
+
+:::
+
+:::{.column width=40%}
+
+![](assets/AB_profiles.png){fig-align='center' width=70%}
+
+![](assets/evolution.png){fig-align='center' width=90%}
+
+:::{.r-stack}
+:::{style='font-size:60%'}
+Figure [sources](https://docs.dwavequantum.com/en/latest/quantum_research/quantum_annealing_intro.html)
+:::
+:::
+
+:::
+
+:::
+
+:::
+
+## Physical Quantum Annealer
+
+### The D-Wave Quantum Annealer
+
+:::{.r-stack}
+![](assets/dwave1.png){width=130% .fragment}
+
+![](assets/dwave2.png){width=130% .fragment}
+
+![](assets/dwave3.png){width=130% .fragment}
+
+![](assets/dwave4.png){width=130% .fragment}
+
+![](assets/dwave5.png){width=130% .fragment}
+:::
+
+---
+
+### D-Wave is a "single-use, dedicated device"[^1]
+
+
++ Typical anneal times $\sim\mathcal{O}(100\ \mu s)$
+
++ Each run consists of $\sim \mathcal{O}(500-1000)$ anneals
+
++ Requires total of $\sim\mathcal{O}(500\ ms-1\ s)$ per run
+
++ When submitting run, get access to ***entire*** 'machine' (= QPU)
+
++ After each run, perform post-processing of data
+
+:::{.r-stack .fragment}
+Total allocation per year: $\sim\mathcal{O}(\text{hrs})$
+:::
+
+[^1]: More about D-Wave [here](https://docs.dwavesys.com/docs/latest/index.html)
+
+---
+
+### Expected computational scaling
+
+:::{.columns}
+
+:::{.column width=33%}
+
+:::{.r-stack .fragment}
+Simulated (thermal) annealing
+:::
+
+:::{.r-stack .fragment}
+$$ \mathcal{O}\left(e^{aN^c}\right) $$
+
+:::
+
+:::
+
+:::{.column width=33%}
+
+:::{.r-stack .fragment}
+Simulated quantum annealing
+:::
+
+:::{.r-stack .fragment}
+$$ \mathcal{O}\left(e^{aN^c}\right) $$
+
+:::
+
+:::
+
+:::{.column width=33%}
+
+:::{.r-stack .fragment}
+Physical quantum annealing
+:::
+
+:::{.r-stack .fragment}
+$$ \mathcal{O}\left(e^{aN^c}\right) $$
+
+:::
+
+:::
+
+:::
+
+:::{.callout-important .fragment}
+## It's still an NP-Complete problem
+D-Wave hopefully has much smaller coefficients $a$ and $c$
+:::
+
+:::{.callout-tip icon=false .fragment}
+## Some examples showing potential scaling advantage
+
+[Phys. Rev. X 8, 031016 (2018)](https://link.aps.org/doi/10.1103/PhysRevX.8.031016)
+
+[Nature v617, 61–66 (2023)](https://doi.org/10.1038/s41586-023-05867-2)
+
+[Phys. Rev. Lett. 134, 160601 (2025)](https://doi.org/10.1103/PhysRevLett.134.160601)
+:::
+
+## Solving Optimization Problems with Quantum Annealing
+
++ Naturally D-Wave can be used to investigate Ising spin glass systems
+
++ But we can do more!  Assume you want to “optimize” a specific problem with “objective” function $f(\alpha,\vec{x})$
+  - Goal:  map your problem into $H_{Ising}$
+	* find mapping $M$ that maps parameters of your problem $\{\alpha,\vec{x}\}\to\{K,h,\vec{s}\}$ parameters of $H_{Ising}$
+	* use D-Wave to find solution $\vec{s}$ that minimizes $H_{Ising}(K,h,\vec{s})$
+	* $\min H_{Ising}(K,h,\vec{s})\implies \min f(\alpha,\vec{x})$
+	
++ What types of problems can be done this way?
+  - In $H_{Ising}$, $\vec{s}$ represents discrete degrees of freedom $\implies \vec{x}\in \mathbb{Z}^n$ (discrete values)
+
+:::{.r-stack .fragment}
+Combinatorial Optimization (CO) problem
+:::
+
+## Integer (Linear) Programming (ILP)
+
+:::{.columns}
+
+:::{.column width=45%}
+:::{style='font-size:90%'}
+$$
+\begin{aligned}
+\text{find extremum of } & c^T\cdot x\\
+\text{subject to } & A\cdot x\le b\\
+ & x \ge 0\\
+ \text{and } & x\in \mathbb{Z}^n
+\end{aligned}
+$$
+
+where $c$ and $b$ are vectors of coefficients and $A$ is a matrix of coefficients
+:::
+:::
+
+:::{.column width=55%}
+
+:::{.callout-note icon=false .fragment}
+## Example
+$$
+\begin{aligned}
+\text{find } & \min y=3x_1+2x_2+x_3+x_4+3x_5+2x_6\\
+\text{subject to } & x_1+x_3+x+6=1\\
+& x_2+x_3+x_5+x_6=1\\
+& x_3+x_4+x_5=1\\
+& x_1+x_2+x_4+x_6=1\\
+\text{and } & x_i=0\text{ or }1
+\end{aligned}
+$$
+:::
+:::
+
+:::
+
+:::{.callout-warning .fragment}
+Solving CO is a non-deterministic polynomially (NP) hard problem!
+:::
+
+:::{.callout-note icon=false .fragment}
+## Examples of classical (heuristic) ILP solvers
+
+[CPLEX](https://www.ibm.com/products/ilog-cplex-optimization-studio/cplex-optimizer)
+
+[Gurobi](https://www.gurobi.com)
+:::
+
+## Quadratic unconstrained binary optimization (QUBO)
+
++ ILP is not suitable for D-Wave
+
++ Need to cast problem ***w/ constraints*** into quadratic form $x^T Q x$ w/o constraints
+
++ Include constraints via "penalty" factors in the optimization
+
+  :::{style='font-size:50%'}
+  $$
+  \begin{aligned}
+  \min y=&3x_1+2x_2+x_3+x_4+3x_5+2x_6\\
+  &+p_1(x_1+x_3+x_6-1)^2+p_2(x_2+x_3+x_5+x_6-1)^2\\
+  &+p_3(x_3+x_4+x_5-1)^2+p_4(x_1+x_2+x_4+x_6-1)^2
+  \end{aligned}
+  $$
+  :::
+
++ Penalty parameters $p_i\ge 0$ are free parameters, similar to Lagrange parameters
+  - Satisfying the constraints means the penalty terms vanish under minimization
+  
++ Set $p_i=p=10$ and use $x_i^2=x_i$
+
+  :::{style='font-size:50%'}
+  $$
+  \min y=\min x^T Q x+40\quad;\quad
+  Q=\begin{pmatrix}
+  -17 & 10 & 10 & 10 & 0 & 20 \\
+  10 & -18 & 10 & 10 & 10 & 20 \\
+  10 & 10 & -29 & 10 & 20 & 20 \\
+  10 & 10 & 10 & -19 & 10 & 10 \\
+  0 & 10 & 20 & 10 & -17 & 10 \\
+  20 & 20 & 20 & 10 & 10 & -28
+  \end{pmatrix}
+  \quad;\quad
+  x_{sol}=
+  \begin{pmatrix} 1 \\ 0 \\ 0 \\ 0 \\ 1 \\ 0 \end{pmatrix}
+  $$
+  :::
+  
+---
+
+### Mapping this onto the D-Wave
+
++ $Q$ can be symmetric or upper (lower) triagular
+
++ Previous problem required binary variables with $x_i^2=x_i$
+
++ We can relate to our Ising problem that uses $s_i^2=1$ via $x_i=(s_i+1)/2$
+
+  :::{style='font-size:80%'}
+  $$
+  x^T Q x = s^T K s+h^T s+C
+  \quad;\quad 
+  K=\frac{1}{4}Q
+  \quad;\quad
+  h^T_i = \frac{1}{2}\sum_jQ_{ji}
+  \quad;\quad
+  C=\frac{1}{4}\sum_{ij}Q_{ij}
+  $$
+  :::
+  
++ Given QUBO $Q$, or Ising $K$, $h$, the D-Wave API makes an embedding (determines connections of physical qubits to make logical qubits) to model the problem and subsequently performs QA
+
+:::{.r-stack .fragment}
+***global minimum of QUBO cost function $=$ global minimum of CO cost function***
+:::
+
+:::{.callout-warning .fragment}
+Mapping a general CO problem into QUBO form is non-trivial, and the mapping is not unique.
+:::
+
+## Strong-Coupling QCD as a QUBO Problem
+
++ Strong coupling limit: $\beta=\frac{2 N_c}{g^2}\to 0\implies S=S_g+S_f\to S_f$
+
++ Gauge links and fermion fields can be integrated formally
+
+  :::{style='font-size:80%'}
+  $$
+  Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
+  \underbrace{\prod_{b=(x,\hat{\mu})}\frac{(N_c-k_b)!}{N_c!k_b!}\gamma^{2k_b\delta_{\hat{0},\hat{\mu}}}}_{\text{meson hoppings}}
+  \underbrace{\prod_{x}\frac{N_c!}{n_x!}(2am_q)^{n_x}}_{\text{chiral condensate}}
+  \underbrace{\prod_{\ell}w(\ell,\mu)}_{\text{baryon hoppings}}
+  $$
+  :::
+
++ "Grassmann constraint"
+
+  :::{style='font-size:80%'}
+  $$
+  n_x + \sum_{\mu=\pm 0,\cdots,\pm d}\bigg( k_{\mu}(x)+\frac{N_c}{2}|\ell_{\mu}(x)|\bigg) = N_c
+  $$
+  :::
+  
+:::{.r-stack .fragment}
+Parameters of this “dual” theory take discrete (integer) values!
+:::
+
+---
+
+### An explicit example: $U(1)$ on a 2x2 lattice
+#### It can't get simpler than this!
+
+:::{style='font-size:80%'}
+
+:::{.columns}
+
+:::{.column width=50%}
+
+$U(1) \implies$ no baryons
+
+:::{style='font-size:80%'}
+$$
+Z=\int d\bar\chi d\chi dU e^{-S[\bar\chi,\chi,U]}=\sum_{\{k_b,n_x\}}e^{-\mathcal{S[k_b,n_x]}}
+$$
+$$
+\mathcal{S[k_b,n_x]} =\sum_{b=(x,\hat{\mu})} D(k_b) + \sum_{x} M(n_x)
+$$
+
+$$
+\begin{aligned}
+\text{dimer }\ \ \  & D(k_b)=-\log\left(\frac{(N_c-k_b)!}{N_c!k_b!}\right) - 2k_b\delta_{\hat{0},\hat{\mu}} \log(\gamma)\\
+\text{monomer } & M(n_x)=-\log\left(\frac{N_c!}{n_x!}\right) - n_x \log(2am_q)+c
+\end{aligned}
+$$
+
+Grassmann constraint
+$$
+n_x + \sum_{\mu=\pm 0,\cdots,\pm d} k_{\mu}(x) = N_c
+$$
+
+Discrete variables
+$$
+k_b\in\{0,1\}\quad n_x\in\{0,1\}
+$$
+
+:::
+
+:::
+
+:::{.column width=10%}
+
+:::
+
+:::{.column width=40%}
+
+![](assets/2x2lattice.png){fig-align='right' width=90%}
+
+<!--
+
+:::{style='font-size:45%'}
+$$
+\implies
+Q=
+p 
+\begin{pmatrix}
+ -2 & 2 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+ 2 & -2 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
+ 1 & 1 & -2 & 0 & 1 & 1 & 2 & 0 & 1 & 0 & 1 & 0 \\
+ 1 & 1 & 0 & -2 & 1 & 1 & 0 & 2 & 0 & 1 & 0 & 1 \\
+ 0 & 0 & 1 & 1 & -2 & 2 & 1 & 1 & 0 & 0 & 1 & 1 \\
+ 0 & 0 & 1 & 1 & 2 & -2 & 1 & 1 & 0 & 0 & 1 & 1 \\
+ 1 & 1 & 2 & 0 & 1 & 1 & -2 & 0 & 1 & 0 & 1 & 0 \\
+ 1 & 1 & 0 & 2 & 1 & 1 & 0 & -2 & 0 & 1 & 0 & 1 \\
+ 1 & 1 & 1 & 0 & 0 & 0 & 1 & 0 & -1 & 0 & 0 & 0 \\
+ 1 & 1 & 0 & 1 & 0 & 0 & 0 & 1 & 0 & -1 & 0 & 0 \\
+ 0 & 0 & 1 & 0 & 1 & 1 & 1 & 0 & 0 & 0 & -1 & 0 \\
+ 0 & 0 & 0 & 1 & 1 & 1 & 0 & 1 & 0 & 0 & 0 & -1 
+\end{pmatrix}
+$$
+
+$$ \gamma=1\quad;\quad 2am_q=1 $$
+:::
+
+-->
+
+
+:::
+
+:::
+
+:::
+
+---
+
+### Distribution of D-Wave solutions
+
+![](assets/DwaveHistogram.png)
+
+:::{.columns}
+
+:::{.column width=50%}
+
+:::
+
+:::{.column width=50%}
+
+:::{style='font-size:60%'}
+Ferrenberg & Swendsen, [Phys.Rev.Lett. 61 (1988) 2635-2638](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.63.1658.2)
+:::
+
+:::
+
+:::
+
+# Results
+
+## $U(1)$ Observables
+
+:::{.columns}
+
+:::{.column width=50%}
+
+![](assets/U1condensate.png)
+
+:::{style='font-size:80%'}
+:::{.r-stack}
+$$
+\langle \bar\psi \psi\rangle=\frac{1}{V}\langle M\rangle
+$$
+$$
+M=\sum_{x\in V}n_x
+$$
+:::
+:::
+
+:::
+
+:::{.column width=50%}
+
+![](assets/U1energy.png)
+
+:::{style='font-size:80%'}
+:::{.r-stack}
+$$
+\langle\epsilon\rangle=\frac{1}{V}\left(\langle D_t\rangle - \langle M\rangle\right)
+$$
+$$
+D_t=\sum_{x\in V}k_{x,\mu=t}
+$$
+:::
+:::
+
+:::
+
+:::
+
+:::{.r-stack}
+
+dashed line: raw D-Wave data $\quad\quad\quad$ solid line: reweighted D-Wave data
+
+:::
+
+
+
+## $U(3)$ Observables
+
+![](assets/U3observables.png)
+
+:::{.columns}
+
+:::{.column width=50%}
+
+$$
+\gamma=.1
+$$
+
+:::
+
+:::{.column width=50%}
+
+$$
+am_q=.3
+$$
+
+:::
+
+:::
+
+
+
+## $SU(3)$ Observables
+
+![](assets/SU3observables.png)
+
+:::{.columns}
+
+:::{.column width=50%}
+
+$$
+\langle \bar \psi\psi\rangle=\frac{1}{2am_q V}\left\langle\sum_{x\in V}n_x\right\rangle
+$$
+
+:::
+
+:::{.column width=50%}
+
+$$
+\langle B\rangle=\frac{1}{N_s}\left\langle \sum_l w_l\right\rangle
+$$
+
+:::
+
+:::
+
+## Challenges of using a Quantum Annealer
+
+## Recapitulation
+
+# Backup slides
+
+
+
+

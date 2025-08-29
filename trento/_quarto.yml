@@ -1,0 +1,6 @@
+format: 
+    revealjs:
+        theme: [default, custom.scss]
+        logo: fzj_ubonn_logo.png
+
+
