@@ -525,7 +525,6 @@ $$
 
 ![](assets/2x2lattice.png){fig-align='right' width=90%}
 
-<!--
 
 :::{style='font-size:45%'}
 $$
@@ -550,8 +549,6 @@ $$
 
 $$ \gamma=1\quad;\quad 2am_q=1 $$
 :::
-
--->
 
 
 :::
