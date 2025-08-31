@@ -6,8 +6,8 @@
 <script src="trento_luu_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="trento_luu_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="trento_luu_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="trento_luu_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.7.33">
+<link href="trento_luu_files/libs/quarto-html/quarto-syntax-highlighting-c8ad9e5dbd60b7b70b38521ab19b7da4.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.7.34">
 
   <meta name="author" content="Thomas Luu">
   <title>Strong-Coupling QCD on a Quantum Annealer</title>
@@ -177,6 +177,7 @@ Thomas Luu
 </section>
 <section id="strong-coupling-limit-of-qcd-sc-lqcd" class="slide level2">
 <h2>Strong coupling limit of QCD (SC-LQCD)</h2>
+<div style="font-size:70%">
 <ul>
 <li class="fragment">Strong coupling limit: <span class="math inline">\(\beta=\frac{2 N_c}{g^2}\to 0\)</span>
 <ul>
@@ -185,7 +186,8 @@ Thomas Luu
 </ul></li>
 <li class="fragment">Change order of integration (<a href="https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub">Rossi &amp; Wolff ’84</a>)
 <ul>
-<li class="fragment"><p>First integrate out gauge fields</p></li>
+<li class="fragment"><p>Introduce auxiliary integer variables</p></li>
+<li class="fragment"><p>Integrate out gauge fields first</p></li>
 <li class="fragment"><p>Then integrate over Grassmann fields</p>
 <div style="font-size:70%">
 <p><span class="math display">\[
@@ -202,6 +204,7 @@ Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
 <li class="fragment">all color singlets</li>
 </ul></li>
 </ul>
+</div>
 </section>
 <section class="slide level2">
 
@@ -673,7 +676,6 @@ k_b\in\{0,1\}\quad n_x\in\{0,1\}
 <p><span class="math display">\[
 \implies
 Q=
-p
 \begin{pmatrix}
 -2 &amp; 2 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
 2 &amp; -2 &amp; 1 &amp; 1 &amp; 0 &amp; 0 &amp; 1 &amp; 1 &amp; 1 &amp; 1 &amp; 0 &amp; 0 \\
@@ -717,22 +719,20 @@ p
 <div class="columns">
 <div class="column" style="width:50%;">
 <p><img data-src="assets/U1condensate.png"></p>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <div class="r-stack">
 <p><span class="math display">\[
-\langle \bar\psi \psi\rangle=\frac{1}{V}\langle M\rangle
-\]</span> <span class="math display">\[
+\langle \bar\psi \psi\rangle=\frac{1}{V}\langle M\rangle\quad;\quad
 M=\sum_{x\in V}n_x
 \]</span></p>
 </div>
 </div>
 </div><div class="column" style="width:50%;">
 <p><img data-src="assets/U1energy.png"></p>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <div class="r-stack">
 <p><span class="math display">\[
-\langle\epsilon\rangle=\frac{1}{V}\left(\langle D_t\rangle - \langle M\rangle\right)
-\]</span> <span class="math display">\[
+\langle\epsilon\rangle=\frac{1}{V}\left(\langle D_t\rangle - \langle M\rangle\right)\quad;\quad
 D_t=\sum_{x\in V}k_{x,\mu=t}
 \]</span></p>
 </div>
@@ -761,13 +761,17 @@ am_q=.3
 
 <img data-src="assets/SU3observables.png" class="r-stretch"><div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size:80%">
 <p><span class="math display">\[
 \langle \bar \psi\psi\rangle=\frac{1}{2am_q V}\left\langle\sum_{x\in V}n_x\right\rangle
 \]</span></p>
+</div>
 </div><div class="column" style="width:50%;">
+<div style="font-size:80%">
 <p><span class="math display">\[
 \langle B\rangle=\frac{1}{N_s}\left\langle \sum_l w_l\right\rangle
 \]</span></p>
+</div>
 </div></div>
 </section>
 <section id="challenges-of-using-a-quantum-annealer" class="slide level2">

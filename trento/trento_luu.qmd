@@ -34,12 +34,15 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
 
 ## Strong coupling limit of QCD (SC-LQCD)
 
+:::{style='font-size:70%'}
+
 + Strong coupling limit: $\beta=\frac{2 N_c}{g^2}\to 0$
   - $\implies S=S_g+S_f\to S_f$
   - gauge action vanishes
   
 + Change order of integration ([Rossi & Wolff '84](https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub))
-  - First integrate out gauge fields
+  - Introduce auxiliary integer variables
+  - Integrate out gauge fields first
   - Then integrate over Grassmann fields
   
     :::{style='font-size:70%'}
@@ -54,6 +57,8 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
 + Confinement is manifest, giving new degrees of freedom
   - monomers, dimers (mesons), polymers (baryons)
   - all color singlets
+  
+:::
   
 ---
 
@@ -530,7 +535,6 @@ $$
 $$
 \implies
 Q=
-p 
 \begin{pmatrix}
  -2 & 2 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
  2 & -2 & 1 & 1 & 0 & 0 & 1 & 1 & 1 & 1 & 0 & 0 \\
@@ -589,12 +593,10 @@ Ferrenberg & Swendsen, [Phys.Rev.Lett. 61 (1988) 2635-2638](https://journals.aps
 
 ![](assets/U1condensate.png)
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 :::{.r-stack}
 $$
-\langle \bar\psi \psi\rangle=\frac{1}{V}\langle M\rangle
-$$
-$$
+\langle \bar\psi \psi\rangle=\frac{1}{V}\langle M\rangle\quad;\quad 
 M=\sum_{x\in V}n_x
 $$
 :::
@@ -606,12 +608,10 @@ $$
 
 ![](assets/U1energy.png)
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 :::{.r-stack}
 $$
-\langle\epsilon\rangle=\frac{1}{V}\left(\langle D_t\rangle - \langle M\rangle\right)
-$$
-$$
+\langle\epsilon\rangle=\frac{1}{V}\left(\langle D_t\rangle - \langle M\rangle\right)\quad;\quad
 D_t=\sum_{x\in V}k_{x,\mu=t}
 $$
 :::
@@ -663,17 +663,21 @@ $$
 
 :::{.column width=50%}
 
+:::{style='font-size:80%'}
 $$
 \langle \bar \psi\psi\rangle=\frac{1}{2am_q V}\left\langle\sum_{x\in V}n_x\right\rangle
 $$
+:::
 
 :::
 
 :::{.column width=50%}
 
+:::{style='font-size:80%'}
 $$
 \langle B\rangle=\frac{1}{N_s}\left\langle \sum_l w_l\right\rangle
 $$
+:::
 
 :::
 
