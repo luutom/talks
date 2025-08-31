@@ -34,7 +34,7 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
 
 ## Strong coupling limit of QCD (SC-LQCD)
 
-:::{style='font-size:70%'}
+:::{style='font-size:80%'}
 
 + Strong coupling limit: $\beta=\frac{2 N_c}{g^2}\to 0$
   - $\implies S=S_g+S_f\to S_f$
@@ -45,7 +45,7 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
   - Integrate out gauge fields first
   - Then integrate over Grassmann fields
   
-    :::{style='font-size:70%'}
+    :::{style='font-size:80%'}
     $$
     Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
     \underbrace{\prod_{b=(x,\hat{\mu})}\frac{(N_c-k_b)!}{N_c!k_b!}\gamma^{2k_b\delta_{\hat{0},\hat{\mu}}}}_{\text{meson hoppings}}
@@ -53,10 +53,28 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
     \underbrace{\prod_{\ell}w(\ell,\mu)}_{\text{baryon hoppings}}
     $$
     :::
+
+:::
+	
+:::{.columns}
+
+:::{style='font-size:80%'}
+
+:::{.column width=60%}
   
 + Confinement is manifest, giving new degrees of freedom
   - monomers, dimers (mesons), polymers (baryons)
   - all color singlets
+  
+:::
+
+:::{.column width=35%}
+
+![](assets/MDP.png){fig-align='left' width=40% .fragment}
+
+:::
+  
+:::
   
 :::
   
@@ -88,10 +106,10 @@ Phase diagram[^2]
   - Easier to simulate at $\mu_B\ne 0$
   
 + Past investigations have included
-  - Mean-field (citations!)
+  - Mean-field ([Drouffe & Zuber '83](https://www.sciencedirect.com/science/article/abs/pii/0370157383900340))
   - Monte-Carlo ([Karsch & Mütter '89](https://www.sciencedirect.com/science/article/pii/0550321389903969?via%3Dihub))
     * Ergodic? ([Aloisio et al. '00](https://www.sciencedirect.com/science/article/pii/S0550321399006355?via%3Dihub))
-  - Worm algorithm (citations!)
+  - Worm algorithm (Fromm, Unger, de Forcrand)
 
 + Understanding exact nature and location of phase transition requires low-$T$ simulations
   - Worm algorithm, updating single link per step, is highly inefficient in this realm
@@ -453,8 +471,11 @@ Solving CO is a non-deterministic polynomially (NP) hard problem!
 Mapping a general CO problem into QUBO form is non-trivial, and the mapping is not unique.
 :::
 
-## Strong-Coupling QCD as a QUBO Problem
+# SC-LQCD on a Quantum Annealer
 
+## SC-LQCD as a QUBO Problem
+
+:::{style='font-size:80%'}
 + Strong coupling limit: $\beta=\frac{2 N_c}{g^2}\to 0\implies S=S_g+S_f\to S_f$
 
 + Gauge links and fermion fields can be integrated formally
@@ -478,6 +499,8 @@ Mapping a general CO problem into QUBO form is non-trivial, and the mapping is n
   
 :::{.r-stack .fragment}
 Parameters of this “dual” theory take discrete (integer) values!
+:::
+
 :::
 
 ---
@@ -526,7 +549,7 @@ $$
 
 :::
 
-:::{.column width=40%}
+:::{.column width=35%}
 
 ![](assets/2x2lattice.png){fig-align='right' width=90%}
 
@@ -686,6 +709,22 @@ $$
 ## Challenges of using a Quantum Annealer
 
 ## Recapitulation
+
++ Simulated Quantum Annealing is more efficient then Simulate (Thermal) Annealing (in some cases)
+
++ Physically performing Quantum Annealing could be even more efficient (D-Wave)
+
++ Annealing works on systems with discrete degrees of freedom
+  - Minimisation of objective function (e.g. Hamiltonian)
+  - Combinatorial Optimisation
+  - Cast as an Integer Linear Program (ILP) problem
+  - NP Complete problem
+
++ Recast into QUBO form
+
++ Applied to Strong-coupling limit of QCD
+  - Showed first results for U(1), U(3), and SU(3)
+
 
 # Backup slides
 

@@ -177,7 +177,7 @@ Thomas Luu
 </section>
 <section id="strong-coupling-limit-of-qcd-sc-lqcd" class="slide level2">
 <h2>Strong coupling limit of QCD (SC-LQCD)</h2>
-<div style="font-size:70%">
+<div style="font-size:80%">
 <ul>
 <li class="fragment">Strong coupling limit: <span class="math inline">\(\beta=\frac{2 N_c}{g^2}\to 0\)</span>
 <ul>
@@ -189,7 +189,7 @@ Thomas Luu
 <li class="fragment"><p>Introduce auxiliary integer variables</p></li>
 <li class="fragment"><p>Integrate out gauge fields first</p></li>
 <li class="fragment"><p>Then integrate over Grassmann fields</p>
-<div style="font-size:70%">
+<div style="font-size:80%">
 <p><span class="math display">\[
 Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
 \underbrace{\prod_{b=(x,\hat{\mu})}\frac{(N_c-k_b)!}{N_c!k_b!}\gamma^{2k_b\delta_{\hat{0},\hat{\mu}}}}_{\text{meson hoppings}}
@@ -198,12 +198,25 @@ Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
 \]</span></p>
 </div></li>
 </ul></li>
+</ul>
+</div>
+<div class="columns">
+<div style="font-size:80%">
+<div class="column" style="width:60%;">
+<ul>
 <li class="fragment">Confinement is manifest, giving new degrees of freedom
 <ul>
 <li class="fragment">monomers, dimers (mesons), polymers (baryons)</li>
 <li class="fragment">all color singlets</li>
 </ul></li>
 </ul>
+</div><div class="column" style="width:35%;">
+<div class="quarto-figure quarto-figure-left">
+<figure>
+<p><img data-src="assets/MDP.png" class="fragment quarto-figure quarto-figure-left" style="width:40.0%"></p>
+</figure>
+</div>
+</div></div>
 </div>
 </section>
 <section class="slide level2">
@@ -229,12 +242,12 @@ Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
 </ul></li>
 <li class="fragment"><p>Past investigations have included</p>
 <ul>
-<li class="fragment">Mean-field (citations!)</li>
+<li class="fragment">Mean-field (<a href="https://www.sciencedirect.com/science/article/abs/pii/0370157383900340">Drouffe &amp; Zuber ’83</a>)</li>
 <li class="fragment">Monte-Carlo (<a href="https://www.sciencedirect.com/science/article/pii/0550321389903969?via%3Dihub">Karsch &amp; Mütter ’89</a>)
 <ul>
 <li class="fragment">Ergodic? (<a href="https://www.sciencedirect.com/science/article/pii/S0550321399006355?via%3Dihub">Aloisio et al.&nbsp;’00</a>)</li>
 </ul></li>
-<li class="fragment">Worm algorithm (citations!)</li>
+<li class="fragment">Worm algorithm (Fromm, Unger, de Forcrand)</li>
 </ul></li>
 <li class="fragment"><p>Understanding exact nature and location of phase transition requires low-<span class="math inline">\(T\)</span> simulations</p>
 <ul>
@@ -612,9 +625,15 @@ C=\frac{1}{4}\sum_{ij}Q_{ij}
 </div>
 </div>
 </div>
+</section></section>
+<section>
+<section id="sc-lqcd-on-a-quantum-annealer" class="title-slide slide level1 center">
+<h1>SC-LQCD on a Quantum Annealer</h1>
+
 </section>
-<section id="strong-coupling-qcd-as-a-qubo-problem" class="slide level2">
-<h2>Strong-Coupling QCD as a QUBO Problem</h2>
+<section id="sc-lqcd-as-a-qubo-problem" class="slide level2">
+<h2>SC-LQCD as a QUBO Problem</h2>
+<div style="font-size:80%">
 <ul>
 <li class="fragment"><p>Strong coupling limit: <span class="math inline">\(\beta=\frac{2 N_c}{g^2}\to 0\implies S=S_g+S_f\to S_f\)</span></p></li>
 <li class="fragment"><p>Gauge links and fermion fields can be integrated formally</p>
@@ -635,6 +654,7 @@ n_x + \sum_{\mu=\pm 0,\cdots,\pm d}\bigg( k_{\mu}(x)+\frac{N_c}{2}|\ell_{\mu}(x)
 </ul>
 <div class="r-stack fragment">
 <p>Parameters of this “dual” theory take discrete (integer) values!</p>
+</div>
 </div>
 </section>
 <section class="slide level2">
@@ -666,7 +686,7 @@ k_b\in\{0,1\}\quad n_x\in\{0,1\}
 </div>
 </div><div class="column" style="width:10%;">
 
-</div><div class="column" style="width:40%;">
+</div><div class="column" style="width:35%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
 <p><img data-src="assets/2x2lattice.png" class="quarto-figure quarto-figure-right" style="width:90.0%"></p>
@@ -779,6 +799,22 @@ am_q=.3
 </section>
 <section id="recapitulation" class="slide level2">
 <h2>Recapitulation</h2>
+<ul>
+<li class="fragment"><p>Simulated Quantum Annealing is more efficient then Simulate (Thermal) Annealing (in some cases)</p></li>
+<li class="fragment"><p>Physically performing Quantum Annealing could be even more efficient (D-Wave)</p></li>
+<li class="fragment"><p>Annealing works on systems with discrete degrees of freedom</p>
+<ul>
+<li class="fragment">Minimisation of objective function (e.g.&nbsp;Hamiltonian)</li>
+<li class="fragment">Combinatorial Optimisation</li>
+<li class="fragment">Cast as an Integer Linear Program (ILP) problem</li>
+<li class="fragment">NP Complete problem</li>
+</ul></li>
+<li class="fragment"><p>Recast into QUBO form</p></li>
+<li class="fragment"><p>Applied to Strong-coupling limit of QCD</p>
+<ul>
+<li class="fragment">Showed first results for U(1), U(3), and SU(3)</li>
+</ul></li>
+</ul>
 </section></section>
 <section id="backup-slides" class="title-slide slide level1 center">
 <h1>Backup slides</h1>
