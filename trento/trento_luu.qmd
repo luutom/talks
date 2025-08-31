@@ -708,6 +708,12 @@ $$
 
 ## Challenges of using a Quantum Annealer
 
++ I am thinking a ML method that can restore the invalid solutions to valid solution.
+
++ We can extent the method to large sublattice (3x3, 2x2x2,4x4,...)
+
++ $\mathcal{O}(\beta^n)$ gauge corrections. Now $\mathcal{O}(\beta^2)$ is too expensive to simulate using worm algorithm
+
 ## Recapitulation
 
 + Simulated Quantum Annealing is more efficient then Simulate (Thermal) Annealing (in some cases)
@@ -728,6 +734,12 @@ $$
 
 # Backup slides
 
+## Topology of D-Wave Advantage system
+
+## How to map $k={0,1,2,3}$ in terms of binary variables
+
++ Recast $k$ in terms of binary parameters: $k=2 u_1+u_0$
+  - $u_i$ are binary parameters with $u_i^2=u_i$.
 
 
 
