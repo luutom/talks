@@ -144,36 +144,31 @@ Thomas Luu
 </div>
 
 </section>
-<section id="outline" class="slide level2">
-<h2>Outline</h2>
-<ul>
-<li class="fragment">Motivation
-<ul>
-<li class="fragment">QCD in the strong coupling limit</li>
-<li class="fragment">EFT for strong coupled QCD</li>
-</ul></li>
-<li class="fragment">Quantum Annealer
-<ul>
-<li class="fragment">D-Wave</li>
-<li class="fragment">What is supposedly going on under the hood</li>
-</ul></li>
-<li class="fragment">Combinatorial Optimization
-<ul>
-<li class="fragment">Mapping QCD into a discrete optimization problem
-<ul>
-<li class="fragment">QUBO formalism</li>
-</ul></li>
-</ul></li>
-<li class="fragment">Results</li>
-</ul>
-<div class="r-stack fragment">
-<p>J.Kim, T.L., W.Unger, <a href="https://arxiv.org/abs/2305.18179">arXiv:2305.18179</a>, <a href="https://arxiv.org/abs/2311.07209">arXiv:2311.07209</a>, <a href="https://arxiv.org/abs/2412.11677">arXiv:2412.11677</a></p>
-</div>
+<section class="slide level2">
+
+<!--
+## Outline
++ Motivation
+  - QCD in the strong coupling limit
+  - EFT for strong coupled QCD
+  
++ Quantum Annealer
+  - D-Wave 
+  - What is supposedly going on under the hood
+  
++ Combinatorial Optimization
+  - Mapping QCD into a discrete optimization problem
+    - QUBO formalism
+    
++ Results
+-->
 </section>
 <section>
-<section id="qcd-in-the-strong-coupling-limit" class="title-slide slide level1 center">
-<h1>QCD in the strong coupling limit</h1>
-
+<section id="partners-in-crime" class="title-slide slide level1 center">
+<h1>Partners in crime</h1>
+<div class="r-stack">
+<p>J.Kim, T.L., W.Unger, <a href="https://arxiv.org/abs/2305.18179">arXiv:2305.18179</a>, <a href="https://arxiv.org/abs/2311.07209">arXiv:2311.07209</a>, <a href="https://arxiv.org/abs/2412.11677">arXiv:2412.11677</a></p>
+</div>
 </section>
 <section id="strong-coupling-limit-of-qcd-sc-lqcd" class="slide level2">
 <h2>Strong coupling limit of QCD (SC-LQCD)</h2>
@@ -184,9 +179,8 @@ Thomas Luu
 <li class="fragment"><span class="math inline">\(\implies S=S_g+S_f\to S_f\)</span></li>
 <li class="fragment">gauge action vanishes</li>
 </ul></li>
-<li class="fragment">Change order of integration (<a href="https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub">Rossi &amp; Wolff ’84</a>)
+<li class="fragment">Change order of integration (<a href="https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub">Rossi &amp; Wolff ’84</a>) <!-- - Introduce auxiliary integer variables -->
 <ul>
-<li class="fragment"><p>Introduce auxiliary integer variables</p></li>
 <li class="fragment"><p>Integrate out gauge fields first</p></li>
 <li class="fragment"><p>Then integrate over Grassmann fields</p>
 <div style="font-size:80%">
@@ -268,12 +262,10 @@ Z=\int d\bar\chi d\chi dU e^{-S_f[\bar\chi,\chi,U]}=\sum_{\{k,n,\ell\}}
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>Fromm &amp; de Forcrand <a href="https://arxiv.org/abs/0811.1931">PoS LATTICE2008 (2008) 191</a>, Nishida <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.69.094501">Phys.Rev.D 69 (2004) 094501</a></p></li></ol></aside></section></section>
-<section>
-<section id="quantum-annealing" class="title-slide slide level1 center">
-<h1>Quantum Annealing</h1>
-
-</section>
+<!--
+# Quantum Annealing
+-->
+<aside><ol class="aside-footnotes"><li id="fn1"><p>Fromm &amp; de Forcrand <a href="https://arxiv.org/abs/0811.1931">PoS LATTICE2008 (2008) 191</a>, Nishida <a href="https://journals.aps.org/prd/abstract/10.1103/PhysRevD.69.094501">Phys.Rev.D 69 (2004) 094501</a></p></li></ol></aside></section>
 <section id="simulated-thermal-annealing" class="slide level2">
 <h2>Simulated (thermal) annealing</h2>
 <div class="columns">
@@ -313,7 +305,7 @@ H_{Ising}=\sum_{i&lt;j}K_{ij}\sigma_i^z\sigma_j^z-\sum_i h_i\sigma_i^z\quad;\qua
 </div><div class="column" style="width:10%;">
 
 </div><div class="column" style="width:40%;">
-<div style="font-size:80%">
+<div style="font-size:70%">
 <ul>
 <li class="fragment"><p>Initialize system at some temperature <span class="math inline">\(kT&gt; E_{max}\)</span></p></li>
 <li class="fragment"><p>Slowly reduce the temperature <img data-src="assets/annealingT.png" class="quarto-figure quarto-figure-right" style="width:70.0%"></p></li>
@@ -462,6 +454,7 @@ H(s)=-A(s) \sum_{i}\sigma_i^x+B(s) H_{Ising}\quad;\quad\sigma_i^x=\begin{pmatrix
 </section>
 <section id="solving-optimization-problems-with-quantum-annealing" class="slide level2">
 <h2>Solving Optimization Problems with Quantum Annealing</h2>
+<div style="font-size:80%">
 <ul>
 <li class="fragment"><p>Naturally D-Wave can be used to investigate Ising spin glass systems</p></li>
 <li class="fragment"><p>But we can do more! Assume you want to “optimize” a specific problem with “objective” function <span class="math inline">\(f(\alpha,\vec{x})\)</span></p>
@@ -480,6 +473,7 @@ H(s)=-A(s) \sum_{i}\sigma_i^x+B(s) H_{Ising}\quad;\quad\sigma_i^x=\begin{pmatrix
 </ul>
 <div class="r-stack fragment">
 <p>Combinatorial Optimization (CO) problem</p>
+</div>
 </div>
 </section>
 <section id="integer-linear-programming-ilp" class="slide level2">
@@ -625,11 +619,9 @@ C=\frac{1}{4}\sum_{ij}Q_{ij}
 </div>
 </div>
 </div>
-</section></section>
-<section>
-<section id="sc-lqcd-on-a-quantum-annealer" class="title-slide slide level1 center">
-<h1>SC-LQCD on a Quantum Annealer</h1>
-
+<!--
+# SC-LQCD on a Quantum Annealer
+-->
 </section>
 <section id="sc-lqcd-as-a-qubo-problem" class="slide level2">
 <h2>SC-LQCD as a QUBO Problem</h2>
@@ -655,12 +647,26 @@ n_x + \sum_{\mu=\pm 0,\cdots,\pm d}\bigg( k_{\mu}(x)+\frac{N_c}{2}|\ell_{\mu}(x)
 <div class="r-stack fragment">
 <p>Parameters of this “dual” theory take discrete (integer) values!</p>
 </div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Goal: Use D-Wave to generate a distribution of solutions</strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
 
 <h3 id="an-explicit-example-u1-on-a-2x2-lattice">An explicit example: <span class="math inline">\(U(1)\)</span> on a 2x2 lattice</h3>
-<h4 id="it-cant-get-simpler-than-this">It can’t get simpler than this!</h4>
 <div style="font-size:80%">
 <div class="columns">
 <div class="column" style="width:50%;">
@@ -692,6 +698,7 @@ k_b\in\{0,1\}\quad n_x\in\{0,1\}
 <p><img data-src="assets/2x2lattice.png" class="quarto-figure quarto-figure-right" style="width:90.0%"></p>
 </figure>
 </div>
+<div class="r-stack fragment">
 <div style="font-size:45%">
 <p><span class="math display">\[
 \implies
@@ -713,6 +720,7 @@ Q=
 \]</span></p>
 <p><span class="math display">\[ \gamma=1\quad;\quad 2am_q=1 \]</span></p>
 </div>
+</div>
 </div></div>
 </div>
 </section>
@@ -728,11 +736,9 @@ Q=
 <p>Ferrenberg &amp; Swendsen, <a href="https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.63.1658.2">Phys.Rev.Lett. 61 (1988) 2635-2638</a></p>
 </div>
 </div></div>
-</section></section>
-<section>
-<section id="results" class="title-slide slide level1 center">
-<h1>Results</h1>
-
+<!--
+# Results
+-->
 </section>
 <section id="u1-observables" class="slide level2">
 <h2><span class="math inline">\(U(1)\)</span> Observables</h2>
@@ -767,14 +773,31 @@ D_t=\sum_{x\in V}k_{x,\mu=t}
 
 <img data-src="assets/U3observables.png" class="r-stretch"><div class="columns">
 <div class="column" style="width:50%;">
+<div style="font-size:70%">
 <p><span class="math display">\[
 \gamma=.1
 \]</span></p>
+</div>
 </div><div class="column" style="width:50%;">
+<div style="font-size:70%">
 <p><span class="math display">\[
 am_q=.3
 \]</span></p>
+</div>
 </div></div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hybrid Classical/QA algorithm</strong></p>
+</div>
+<div class="callout-content">
+<p>Large volumes obtained via parallel D-Wave sampling of multiple sub-lattice volumes</p>
+</div>
+</div>
+</div>
 </section>
 <section id="su3-observables" class="slide level2">
 <h2><span class="math inline">\(SU(3)\)</span> Observables</h2>
@@ -794,28 +817,25 @@ am_q=.3
 </div>
 </div></div>
 </section>
-<section id="challenges-of-using-a-quantum-annealer" class="slide level2">
-<h2>Challenges of using a Quantum Annealer</h2>
-<ul>
-<li class="fragment"><p>I am thinking a ML method that can restore the invalid solutions to valid solution.</p></li>
-<li class="fragment"><p>We can extent the method to large sublattice (3x3, 2x2x2,4x4,…)</p></li>
-<li class="fragment"><p><span class="math inline">\(\mathcal{O}(\beta^n)\)</span> gauge corrections. Now <span class="math inline">\(\mathcal{O}(\beta^2)\)</span> is too expensive to simulate using worm algorithm</p></li>
-</ul>
-</section>
 <section id="recapitulation" class="slide level2">
 <h2>Recapitulation</h2>
 <ul>
-<li class="fragment"><p>Simulated Quantum Annealing is more efficient then Simulate (Thermal) Annealing (in some cases)</p></li>
-<li class="fragment"><p>Physically performing Quantum Annealing could be even more efficient (D-Wave)</p></li>
-<li class="fragment"><p>Annealing works on systems with discrete degrees of freedom</p>
+<li class="fragment">Phase diagram of SC-QCD is non-trivial
 <ul>
+<li class="fragment">Tri-critical end point (<span class="math inline">\(am=0\)</span>) vs critical end point (<span class="math inline">\(am\ne 0\)</span>)</li>
+<li class="fragment">Worm algorithm suffers when <span class="math inline">\(T\to 0\)</span></li>
+</ul></li>
+<li class="fragment">Physically performing Quantum Annealing insensitive to <span class="math inline">\(T\)</span> (of theory)
+<ul>
+<li class="fragment">Annealing works on systems with discrete degrees of freedom</li>
 <li class="fragment">Minimisation of objective function (e.g.&nbsp;Hamiltonian)</li>
 <li class="fragment">Combinatorial Optimisation</li>
-<li class="fragment">Cast as an Integer Linear Program (ILP) problem</li>
-<li class="fragment">NP Complete problem</li>
 </ul></li>
-<li class="fragment"><p>Recast into QUBO form</p></li>
-<li class="fragment"><p>Applied to Strong-coupling limit of QCD</p>
+<li class="fragment">Recast into QUBO form
+<ul>
+<li class="fragment">Optimisation w/o constraints</li>
+</ul></li>
+<li class="fragment">Applied to Strong-coupling limit of select guage theories
 <ul>
 <li class="fragment">Showed first results for U(1), U(3), and SU(3)</li>
 </ul></li>
@@ -826,17 +846,39 @@ am_q=.3
 <h1>Backup slides</h1>
 
 </section>
+<section id="challenges-of-using-a-quantum-annealer" class="slide level2">
+<h2>Challenges of using a Quantum Annealer</h2>
+<div style="font-size:80%">
+<ul>
+<li class="fragment"><p>Number of valid solutions falls precipitiously as the volume increases</p>
+<ul>
+<li class="fragment"><p>perform parallel sublattice volumes updates with hybrid classical/QA calculation <a href="https://arxiv.org/abs/2412.11677">arXiv:2412.11677</a></p></li>
+<li class="fragment"><p>looking to extend to large sublattice volumes (3x3, 2x2x2,4x4,…)</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sublattice.png" class="quarto-figure quarto-figure-center" style="width:25.0%"></p>
+</figure>
+</div></li>
+</ul></li>
+<li class="fragment"><p>incorporate <span class="math inline">\(\mathcal{O}(\beta^n)\)</span> gauge corrections to our formalism</p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/orderB.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div></li>
+</ul>
+</div>
+</section>
 <section id="topology-of-d-wave-advantage-system" class="slide level2">
 <h2>Topology of D-Wave Advantage system</h2>
-</section>
-<section id="how-to-map-k0123-in-terms-of-binary-variables" class="slide level2">
-<h2>How to map <span class="math inline">\(k={0,1,2,3}\)</span> in terms of binary variables</h2>
-<ul>
-<li class="fragment">Recast <span class="math inline">\(k\)</span> in terms of binary parameters: <span class="math inline">\(k=2 u_1+u_0\)</span>
-<ul>
-<li class="fragment"><span class="math inline">\(u_i\)</span> are binary parameters with <span class="math inline">\(u_i^2=u_i\)</span>.</li>
-</ul></li>
-</ul>
+
+<img data-src="assets/topology.png" class="quarto-figure quarto-figure-center r-stretch"><p>Figure <a href="https://docs.dwavesys.com/docs/latest/c_gs_4.html">source</a></p>
+<!--
+## How to map $k={0,1,2,3}$ in terms of binary variables
+
++ Recast $k$ in terms of binary parameters: $k=2 u_1+u_0$
+  - $u_i$ are binary parameters with $u_i^2=u_i$.
+-->
 
 </section></section>
 

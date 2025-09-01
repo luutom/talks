@@ -11,6 +11,7 @@ format:
     incremental: true
 ---
 
+<!--
 ## Outline
 + Motivation
   - QCD in the strong coupling limit
@@ -25,12 +26,13 @@ format:
 	- QUBO formalism
 	
 + Results
+-->
 
-:::{.r-stack .fragment}
+# Partners in crime
+
+:::{.r-stack}
 J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arXiv:2311.07209](https://arxiv.org/abs/2311.07209), [arXiv:2412.11677](https://arxiv.org/abs/2412.11677)
 :::
-
-# QCD in the strong coupling limit
 
 ## Strong coupling limit of QCD (SC-LQCD)
 
@@ -41,7 +43,7 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
   - gauge action vanishes
   
 + Change order of integration ([Rossi & Wolff '84](https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub))
-  - Introduce auxiliary integer variables
+  <!-- - Introduce auxiliary integer variables -->
   - Integrate out gauge fields first
   - Then integrate over Grassmann fields
   
@@ -125,7 +127,9 @@ Simulate SC-LQCD on a Quantum Annealer where temperature plays no role
 
 :::
 
+<!--
 # Quantum Annealing
+-->
 
 ## Simulated (thermal) annealing
 
@@ -159,7 +163,7 @@ Determining the absolute dground state is a non-deterministic polynomially (NP) 
 :::
 
 :::{.column width=40%}
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 
 + Initialize system at some temperature $kT> E_{max}$
 
@@ -334,6 +338,8 @@ D-Wave hopefully has much smaller coefficients $a$ and $c$
 
 ## Solving Optimization Problems with Quantum Annealing
 
+:::{style='font-size:80%'}
+
 + Naturally D-Wave can be used to investigate Ising spin glass systems
 
 + But we can do more!  Assume you want to “optimize” a specific problem with “objective” function $f(\alpha,\vec{x})$
@@ -347,6 +353,8 @@ D-Wave hopefully has much smaller coefficients $a$ and $c$
 
 :::{.r-stack .fragment}
 Combinatorial Optimization (CO) problem
+:::
+
 :::
 
 ## Integer (Linear) Programming (ILP)
@@ -471,7 +479,9 @@ Solving CO is a non-deterministic polynomially (NP) hard problem!
 Mapping a general CO problem into QUBO form is non-trivial, and the mapping is not unique.
 :::
 
+<!--
 # SC-LQCD on a Quantum Annealer
+-->
 
 ## SC-LQCD as a QUBO Problem
 
@@ -501,12 +511,16 @@ Mapping a general CO problem into QUBO form is non-trivial, and the mapping is n
 Parameters of this “dual” theory take discrete (integer) values!
 :::
 
+:::{.callout-note .fragment}
+## Goal:  Use D-Wave to generate a distribution of solutions
+
+:::
+
 :::
 
 ---
 
 ### An explicit example: $U(1)$ on a 2x2 lattice
-#### It can't get simpler than this!
 
 :::{style='font-size:80%'}
 
@@ -514,7 +528,7 @@ Parameters of this “dual” theory take discrete (integer) values!
 
 :::{.column width=50%}
 
-$U(1) \implies$ no baryons
+$U(1) \implies$ no baryons 
 
 :::{style='font-size:80%'}
 $$
@@ -553,6 +567,7 @@ $$
 
 ![](assets/2x2lattice.png){fig-align='right' width=90%}
 
+:::{.r-stack .fragment}
 
 :::{style='font-size:45%'}
 $$
@@ -575,6 +590,8 @@ Q=
 $$
 
 $$ \gamma=1\quad;\quad 2am_q=1 $$
+:::
+
 :::
 
 
@@ -606,7 +623,9 @@ Ferrenberg & Swendsen, [Phys.Rev.Lett. 61 (1988) 2635-2638](https://journals.aps
 
 :::
 
+<!--
 # Results
+-->
 
 ## $U(1)$ Observables
 
@@ -660,20 +679,29 @@ dashed line: raw D-Wave data $\quad\quad\quad$ solid line: reweighted D-Wave dat
 
 :::{.column width=50%}
 
+:::{style='font-size:70%'}
 $$
 \gamma=.1
 $$
+:::
 
 :::
 
 :::{.column width=50%}
 
+:::{style='font-size:70%'}
 $$
 am_q=.3
 $$
+:::
 
 :::
 
+:::
+
+:::{.callout-note}
+## Hybrid Classical/QA algorithm
+Large volumes obtained via parallel D-Wave sampling of multiple sub-lattice volumes
 :::
 
 
@@ -706,40 +734,53 @@ $$
 
 :::
 
-## Challenges of using a Quantum Annealer
-
-+ I am thinking a ML method that can restore the invalid solutions to valid solution.
-
-+ We can extent the method to large sublattice (3x3, 2x2x2,4x4,...)
-
-+ $\mathcal{O}(\beta^n)$ gauge corrections. Now $\mathcal{O}(\beta^2)$ is too expensive to simulate using worm algorithm
-
 ## Recapitulation
 
-+ Simulated Quantum Annealing is more efficient then Simulate (Thermal) Annealing (in some cases)
++ Phase diagram of SC-QCD is non-trivial
+  - Tri-critical end point ($am=0$) vs critical end point ($am\ne 0$)
+  - Worm algorithm suffers when $T\to 0$
 
-+ Physically performing Quantum Annealing could be even more efficient (D-Wave)
-
-+ Annealing works on systems with discrete degrees of freedom
++ Physically performing Quantum Annealing insensitive to $T$ (of theory)
+  - Annealing works on systems with discrete degrees of freedom
   - Minimisation of objective function (e.g. Hamiltonian)
   - Combinatorial Optimisation
-  - Cast as an Integer Linear Program (ILP) problem
-  - NP Complete problem
 
 + Recast into QUBO form
+  - Optimisation w/o constraints
 
-+ Applied to Strong-coupling limit of QCD
++ Applied to Strong-coupling limit of select guage theories
   - Showed first results for U(1), U(3), and SU(3)
 
 
 # Backup slides
 
+## Challenges of using a Quantum Annealer
+
+:::{style='font-size:80%'}
+
++ Number of valid solutions falls precipitiously as the volume increases
+  - perform parallel sublattice volumes updates with hybrid classical/QA calculation [arXiv:2412.11677](https://arxiv.org/abs/2412.11677)
+  - looking to extend to large sublattice volumes (3x3, 2x2x2,4x4,...)
+
+    ![](assets/sublattice.png){width=25% fig-align='center'}
+
++ incorporate $\mathcal{O}(\beta^n)$ gauge corrections to our formalism
+
+  ![](assets/orderB.png){width=50% fig-align='center'}
+
+:::
+
 ## Topology of D-Wave Advantage system
 
+![](assets/topology.png){fig-align='center'}
+
+Figure [source](https://docs.dwavesys.com/docs/latest/c_gs_4.html)
+
+<!--
 ## How to map $k={0,1,2,3}$ in terms of binary variables
 
 + Recast $k$ in terms of binary parameters: $k=2 u_1+u_0$
   - $u_i$ are binary parameters with $u_i^2=u_i$.
-
+-->
 
 
