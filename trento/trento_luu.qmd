@@ -43,7 +43,7 @@ J.Kim, T.L., W.Unger, [arXiv:2305.18179](https://arxiv.org/abs/2305.18179), [arX
   - gauge action vanishes
   
 + Change order of integration ([Rossi & Wolff '84](https://www.sciencedirect.com/science/article/pii/0550321384905893?via%3Dihub))
-  <!-- - Introduce auxiliary integer variables -->
+  - Introduce auxiliary integer variables
   - Integrate out gauge fields first
   - Then integrate over Grassmann fields
   
@@ -748,7 +748,7 @@ $$
 + Recast into QUBO form
   - Optimisation w/o constraints
 
-+ Applied to Strong-coupling limit of select guage theories
++ Applied to Strong-coupling limit of select gauge theories
   - Showed first results for U(1), U(3), and SU(3)
 
 
