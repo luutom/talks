@@ -32,3 +32,42 @@ format:
   
 4. Would you like to learn more about ML techniques?
 
+:::{.callout-note .fragment}
+## Statistics
+Received 11 responses (out of 13 requests):  85% response rate
+:::
+
+---
+
+### Do you use ML in your project, and if yes, how so?
+
++ 5 projects use ML (33% usage)
+  - A01 -- ML-generated potentials
+  - A03, A05 -- ML generated input data, in collaboration with Julia Westermayr
+  - A05 -- graph NN applied to trajectories
+  - B01, C02 -- ML to learn complex manifolds that alleviate the sign problem
+
+---
+
+### Have you initiated any joint efforts with other Projects that use ML?
+
++ 2 maybes?
+  - Discussions between Barbara (and collaborators) and Lena (and collaborators)
+  - Potential joint effort between A01 and A05 related to graph NNs
+  
+---  
+  
+### Do you think you project would benefit from using (more) ML techniques?
+
+- For the projects that already use ML, the answer was obviously ***YES***
+
+- 4 (semi-)postive responses (out of 10 : 40%)
+  - A02 -- **optimization of DFT integration grid** and **factorization in automatic code generation**
+  - B05 -- **location of pole positions**
+  
+---
+
+### Would you like to learn more about ML techniques?
+
+- 4 positve responses (26.7%)
+  - ***Status of normalizing flows in LQCD***
