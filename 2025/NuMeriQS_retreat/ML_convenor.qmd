@@ -57,11 +57,11 @@ Received 11 responses (out of 13 requests):  85% response rate
   
 ---  
   
-### Do you think you project would benefit from using (more) ML techniques?
+### Do you think your project would benefit from using (more) ML techniques?
 
 - For the projects that already use ML, the answer was obviously ***YES***
 
-- 4 (semi-)postive responses (out of 10 : 40%)
+- 4 (semi-)positive responses (out of 10 : 40%)
   - A02 -- **optimization of DFT integration grid** and **factorization in automatic code generation**
   - B05 -- **location of pole positions**
   
@@ -70,4 +70,74 @@ Received 11 responses (out of 13 requests):  85% response rate
 ### Would you like to learn more about ML techniques?
 
 - 4 positve responses (26.7%)
-  - ***Status of normalizing flows in LQCD***
+  - Enthusiasm is not really there. . .
+  - Interesting request:
+    - ***Status of normalizing flows in LQCD***
+	
+# Developments so far
+
+## Courses at UBonn
+
++ Lena has introduced a ML course to the graduate physics program at UBonn
+  - Well received by students (Lena gets all our graduate students now)
+
++ Lena and Barbara (and others) have introduced a ML seminar course
+  - couples physics, chemistry, and astro
+  
++ David and myself have added ML topic to the undergraduate computer physic course (physik441)
+
+---
+
+```{=html}
+<iframe width="1248" height="800" src="https://physics441-computerphysik-sose2025-4765f7.gitlab-pages.uni-bonn.de/revealjs/12_ML.html#/2/18" title="Webpage example"></iframe>
+```
+
+---
+
+## Can we use ML to determine pole locations? (B05)
+
+:::{.columns}
+
+:::{.column width=40%}
+:::{.r-stack}
+![N(1535)$\frac{1}{2}^-$ and the N(1650)$\frac{1}{2}^-$ resonances on the 2nd Riemann sheet](assets/s11_cmplx3.png){fig-align='center'}
+:::
+
+:::
+
+:::{.column width=10%}
+
+:::
+
+:::{.column width=50%}
+
+:::{style='font-size:90%'}
++ Discussed problem with ***ML experts*** @ FZJ
+  - Conclusion: Purely algebraic problem, ML not needed
+
++ Recent paper says otherwise:
+  - [Pole structure inference]( https://arxiv.org/pdf/2507.07668)
+
+    ![](assets/pole_ML_paper.png){fig-align='center'}
+:::
+:::
+
+:::
+
+# Ideas for more engagement
+
+## Combining Spin Physics with Graph NNs
+
++ (Group) Convolutional NNs to learn ground state of (Heisenberg) Spin systems (David)
+  - Regular grid of spin sites
+  
++ Can we apply to irregular sites?
+  - Maybe ***Graph Convolutional Networks (GCNs)*** can be useful here?
+    * Potential joint effort between Petra's group and condensed matter people
+	* Is the idea even interesting?
+  
+## Diffusion models to stabilizing Holomorphic flows
+
+# Other ideas?
+
+
