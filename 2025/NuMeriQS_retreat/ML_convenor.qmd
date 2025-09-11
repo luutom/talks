@@ -1,0 +1,34 @@
+---
+title: "Machine-Learning"
+abstract: "Blah Blah Blah"
+author:
+  name: Thomas Luu
+  affiliation: IAS-4, FZJ & HISKP, Uni. Bonn
+  email: t.luu@fz-juelich.de
+format:
+  revealjs:
+    slide-number: true
+    incremental: true
+---
+
+
+## Outline
+
++ Status of Poll
+  
++ Developments within the last year
+  
++ Ideas for more engagement
+	
+# Poll
+
+## Questions
+
+1. Do you use ML in your project, and if yes, how so?
+  
+2. Have you initiated any joint efforst with other Projects that use ML?
+
+3. Do you think your project would benefit from using (more) ML techniques?
+  
+4. Would you like to learn more about ML techniques?
+
