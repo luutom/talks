@@ -1,0 +1,91 @@
+---
+title: "B01: T-Designs"
+abstract: "Blah Blah Blah"
+author:
+  name: Thomas Luu
+  affiliation: IAS-4, FZJ & HISKP, Uni. Bonn
+  email: t.luu@fz-juelich.de
+format:
+  revealjs:
+    slide-number: true
+    incremental: true
+---
+
+
+## B01: Quasi-Particle Dynamics in Low-Dimensional Topological Systems
+
+:::{.columns}
+
+:::{.column width=50%}
+
++ PLs:  Thomas Luu & Ulf Meißner
+  
++ Postdoc started last November
+  - Could not attend due to medical appointment (that could not be rescheduled in a reasonable amount of time)
+
++ Most recent work related to engineering spin centers in 1-D chains [arXiv:2507.18806](https://arxiv.org/abs/2507.18806)
+  - submitted to ***Nature Communications***
+  - Come to poster **B01** to hear more about it
+:::
+
+:::{.column width=50%}
+
+:::{.r-stack}
+![](assets/photo_Lin.jpg.png){fig-align='center' width=60%}
+:::
+
+:::{.r-stack}
+:::{style='font-size:70%'}
+Lin Wang
+:::
+
+:::
+
+:::
+
+:::
+
+# T-Designs
+
++ Came about from discussions at NuMeriQS-sponsored ECT$^*$ workshop on [***Hamiltonian Lattice Gauge Theories***](https://indico.ectstar.eu/event/242/overview)
+
++ Preliminary learning stage
+  - potential relevance for NuMeriQS?
+		
+## Spherical T-Design
+
+:::{.columns}
+
+:::{.column width=50%}
+
+:::{style='font-size:80%'}
++ Given:  Any polonomial $f$ of degree $\le t$ residing on a $d$-dimensional unit sphere $S^d$
++ $\exists$ a set of $N$-points ${\Omega_i}$on $S^d$ where
+    $$ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \sum_{i}^N f(\Omega_i) $$
++ Similar to ***Quadrature Integration*** $\int dx p(x) \approx \sum_i\omega_ip(x_i)$
+  - but here all weights $\omega_i=1$
++ Existence proof that $N$ exists for any $d,t$ combination [(Seymour & Zaslavsky)](https://www.sciencedirect.com/science/article/pii/0001870884900227?via%3Dihub)
+
+:::{.callout-warning .fragment}
+There exists no simple algorithm to find these $N$ points!
+:::
+
+:::
+:::
+
+:::{.column width=50%}
+
+:::{.callout-note icon=false .fragment}
+## Example
+
+:::
+
+:::
+
+:::
+
+## Quantum T-Design
+
+## Where do we go from here?
+
+
