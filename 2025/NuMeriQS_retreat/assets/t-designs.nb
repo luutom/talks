@@ -1,0 +1,386 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 14.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     13455,        378]
+NotebookOptionsPosition[     12567,        355]
+NotebookOutlinePosition[     12967,        371]
+CellTagsIndexPosition[     12924,        368]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Spherical  5 - design", "Section",
+ CellChangeTimes->{{3.9669162028949013`*^9, 
+  3.966916220514125*^9}},ExpressionUUID->"9464ccb0-cce2-425e-b81e-\
+39667f6a2d24"],
+
+Cell[TextData[{
+ "Length  of  an edge within a unit sphere is ",
+ Cell[BoxData[
+  RowBox[{" ", 
+   RowBox[{"l", " ", "=", " ", 
+    RowBox[{"2", " ", 
+     SqrtBox[
+      FractionBox["2", 
+       RowBox[{"5", "+", 
+        SqrtBox["5"]}]]]}]}]}]],
+  CellChangeTimes->{{3.966913675741989*^9, 3.966913692304852*^9}, {
+   3.9669149780440683`*^9, 3.966915124958308*^9}, {3.9669151987472897`*^9, 
+   3.966915312249058*^9}, {3.9669153529527473`*^9, 3.966915425605989*^9}, {
+   3.966915485841009*^9, 3.9669154880362587`*^9}},ExpressionUUID->
+  "4b01be6a-a836-459e-831c-3b8172b00fa4"]
+}], "Text",
+ CellChangeTimes->{{3.9669162390664883`*^9, 
+  3.966916268219453*^9}},ExpressionUUID->"4e3aeef9-750c-44f7-af78-\
+6c5e3f419f98"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"Graphics3D", "[", 
+  RowBox[{
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Opacity", "[", ".6", "]"}], ",", 
+       RowBox[{"Sphere", "[", 
+        RowBox[{
+         RowBox[{"{", 
+          RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", "1"}], "]"}]}], 
+      "}"}], ",", 
+     RowBox[{"Icosahedron", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"0", ",", "0", ",", "0"}], "}"}], ",", 
+       RowBox[{"2", " ", 
+        SqrtBox[
+         FractionBox["2", 
+          RowBox[{"5", "+", 
+           SqrtBox["5"]}]]]}]}], "]"}]}], "}"}], ",", 
+   RowBox[{"Boxed", "->", "False"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.966913675741989*^9, 3.966913692304852*^9}, {
+  3.9669149780440683`*^9, 3.966915124958308*^9}, {3.9669151987472897`*^9, 
+  3.966915312249058*^9}, {3.9669153529527473`*^9, 3.966915425605989*^9}, {
+  3.966915485841009*^9, 3.9669154880362587`*^9}},
+ CellLabel->"In[35]:=",ExpressionUUID->"8b968493-6687-4d11-abbd-9b09325c4e92"],
+
+Cell[BoxData[
+ Graphics3DBox[{
+   {Opacity[0.6], SphereBox[{0, 0, 0}, 1]}, 
+   InterpretationBox[
+    PolyhedronBox[
+     NCache[{{0, 
+        0, (-10) (2 (50 - 10 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {
+       0, 0, 10 (2 (50 - 10 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[
+          1, 2]}, {(-4) ((5 - 5^Rational[1, 2]) (5 + 5^Rational[1, 2]))^
+         Rational[-1, 2], 
+        0, (-2) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {
+       4 ((5 - 5^Rational[1, 2]) (5 + 5^Rational[1, 2]))^Rational[-1, 2], 0, 
+        2 (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {(1 + 
+         5^Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], -(2/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2], (-2) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2]}, {(1 + 
+         5^Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], (2/(5 + 5^Rational[1, 2]))^
+        Rational[
+         1, 2], (-2) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2]}, {(-1 - 5^
+         Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], -(2/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2], 
+        2 (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {(-1 - 5^
+         Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], (2/(5 + 5^Rational[1, 2]))^
+        Rational[1, 2], 
+        2 (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {(1 - 5^
+         Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], -(2/(5 - 5^Rational[1, 2]))^
+         Rational[1, 2], (-2) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2]}, {(1 - 5^
+         Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], (2/(5 - 5^Rational[1, 2]))^
+        Rational[
+         1, 2], (-2) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2]}, {(-1 + 
+         5^Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], -(2/(5 - 5^Rational[1, 2]))^
+         Rational[1, 2], 
+        2 (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}, {(-1 + 
+         5^Rational[1, 2]) (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 
+          5^Rational[1, 2]))^Rational[1, 2], (2/(5 - 5^Rational[1, 2]))^
+        Rational[1, 2], 
+        2 (2 (10 - 2 5^Rational[1, 2])^(-1)/(5 + 5^Rational[1, 2]))^
+         Rational[1, 2]}}, {{0, 0, -0.9999999999999999}, {
+       0, 0, 0.9999999999999999}, {-0.8944271909999159, 
+        0, -0.4472135954999579}, {
+       0.8944271909999159, 0, 0.4472135954999579}, {
+       0.7236067977499789, -0.5257311121191336, -0.4472135954999579}, {
+       0.7236067977499789, 
+       0.5257311121191336, -0.4472135954999579}, {-0.7236067977499789, \
+-0.5257311121191336, 0.4472135954999579}, {-0.7236067977499789, 
+       0.5257311121191336, 
+       0.4472135954999579}, {-0.27639320225002106`, -0.85065080835204, \
+-0.4472135954999579}, {-0.27639320225002106`, 
+       0.85065080835204, -0.4472135954999579}, {
+       0.27639320225002106`, -0.85065080835204, 0.4472135954999579}, {
+       0.27639320225002106`, 0.85065080835204, 0.4472135954999579}}], {{2, 12,
+      8}, {2, 8, 7}, {2, 7, 11}, {2, 11, 4}, {2, 4, 12}, {5, 9, 1}, {6, 5, 
+     1}, {10, 6, 1}, {3, 10, 1}, {9, 3, 1}, {12, 10, 8}, {8, 3, 7}, {7, 9, 
+     11}, {11, 5, 4}, {4, 6, 12}, {5, 11, 9}, {6, 4, 5}, {10, 12, 6}, {3, 8, 
+     10}, {9, 7, 3}}],
+    Icosahedron[{0, 0, 0}, 2 (2/(5 + 5^Rational[1, 2]))^Rational[1, 2]]]},
+  Boxed->False,
+  ImageSize->{355.2327939471668, 335.82307697995515`},
+  ImageSizeRaw->Automatic,
+  ViewPoint->{2.256417152778834, -2.331298839582127, 0.9610553330628181},
+  ViewVertical->{0.26160768813683327`, -0.2502597007496214, 
+   0.9321649530466222}]], "Output",
+ CellChangeTimes->{{3.9669136811421633`*^9, 3.966913693322225*^9}, {
+   3.966914978756496*^9, 3.96691503235324*^9}, 3.9669150641836653`*^9, 
+   3.96691510859032*^9, {3.966915216245735*^9, 3.9669152802771187`*^9}, 
+   3.9669153129652023`*^9, {3.966915375967877*^9, 3.966915426380074*^9}, 
+   3.966915488503612*^9},
+ CellLabel->"Out[35]=",ExpressionUUID->"850ca0fd-3df1-4320-a28d-1d161da5e817"]
+}, Open  ]],
+
+Cell["Here  are the vertices:", "Text",
+ CellChangeTimes->{{3.966916274512837*^9, 
+  3.966916281537801*^9}},ExpressionUUID->"913cbcf9-39d5-4eb6-bc6c-\
+484fc32477a8"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"vertices", "=", 
+   RowBox[{"{", "\[IndentingNewLine]", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1", ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"-", "1"}], ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"0", ",", "1", ",", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"0", ",", 
+        RowBox[{"-", "1"}], ",", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", "\[IndentingNewLine]", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}], ",", "0"}], 
+       "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", 
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}], ",", "0"}], 
+       "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{"1", ",", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}], ",", 
+        "0"}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{"-", "1"}], ",", 
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}], ",", 
+        "0"}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", "\[IndentingNewLine]", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}], ",", "0", 
+        ",", "1"}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}], ",", "0", 
+        ",", "1"}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"1", "+", 
+           RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}], "/", "2"}], ",", "0", 
+        ",", 
+        RowBox[{"-", "1"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]], ",", 
+     FractionBox[
+      RowBox[{"{", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          RowBox[{"(", 
+           RowBox[{"1", "+", 
+            RowBox[{"Sqrt", "[", "5", "]"}]}], ")"}]}], "/", "2"}], ",", "0", 
+        ",", 
+        RowBox[{"-", "1"}]}], "}"}], 
+      SqrtBox[
+       RowBox[{
+        FractionBox["1", "2"], " ", 
+        RowBox[{"(", 
+         RowBox[{"5", "+", 
+          SqrtBox["5"]}], ")"}]}]]]}], "}"}]}], ";"}]], "Input",
+ CellChangeTimes->{{3.9669159105870857`*^9, 3.966916079133758*^9}},
+ CellLabel->"In[36]:=",ExpressionUUID->"2bda5f3a-9196-425e-9a1a-acaabb9b6c76"]
+}, Open  ]]
+},
+WindowSize->{1432, 1154},
+WindowMargins->{{Automatic, 128}, {Automatic, 75}},
+FrontEndVersion->"14.0 for Mac OS X ARM (64-bit) (December 12, 2023)",
+StyleDefinitions->"Default.nb",
+ExpressionUUID->"14a9c97f-08dd-4364-a7a4-a2780454c9c8"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 168, 3, 67, "Section",ExpressionUUID->"9464ccb0-cce2-425e-b81e-39667f6a2d24"],
+Cell[751, 27, 716, 18, 49, "Text",ExpressionUUID->"4e3aeef9-750c-44f7-af78-6c5e3f419f98"],
+Cell[CellGroupData[{
+Cell[1492, 49, 1013, 27, 63, "Input",ExpressionUUID->"8b968493-6687-4d11-abbd-9b09325c4e92"],
+Cell[2508, 78, 4611, 84, 353, "Output",ExpressionUUID->"850ca0fd-3df1-4320-a28d-1d161da5e817"]
+}, Open  ]],
+Cell[7134, 165, 165, 3, 35, "Text",ExpressionUUID->"913cbcf9-39d5-4eb6-bc6c-484fc32477a8"],
+Cell[7302, 170, 5249, 182, 221, "Input",ExpressionUUID->"2bda5f3a-9196-425e-9a1a-acaabb9b6c76"]
+}, Open  ]]
+}
+]
+*)
+

@@ -61,14 +61,10 @@ Lin Wang
 :::{style='font-size:80%'}
 + Given:  Any polonomial $f$ of degree $\le t$ residing on a $d$-dimensional unit sphere $S^d$
 + $\exists$ a set of $N$-points ${\Omega_i}$on $S^d$ where
-    $$ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \sum_{i}^N f(\Omega_i) $$
+    $$ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \frac{1}{N}\sum_{i}^N f(\Omega_i) $$
 + Similar to ***Quadrature Integration*** $\int dx p(x) \approx \sum_i\omega_ip(x_i)$
-  - but here all weights $\omega_i=1$
+  - but here all weights $\omega_i=1/N$
 + Existence proof that $N$ exists for any $d,t$ combination [(Seymour & Zaslavsky)](https://www.sciencedirect.com/science/article/pii/0001870884900227?via%3Dihub)
-
-:::{.callout-warning .fragment}
-There exists no simple algorithm to find these $N$ points!
-:::
 
 :::
 :::
@@ -76,15 +72,67 @@ There exists no simple algorithm to find these $N$ points!
 :::{.column width=50%}
 
 :::{.callout-note icon=false .fragment}
-## Example
+## Example: Spherical 5-design
+
+
+![Points defined by icosohedron vertices (snub tetrahedron)](assets/5-design.png){fig-algin='center' width=40%}
+
+:::{style='font-size:80%'}
+$$
+f(x,y,z)=\sqrt{3} x^4+11 x y z+\frac{x y}{\sqrt{3}}+\sqrt{5} y^2
+$$
+
+$$ 
+\frac{1}{4\pi}\int_{\Omega\in S^3}d\Omega f(\Omega) = \frac{1}{12}\sum_{i}^{12} f(\Omega_i) = \frac{\sqrt{3}}{5}+\frac{\sqrt{5}}{3} 
+$$
 
 :::
 
 :::
 
 :::
+
+:::
+
+
+:::{.callout-warning .fragment}
+There exists no simple algorithm to find these $N$ points! 
+
+:::
+
+## Connection to [Snub Polygons](https://en.wikipedia.org/wiki/Snub_polyhedron)?
+
+::: {layout-ncol=2}
+![Left handed snub cube](https://upload.wikimedia.org/wikipedia/commons/b/b8/Snubhexahedroncw.gif){height=10%}
+
+![Right handed snub cube](https://upload.wikimedia.org/wikipedia/commons/f/f2/Snubhexahedronccw.gif){height=10%}
+:::
+
 
 ## Quantum T-Design
+
+:::{style='font-size:80%'}
+
++ Can generalize to qubits defined on a Bloch sphere (ie the projective Hilbert space $P(H)$)
+
++ A ***quantum t-design*** is a finite set of $N$ quantum states that reproduces statistical properties of the uniform Haar distribution, up to $t$-th moments
+  - ***state t-design***
+	$$
+	\int d\psi \langle f||\psi\rangle\langle\psi|^{\otimes t}|i\rangle=\frac{1}{N}\sum_i^N\langle f||\psi_i\rangle\langle\psi_i|^{\otimes t}|i\rangle
+    $$
+  - ***unitary t-design***
+    $$
+	\int dU\ U^{\otimes t}\rho(U^\dagger)^{\otimes t} =\frac{1}{|\{\mathcal{U}\}|}\sum_{U_i\in\{\mathcal{U}\}}U_i^{\otimes t}\rho(U_i^\dagger)^{\otimes t}
+	$$
+	for any operator $\rho$.
+	
+:::{.callout-note .fragment}
+## Example:  Application to qubits
+The 6 Pauli-eigenstates of $\sigma_z$, $\sigma_+$, and $\sigma_-$ form the simplest quantum state (qubit) 2-design
+:::
+
+
+:::
 
 ## Where do we go from here?
 

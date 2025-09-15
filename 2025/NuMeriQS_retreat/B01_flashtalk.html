@@ -193,13 +193,41 @@ Thomas Luu
 <div style="font-size:80%">
 <ul>
 <li class="fragment">Given: Any polonomial <span class="math inline">\(f\)</span> of degree <span class="math inline">\(\le t\)</span> residing on a <span class="math inline">\(d\)</span>-dimensional unit sphere <span class="math inline">\(S^d\)</span></li>
-<li class="fragment"><span class="math inline">\(\exists\)</span> a set of <span class="math inline">\(N\)</span>-points <span class="math inline">\({\Omega_i}\)</span>on <span class="math inline">\(S^d\)</span> where <span class="math display">\[ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \sum_{i}^N f(\Omega_i) \]</span></li>
+<li class="fragment"><span class="math inline">\(\exists\)</span> a set of <span class="math inline">\(N\)</span>-points <span class="math inline">\({\Omega_i}\)</span>on <span class="math inline">\(S^d\)</span> where <span class="math display">\[ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \frac{1}{N}\sum_{i}^N f(\Omega_i) \]</span></li>
 <li class="fragment">Similar to <strong><em>Quadrature Integration</em></strong> <span class="math inline">\(\int dx p(x) \approx \sum_i\omega_ip(x_i)\)</span>
 <ul>
-<li class="fragment">but here all weights <span class="math inline">\(\omega_i=1\)</span></li>
+<li class="fragment">but here all weights <span class="math inline">\(\omega_i=1/N\)</span></li>
 </ul></li>
 <li class="fragment">Existence proof that <span class="math inline">\(N\)</span> exists for any <span class="math inline">\(d,t\)</span> combination <a href="https://www.sciencedirect.com/science/article/pii/0001870884900227?via%3Dihub">(Seymour &amp; Zaslavsky)</a></li>
 </ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong>Example: Spherical 5-design</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/5-design.png" style="width:40.0%"></p>
+<figcaption>Points defined by icosohedron vertices (snub tetrahedron)</figcaption>
+</figure>
+</div>
+<div style="font-size:80%">
+<p><span class="math display">\[
+f(x,y,z)=\sqrt{3} x^4+11 x y z+\frac{x y}{\sqrt{3}}+\sqrt{5} y^2
+\]</span></p>
+<p><span class="math display">\[
+\frac{1}{4\pi}\int_{\Omega\in S^3}d\Omega f(\Omega) = \frac{1}{12}\sum_{i}^{12} f(\Omega_i) = \frac{\sqrt{3}}{5}+\frac{\sqrt{5}}{3}
+\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 <div class="fragment">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
@@ -215,24 +243,61 @@ Thomas Luu
 </div>
 </div>
 </div>
+</section>
+<section id="connection-to-snub-polygons" class="slide level2">
+<h2>Connection to <a href="https://en.wikipedia.org/wiki/Snub_polyhedron">Snub Polygons</a>?</h2>
+<div class="quarto-layout-panel" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Snubhexahedroncw.gif" style="height:10.0%"></p>
+<figcaption>Left handed snub cube</figcaption>
+</figure>
 </div>
-</div><div class="column" style="width:50%;">
-<div class="fragment">
-<div class="callout callout-note no-icon callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<p><strong>Example</strong></p>
 </div>
-<div class="callout-content">
-
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="https://upload.wikimedia.org/wikipedia/commons/f/f2/Snubhexahedronccw.gif" style="height:10.0%"></p>
+<figcaption>Right handed snub cube</figcaption>
+</figure>
 </div>
 </div>
 </div>
 </div>
-</div></div>
 </section>
 <section id="quantum-t-design" class="slide level2">
 <h2>Quantum T-Design</h2>
+<div style="font-size:80%">
+<ul>
+<li class="fragment"><p>Can generalize to qubits defined on a Bloch sphere (ie the projective Hilbert space <span class="math inline">\(P(H)\)</span>)</p></li>
+<li class="fragment"><p>A <strong><em>quantum t-design</em></strong> is a finite set of <span class="math inline">\(N\)</span> quantum states that reproduces statistical properties of the uniform Haar distribution, up to <span class="math inline">\(t\)</span>-th moments</p>
+<ul>
+<li class="fragment"><strong><em>state t-design</em></strong> <span class="math display">\[
+\int d\psi \langle f||\psi\rangle\langle\psi|^{\otimes t}|i\rangle=\frac{1}{N}\sum_i^N\langle f||\psi_i\rangle\langle\psi_i|^{\otimes t}|i\rangle
+\]</span></li>
+<li class="fragment"><strong><em>unitary t-design</em></strong> <span class="math display">\[
+\int dU\ U^{\otimes t}\rho(U^\dagger)^{\otimes t} =\frac{1}{|\{\mathcal{U}\}|}\sum_{U_i\in\{\mathcal{U}\}}U_i^{\otimes t}\rho(U_i^\dagger)^{\otimes t}
+\]</span> for any operator <span class="math inline">\(\rho\)</span>.</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Example: Application to qubits</strong></p>
+</div>
+<div class="callout-content">
+<p>The 6 Pauli-eigenstates of <span class="math inline">\(\sigma_z\)</span>, <span class="math inline">\(\sigma_+\)</span>, and <span class="math inline">\(\sigma_-\)</span> form the simplest quantum state (qubit) 2-design</p>
+</div>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="where-do-we-go-from-here" class="slide level2">
 <h2>Where do we go from here?</h2>
