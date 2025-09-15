@@ -86,6 +86,8 @@ $$
 \frac{1}{4\pi}\int_{\Omega\in S^3}d\Omega f(\Omega) = \frac{1}{12}\sum_{i}^{12} f(\Omega_i) = \frac{\sqrt{3}}{5}+\frac{\sqrt{5}}{3} 
 $$
 
++ Don't believe me?  Download this [file](https://github.com/luutom/talks/blob/main/2025/NuMeriQS_retreat/assets/t-designs.wls) and try yourself!
+
 :::
 
 :::
@@ -135,5 +137,17 @@ The 6 Pauli-eigenstates of $\sigma_z$, $\sigma_+$, and $\sigma_-$ form the simpl
 :::
 
 ## Where do we go from here?
+
++ Is this useful for lattice gauge theories?
+  - digitization of gauge fields?
+  - discrete integration of gauge-invariant quantities?
+  
++ Is it interesting for quantum computing?
+  - Yes, in *quantum cryptography/tomography*
+  - Interesting for NuMeriQS?
+  
++ Connection to Majorana stars?
+
++ Anything else?
 
 
