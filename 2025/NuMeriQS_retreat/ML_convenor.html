@@ -221,15 +221,38 @@ Thomas Luu
 
 <h3 id="would-you-like-to-learn-more-about-ml-techniques">Would you like to learn more about ML techniques?</h3>
 <ul>
-<li class="fragment">4 positve responses (26.7%)
+<li class="fragment">4 positive responses (26.7%)
 <ul>
-<li class="fragment">Enthusiasm is not really there. . .</li>
-<li class="fragment">Interesting request:
+<li class="fragment">Somewhat mixed enthusiasm
 <ul>
-<li class="fragment"><strong><em>Status of normalizing flows in LQCD</em></strong></li>
+<li class="fragment">“Yes, I know basically nothing about it.”</li>
+<li class="fragment">“I don’t mind of course, but there are other things I’d like to learn more.”</li>
 </ul></li>
+</ul></li>
+<li class="fragment">Negative responses were quite negative.
+<ul>
+<li class="fragment">“We have enough at the moment.”</li>
+<li class="fragment">“Not now.”</li>
+<li class="fragment">“. . . 4x no.”</li>
 </ul></li>
 </ul>
+<div class="fragment">
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Interesting request:</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li class="fragment"><strong><em>Status of normalizing flows in LQCD</em></strong></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </section></section>
 <section>
 <section id="developments-so-far" class="title-slide slide level1 center">
@@ -241,13 +264,15 @@ Thomas Luu
 <ul>
 <li class="fragment">Lena has introduced a ML course to the graduate physics program at UBonn
 <ul>
+<li class="fragment"><strong><em>Machine Learning for Quantum Scientists</em></strong> (physics7516)</li>
 <li class="fragment">Well received by students (Lena gets all our graduate students now)</li>
 </ul></li>
 <li class="fragment">Lena and Barbara (and others) have introduced a ML seminar course
 <ul>
+<li class="fragment"><strong><em>Machine Learning for (Astro-) Physics and Chemistry</em></strong> (physics657)</li>
 <li class="fragment">couples physics, chemistry, and astro</li>
 </ul></li>
-<li class="fragment">David and myself have added ML topic to the undergraduate computer physic course (physik441)</li>
+<li class="fragment">David and myself have added ML topic to the undergraduate computer physics course (physik441)</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -310,8 +335,42 @@ Thomas Luu
 </ul></li>
 </ul>
 </section>
-<section id="diffusion-models-to-stabilizing-holomorphic-flows" class="slide level2">
-<h2>Diffusion models to stabilizing Holomorphic flows</h2>
+<section id="diffusion-models-to-stabilize-holomorphic-flows" class="slide level2">
+<h2>Diffusion models to stabilize Holomorphic flows</h2>
+<ul>
+<li class="fragment">Holomorphic flow equations used to <strong>flow</strong> configurations</li>
+</ul>
+<div class="r-stack fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/holoflow.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li class="fragment">Flowing is unstable due to presence of <strong><em>attractors</em></strong> (blue points)
+<ul>
+<li class="fragment">all points will flow to blue points exponentially fast</li>
+<li class="fragment">can diffusion models be used to overcome this instability?</li>
+<li class="fragment">what about continuous normalizing flows?</li>
+</ul></li>
+</ul>
+</section>
+<section id="marrying-ml-and-tensor-contraction-engine" class="slide level2">
+<h2>Marrying ML and Tensor Contraction Engine??</h2>
+<ul>
+<li class="fragment">Tensor contraction is relevant in many fields
+<ul>
+<li class="fragment">quantum chemistry</li>
+<li class="fragment">condensed matter</li>
+<li class="fragment"><strong><em>machine learning</em></strong></li>
+<li class="fragment">quantum computing</li>
+</ul></li>
+<li class="fragment">Can we use ML to aid Tensor Contraction Engines?
+<ul>
+<li class="fragment">Directly impacts A02</li>
+</ul></li>
+</ul>
 </section></section>
 <section id="other-ideas" class="title-slide slide level1 center">
 <h1>Other ideas?</h1>

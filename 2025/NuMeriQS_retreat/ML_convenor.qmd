@@ -69,22 +69,34 @@ Received 11 responses (out of 13 requests):  85% response rate
 
 ### Would you like to learn more about ML techniques?
 
-- 4 positve responses (26.7%)
-  - Enthusiasm is not really there. . .
-  - Interesting request:
-    - ***Status of normalizing flows in LQCD***
+- 4 positive responses (26.7%)
+  - Somewhat mixed enthusiasm
+    - "Yes, I know basically nothing about it."
+	- "I don't mind of course, but there are other things I'd like to learn more."
+- Negative responses were quite negative.
+	- "We have enough at the moment."
+	- "Not now."
+	- ". . . 4x no."
+
+
+:::{.callout-tip .fragment}
+## Interesting request:
+  - ***Status of normalizing flows in LQCD***
+:::
 	
 # Developments so far
 
 ## Courses at UBonn
 
 + Lena has introduced a ML course to the graduate physics program at UBonn
+  - ***Machine Learning for Quantum Scientists*** (physics7516)
   - Well received by students (Lena gets all our graduate students now)
 
 + Lena and Barbara (and others) have introduced a ML seminar course
+  - ***Machine Learning for (Astro-) Physics and Chemistry*** (physics657)
   - couples physics, chemistry, and astro
   
-+ David and myself have added ML topic to the undergraduate computer physic course (physik441)
++ David and myself have added ML topic to the undergraduate computer physics course (physik441)
 
 ---
 
@@ -136,7 +148,32 @@ Received 11 responses (out of 13 requests):  85% response rate
     * Potential joint effort between Petra's group and condensed matter people
 	* Is the idea even interesting?
   
-## Diffusion models to stabilizing Holomorphic flows
+
+
+## Diffusion models to stabilize Holomorphic flows
+
++ Holomorphic flow equations used to **flow** configurations
+
+:::{.r-stack .fragment}
+![](assets/holoflow.png){fig-align='center'}
+:::
+
++ Flowing is unstable due to presence of ***attractors*** (blue points)
+  - all points will flow to blue points exponentially fast
+  - can diffusion models be used to overcome this instability?
+  - what about continuous normalizing flows?
+  
+## Marrying ML and Tensor Contraction Engine??
+
++ Tensor contraction is relevant in many fields
+  - quantum chemistry
+  - condensed matter
+  - ***machine learning***
+  - quantum computing
+  
++ Can we use ML to aid Tensor Contraction Engines?
+  - Directly impacts A02
+
 
 # Other ideas?
 

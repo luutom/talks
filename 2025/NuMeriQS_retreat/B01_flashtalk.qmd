@@ -58,7 +58,7 @@ Lin Wang
 
 :::{.column width=50%}
 
-:::{style='font-size:80%'}
+:::{style='font-size:90%'}
 + Given:  Any polonomial $f$ of degree $\le t$ residing on a $d$-dimensional unit sphere $S^d$
 + $\exists$ a set of $N$-points ${\Omega_i}$on $S^d$ where
     $$ \frac{1}{|S^d|}\int_{\Omega\in S^d}d\Omega f(\Omega) = \frac{1}{N}\sum_{i}^N f(\Omega_i) $$
