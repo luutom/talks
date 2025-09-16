@@ -65,6 +65,9 @@ Received 11 responses (out of 13 requests):  85% response rate
   - A02 -- **optimization of DFT integration grid** and **factorization in automatic code generation**
   - B05 -- **location of pole positions**
   
+- Optimistic answer:
+  - "Maybe in the 3rd funding period."
+  
 ---
 
 ### Would you like to learn more about ML techniques?
@@ -153,6 +156,7 @@ Received 11 responses (out of 13 requests):  85% response rate
 ## Diffusion models to stabilize Holomorphic flows
 
 + Holomorphic flow equations used to **flow** configurations
+  - needed for ***alleviating*** the sign problem in Monte Carlo simulations
 
 :::{.r-stack .fragment}
 ![](assets/holoflow.png){fig-align='center'}
@@ -168,11 +172,10 @@ Received 11 responses (out of 13 requests):  85% response rate
 + Tensor contraction is relevant in many fields
   - quantum chemistry
   - condensed matter
-  - ***machine learning***
   - quantum computing
   
 + Can we use ML to aid Tensor Contraction Engines?
-  - Directly impacts A02
+  - Can this help efforts in A02?
 
 
 # Other ideas?

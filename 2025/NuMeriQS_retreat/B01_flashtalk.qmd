@@ -20,12 +20,11 @@ format:
 
 + PLs:  Thomas Luu & Ulf Meißner
   
-+ Postdoc started last November
++ Postdoc started last October/November
   - Could not attend due to medical appointment (that could not be rescheduled in a reasonable amount of time)
 
-+ Most recent work related to engineering spin centers in 1-D chains [arXiv:2507.18806](https://arxiv.org/abs/2507.18806)
-  - submitted to ***Nature Communications***
-  - Come to poster **B01** to hear more about it
++ **B01** poster: engineering spin centers in 1-D chains [arXiv:2507.18806](https://arxiv.org/abs/2507.18806)
+
 :::
 
 :::{.column width=50%}
@@ -120,7 +119,7 @@ There exists no simple algorithm to find these $N$ points!
 + A ***quantum t-design*** is a finite set of $N$ quantum states that reproduces statistical properties of the uniform Haar distribution, up to $t$-th moments
   - ***state t-design***
 	$$
-	\int d\psi \langle f||\psi\rangle\langle\psi|^{\otimes t}|i\rangle=\frac{1}{N}\sum_i^N\langle f||\psi_i\rangle\langle\psi_i|^{\otimes t}|i\rangle
+	\int d\psi\ |\psi\rangle\langle\psi|^{\otimes t}=\sum_i^N\omega_i|\psi_i\rangle\langle\psi_i|^{\otimes t}
     $$
   - ***unitary t-design***
     $$
@@ -143,7 +142,7 @@ The 6 Pauli-eigenstates of $\sigma_z$, $\sigma_+$, and $\sigma_-$ form the simpl
   - discrete integration of gauge-invariant quantities?
   
 + Is it interesting for quantum computing?
-  - Yes, in *quantum cryptography/tomography*
+  - Yes, in *quantum information/cryptography/tomography*
   - Interesting for NuMeriQS?
   
 + Connection to Majorana stars?
