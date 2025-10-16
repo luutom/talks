@@ -45,15 +45,16 @@ Received 11 responses (out of 13 requests):  85% response rate
   - A01 -- ML-generated potentials
   - A03, A05 -- ML generated input data, in collaboration with Julia Westermayr
   - A05 -- graph NN applied to trajectories
-  - B01, C02 -- ML to learn complex manifolds that alleviate the sign problem
+  - B01, C02 -- ML to alleviate sign problem
+  - Normalizing flows applied to the Hubbard model
 
 ---
 
 ### Have you initiated any joint efforts with other Projects that use ML?
 
-+ 2 maybes?
++ 2 positives
   - Discussions between Barbara (and collaborators) and Lena (and collaborators)
-  - Potential joint effort between A01 and A05 related to graph NNs
+  - Joint effort between A01 and A05 related to graph NNs
   
 ---  
   
@@ -95,7 +96,7 @@ Received 11 responses (out of 13 requests):  85% response rate
   - ***Machine Learning for Quantum Scientists*** (physics7516)
   - Well received by students (Lena gets all our graduate students now)
 
-+ Lena and Barbara (and others) have introduced a ML seminar course
++ Lena and Barbara and Tom (and others) have introduced a ML seminar course
   - ***Machine Learning for (Astro-) Physics and Chemistry*** (physics657)
   - couples physics, chemistry, and astro
   
