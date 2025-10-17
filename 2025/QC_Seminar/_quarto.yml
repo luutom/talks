@@ -1,0 +1,6 @@
+format: 
+    revealjs:
+        theme: [default, custom.scss]
+        logo: assets/uni-bonn-logo.svg
+
+
