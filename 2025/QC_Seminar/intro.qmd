@@ -18,7 +18,7 @@ format:
 
 :::{.column width=50%}
 :::{style='font-size:80%'}
-Goals of talk
+Goals of talks
 
 + Provide foundation for understanding *quantum computing* and *quantum algorithms*
 
