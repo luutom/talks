@@ -431,7 +431,7 @@ The minus signs that occur in **NSL** are due to the QR routine.  This is not an
 	1.00000000000000\\
 	1.0000000000000\\
 	1.92874984796392\times 10^{-22}\\
-	3.87399762868719\times 10^{-21}
+	7.17509597316441\times 10^{-66}
 	\end{pmatrix}
 	.
 \begin{pmatrix}
