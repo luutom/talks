@@ -16,11 +16,12 @@ from: markdown+emoji
 ## Expressions
 :::{style='font-size:80%'}
 
-$$ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{"sausage"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}$$
+$$ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage\ 1"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}$$
 
-$$\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{another\ sausage}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} $$
+$$\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} $$
 $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
++ Note:  $[\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}$
 :::
 
 ## Stabilizing $\log\det M$
@@ -481,7 +482,7 @@ $$
 
 :::{style='font-size:80%'}
 
-+ Consider the construction of $\frac{\mathrm{sausage}}{1+\mathrm{sausage}}$
++ Consider the construction of $\frac{\mathrm{sausage}}{1+\mathrm{sausage}}=\mathcal{N}_k$
 
 :::{style='font-size:30%'}
 $$
@@ -602,5 +603,44 @@ $$
 $$
 
 :::
+
+:::
+
+---
+
+### Trying to fix this problem. . .
+
+:::{style='font-size:80%'}
+
++ Changing order of multplying matrices 
+  
+  Nope! :angry:
+  
++ Do a QR instead of SVD
+
+  :::{style='font-size:40%'}
+  $$
+  \begin{pmatrix}
+   -0.5 & -0.5 & -0.5 & 0.5 \\
+   0.5 & 0.500000000000001 & -0.499999999999999 & 0.5 \\
+   -0.5 & 0.5 & 0.5 & 0.499999999999999 \\
+   0.5 & -0.500000000000001 & 0.5 & 0.5
+   \end{pmatrix}
+   .
+   \mathrm{diag}
+   \begin{pmatrix}
+   1\\ 1\\ 1.92874984796384\times10^{-22}\\ 7.17509597316447\times 10^{-66}
+   \end{pmatrix}
+   .
+   \begin{pmatrix}
+   -7.7366423304825\times 10^{48} & -7.7366423304825\times 10^{48} & 8.49275397514119\times 10^{32} & -5.4021995960771\times 10^{33} \\
+   431712.959030387 & 431713.959030387 & 575618.445373849 & 575617.445373849 \\
+   -0.5 & -0.5 & 0.5 & 0.5\\
+   0.5 & 0.5 & 0.5 & 0.5
+   \end{pmatrix}
+  $$
+   
+  :::
+  Better but no cigar! :angry:
 
 :::

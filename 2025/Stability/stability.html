@@ -147,8 +147,11 @@ Thomas Luu
 <section id="expressions" class="slide level2">
 <h2>Expressions</h2>
 <div style="font-size:80%">
-<p><span class="math display">\[ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{"sausage"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}\]</span></p>
-<p><span class="math display">\[\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{another\ sausage}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} \]</span> <span class="math display">\[ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}\]</span></p>
+<p><span class="math display">\[ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage\ 1"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}\]</span></p>
+<p><span class="math display">\[\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} \]</span> <span class="math display">\[ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}\]</span></p>
+<ul>
+<li>Note: <span class="math inline">\([\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}\)</span></li>
+</ul>
 </div>
 </section>
 <section id="stabilizing-logdet-m" class="slide level2">
@@ -611,7 +614,7 @@ $$
 <h3 id="where-does-it-go-wrong">Where does it go wrong?</h3>
 <div style="font-size:80%">
 <ul>
-<li>Consider the construction of <span class="math inline">\(\frac{\mathrm{sausage}}{1+\mathrm{sausage}}\)</span></li>
+<li>Consider the construction of <span class="math inline">\(\frac{\mathrm{sausage}}{1+\mathrm{sausage}}=\mathcal{N}_k\)</span></li>
 </ul>
 <div style="font-size:30%">
 <p><span class="math display">\[
@@ -725,6 +728,40 @@ $$
 \end{pmatrix}
 \]</span></p>
 </div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="trying-to-fix-this-problem.-.-.">Trying to fix this problem. . .</h3>
+<div style="font-size:80%">
+<ul>
+<li><p>Changing order of multplying matrices</p>
+<p>Nope! <span class="emoji" data-emoji="angry">😠</span></p></li>
+<li><p>Do a QR instead of SVD</p>
+<div style="font-size:40%">
+<p><span class="math display">\[
+\begin{pmatrix}
+-0.5 &amp; -0.5 &amp; -0.5 &amp; 0.5 \\
+0.5 &amp; 0.500000000000001 &amp; -0.499999999999999 &amp; 0.5 \\
+-0.5 &amp; 0.5 &amp; 0.5 &amp; 0.499999999999999 \\
+0.5 &amp; -0.500000000000001 &amp; 0.5 &amp; 0.5
+\end{pmatrix}
+.
+\mathrm{diag}
+\begin{pmatrix}
+1\\ 1\\ 1.92874984796384\times10^{-22}\\ 7.17509597316447\times 10^{-66}
+\end{pmatrix}
+.
+\begin{pmatrix}
+-7.7366423304825\times 10^{48} &amp; -7.7366423304825\times 10^{48} &amp; 8.49275397514119\times 10^{32} &amp; -5.4021995960771\times 10^{33} \\
+431712.959030387 &amp; 431713.959030387 &amp; 575618.445373849 &amp; 575617.445373849 \\
+-0.5 &amp; -0.5 &amp; 0.5 &amp; 0.5\\
+0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5
+\end{pmatrix}
+\]</span></p>
+</div>
+<p>Better but no cigar! <span class="emoji" data-emoji="angry">😠</span></p></li>
+</ul>
 </div>
 
 </section>
