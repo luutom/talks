@@ -25,7 +25,7 @@ $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
 ## Stabilizing $\log\det M$
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 
 + Express $F_k(t)=e^{\tilde\kappa}.e^{i\phi_t}=U.\underbrace{D_{\tilde\kappa}}_{\mathrm{diagonal}}.\underbrace{V.e^{i\phi_t}}_{\equiv V(t)}\equiv U.D_{\tilde\kappa}.V(t)$
   - Note that $U.V=\mathbb{1}_{N_x}$ ***and*** $V(t).V^\dagger (t)=\mathbb{1}_{N_x}$
