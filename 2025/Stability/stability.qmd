@@ -81,7 +81,7 @@ The calculation of $\dot\pi(t)$ should be stable, since at any one time we are a
 :::
 
 :::{.callout-warning}
-## But it assumes that we have calculated $\mathcal{N}_k$ accurately!!!
+## But this assumes that we have calculated $\mathcal{N}_k$ accurately!!!
 :::
   
 :::
