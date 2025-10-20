@@ -613,7 +613,7 @@ $$
 <ul>
 <li>Consider the construction of <span class="math inline">\(\frac{\mathrm{sausage}}{1+\mathrm{sausage}}\)</span></li>
 </ul>
-<div style="font-size:10%">
+<div style="font-size:30%">
 <p><span class="math display">\[
 \begin{pmatrix}
    0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5 \\
@@ -627,6 +627,7 @@ $$
    1.39370958066639\times 10^{65}\\  5.18470552858687\times 10^{21}\\ 1.92874984796384\times 10^{-22}\\ 7.17509597316446\times 10^{-66}
    \end{pmatrix}
    .
+   \underbrace{
   \begin{pmatrix}
    0.5 &amp; -0.5 &amp; 0.5 &amp; -0.5 \\
    0.5 &amp; -0.500000000000001 &amp; -0.5 &amp; 0.5 \\
@@ -640,6 +641,10 @@ $$
    0.5 &amp; -0.5 &amp; -0.5 &amp; 0.5 \\
   -0.5 &amp; 0.5 &amp; -0.5 &amp; 0.5
    \end{pmatrix}
+   }_
+   {
+   v.u
+   }
    .
    \mathrm{diag}
    \begin{pmatrix}
@@ -652,13 +657,15 @@ $$
    -0.5 &amp; -0.5 &amp; 0.5 &amp; 0.5 \\
    0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5
    \end{pmatrix}
-\]</span> <span class="math display">\[
-=
+\]</span></p>
+<!--
+$$
+= 
 \begin{pmatrix}
-   0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5 \\
-  -0.5 &amp; -0.500000000000001 &amp; 0.499999999999999 &amp; 0.5 \\
-   0.5 &amp; -0.5 &amp; -0.5 &amp; 0.499999999999999 \\
-  -0.5 &amp; 0.500000000000001 &amp; -0.5 &amp; 0.5
+   0.5 & 0.5 & 0.5 & 0.5 \\
+  -0.5 & -0.500000000000001 & 0.499999999999999 & 0.5 \\
+   0.5 & -0.5 & -0.5 & 0.499999999999999 \\
+  -0.5 & 0.500000000000001 & -0.5 & 0.5
    \end{pmatrix}
    .
    \mathrm{diag}
@@ -667,10 +674,10 @@ $$
    \end{pmatrix}
    .
   \begin{pmatrix}
-   1 &amp; 3.08148791101958\times 10^{-32} &amp; 5.55111512312578\times 10^{-17} &amp; 5.55111512312578\times 10^{-17}\\
-3.08148791101958\times 10^{-32} &amp; 1 &amp; 2.77555756156288\times 10^{-17} &amp; -1.94289029309402\times 10^{-16}\\
-5.55111512312578\times 10^{-17} &amp; 2.77555756156288\times 10^{-17} &amp; 1 &amp; -2.22044604925031\times 10^{-16}\\
-1.11022302462516\times 10^{-16} &amp; -1.94289029309402\times 10^{-16} &amp; -3.05311331771918\times 10^{-16} &amp; 1
+   1 & 3.08148791101958\times 10^{-32} & 5.55111512312578\times 10^{-17} & 5.55111512312578\times 10^{-17}\\
+3.08148791101958\times 10^{-32} & 1 & 2.77555756156288\times 10^{-17} & -1.94289029309402\times 10^{-16}\\
+5.55111512312578\times 10^{-17} & 2.77555756156288\times 10^{-17} & 1 & -2.22044604925031\times 10^{-16}\\
+1.11022302462516\times 10^{-16} & -1.94289029309402\times 10^{-16} & -3.05311331771918\times 10^{-16} & 1
    \end{pmatrix}
    .
    \mathrm{diag}
@@ -679,11 +686,43 @@ $$
    \end{pmatrix}
    .
   \begin{pmatrix}
-   -0.5 &amp; 0.5 &amp; -0.5 &amp; 0.5 \\
-   -0.5 &amp; 0.500000000000001 &amp; 0.5 &amp; -0.500000000000001 \\
-   -0.5 &amp; -0.5 &amp; 0.5 &amp; 0.5 \\
-   0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5
+   -0.5 & 0.5 & -0.5 & 0.5 \\
+   -0.5 & 0.500000000000001 & 0.5 & -0.500000000000001 \\
+   -0.5 & -0.5 & 0.5 & 0.5 \\
+   0.5 & 0.5 & 0.5 & 0.5
    \end{pmatrix}
+$$
+-->
+</div>
+<ul>
+<li>The product <span class="math inline">\(v.u\)</span> is then</li>
+</ul>
+<div style="font-size:50%">
+<p><span class="math display">\[v.u = \begin{pmatrix}
+   1 &amp; \mathcal{O}(10^{-32}) &amp; 5.55111512312578\times 10^{-17} &amp; 5.55111512312578\times 10^{-17}\\
+\mathcal{O}(10^{-32}) &amp; 1 &amp; 2.77555756156288\times 10^{-17} &amp; -1.94289029309402\times 10^{-16}\\
+5.55111512312578\times 10^{-17} &amp; 2.77555756156288\times 10^{-17} &amp; 1 &amp; -2.22044604925031\times 10^{-16}\\
+1.11022302462516\times 10^{-16} &amp; -1.94289029309402\times 10^{-16} &amp; -3.05311331771918\times 10^{-16} &amp; 1
+   \end{pmatrix} \]</span></p>
+</div>
+<ul>
+<li>Then we have</li>
+</ul>
+<div style="font-size:60%">
+<p><span class="math display">\[
+\mathrm{diag}
+   \begin{pmatrix}
+   1.39370958066639\times 10^{65}\\  5.18470552858687\times 10^{21}\\ 1.92874984796384\times 10^{-22}\\ 7.17509597316446\times 10^{-66}
+   \end{pmatrix}
+   .v.u
+   \]</span> <span class="math display">\[
+=
+\begin{pmatrix}
+1.39370958066639\times 10^{65} &amp; \color{red} {4.29469922429565\times 10^{33}} &amp; \color{red} {7.7366423304825\times 10^{48}} &amp; \color{red} {7.7366423304825\times 10^{48}}\\
+\color{red} {1.59766074085368\times 10^{-10}} &amp; 5.18470552858687\times 10^{21} &amp; \color{red} {143904.486343462} &amp; \color{red} {-1007331.40440424}\\
+1.07067124497586\times 10^{-38} &amp; 5.35335622487929\times 10^{-39} &amp; 1.92874984796384\times 10^{-22} &amp; -4.28268497990344\times 10^{-38}\\
+7.96595675330243\times 10^{-82} &amp; -1.39404243182793\times 10^{-81} &amp; -2.19063810715817\times 10^{-81} &amp; 7.17509597316446\times 10^{-66}
+\end{pmatrix}
 \]</span></p>
 </div>
 </div>
