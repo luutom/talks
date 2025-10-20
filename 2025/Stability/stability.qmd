@@ -567,7 +567,7 @@ $$
    
 :::
 
-+ The product $v.u$ is then 
++ The product $v.u$ ***should*** be $\mathbb{1}$, and it is up to machine precision: 
 
 :::{style='font-size:50%'}
 
@@ -580,7 +580,7 @@ $$v.u = \begin{pmatrix}
    
 :::
 
-+ Then we have
++ But because of the large terms in the diagonal matrix, we have
 
 :::{style='font-size:60%'}
 
