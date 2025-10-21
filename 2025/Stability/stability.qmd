@@ -14,14 +14,17 @@ from: markdown+emoji
 
 
 ## Expressions
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 
 $$ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage\ 1"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}$$
 
-$$\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} $$
+$$\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} $$
 $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
-+ Note:  $[\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}$
+:::{.callout-note}
+## Note:  $[\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}$
+:::
+
 :::
 
 ## Stabilizing $\log\det M$
@@ -93,7 +96,7 @@ The calculation of $\dot\pi(t)$ should be stable, since at any one time we are a
 
 + In the non-interacting limit we have $\phi_t(x)=0\quad\forall\  x,t$.  
 
-+ We can compare to exact analytic results
++ In this limit we have analytical results
 
 :::{style='font-size:60%'}
 <!--
@@ -583,7 +586,7 @@ $$v.u = \begin{pmatrix}
 
 + But because of the large terms in the diagonal matrix, we have
 
-:::{style='font-size:60%'}
+:::{style='font-size:40%'}
 
 $$
 \mathrm{diag}
@@ -591,8 +594,6 @@ $$
    1.39370958066639\times 10^{65}\\  5.18470552858687\times 10^{21}\\ 1.92874984796384\times 10^{-22}\\ 7.17509597316446\times 10^{-66}
    \end{pmatrix}
    .v.u
-   $$
-$$
 =
 \begin{pmatrix}
 1.39370958066639\times 10^{65} & \color{red} {4.29469922429565\times 10^{33}} & \color{red} {7.7366423304825\times 10^{48}} & \color{red} {7.7366423304825\times 10^{48}}\\
@@ -601,8 +602,9 @@ $$
 7.96595675330243\times 10^{-82} & -1.39404243182793\times 10^{-81} & -2.19063810715817\times 10^{-81} & 7.17509597316446\times 10^{-66}
 \end{pmatrix}
 $$
-
 :::
+
++ $\color{red} {\mathrm{Red}}$ matrix elements are bad!
 
 :::
 
@@ -612,11 +614,11 @@ $$
 
 :::{style='font-size:80%'}
 
-+ Changing order of multplying matrices 
++ Changing order of multiplication of matrices (Finn's idea)
   
   Nope! :angry:
   
-+ Do a QR instead of SVD
++ Do a QR instead of SVD (my idea)
 
   :::{style='font-size:40%'}
   $$
@@ -642,5 +644,39 @@ $$
    
   :::
   Better but no cigar! :angry:
+  
++ Build sausage as before, but with $[\mathbb{1}+\mathrm{sausage}]^{-1}$ as "starting seed" (Johann's idea)
+ 
+  :::{style='font-size:60%'}
+  $$
+  f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
+  = U.D_k.V(0)\ldots U.D_k.V(N_t-2).U.\underbrace{D_k.V(N_t-1).U_I.D_I}_{u.d.v}.V_I
+  $$
+  :::
+  :::{style='font-size:40%'}
+  $$
+  =
+  \begin{pmatrix}
+   0.5 & 0.5 & 0.5 & 0.5\\
+-0.5 & -0.5 & 0.499999999999999 & 0.5\\
+0.5 & -0.5 & -0.5 & 0.5\\
+-0.5 & 0.5 & -0.5 & 0.5
+   \end{pmatrix}
+   .
+   \mathrm{diag}
+   \begin{pmatrix}
+   1.80547769569257\times 10^{48}\\ 1211923.11529062 \\ 7.39352750118232\times 10^{-24} \\ 1.53005593457498\times 10^{-113}
+   \end{pmatrix}
+   .
+   \begin{pmatrix}
+   0.61270698544548 & 0.61270698544548 & -0.352973299254082 & -0.352973299254083\\
+ -0.275314527954757 & -0.422901325313383 & -0.679790695854783 & -0.532203898496157\\
+ -0.546618752590289 & 0.442430355010252 & 0.404097092099114 & -0.584952015501428\\
+ -0.5 & 0.5 & -0.5 & 0.5
+   \end{pmatrix}
+  $$
+  :::
+  
+  Nope! :angry:
 
 :::

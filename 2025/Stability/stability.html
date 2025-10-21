@@ -146,12 +146,22 @@ Thomas Luu
 </section>
 <section id="expressions" class="slide level2">
 <h2>Expressions</h2>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <p><span class="math display">\[ \log\det M[\phi]=\log\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage\ 1"}})\quad;\quad F_k(t)\equiv \underbrace{e^{\tilde\kappa}}_{\mathrm{dense}}. \underbrace{e^{i\phi_t(x)}}_{\mathrm{diagonal}} \quad;\quad \tilde\kappa=\kappa\frac{\beta}{N_t}\]</span></p>
-<p><span class="math display">\[\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).\left[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}\right]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} \]</span> <span class="math display">\[ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}\]</span></p>
-<ul>
-<li>Note: <span class="math inline">\([\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}\)</span></li>
-</ul>
+<p><span class="math display">\[\partial_{\phi_t(x)} \log\det M[\phi]= \left\{f_k(t+1).f_k(t+2)\ldots f_k(N_t-1).[\mathbb{1}_{N_x}+\underbrace{f_k(0)\ldots f_k(N_t-1)}_{\mathrm{``sausage\ 2"}}]^{-1}.f_k(0)\ldots f_k(t) \right\}_{x,x} \]</span> <span class="math display">\[ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}\]</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Note: <span class="math inline">\([\mathrm{sausage\ 2}]^{-1}=\mathrm{sausage\ 1}\)</span></strong></p>
+</div>
+<div class="callout-content">
+
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="stabilizing-logdet-m" class="slide level2">
@@ -218,7 +228,7 @@ Thomas Luu
 <div style="font-size:80%">
 <ul>
 <li><p>In the non-interacting limit we have <span class="math inline">\(\phi_t(x)=0\quad\forall\  x,t\)</span>.</p></li>
-<li><p>We can compare to exact analytic results</p></li>
+<li><p>In this limit we have analytical results</p></li>
 </ul>
 <div style="font-size:60%">
 <!--
@@ -711,14 +721,13 @@ $$
 <ul>
 <li>But because of the large terms in the diagonal matrix, we have</li>
 </ul>
-<div style="font-size:60%">
+<div style="font-size:40%">
 <p><span class="math display">\[
 \mathrm{diag}
    \begin{pmatrix}
    1.39370958066639\times 10^{65}\\  5.18470552858687\times 10^{21}\\ 1.92874984796384\times 10^{-22}\\ 7.17509597316446\times 10^{-66}
    \end{pmatrix}
    .v.u
-   \]</span> <span class="math display">\[
 =
 \begin{pmatrix}
 1.39370958066639\times 10^{65} &amp; \color{red} {4.29469922429565\times 10^{33}} &amp; \color{red} {7.7366423304825\times 10^{48}} &amp; \color{red} {7.7366423304825\times 10^{48}}\\
@@ -728,6 +737,9 @@ $$
 \end{pmatrix}
 \]</span></p>
 </div>
+<ul>
+<li><span class="math inline">\(\color{red} {\mathrm{Red}}\)</span> matrix elements are bad!</li>
+</ul>
 </div>
 </section>
 <section class="slide level2">
@@ -735,9 +747,9 @@ $$
 <h3 id="trying-to-fix-this-problem.-.-.">Trying to fix this problem. . .</h3>
 <div style="font-size:80%">
 <ul>
-<li><p>Changing order of multplying matrices</p>
+<li><p>Changing order of multiplication of matrices (Finn’s idea)</p>
 <p>Nope! <span class="emoji" data-emoji="angry">😠</span></p></li>
-<li><p>Do a QR instead of SVD</p>
+<li><p>Do a QR instead of SVD (my idea)</p>
 <div style="font-size:40%">
 <p><span class="math display">\[
 \begin{pmatrix}
@@ -761,6 +773,37 @@ $$
 \]</span></p>
 </div>
 <p>Better but no cigar! <span class="emoji" data-emoji="angry">😠</span></p></li>
+<li><p>Build sausage as before, but with <span class="math inline">\([\mathbb{1}+\mathrm{sausage}]^{-1}\)</span> as “starting seed” (Johann’s idea)</p>
+<div style="font-size:60%">
+<p><span class="math display">\[
+f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
+= U.D_k.V(0)\ldots U.D_k.V(N_t-2).U.\underbrace{D_k.V(N_t-1).U_I.D_I}_{u.d.v}.V_I
+\]</span></p>
+</div>
+<div style="font-size:40%">
+<p><span class="math display">\[
+=
+\begin{pmatrix}
+0.5 &amp; 0.5 &amp; 0.5 &amp; 0.5\\
+-0.5 &amp; -0.5 &amp; 0.499999999999999 &amp; 0.5\\
+0.5 &amp; -0.5 &amp; -0.5 &amp; 0.5\\
+-0.5 &amp; 0.5 &amp; -0.5 &amp; 0.5
+\end{pmatrix}
+.
+\mathrm{diag}
+\begin{pmatrix}
+1.80547769569257\times 10^{48}\\ 1211923.11529062 \\ 7.39352750118232\times 10^{-24} \\ 1.53005593457498\times 10^{-113}
+\end{pmatrix}
+.
+\begin{pmatrix}
+0.61270698544548 &amp; 0.61270698544548 &amp; -0.352973299254082 &amp; -0.352973299254083\\
+-0.275314527954757 &amp; -0.422901325313383 &amp; -0.679790695854783 &amp; -0.532203898496157\\
+-0.546618752590289 &amp; 0.442430355010252 &amp; 0.404097092099114 &amp; -0.584952015501428\\
+-0.5 &amp; 0.5 &amp; -0.5 &amp; 0.5
+\end{pmatrix}
+\]</span></p>
+</div>
+<p>Nope! <span class="emoji" data-emoji="angry">😠</span></p></li>
 </ul>
 </div>
 
