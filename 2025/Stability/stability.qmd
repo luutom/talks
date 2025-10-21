@@ -97,7 +97,7 @@ $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
 :::{style='font-size:80%'}
 
-+ In the non-interacting limit we have $\phi_t(x)=0\quad\forall\  x,t$.  
++ In the non-interacting limit we have $\phi_t(x)=0\quad\forall\  x,t$.
 
 + In this limit we have analytical results
 
@@ -121,7 +121,7 @@ $$
 -->
 
 $$
-\mathrm{sausage}=\mathrm{sausage}^{-1}=
+\mathrm{sausage}=
 \left(
 \begin{array}{cccc}
  \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} \\
@@ -225,7 +225,7 @@ $$
  -\frac{1}{2} & \frac{1}{2} & -\frac{1}{2} & \frac{1}{2} \\
 \end{array}
 \right)
-$$
+$$ {#eq-Nk}
 
 :::
 
@@ -780,6 +780,59 @@ $$
 
 :::{.callout-warning}
 ## If you don't like this solution, please suggest another!!!
+:::
+
+:::
+
+##  I ask for a solution, and Johann delivers!
+
+:::{style='font-size:80%'}
+
++ As usual, Johann comes to the rescue^[Why isn't he my boss already???]
+  - Johann points out the following (in hindsight obvious) fact
+  
+    :::{style='font-size:80%'}
+    $$
+    \begin{align}
+    [f_k(0)\ldots f_k(N_t-1)].[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
+    =&
+    [\mathbb{1}+f^{-1}_k(N_t-1)\ldots f^{-1}_k(0)]^{-1}\\
+    =&
+    [\mathbb{1}+F_k(N_t-1)\ldots F_k(0)]^{-1}
+    \end{align}
+    $$
+    :::
+	
+  - @eq-Nk agrees with this result
+  
++ Recursive SVD (**NSL**)
+
+:::{style='font-size:60%'}
+  $$
+  \begin{pmatrix}
+   0.5 & 0.5 & 0.5 & 0.5 \\
+  -0.5 & -0.500000000000001 & 0.5 & 0.5 \\
+   0.5 & -0.5 & -0.5 & 0.5 \\
+  -0.5 & 0.5 & -0.5 & 0.5
+   \end{pmatrix}
+   .
+   \mathrm{diag}
+   \begin{pmatrix}
+   -1 \\ -1 \\ -1.92874984796399\times 10^{-22} \\ 7.17509597316435\times 10^{-66}
+   \end{pmatrix}
+   .
+  \begin{pmatrix}
+   -0.5 & 0.5 & -0.5 & 0.5 \\
+   -0.5 & 0.500000000000001 & 0.5 & -0.500000000000001 \\
+   -0.5 & -0.5 & 0.5 & 0.5 \\
+   0.5 & 0.5 & 0.5 & 0.5
+   \end{pmatrix}
+   $$
+   
+:::
+
+:::{.callout-tip}
+## Yes!!!, we now have good agreement and ***w/o chopping!*** :sunglasses:
 :::
 
 :::
