@@ -67,21 +67,24 @@ $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
 :::{style='font-size:80%'}
 
-+ Assume we can calculate $\mathcal{N}_k\equiv[f_k(0)\ldots f_k(N_t-1)].[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}$
++ Assume we can calculate $\mathcal{N}_k\equiv[f_k(0)\ldots f_k(N_t-1)].[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}$  
+   
+  $=\dot\pi(N_t-1)$
 
 + Then 
   $$
   \begin{align}
   \dot\pi(0)&=f_k(0)^{-1}.\mathcal{N}_k.f_k(0) = F_k(0).\mathcal{N}_k.f_k(0)\\
-  \dot\pi(1)&=F_k(1).\dot\pi(0).f_k(1)\\
+  \dot\pi(1)&=f_k(1)^{-1}.\dot\pi(0).f_k(1)=F_k(1).\dot\pi(0).f_k(1)\\
   \vdots\\
-  \dot\pi(t)&=F_k(t).\dot\pi(t-1).f_k(t)\\
-  \vdots
+  \dot\pi(t)&=f_k(t)^{-1}.\dot\pi(t-1).f_k(t)=F_k(t).\dot\pi(t-1).f_k(t)\\
+  \vdots\\
+  \dot\pi(N_t-2)&=f_k(n_t-2)^{-1}.\dot\pi(N_t-3).f_k(N_t-2)=F_k(N_t-2).\dot\pi(N_t-3).f_k(N_t-2)
   \end{align}
   $$
   
-:::{.r-stack}
-The calculation of $\dot\pi(t)$ should be stable, since at any one time we are always multiplying matrices with matrix elements of $\mathcal{O}(1)$ or less.
+:::{.callout-note}
+## The calculation of $\dot\pi(t)$ can be done iteratively, since it only depends on the previous $\dot\pi(t-1)$.  Furthermore, I suspect that it is very stable (i.e. doesn't need any decompositions) since we are always multiplying matrices with matrix elements of $\mathcal{O}(1)$.
 :::
 
 :::{.callout-warning}
@@ -678,5 +681,105 @@ $$
   :::
   
   Nope! :angry:
+  
++ Any other ideas?
+
+:::
+
+---
+
+### My one idea that "works"
+
+:::{style='font-size:80%'}
+
++ I "chop" the unitary matrix $v.u$ 
+  - Consider relative size of off-diagonal matrix element $m_{ij}$ to diagonal matrix element $m_{ii}$: $\frac{m_{ij}}{m_{ii}}$
+  - If this ratio is less than some (user-defined) tolerance (e.g. $10^{-15}$), I set it exactly zero
+
+  :::{style='font-size:50%'}
+
+  $$\mathrm{chop}(v.u) =\mathrm{chop}\begin{pmatrix}
+   1 & \mathcal{O}(10^{-32}) & 5.55111512312578\times 10^{-17} & 5.55111512312578\times 10^{-17}\\
+\mathcal{O}(10^{-32}) & 1 & 2.77555756156288\times 10^{-17} & -1.94289029309402\times 10^{-16}\\
+5.55111512312578\times 10^{-17} & 2.77555756156288\times 10^{-17} & 1 & -2.22044604925031\times 10^{-16}\\
+1.11022302462516\times 10^{-16} & -1.94289029309402\times 10^{-16} & -3.05311331771918\times 10^{-16} & 1
+   \end{pmatrix}
+   =
+   \begin{pmatrix}
+   1 & 0 & 0 & 0\\
+0 & 1 & 0 & 0\\
+0 & 0 & 1 & 0\\
+0 & 0 &0 & 1
+   \end{pmatrix}
+  $$
+   
+  :::
+
++ I apply this "chop" at only one place:
+
+  :::{style='font-size:40%'}
+  $$
+\begin{pmatrix}
+   0.5 & 0.5 & 0.5 & 0.5 \\
+  -0.5 & -0.500000000000001 & 0.499999999999999 & 0.5 \\
+   0.5 & -0.5 & -0.5 & 0.499999999999999 \\
+  -0.5 & 0.500000000000001 & -0.5 & 0.5
+   \end{pmatrix}
+   .
+   \mathrm{diag}
+   \begin{pmatrix}
+   1.39370958066639\times 10^{65}\\  5.18470552858687\times 10^{21}\\ 1.92874984796384\times 10^{-22}\\ 7.17509597316446\times 10^{-66}
+   \end{pmatrix}
+   .
+   \mathrm{chop}(v.u)
+   .
+   \mathrm{diag}
+   \begin{pmatrix}
+   -7.17509597316435\times 10^{-66} \\  -1.92874984796399\times 10^{-22} \\  -1 \\ 1
+   \end{pmatrix}
+   .
+  \begin{pmatrix}
+   -0.5 & 0.5 & -0.5 & 0.5 \\
+   -0.5 & 0.500000000000001 & 0.5 & -0.500000000000001 \\
+   -0.5 & -0.5 & 0.5 & 0.5 \\
+   0.5 & 0.5 & 0.5 & 0.5
+   \end{pmatrix}
+$$
+  
+  :::
+  
++ This leads to
+
+  :::{style='font-size:40%'}
+  $$
+  =
+  \begin{pmatrix}
+   0.5 & 0.5 & 0.5 & 0.5 \\
+-0.5 & -0.500000000000001 & 0.499999999999999 & 0.5 \\
+0.5 & -0.5 & -0.5 & 0.499999999999999 \\
+-0.5 & 0.500000000000001 & -0.5 & 0.5
+  \end{pmatrix}
+   .
+  \mathrm{diag}
+  \begin{pmatrix}
+   1 \\ 1 \\ 1.92874984796384\times 10^{-22} \\ 7.17509597316447\times 10^{-66}
+  \end{pmatrix}
+   .
+  \begin{pmatrix}
+   0.5 & -0.5 & 0.5 & -0.5 \\
+0.5 & -0.500000000000001 & -0.5 & 0.500000000000001 \\
+0.5 & 0.5 & -0.5 & -0.5 \\
+0.5 & 0.5 & 0.5 & 0.5
+  \end{pmatrix}
+  $$
+  :::
+  
+:::{.callout-tip}
+## Now we once again have good agreement :sunglasses:
+:::
+
+:::{.callout-warning}
+## If you don't like this solution, please suggest another!!!
+:::
 
 :::
