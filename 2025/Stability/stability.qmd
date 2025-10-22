@@ -63,7 +63,7 @@ $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 
 :::
 
-## Strategy for calculating $\partial_{\phi_t}\log\det M$
+## Strategy for calculating $\partial_{\phi_t}\log\det M$ {#sec-pidot-1}
 
 :::{style='font-size:80%'}
 
@@ -834,5 +834,44 @@ $$
 :::{.callout-tip}
 ## Yes!!!, we now have good agreement and ***w/o chopping!*** :sunglasses:
 :::
+
+:::
+
+## Another strategy for calculating forces {#sec-pidot-2}
+
+:::{style='font-size:75%'}
+
++ Johann points out another strategy for calculating forces that should be more stable than that proposed in @sec-pidot-1
+
++ Given^[Remember that $F_k(t)=f^{-1}_k(t)$!]
+  $$
+  \dot\pi(N_t-1)=\left[\mathbb{1}+F_k(N_t-1)\ldots F_k(0)\right]^{-1}\equiv\left[\mathbb{1}+\mathcal{F}(N_t-1)\right]^{-1}
+  $$
+  it is easy to show that
+  
+  :::{style='font-size:80%'}
+  $$
+  \begin{align}
+  \dot\pi(0)=F_k(0).\dot\pi(N_t-1).f_k(0)=\left[\mathbb{1}+F_k(0)F_k(N_t-1)\ldots F_k(0)f_k(0)\right]^{-1}
+  &=\left[\mathbb{1}+F_k(0).\mathcal{F}(N_t-1).f_k(0)\right]^{-1}\\
+  &\equiv \left[\mathbb{1}+\mathcal{F}(0)\right]^{-1}
+  \end{align}
+  $$
+  :::
+  
++ This is generalizable 
+  $$ 
+  \dot\pi(t)=\left[\mathbb{1}+\mathcal{F}(t)\right]^{-1}
+  $$
+  where
+  
+  :::{style='font-size:80%'}
+  $$
+  \mathcal{F}(t)=F_k(t).\mathcal{F}(t-1).f_k(t) = \overbrace{F_k(t).F_k(t-1)\ldots F_k(0).F_k(N_t-1).F_k(N_t-2)\ldots F_k(t+1)}^{N_t\ \mathrm{terms}}
+  $$
+  :::
+  
++ The terms $\mathcal{F}(t)$ can be solved iteratively
+
 
 :::

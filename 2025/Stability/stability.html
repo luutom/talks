@@ -190,7 +190,7 @@ Thomas Luu
 </ul>
 </div>
 </section>
-<section id="strategy-for-calculating-partial_phi_tlogdet-m" class="slide level2">
+<section id="sec-pidot-1" class="slide level2">
 <h2>Strategy for calculating <span class="math inline">\(\partial_{\phi_t}\log\det M\)</span></h2>
 <div style="font-size:80%">
 <ul>
@@ -987,8 +987,37 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 </div>
 </div>
 </div>
-
 <aside><ol class="aside-footnotes"><li id="fn2"><p>Why isn’t he my boss already???</p></li></ol></aside></section>
+<section id="sec-pidot-2" class="slide level2">
+<h2>Another strategy for calculating forces</h2>
+<div style="font-size:75%">
+<ul>
+<li><p>Johann points out another strategy for calculating forces that should be more stable than that proposed in <a href="#/sec-pidot-1" class="quarto-xref">Section&nbsp;4</a></p></li>
+<li><p>Given<sup>1</sup> <span class="math display">\[
+\dot\pi(N_t-1)=\left[\mathbb{1}+F_k(N_t-1)\ldots F_k(0)\right]^{-1}\equiv\left[\mathbb{1}+\mathcal{F}(N_t-1)\right]^{-1}
+\]</span> it is easy to show that</p>
+<div style="font-size:80%">
+<p><span class="math display">\[
+\begin{align}
+\dot\pi(0)=F_k(0).\dot\pi(N_t-1).f_k(0)=\left[\mathbb{1}+F_k(0)F_k(N_t-1)\ldots F_k(0)f_k(0)\right]^{-1}
+&amp;=\left[\mathbb{1}+F_k(0).\mathcal{F}(N_t-1).f_k(0)\right]^{-1}\\
+&amp;\equiv \left[\mathbb{1}+\mathcal{F}(0)\right]^{-1}
+\end{align}
+\]</span></p>
+</div></li>
+<li><p>This is generalizable <span class="math display">\[
+\dot\pi(t)=\left[\mathbb{1}+\mathcal{F}(t)\right]^{-1}
+\]</span> where</p>
+<div style="font-size:80%">
+<p><span class="math display">\[
+\mathcal{F}(t)=F_k(t).\mathcal{F}(t-1).f_k(t) = \overbrace{F_k(t).F_k(t-1)\ldots F_k(0).F_k(N_t-1).F_k(N_t-2)\ldots F_k(t+1)}^{N_t\ \mathrm{terms}}
+\]</span></p>
+</div></li>
+<li><p>The terms <span class="math inline">\(\mathcal{F}(t)\)</span> can be solved iteratively</p></li>
+</ul>
+</div>
+
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Remember that <span class="math inline">\(F_k(t)=f^{-1}_k(t)\)</span>!</p></li></ol></aside></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
