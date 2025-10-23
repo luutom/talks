@@ -1039,21 +1039,11 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 <ul>
 <li>It can be shown that <span class="math inline">\(\dot\pi(t)_{x,x}=\frac{i}{2}\quad\forall\ x,t\)</span> in this limit</li>
 </ul>
-<div id="tbl-panel" class="quarto-layout-panel">
-<figure class="quarto-float quarto-float-tbl">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-Table&nbsp;1: Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span class="math inline">\(\beta=50\)</span>, <span class="math inline">\(N_t=64\)</span>
-</figcaption>
-<div aria-describedby="tbl-panel-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<div class="quarto-layout-row">
-<div class="quarto-layout-cell-subref quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;" data-ref-parent="tbl-panel">
-<div id="tbl-first" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-tbl">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(a) 4-site hex
-</figcaption>
-<div aria-describedby="tbl-first-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<div class="r-stack">
+<p>Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span class="math inline">\(\beta=50\)</span>, <span class="math inline">\(N_t=64\)</span></p>
+</div>
 <table class="caption-top">
+<caption>4-site hex</caption>
 <colgroup>
 <col style="width: 29%">
 <col style="width: 31%">
@@ -1089,18 +1079,8 @@ Table&nbsp;1: Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-</div>
-<div class="quarto-layout-cell-subref quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;" data-ref-parent="tbl-panel">
-<div id="tbl-second" class="quarto-float quarto-figure quarto-figure-center">
-<figure class="quarto-float quarto-subfloat-tbl">
-<figcaption class="quarto-float-caption-top quarto-subfloat-caption quarto-subfloat-tbl" id="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-(b) perylene
-</figcaption>
-<div aria-describedby="tbl-second-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
+<caption>perylene</caption>
 <colgroup>
 <col style="width: 27%">
 <col style="width: 35%">
@@ -1136,14 +1116,6 @@ Table&nbsp;1: Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span
 </tr>
 </tbody>
 </table>
-</div>
-</figure>
-</div>
-</div>
-</div>
-</div>
-</figure>
-</div>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1161,14 +1133,15 @@ Table&nbsp;1: Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span
 </section>
 <section id="testing-the-leapfrog-convergence" class="slide level2">
 <h2>Testing the Leapfrog convergence</h2>
-<div style="fontsize:40%">
+<div style="fontsize:80%">
+<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\tilde U)\]</span></p>
 <style scoped="">
 table {
-  font-size: 14px;
+  font-size: 12px;
 }
 </style>
 <table class="caption-top">
-<caption>4-sites <span class="math inline">\(\beta=10,\ N_t=16,\ U=3\)</span>, traj. length = 2.15090145112179</caption>
+<caption><span class="math inline">\(|\Delta H|\)</span> for 4-sites <span class="math inline">\(\beta=10,\ N_t=16,\ U=3\)</span>, traj. length = 2.15090145112179</caption>
 <colgroup>
 <col style="width: 23%">
 <col style="width: 25%">
@@ -1244,16 +1217,10 @@ table {
 <td style="text-align: center;">0.00130278793841754</td>
 <td style="text-align: center;">0.00130278793843175</td>
 </tr>
-<tr class="odd">
-<td style="text-align: center;">110</td>
-<td style="text-align: center;">0.00107760782278277</td>
-<td style="text-align: center;">0.0010765035876581</td>
-<td style="text-align: center;">0.00107650358765099</td>
-</tr>
 </tbody>
 </table>
 <table class="caption-top">
-<caption>4-sites <span class="math inline">\(\beta=90,\ N_t=128,\ U=3\)</span>, traj. length = 2.2813755026283</caption>
+<caption><span class="math inline">\(|\Delta H|\)</span> for 4-sites <span class="math inline">\(\beta=90,\ N_t=128,\ U=3\)</span>, traj. length = 2.2813755026283</caption>
 <colgroup>
 <col style="width: 22%">
 <col style="width: 26%">
@@ -1331,26 +1298,172 @@ table {
 </tr>
 </tbody>
 </table>
+<!--
+| 110               | 0.00107760782278277 | 0.0010765035876581  | 0.00107650358765099 |
+-->
 </div>
 </section>
 <section id="show-me-the-money-already" class="slide level2">
 <h2>“Show me the money already!!!”</h2>
-<!--
-perylene $\beta=10,\ N_t=16,\ U=2$
-
-traj. length = 1.75620368075343
-10  13197.5599734183    12410.2152741463    12419.2583383426
-20  0.336478338469675   0.336478209620793   0.336478209620793
-30  0.139472862608244   0.139472812958672   0.139472812958786
-40  0.086138119130112   0.0861381733492976  0.0861381733492976
-50  0.0574682545507414  0.0574681171206066  0.0574681171206919
-60  0.0405703254913021  0.0405702122974674  0.0405702122974105
-70  0.0300749665267404  0.0300748554155916  0.0300748554155348
-80  0.0231536000576966  0.0231536705274493  0.0231536705275346
-90  0.0183609919218384  0.0183610492163098  0.0183610492162813
-100 0.014910266950011   0.0149101994680052  0.0149101994679768
-
--->
+<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\tilde U)\]</span></p>
+<table class="caption-top">
+<caption><span class="math inline">\(|\Delta H|\)</span> for perylene <span class="math inline">\(\beta=10,\ N_t=16,\ U=2\)</span>, traj. length = 1.75620368075343</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(N_{\mathrm{md}}\)</span></th>
+<th style="text-align: center;">direct</th>
+<th style="text-align: center;">SVD</th>
+<th style="text-align: center;">QR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">13197.5599734183</td>
+<td style="text-align: center;">12410.2152741463</td>
+<td style="text-align: center;">12419.2583383426</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">0.336478338469675</td>
+<td style="text-align: center;">0.336478209620793</td>
+<td style="text-align: center;">0.336478209620793</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">0.139472862608244</td>
+<td style="text-align: center;">0.139472812958672</td>
+<td style="text-align: center;">0.139472812958786</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">0.086138119130112</td>
+<td style="text-align: center;">0.0861381733492976</td>
+<td style="text-align: center;">0.0861381733492976</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">0.0574682545507414</td>
+<td style="text-align: center;">0.0574681171206066</td>
+<td style="text-align: center;">0.0574681171206919</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">0.0405703254913021</td>
+<td style="text-align: center;">0.0405702122974674</td>
+<td style="text-align: center;">0.0405702122974105</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">0.0300749665267404</td>
+<td style="text-align: center;">0.0300748554155916</td>
+<td style="text-align: center;">0.0300748554155348</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">0.0231536000576966</td>
+<td style="text-align: center;">0.0231536705274493</td>
+<td style="text-align: center;">0.0231536705275346</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">0.0183609919218384</td>
+<td style="text-align: center;">0.0183610492163098</td>
+<td style="text-align: center;">0.0183610492162813</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">0.014910266950011</td>
+<td style="text-align: center;">0.0149101994680052</td>
+<td style="text-align: center;">0.0149101994679768</td>
+</tr>
+</tbody>
+</table>
+<table class="caption-top">
+<caption><span class="math inline">\(|\Delta H|\)</span> for perylene <span class="math inline">\(\beta=90,\ N_t=256,\ U=2\)</span>, traj. length = 1.31715</caption>
+<colgroup>
+<col style="width: 24%">
+<col style="width: 25%">
+<col style="width: 25%">
+<col style="width: 25%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: center;"><span class="math inline">\(N_{\mathrm{md}}\)</span></th>
+<th style="text-align: center;">direct</th>
+<th style="text-align: center;">SVD</th>
+<th style="text-align: center;">QR</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">99839.4</td>
+<td style="text-align: center;">99817.8</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">20</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">191.549</td>
+<td style="text-align: center;">191.549</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">30</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">0.932486</td>
+<td style="text-align: center;">0.932486</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">40</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">1.13841</td>
+<td style="text-align: center;">1.13841</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">50</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">1.52342</td>
+<td style="text-align: center;">1.52342</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">60</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">1.27622</td>
+<td style="text-align: center;">1.27622</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">70</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">0.963409</td>
+<td style="text-align: center;">0.963409</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">80</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">0.662005</td>
+<td style="text-align: center;">0.662005</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">90</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">0.402434</td>
+<td style="text-align: center;">0.402434</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">100</td>
+<td style="text-align: center;">N/A</td>
+<td style="text-align: center;">0.202738</td>
+<td style="text-align: center;">0.202738</td>
+</tr>
+</tbody>
+</table>
 
 </section>
 
