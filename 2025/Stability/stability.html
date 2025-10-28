@@ -6,8 +6,8 @@
 <script src="stability_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="stability_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="stability_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="stability_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.24">
+<link href="stability_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.25">
 
   <meta name="author" content="Thomas Luu">
   <title>Stability of \log \det M and \partial\log\det M</title>
@@ -1037,7 +1037,7 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 <h2>Benchmarking the force term</h2>
 <div style="font-size:80%">
 <ul>
-<li>It can be shown that <span class="math inline">\(\dot\pi(t)_{x,x}=\frac{i}{2}\quad\forall\ x,t\)</span> in this limit</li>
+<li>It can be shown that <span class="math inline">\(\dot\pi(t)_{x,x}=\frac{i}{2}\quad\forall\ x,t\)</span> in the non-interacting limit</li>
 </ul>
 <div class="r-stack">
 <p>Values of <span class="math inline">\(\dot\pi(t)\)</span> w/ <span class="math inline">\(\beta=50\)</span>, <span class="math inline">\(N_t=64\)</span></p>
@@ -1134,7 +1134,7 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 <section id="testing-the-leapfrog-convergence" class="slide level2">
 <h2>Testing the Leapfrog convergence</h2>
 <div style="fontsize:80%">
-<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\tilde U)\]</span></p>
+<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\sqrt{\tilde U})\]</span></p>
 <style scoped="">
 table {
   font-size: 12px;
@@ -1305,7 +1305,7 @@ table {
 </section>
 <section id="show-me-the-money-already" class="slide level2">
 <h2>“Show me the money already!!!”</h2>
-<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\tilde U)\]</span></p>
+<p><span class="math display">\[ \phi_x(t)\sim \mathcal{N}(0,\sqrt{\tilde U})\]</span></p>
 <table class="caption-top">
 <caption><span class="math inline">\(|\Delta H|\)</span> for perylene <span class="math inline">\(\beta=10,\ N_t=16,\ U=2\)</span>, traj. length = 1.75620368075343</caption>
 <colgroup>
@@ -1464,6 +1464,43 @@ table {
 </tr>
 </tbody>
 </table>
+</section>
+<section id="speeding-up-the-force-calculation" class="slide level2">
+<h2>Speeding up the force calculation</h2>
+<div style="fontsize:80%">
+<ul>
+<li><p>Unfortunately none of the recursive schemes proposed in <a href="#/sec-pidot-1" class="quarto-xref">Section&nbsp;4</a> and <a href="#/sec-pidot-2" class="quarto-xref">Section&nbsp;7</a> are stable</p></li>
+<li><p>But as suggested by Johann and implemented earlier by Finn, the prefix/suffix scheme speeds things up considerably</p></li>
+<li><p>One calculates</p>
+<ul>
+<li>all possible ‘prefixes’ <span class="math inline">\(\Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)\)</span></li>
+<li>all possible ‘suffixes’ <span class="math inline">\(\Sigma(t) = F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\)</span></li>
+<li>these calculations can be done recursively and thus fast, and requires <span class="math inline">\(\mathcal{O}(2N_t V^2)\)</span> memory (which is rougly 2 times more), but this is not an issue</li>
+</ul></li>
+<li><p>The force at timeslice <span class="math inline">\(t\)</span> is simply <span class="math inline">\(\dot\pi(t)=\left[1+\Pi(t).\Sigma(t+1)\right]^{-1}\)</span></p>
+<ul>
+<li>this calculation scales as <span class="math inline">\(\mathcal{O}(N_t V^3)\)</span></li>
+<li><strong><em>every aspect of this calculation is stable!</em></strong></li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="some-plots-of-convergence" class="slide level2">
+<h2>Some plots of convergence</h2>
+<div id="cell-fig-lf-convergence" class="cell" data-execution_count="1">
+<div class="cell-output cell-output-display">
+<div id="fig-lf-convergence" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-fig">
+<div aria-describedby="fig-lf-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<img data-src="stability_files/figure-revealjs/fig-lf-convergence-output-1.png" width="824" height="456">
+</div>
+<figcaption class="quarto-float-caption-bottom quarto-float-caption quarto-float-fig" id="fig-lf-convergence-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Figure&nbsp;1: Convergence of leapfrog algorithm for perylene system with <span class="math inline">\(U=2,\mu=0,\beta=90\)</span>. The initial configuration was sampled as <span class="math inline">\(\phi\sim\mathcal{N}(0,\sqrt{\tilde U})\)</span>.
+</figcaption>
+</figure>
+</div>
+</div>
+</div>
 
 </section>
 

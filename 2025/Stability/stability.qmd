@@ -886,7 +886,7 @@ $$
 
 :::{style='font-size:80%'}
 
-+ It can be shown that $\dot\pi(t)_{x,x}=\frac{i}{2}\quad\forall\ x,t$ in this limit
++ It can be shown that $\dot\pi(t)_{x,x}=\frac{i}{2}\quad\forall\ x,t$ in the non-interacting limit
 
 :::{.r-stack}
 Values of $\dot\pi(t)$ w/ $\beta=50$, $N_t=64$
@@ -921,7 +921,7 @@ Values of $\dot\pi(t)$ w/ $\beta=50$, $N_t=64$
 
 :::{style='fontsize:80%'}
 
-$$ \phi_x(t)\sim \mathcal{N}(0,\tilde U)$$
+$$ \phi_x(t)\sim \mathcal{N}(0,\sqrt{\tilde U})$$
 
 <style scoped>
 table {
@@ -969,7 +969,7 @@ table {
 
 ## "Show me the money already!!!"
 
-$$ \phi_x(t)\sim \mathcal{N}(0,\tilde U)$$
+$$ \phi_x(t)\sim \mathcal{N}(0,\sqrt{\tilde U})$$
 
 | $N_{\mathrm{md}}$ | direct             | SVD                | QR                 |
 |:-----------------:|:------------------:|:------------------:|:------------------:|
@@ -1001,3 +1001,91 @@ $$ \phi_x(t)\sim \mathcal{N}(0,\tilde U)$$
 
 : $|\Delta H|$ for perylene $\beta=90,\ N_t=256,\ U=2$, traj. length = 1.31715
 
+## Speeding up the force calculation
+
+:::{style='fontsize:80%'}
+
++  Unfortunately none of the recursive schemes proposed in @sec-pidot-1 and @sec-pidot-2 are stable
+
++  But as suggested by Johann and implemented earlier by Finn, the prefix/suffix scheme speeds things up considerably
+
++  One calculates 
+   - all possible 'prefixes' $\Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)$
+   - all possible 'suffixes' $\Sigma(t) = F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)$
+   - these calculations can be done recursively and thus fast, and requires $\mathcal{O}(2N_t V^2)$ memory (which is rougly 2 times more), but this is not an issue
+   
++  The force at timeslice $t$ is simply $\dot\pi(t)=\left[1+\Pi(t).\Sigma(t+1)\right]^{-1}$
+   - this calculation scales as $\mathcal{O}(N_t V^3)$
+   - ***every aspect of this calculation is stable!***
+   
+:::
+
+## Some plots of convergence
+
+```{python}
+#| label: fig-lf-convergence
+#| fig-cap: 'Convergence of leapfrog algorithm for perylene system with $U=2,\mu=0,\beta=90$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$.'
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Nmd = np.array([10,20,30,40,50,60,70,80,90,100,110,120,130,140,150,160,170,180,190,200])
+dH1 = np.array([21.8365,
+       4.96144,
+       2.17953,
+       1.22433,
+       0.783497,
+       0.544007,
+       0.399644,
+       0.30596,
+       0.241736,
+       0.195801,
+       0.161815,
+       0.135967,
+       0.115852,
+       0.0998921,
+       0.0870163,
+       0.0764787,
+       0.0677454,
+       0.060427,
+       0.0542334,
+       0.0489455])
+
+dH2 = np.array([53.4381884479317,
+       13.2819894774439,
+       5.89678399775585,
+       3.31569757729994,
+       2.12167825760116,
+       1.47324881295935,
+       1.08232537245931,
+       0.828624799531099,
+       0.654699335158512,
+       0.530296869526865,
+       0.438256010515033,
+       0.368253038277544,
+       0.313775251224797,
+       0.270549408976876,
+       0.23567740121689,
+       0.20713748129856,
+       0.183484473467615,
+       0.163663148136038,
+       0.146888450559345,
+       0.13256655054829])
+
+fig, ax = plt.subplots(1,2,sharey=True)
+ax[0].plot(1/Nmd**2, dH1, '.')
+ax[0].grid()
+ax[0].set_ylabel(rf'$|\Delta H|$')
+ax[0].set_xlabel(r'$1/N_{\mathrm{md}}^2$');
+ax[0].set_xscale('log')
+ax[0].set_yscale('log')
+ax[0].set_title(r'$N_t=512$')
+ax[1].plot(1/Nmd**2, dH2, '.')
+ax[1].grid()
+ax[1].set_xscale('log')
+ax[1].set_yscale('log')
+ax[1].set_xlabel(r'$1/N_{\mathrm{md}}^2$');
+ax[1].set_title(r'$N_t=1024$')
+
+plt.show()
+```
