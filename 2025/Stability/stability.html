@@ -173,11 +173,11 @@ Thomas Luu
 <li>Note that <span class="math inline">\(U.V=\mathbb{1}_{N_x}\)</span> <strong><em>and</em></strong> <span class="math inline">\(V(t).V^\dagger (t)=\mathbb{1}_{N_x}\)</span></li>
 </ul></li>
 <li><p>Initial SVD of sausage <span class="math display">\[ F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)=U.\underbrace{D_{\tilde\kappa}.V(N_t-1).U.D_{\tilde\kappa}}_{=u.d.v}.V(N_t-2)\ldots U.D_{\tilde\kappa}.V(0)\]</span></p></li>
-<li><p>Recursively perform SVD<sup>1</sup> on expressions of the form <span class="math inline">\(D.V(t).U.D =u.d.v\)</span> until one arrives at <span class="math display">\[ \mathbb{1}_{N_x}+u.d.v = u.(\underbrace{u^\dagger v^\dagger+d}_{q.r}).v \quad\quad (=\mathbb{1}_{N_x}+\mathrm{sausage})\]</span></p></li>
+<li><p>Recursively perform SVD<sup>1</sup> on expressions of the form <span class="math inline">\(D.V(t).U.D =u.d.v\)</span> until one arrives at<sup>2</sup> <span class="math display">\[ \mathbb{1}_{N_x}+u.d.v = u.(\underbrace{u^\dagger v^\dagger+d}_{q.r}).v \quad\quad (=\mathbb{1}_{N_x}+\mathrm{sausage})\]</span></p></li>
 <li><p>Final expression for <span class="math inline">\(\log\det M\)</span> <span class="math display">\[ \log\det M = \log\det\left(u.q.r.v\right) =\log\det(u.q)+\log\det(v)+\sum_x\log r_{x,x}\]</span></p></li>
 </ul>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn1"><p>One can also do a different decomposition, like QR. For these notes I only assume SVD. Only slight changes would be required for a different decomposition.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>One can also do a different decomposition, like QR. For these notes I only assume SVD. Only slight changes would be required for a different decomposition.</p></li><li id="fn2"><p>This method draws inspiration from <a href="https://scipost.org/SciPostPhysCore.2.2.011">C.Bauer, SciPost Phys. Core 2, 011 (2020)</a> and Johann’s notes</p></li></ol></aside></section>
 <section id="stabilizing-partiallogdet-m" class="slide level2">
 <h2>Stabilizing <span class="math inline">\(\partial\log\det M\)</span></h2>
 <div style="font-size:80%">
@@ -1003,7 +1003,7 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 </div>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p>Why isn’t he my boss already???</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Why isn’t he my boss already???</p></li></ol></aside></section>
 <section id="sec-pidot-2" class="slide level2">
 <h2>Another strategy for calculating forces</h2>
 <div style="font-size:75%">
@@ -1032,7 +1032,7 @@ f_k(0)\ldots f_k(N_t-2).f_k(N_t-1).[\mathbb{1}+f_k(0)\ldots f_k(N_t-1)]^{-1}
 <li><p>The terms <span class="math inline">\(\mathcal{F}(t)\)</span> can be solved iteratively (though it remains to be seen if this is stable)</p></li>
 </ul>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn3"><p>Remember that <span class="math inline">\(F_k(t)=f^{-1}_k(t)\)</span>!</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Remember that <span class="math inline">\(F_k(t)=f^{-1}_k(t)\)</span>!</p></li></ol></aside></section>
 <section id="benchmarking-the-force-term" class="slide level2">
 <h2>Benchmarking the force term</h2>
 <div style="font-size:80%">

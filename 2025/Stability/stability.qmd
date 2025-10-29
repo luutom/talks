@@ -37,7 +37,7 @@ $$ f_k(t)=F_k^{-1}(k)=e^{-i\phi_t(x)}.e^{-\tilde\kappa}$$
 + Initial SVD of sausage
   $$ F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)=U.\underbrace{D_{\tilde\kappa}.V(N_t-1).U.D_{\tilde\kappa}}_{=u.d.v}.V(N_t-2)\ldots U.D_{\tilde\kappa}.V(0)$$
 
-+ Recursively perform SVD^[One can also do a different decomposition, like QR.  For these notes I only assume SVD. Only slight changes would be required for a different decomposition.] on expressions of the form $D.V(t).U.D =u.d.v$ until one arrives at
++ Recursively perform SVD^[One can also do a different decomposition, like QR.  For these notes I only assume SVD. Only slight changes would be required for a different decomposition.] on expressions of the form $D.V(t).U.D =u.d.v$ until one arrives at^[This method draws inspiration from [C.Bauer, SciPost Phys. Core 2, 011 (2020)](https://scipost.org/SciPostPhysCore.2.2.011) and Johann's notes]
   $$ \mathbb{1}_{N_x}+u.d.v = u.(\underbrace{u^\dagger v^\dagger+d}_{q.r}).v \quad\quad (=\mathbb{1}_{N_x}+\mathrm{sausage})$$
 
 + Final expression for $\log\det M$
