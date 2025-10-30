@@ -1022,6 +1022,7 @@ $$ \phi_x(t)\sim \mathcal{N}(0,\sqrt{\tilde U})$$
 
 ## Some plots of convergence
 
+<!--
 ```{python}
 #| label: fig-lf-convergence
 #| fig-cap: 'Convergence of leapfrog algorithm for perylene system with $U=2,\mu=0,\beta=90$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$.'
@@ -1087,5 +1088,35 @@ ax[1].set_yscale('log')
 ax[1].set_xlabel(r'$1/N_{\mathrm{md}}^2$');
 ax[1].set_title(r'$N_t=1024$')
 
-plt.show()
+plt.savefig('assets/leapfrog.png')
+
+#plt.show()
 ```
+-->
+
+![](assets/leapfrog.png){fig-align='center'}
+
+:::{style='font-size:50%'}
+:::{.r-stack}
+Convergence of leapfrog algorithm for perylene system with $U=2,\mu=0,\beta=90$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$
+:::
+:::
+
+
+## An actual simulation
+
+![](assets/hex1x2U3B90Nt256corr1.png){fig-align='center'}
+
+:::{style='font-size:50%'}
+:::{.r-stack}
+dashed lines are ED, black points are real part of correlators from NSL 
+:::
+:::
+
+---
+
+![](assets/hex1x2U3B90Nt256corr2.png){fig-align='center'}
+
+:::{style='font-size:50%'}
+$$\tau$$
+:::
