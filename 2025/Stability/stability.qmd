@@ -1120,3 +1120,7 @@ dashed lines are ED, black points are real part of correlators from NSL
 :::{style='font-size:50%'}
 $$\tau$$
 :::
+
+---
+
+![](assets/4siteConvergence.png){fig-align='center'}
