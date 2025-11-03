@@ -1098,10 +1098,66 @@ plt.savefig('assets/leapfrog.png')
 
 :::{style='font-size:50%'}
 :::{.r-stack}
-Convergence of leapfrog algorithm for perylene system with $U=2,\mu=0,\beta=90$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$
+Convergence of leapfrog algorithm for perylene system with $U=2,\mu=0,\beta=90$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$.
 :::
 :::
 
+## Timing investigations
+
+<!--
+```{python}
+#| label: fig-timings
+#| fig-cap: 'Timings of leapfrog with $N_{md}=20$ with $U=3,\mu=1/10, \mathrm{offset}=1/8,\beta=4$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$. Left panel is 4-site hex. Right panel is perylene.'
+
+import numpy as np
+import matplotlib.pyplot as plt
+
+Nt = np.array([0,16,32,64,128,256,512,1024])
+DI4hex = np.array([1,0.00941400043666363,0.0100579997524619,0.0116870002821088,0.0150229996070266,0.0220669992268085,0.0347109995782375,0.0599620006978512])
+QR4hex = np.array([0,0.17153200507164,0.329802989959717,0.657711982727051,1.33916103839874,2.6271231174469,5.20609903335571,10.3923034667969])
+SVD4hex = np.array([0,0.148175999522209,0.298680007457733,0.612852990627289,1.2363189458847,2.42222905158997,4.83686208724976,9.54792308807373])
+
+DIperylene = np.array([1,0.0191779993474483,0.0328279994428158,0.0624280013144016,0.138088002800941,0.28601199388504,0.625791013240814,1.30029296875])
+QRperylene = np.array([0,0.132014006376266,0.262585997581482,0.538964986801147,1.15574395656586,2.5219190120697,4.60822916030884,8.73171424865723])
+SVDperylene = np.array([0,0.167337998747826,0.332118004560471,0.697412014007568,1.4166179895401,3.03204298019409,6.04806709289551,10.8523635864258])
+
+fig,ax = plt.subplots(1,2,figsize=(10,5))
+
+ax[0].plot(Nt,QR4hex/DI4hex,'ro',label='QR/DIRECT')
+ax[0].plot(Nt,SVD4hex/DI4hex,'bo',label='SVD/DIRECT')
+#ax[0].plot(Nt,Nt,'k--')
+
+ax[0].set_xlabel(r'$N_t$')
+ax[0].set_ylabel('ratio of timings compared to DIRECT')
+ax[0].grid()
+ax[0].set_xlim(left=0)
+ax[0].set_ylim(bottom=0)
+ax[0].legend(loc='best')
+ax[0].set_title('4-site hex')
+
+ax[1].plot(Nt,QRperylene/DIperylene,'ro',label='QR/DIRECT')
+ax[1].plot(Nt,SVDperylene/DIperylene,'bo',label='SVD/DIRECT')
+#ax[1].plot(Nt,Nt,'k--')
+ax[1].set_xlabel(r'$N_t$')
+ax[1].grid()
+ax[1].set_xlim(left=0)
+ax[1].set_ylim(bottom=0)
+ax[1].legend(loc='best')
+ax[1].set_title('perylene')
+
+plt.savefig('assets/timings.png')
+
+plt.show()
+```
+-->
+
+![](assets/timings.png){fig-align='center'}
+
+:::{style='font-size:50%'}
+:::{.r-stack}
+Timings of leapfrog with $N_{md}=20$ with $U=3,\mu=1/10, \mathrm{offset}=1/8,\beta=4$.  The initial configuration was sampled as $\phi\sim\mathcal{N}(0,\sqrt{\tilde U})$.
+:::
+:::
 
 ## An actual simulation
 
@@ -1124,3 +1180,7 @@ $$\tau$$
 ---
 
 ![](assets/4siteConvergence.png){fig-align='center'}
+
+---
+
+![](assets/peryleneConvergence.png){fig-align='center'}
