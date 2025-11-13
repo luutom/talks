@@ -24,7 +24,7 @@ $$ \underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage"}}\quad;\q
 
 $$ \Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)\ ,\ \Pi(-1)\equiv\mathbb{1}\quad;\quad \Sigma(t) = F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)$$
 
-+ "sausage" is simply $\Sigma(t).\Pi(t-1) = \Sigma(0)$ for any value $t$
++ "sausage" is simply $\Sigma(t).\Pi(t-1) = \Sigma(0)=\Pi(N_t-1)$ for any value $t$
   
 + The spatial correlator $C(t_f,t_i;\phi)$ is obtained by evaluating the inverse "fermion" matrix:
 
@@ -63,7 +63,7 @@ $$
 
 + General expression in terms of "prefixes/suffixes" is
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 $$ 
 C(t_f,t_i)=
 \begin{cases}
@@ -75,19 +75,19 @@ $${#eq-cxy1}
 
 + Also equivalent, after some manipulation, to
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 $$ 
 C(t_f,t_i)=
 \begin{cases}
-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Pi^{-1}(t_i-1) & \forall\ t_f\ge t_i\\
--\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) & \forall\ t_f < t_i
+\Pi(t_f-1).[\Pi(t_i-1)+\Pi(t_i-1).\Sigma(0)]^{-1}&=\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Pi^{-1}(t_i-1) & \forall\ t_f\ge t_i\\
+-\Pi(t_f-1).[\Pi(t_i-1)+\Sigma^{-1}(t_i)]^{-1}&=-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) & \forall\ t_f < t_i
 \end{cases}
 $${#eq-cxy2}
 :::
 
 + I worry that these expressions, as they are written, are not stable to compute, so an alternative is^[Not sure if this is any better!]
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 $$ 
 C(t_f,t_i)=
 \begin{cases}

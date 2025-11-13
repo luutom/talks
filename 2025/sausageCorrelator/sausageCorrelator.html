@@ -156,7 +156,7 @@ Thomas Luu
 </ul>
 <p><span class="math display">\[ \Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)\ ,\ \Pi(-1)\equiv\mathbb{1}\quad;\quad \Sigma(t) = F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\]</span></p>
 <ul>
-<li><p>“sausage” is simply <span class="math inline">\(\Sigma(t).\Pi(t-1) = \Sigma(0)\)</span> for any value <span class="math inline">\(t\)</span></p></li>
+<li><p>“sausage” is simply <span class="math inline">\(\Sigma(t).\Pi(t-1) = \Sigma(0)=\Pi(N_t-1)\)</span> for any value <span class="math inline">\(t\)</span></p></li>
 <li><p>The spatial correlator <span class="math inline">\(C(t_f,t_i;\phi)\)</span> is obtained by evaluating the inverse “fermion” matrix:</p></li>
 </ul>
 <p><span class="math display">\[
@@ -194,7 +194,7 @@ Thomas Luu
 <ul>
 <li>General expression in terms of “prefixes/suffixes” is</li>
 </ul>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <p><span id="eq-cxy1"><span class="math display">\[
 C(t_f,t_i)=
 \begin{cases}
@@ -206,19 +206,19 @@ C(t_f,t_i)=
 <ul>
 <li>Also equivalent, after some manipulation, to</li>
 </ul>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <p><span id="eq-cxy2"><span class="math display">\[
 C(t_f,t_i)=
 \begin{cases}
-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Pi^{-1}(t_i-1) &amp; \forall\ t_f\ge t_i\\
--\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) &amp; \forall\ t_f &lt; t_i
+\Pi(t_f-1).[\Pi(t_i-1)+\Pi(t_i-1).\Sigma(0)]^{-1}&amp;=\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Pi^{-1}(t_i-1) &amp; \forall\ t_f\ge t_i\\
+-\Pi(t_f-1).[\Pi(t_i-1)+\Sigma^{-1}(t_i)]^{-1}&amp;=-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) &amp; \forall\ t_f &lt; t_i
 \end{cases}
 \tag{2}\]</span></span></p>
 </div>
 <ul>
 <li>I worry that these expressions, as they are written, are not stable to compute, so an alternative is<sup>1</sup></li>
 </ul>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <p><span id="eq-cxy3"><span class="math display">\[
 C(t_f,t_i)=
 \begin{cases}
