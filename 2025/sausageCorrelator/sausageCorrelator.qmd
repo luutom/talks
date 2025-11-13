@@ -28,6 +28,7 @@ $$ \Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)\ ,\ \Pi(-1)\equiv\mathbb{1}\quad;\quad 
   
 + The spatial correlator $C(t_f,t_i;\phi)$ is obtained by evaluating the inverse "fermion" matrix:
 
+:::{style='font-size:80%'}
 $$
   \begin{pmatrix}
   \mathbb{1} & 0 & 0 & \cdots & F_k(N_t-1)\\
@@ -38,12 +39,13 @@ $$
   0 & \cdots & 0 & -F_k(N_t-2) & \mathbb{1} 
   \end{pmatrix}^{-1}_{t_f,t_i}
 $$
+:::
 
 :::
 
 ---
 
-:::{style='font-size:75%'}
+:::{style='font-size:70%'}
 + The inverse of the matrix is
 
 :::{style='font-size:40%'}
