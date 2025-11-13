@@ -43,7 +43,7 @@ $$
 
 ---
 
-:::{style='font-size:80%'}
+:::{style='font-size:75%'}
 + The inverse of the matrix is
 
 :::{style='font-size:40%'}
