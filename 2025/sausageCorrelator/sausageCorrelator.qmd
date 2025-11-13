@@ -101,6 +101,8 @@ $${#eq-cxy3}
 
 ---
 
+:::{style='font-size:80%'}
+
 + We have decompositions for each of these terms
 
 :::{style='font-size:80%'}
@@ -124,4 +126,6 @@ U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.V^{-1}_\pi(t_i-1)
 -U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.U_\sigma(t_i).D_\sigma(t_i).V_\sigma(t_i) & \forall\ t_f < t_i
 \end{cases}
 $${#eq-cxy4}
+:::
+
 :::
