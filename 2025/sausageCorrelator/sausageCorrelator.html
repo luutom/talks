@@ -235,6 +235,23 @@ M^{-1}[\phi]_{t_f,t_i}=
 
 <div style="font-size:80%">
 <ul>
+<li>Finn points out another representation obtained from using the <a href="https://en.wikipedia.org/wiki/Woodbury_matrix_identity">Woodbury Matrix Identity</a>:</li>
+</ul>
+<div style="font-size:80%">
+<p><span id="eq-cxy5"><span class="math display">\[
+M^{-1}[\phi]_{t_f,t_i}=
+\begin{cases}
+\Pi(t_f-1).\Pi^{-1}(t_i-1)-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) &amp; \forall\ t_f\ge t_i\\
+-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) &amp; \forall\ t_f &lt; t_i
+\end{cases}
+\tag{4}\]</span></span></p>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div style="font-size:80%">
+<ul>
 <li>We have decompositions for each of these terms</li>
 </ul>
 <div style="font-size:80%">
@@ -256,7 +273,7 @@ M^{-1}[\phi]_{t_f,t_i}=
 U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.V^{-1}_\pi(t_i-1).D^{-1}_\pi(t_i-1).U^\dagger_\pi(t_i-1)  &amp; \forall\ t_f\ge t_i\\
 -U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.U_\sigma(t_i).D_\sigma(t_i).V_\sigma(t_i) &amp; \forall\ t_f &lt; t_i
 \end{cases}
-\tag{4}\]</span></span></p>
+\tag{5}\]</span></span></p>
 </div>
 </div>
 

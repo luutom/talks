@@ -103,6 +103,24 @@ $${#eq-cxy3}
 
 ---
 
+
+:::{style='font-size:80%'}
++ Finn points out another representation obtained from using the [Woodbury Matrix Identity](https://en.wikipedia.org/wiki/Woodbury_matrix_identity):
+
+:::{style='font-size:80%'}
+$$
+M^{-1}[\phi]_{t_f,t_i}=
+\begin{cases}
+\Pi(t_f-1).\Pi^{-1}(t_i-1)-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) & \forall\ t_f\ge t_i\\
+-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) & \forall\ t_f < t_i
+\end{cases}
+$${#eq-cxy5}
+:::
+
+:::
+
+---
+
 :::{style='font-size:80%'}
 
 + We have decompositions for each of these terms
