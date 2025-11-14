@@ -681,7 +681,7 @@ $$
 
 + J. Ostmeyer, **T.L.**, et al. [Phys.Rev.B 109 (2024) 195135](https://arxiv.org/abs/2401.04715)
 
-## The interacting Su-Schrieffer-Heeger (SSH) model
+## The interacting SSH model
 
 ![](assets/ssh.png){fig-align='center' width="50%"}
 
