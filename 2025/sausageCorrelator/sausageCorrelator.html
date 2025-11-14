@@ -157,7 +157,7 @@ Thomas Luu
 <p><span class="math display">\[ \Pi(t) = F_k(t).F_k(t-1)\ldots F_k(0)\ ,\ \Pi(-1)\equiv\mathbb{1}\quad;\quad \Sigma(t) = F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\]</span></p>
 <ul>
 <li><p>“sausage” is simply <span class="math inline">\(\Sigma(t).\Pi(t-1) = \Sigma(0)=\Pi(N_t-1)\)</span> for any value <span class="math inline">\(t\)</span></p></li>
-<li><p>The spatial correlator <span class="math inline">\(C(t_f,t_i;\phi)\)</span> is obtained by evaluating the inverse “fermion” matrix:</p></li>
+<li><p>Of fundamental importance is the inverse fermion matrix <span class="math inline">\(M^{-1}\)</span>:</p></li>
 </ul>
 <div style="font-size:80%">
 <p><span class="math display">\[
@@ -177,7 +177,7 @@ Thomas Luu
 
 <div style="font-size:70%">
 <ul>
-<li>The inverse of the matrix is</li>
+<li>The inverse of the fermion matrix is</li>
 </ul>
 <div style="font-size:40%">
 <p><span class="math display">\[
@@ -198,7 +198,7 @@ Thomas Luu
 </ul>
 <div style="font-size:70%">
 <p><span id="eq-cxy1"><span class="math display">\[
-C(t_f,t_i)=
+M[\phi]_{t_f,t_i}=
 \begin{cases}
 \Pi(t_f-1).\Pi^{-1}(t_i-1).[\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} &amp; \forall\ t_f\ge t_i\\
 -\Pi(t_f-1).\Sigma(t_i).[\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} &amp; \forall\ t_f &lt; t_i
@@ -210,7 +210,7 @@ C(t_f,t_i)=
 </ul>
 <div style="font-size:70%">
 <p><span id="eq-cxy2"><span class="math display">\[
-C(t_f,t_i)=
+M[\phi]_{t_f,t_i}=
 \begin{cases}
 \Pi(t_f-1).[\Pi(t_i-1)+\Pi(t_i-1).\Sigma(0)]^{-1}&amp;=\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Pi^{-1}(t_i-1) &amp; \forall\ t_f\ge t_i\\
 -\Pi(t_f-1).[\Pi(t_i-1)+\Sigma^{-1}(t_i)]^{-1}&amp;=-\Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}.\Sigma(t_i) &amp; \forall\ t_f &lt; t_i
@@ -222,7 +222,7 @@ C(t_f,t_i)=
 </ul>
 <div style="font-size:70%">
 <p><span id="eq-cxy3"><span class="math display">\[
-C(t_f,t_i)=
+M[\phi]_{t_f,t_i}=
 \begin{cases}
 [\Pi(t_i-1).\Pi^{-1}(t_f-1)+\Pi(t_i-1).\Sigma(t_f)]^{-1} &amp; \forall\ t_f\ge t_i\\
 -[\Pi(t_i-1).\Pi^{-1}(t_f-1)+\Sigma^{-1}(t_i).\Pi^{-1}(t_f-1)]^{-1} &amp; \forall\ t_f &lt; t_i
@@ -251,7 +251,7 @@ C(t_f,t_i)=
 </ul>
 <div style="font-size:70%">
 <p><span id="eq-cxy4"><span class="math display">\[
-C(t_f,t_i)=
+M[\phi]_{t_f,t_i}=
 \begin{cases}
 U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.V^{-1}_\pi(t_i-1).D^{-1}_\pi(t_i-1).U^\dagger_\pi(t_i-1)  &amp; \forall\ t_f\ge t_i\\
 -U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.U_\sigma(t_i).D_\sigma(t_i).V_\sigma(t_i) &amp; \forall\ t_f &lt; t_i
