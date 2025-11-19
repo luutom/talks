@@ -6,8 +6,8 @@
 <script src="sausageCorrelator_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="sausageCorrelator_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="sausageCorrelator_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="sausageCorrelator_files/libs/quarto-html/quarto-syntax-highlighting-7b89279ff1a6dce999919e0e67d4d9ec.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.25">
+<link href="sausageCorrelator_files/libs/quarto-html/quarto-syntax-highlighting-587c61ba64f3a5504c4d52d930310e48.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.8.26">
 
   <meta name="author" content="Thomas Luu">
   <title>Calculation of spatial correlators directly from the Sausage</title>
@@ -29,7 +29,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="sausageCorrelator_files/libs/revealjs/dist/theme/quarto-ad6753613c8a2a8f2d13624474644e1e.css">
+  <link rel="stylesheet" href="sausageCorrelator_files/libs/revealjs/dist/theme/quarto-b5252905f04b310507bddab422f15fd1.css">
   <link href="sausageCorrelator_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="sausageCorrelator_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="sausageCorrelator_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -179,7 +179,7 @@ Thomas Luu
 <ul>
 <li>The inverse of the fermion matrix is</li>
 </ul>
-<div style="font-size:40%">
+<div style="font-size:45%">
 <p><span class="math display">\[
 \begin{pmatrix}
   [\mathbb{1}+\Sigma(0)]^{-1} &amp; -\Sigma(1).[\mathbb{1}+\Pi(0).\Sigma(1)]^{-1} &amp; -\Sigma(2).[\mathbb{1}+\Pi(1).\Sigma(2)]^{-1} &amp; \cdots&amp; -\Sigma(t_i).[\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} &amp;\cdots &amp; -\Sigma(N_t-1).[\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1}\\
@@ -188,7 +188,7 @@ Thomas Luu
   F_k(2).F_k(1).F_k(0).[\mathbb{1}+\Sigma(0)]^{-1}  &amp; F_k(2).F_k(1).[\mathbb{1}+\Pi(0).\Sigma(1)]^{-1} &amp; F_k(2).[\mathbb{1}+\Pi(1).\Sigma(2)]^{-1} &amp; \cdots&amp; &amp;  &amp; \vdots\\
   \vdots &amp; \vdots &amp; \ddots &amp; \ddots  &amp; \vdots &amp; &amp; \\
   \Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}  &amp; \cdots &amp;  &amp; \cdots &amp; [\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} &amp; &amp; \cdots\\
-  \vdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; &amp; &amp; \vdots\\
+  \vdots &amp; \cdots &amp; \cdots &amp; \cdots &amp; &amp;[\mathbb{1}+\Pi(N_t-3).\Sigma(N_t-2)]^{-1} &amp; -\Pi(N_t-3).\Sigma(N_t-1).[\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1}\\
   \Pi(N_t-2).[\mathbb{1}+\Sigma(0)]^{-1} &amp; \cdots &amp; \vdots &amp; &amp; &amp; F_k(N_t-2).[\mathbb{1}+\Pi(N_t-3).\Sigma(N_t-2)]^{-1}  &amp; [\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1}
 \end{pmatrix}
 \]</span></p>
@@ -248,36 +248,92 @@ M^{-1}[\phi]_{t_f,t_i}=
 </div>
 </div>
 </section>
+<section id="unifying-all-these-expressions" class="slide level2">
+<h2>Unifying all these expressions</h2>
+<div style="font-size:80%">
+<ul>
+<li>Let me make the more general definition that incorporates both ‘prefix’ and ‘suffix’ terms</li>
+</ul>
+<div style="font-size:80%">
+<p><span class="math display">\[
+\Pi(t',t)=
+\begin{cases}
+F_k(t').F_k(t'-1)\ldots F_k(t+1).F_k(t)\quad &amp;\forall\ t'\ge t\\
+F_k((t'+N_t)\%N_t).F_k(t'+N_t-1)\%N_t)\ldots F_k((t+1)\%N_t).F_k(t)\quad &amp;\forall\ t'&lt; t
+\end{cases}
+\]</span></p>
+</div>
+<ul>
+<li>This definition allows for a very compact expression for <span class="math inline">\(M^{-1}\)</span></li>
+</ul>
+<div style="font-size:80%">
+<p><span id="eq-invM"><span class="math display">\[
+M^{-1}[\phi]_{t_f,t_i}=\mathcal{B}_{t_f,t_i}\times
+\begin{cases}
+[\mathbb{1}+\Pi(t_i-1,t_i)]^{-1} &amp; \forall\ t_f = t_i\\
+\left[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)\right]^{-1} &amp; \forall\ t_f \ne t_i
+\end{cases}
+\tag{5}\]</span></span></p>
+</div>
+<p>where</p>
+<div style="font-size:80%">
+<p><span class="math display">\[
+\begin{equation}
+\mathcal{B}_{t_f,t_i}=
+\begin{cases}
++1 &amp; \forall\ t_f\ge t_i\\
+-1 &amp; \forall\ t_f&lt;t_i
+\end{cases}
+\end{equation}
+\]</span></p>
+</div>
+</div>
+</section>
 <section class="slide level2">
 
 <div style="font-size:80%">
 <ul>
-<li>We have decompositions for each of these terms</li>
+<li>Let’s assume we have decompositions for <span class="math inline">\(\Pi(t',t)\ \forall\ t',t\)</span></li>
 </ul>
 <div style="font-size:80%">
 <p><span class="math display">\[
-\begin{align}
-\Pi(t) &amp; = U_\pi(t).D_\pi(t).V_\pi(t)\implies\Pi^{-1}(t) = V^{-1}_\pi(t).D^{-1}_\pi(t).U^\dagger_\pi(t)\\
-\Sigma(t) &amp; = U_\sigma(t).D_\sigma(t).V_\sigma(t)\implies \Sigma^{-1}(t) = V^{-1}_\sigma(t).D^{-1}_\sigma(t).U^\dagger_\sigma(t)
-\end{align}
+\Pi(t',t)  = U_\pi(t',t).D_\pi(t',t).V_\pi(t',t)\implies \Pi^{-1}(t',t)  = V^{-1}_\pi(t',t).D^{-1}_\pi(t',t).U^\dagger_\pi(t',t)
 \]</span></p>
 </div>
 <ul>
-<li><p>Let me also define <span class="math inline">\([\mathbb{1}+\Sigma(0)]^{-1}\equiv v^{-1}.d^{-1}.u^\dagger\)</span></p></li>
-<li><p>With this equation and these decompositions, for example, <a href="#/eq-cxy2" class="quarto-xref">Equation&nbsp;2</a> becomes</p></li>
+<li>With the decompositions of <span class="math inline">\(\Pi(t',t)\)</span> obtained above, I can write the <span class="math inline">\(t_f\ne t_i\)</span> part<sup>1</sup> of <a href="#/eq-invM" class="quarto-xref">Equation&nbsp;5</a> as</li>
 </ul>
 <div style="font-size:70%">
-<p><span id="eq-cxy4"><span class="math display">\[
-M^{-1}[\phi]_{t_f,t_i}=
-\begin{cases}
-U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.V^{-1}_\pi(t_i-1).D^{-1}_\pi(t_i-1).U^\dagger_\pi(t_i-1)  &amp; \forall\ t_f\ge t_i\\
--U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.U_\sigma(t_i).D_\sigma(t_i).V_\sigma(t_i) &amp; \forall\ t_f &lt; t_i
-\end{cases}
-\tag{5}\]</span></span></p>
+<p><span class="math display">\[
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}=\left[T_\pi^{-1}(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i).U^\dagger_\pi(t_f-1,t_i)+U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f)\right]^{-1}
+\]</span></p>
 </div>
+<ul>
+<li>This expression needs to be decomposed one last time, which requires that I choose one of the two terms to make diagonally dominant in order to do the decomposition. Here’s my strategy:
+<ul>
+<li><p>If <span class="math inline">\(\max\left(|D^{-1}_\pi(t_f-1,t_i)|\right) &gt; \max\left(|D_\pi(t_i-1,t_f)|\right)\)</span>, then I decompose as follows:</p>
+<div style="font-size:60%">
+<p><span class="math display">\[
+\begin{align}
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&amp;=[T_\pi^{-1}(t_f-1,t_i)\underbrace{\left(D^{-1}_\pi(t_f-1,t_i)+T_\pi(t_f-1,t_i).U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f).U_\pi(t_f-1,t_i)\right)}_{u.d.t}U^\dagger_\pi(t_f-1,t_i)]^{-1}\\
+&amp;=U_\pi(t_f-1,t_i).t^{-1}.d^{-1}.u^\dagger.T_\pi(t_f-1,t_i)
+\end{align}
+\]</span></p>
+</div></li>
+<li><p>otherwise I decompose as</p>
+<div style="font-size:60%">
+<p><span class="math display">\[
+\begin{align}
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&amp;=[U_\pi(t_i-1,t_f)\underbrace{\left(U^\dagger_\pi(t_i-1,t_f).T^{-1}_\pi(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i)U^\dagger_\pi(t_f-1,t_i).T^{-1}_\pi(t_i-1,t_f)+D_\pi(t_i-1,t_f)\right)}_{u.d.t}T_\pi(t_i-1,t_f)]^{-1}\\
+&amp;=T^{-1}_\pi(t_i-1,t_t).t^{-1}.d^{-1}.u^\dagger.U^\dagger_\pi(t_i-1,t_f)
+\end{align}
+\]</span></p>
+</div></li>
+</ul></li>
+</ul>
 </div>
 
-</section>
+<aside><ol class="aside-footnotes"><li id="fn2"><p>The <span class="math inline">\(t_f=t_i\)</span> part is simply the force <span class="math inline">\(\dot\pi(t_i)\)</span> calculation, which we have already implemented.</p></li></ol></aside></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

@@ -48,7 +48,7 @@ $$
 :::{style='font-size:70%'}
 + The inverse of the fermion matrix is
 
-:::{style='font-size:40%'}
+:::{style='font-size:45%'}
 $$
 \begin{pmatrix}
   [\mathbb{1}+\Sigma(0)]^{-1} & -\Sigma(1).[\mathbb{1}+\Pi(0).\Sigma(1)]^{-1} & -\Sigma(2).[\mathbb{1}+\Pi(1).\Sigma(2)]^{-1} & \cdots& -\Sigma(t_i).[\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} &\cdots & -\Sigma(N_t-1).[\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1}\\
@@ -57,7 +57,7 @@ $$
   F_k(2).F_k(1).F_k(0).[\mathbb{1}+\Sigma(0)]^{-1}  & F_k(2).F_k(1).[\mathbb{1}+\Pi(0).\Sigma(1)]^{-1} & F_k(2).[\mathbb{1}+\Pi(1).\Sigma(2)]^{-1} & \cdots& &  & \vdots\\
   \vdots & \vdots & \ddots & \ddots  & \vdots & & \\
   \Pi(t_f-1).[\mathbb{1}+\Sigma(0)]^{-1}  & \cdots &  & \cdots & [\mathbb{1}+\Pi(t_i-1).\Sigma(t_i)]^{-1} & & \cdots\\
-  \vdots & \cdots & \cdots & \cdots & & & \vdots\\
+  \vdots & \cdots & \cdots & \cdots & &[\mathbb{1}+\Pi(N_t-3).\Sigma(N_t-2)]^{-1} & -\Pi(N_t-3).\Sigma(N_t-1).[\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1}\\
   \Pi(N_t-2).[\mathbb{1}+\Sigma(0)]^{-1} & \cdots & \vdots & & & F_k(N_t-2).[\mathbb{1}+\Pi(N_t-3).\Sigma(N_t-2)]^{-1}  & [\mathbb{1}+\Pi(N_t-2).\Sigma(N_t-1)]^{-1} 
 \end{pmatrix}
 $$
@@ -119,33 +119,91 @@ $${#eq-cxy5}
 
 :::
 
+## Unifying all these expressions
+
+:::{style='font-size:80%'}
+
++ Let me make the more general definition that incorporates both 'prefix' and 'suffix' terms
+
+:::{style='font-size:80%'}
+$$
+\Pi(t',t)=
+\begin{cases}
+F_k(t').F_k(t'-1)\ldots F_k(t+1).F_k(t)\quad &\forall\ t'\ge t\\
+F_k((t'+N_t)\%N_t).F_k(t'+N_t-1)\%N_t)\ldots F_k((t+1)\%N_t).F_k(t)\quad &\forall\ t'< t
+\end{cases}
+$$
+:::
+
++ This definition allows for a very compact expression for $M^{-1}$
+
+:::{style='font-size:80%'}
+$$
+M^{-1}[\phi]_{t_f,t_i}=\mathcal{B}_{t_f,t_i}\times
+\begin{cases}
+[\mathbb{1}+\Pi(t_i-1,t_i)]^{-1} & \forall\ t_f = t_i\\
+\left[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)\right]^{-1} & \forall\ t_f \ne t_i
+\end{cases}
+$${#eq-invM}
+:::
+
+  where 
+
+:::{style='font-size:80%'}
+$$
+\begin{equation}
+\mathcal{B}_{t_f,t_i}=
+\begin{cases}
++1 & \forall\ t_f\ge t_i\\
+-1 & \forall\ t_f<t_i
+\end{cases}
+\end{equation}
+$$
+:::
+
+:::
+
 ---
 
 :::{style='font-size:80%'}
 
-+ We have decompositions for each of these terms
++ Let's assume we have decompositions for $\Pi(t',t)\ \forall\ t',t$
 
 :::{style='font-size:80%'}
 $$
-\begin{align}
-\Pi(t) & = U_\pi(t).D_\pi(t).V_\pi(t)\implies\Pi^{-1}(t) = V^{-1}_\pi(t).D^{-1}_\pi(t).U^\dagger_\pi(t)\\
-\Sigma(t) & = U_\sigma(t).D_\sigma(t).V_\sigma(t)\implies \Sigma^{-1}(t) = V^{-1}_\sigma(t).D^{-1}_\sigma(t).U^\dagger_\sigma(t)
-\end{align}
+\Pi(t',t)  = U_\pi(t',t).D_\pi(t',t).V_\pi(t',t)\implies \Pi^{-1}(t',t)  = V^{-1}_\pi(t',t).D^{-1}_\pi(t',t).U^\dagger_\pi(t',t)
 $$
 :::
 
-+ Let me also define $[\mathbb{1}+\Sigma(0)]^{-1}\equiv v^{-1}.d^{-1}.u^\dagger$
-
-+ With this equation and these decompositions, for example,  @eq-cxy2 becomes
++ With the decompositions of $\Pi(t',t)$ obtained above, I can write the $t_f\ne t_i$ part^[The $t_f=t_i$ part is simply the force $\dot\pi(t_i)$ calculation, which we have already implemented.] of @eq-invM as
 
 :::{style='font-size:70%'}
-$$ 
-M^{-1}[\phi]_{t_f,t_i}=
-\begin{cases}
-U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.V^{-1}_\pi(t_i-1).D^{-1}_\pi(t_i-1).U^\dagger_\pi(t_i-1)  & \forall\ t_f\ge t_i\\
--U_\pi(t_f-1).D_\pi(t_f-1).V_\pi(t_f-1).v^{-1}.d^{-1}.u^\dagger.U_\sigma(t_i).D_\sigma(t_i).V_\sigma(t_i) & \forall\ t_f < t_i
-\end{cases}
-$${#eq-cxy4}
+$$
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}=\left[T_\pi^{-1}(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i).U^\dagger_\pi(t_f-1,t_i)+U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f)\right]^{-1}
+$$
 :::
+
++ This expression needs to be decomposed one last time, which requires that I choose one  of the two terms to make diagonally dominant in order to do the decomposition.    Here's my strategy:
+  - If $\max\left(|D^{-1}_\pi(t_f-1,t_i)|\right) > \max\left(|D_\pi(t_i-1,t_f)|\right)$, then I decompose as follows:
+
+	:::{style='font-size:60%'}
+$$
+\begin{align}
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[T_\pi^{-1}(t_f-1,t_i)\underbrace{\left(D^{-1}_\pi(t_f-1,t_i)+T_\pi(t_f-1,t_i).U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f).U_\pi(t_f-1,t_i)\right)}_{u.d.t}U^\dagger_\pi(t_f-1,t_i)]^{-1}\\
+&=U_\pi(t_f-1,t_i).t^{-1}.d^{-1}.u^\dagger.T_\pi(t_f-1,t_i)
+\end{align}
+$$
+	:::
+	
+  - otherwise I decompose as
+  
+  	:::{style='font-size:60%'}
+$$
+\begin{align}
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[U_\pi(t_i-1,t_f)\underbrace{\left(U^\dagger_\pi(t_i-1,t_f).T^{-1}_\pi(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i)U^\dagger_\pi(t_f-1,t_i).T^{-1}_\pi(t_i-1,t_f)+D_\pi(t_i-1,t_f)\right)}_{u.d.t}T_\pi(t_i-1,t_f)]^{-1}\\
+&=T^{-1}_\pi(t_i-1,t_t).t^{-1}.d^{-1}.u^\dagger.U^\dagger_\pi(t_i-1,t_f)
+\end{align}
+$$
+	:::
 
 :::
