@@ -135,7 +135,7 @@ F_k((t'+N_t)\%N_t).F_k(t'+N_t-1)\%N_t)\ldots F_k((t+1)\%N_t).F_k(t)\quad &\foral
 $$
 :::
 
-+ This definition allows for a very compact expression for $M^{-1}$
++ This definition allows for a very compact expression^[Yes, I know, Finn has already derived all these expressions months ago!] for $M^{-1}$
 
 :::{style='font-size:80%'}
 $$
@@ -207,3 +207,8 @@ $$
 	:::
 
 :::
+
+---
+
+![Example of diagonal spatial correlator obtained in the non-interacting limit](assets/invMxx.png){fig-align='center'}
+
