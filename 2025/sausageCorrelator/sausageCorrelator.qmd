@@ -179,7 +179,7 @@ $$
 
 :::{style='font-size:70%'}
 $$
-[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}=\left[T_\pi^{-1}(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i).U^\dagger_\pi(t_f-1,t_i)+U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f)\right]^{-1}
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}=\left[V_\pi^{-1}(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i).U^\dagger_\pi(t_f-1,t_i)+U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).V_\pi(t_i-1,t_f)\right]^{-1}
 $$
 :::
 
@@ -189,8 +189,8 @@ $$
 	:::{style='font-size:60%'}
 $$
 \begin{align}
-[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[T_\pi^{-1}(t_f-1,t_i)\underbrace{\left(D^{-1}_\pi(t_f-1,t_i)+T_\pi(t_f-1,t_i).U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).T_\pi(t_i-1,t_f).U_\pi(t_f-1,t_i)\right)}_{u.d.t}U^\dagger_\pi(t_f-1,t_i)]^{-1}\\
-&=U_\pi(t_f-1,t_i).t^{-1}.d^{-1}.u^\dagger.T_\pi(t_f-1,t_i)
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[V_\pi^{-1}(t_f-1,t_i)\underbrace{\left(D^{-1}_\pi(t_f-1,t_i)+V_\pi(t_f-1,t_i).U_\pi(t_i-1,t_f).D_\pi(t_i-1,t_f).V_\pi(t_i-1,t_f).U_\pi(t_f-1,t_i)\right)}_{u.d.t}U^\dagger_\pi(t_f-1,t_i)]^{-1}\\
+&=U_\pi(t_f-1,t_i).t^{-1}.d^{-1}.u^\dagger.V_\pi(t_f-1,t_i)
 \end{align}
 $$
 	:::
@@ -200,8 +200,8 @@ $$
   	:::{style='font-size:60%'}
 $$
 \begin{align}
-[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[U_\pi(t_i-1,t_f)\underbrace{\left(U^\dagger_\pi(t_i-1,t_f).T^{-1}_\pi(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i)U^\dagger_\pi(t_f-1,t_i).T^{-1}_\pi(t_i-1,t_f)+D_\pi(t_i-1,t_f)\right)}_{u.d.t}T_\pi(t_i-1,t_f)]^{-1}\\
-&=T^{-1}_\pi(t_i-1,t_t).t^{-1}.d^{-1}.u^\dagger.U^\dagger_\pi(t_i-1,t_f)
+[\Pi^{-1}(t_f-1,t_i)+\Pi(t_i-1,t_f)]^{-1}&=[U_\pi(t_i-1,t_f)\underbrace{\left(U^\dagger_\pi(t_i-1,t_f).V^{-1}_\pi(t_f-1,t_i).D^{-1}_\pi(t_f-1,t_i)U^\dagger_\pi(t_f-1,t_i).T^{-1}_\pi(t_i-1,t_f)+D_\pi(t_i-1,t_f)\right)}_{u.d.t}V_\pi(t_i-1,t_f)]^{-1}\\
+&=V^{-1}_\pi(t_i-1,t_t).t^{-1}.d^{-1}.u^\dagger.U^\dagger_\pi(t_i-1,t_f)
 \end{align}
 $$
 	:::
