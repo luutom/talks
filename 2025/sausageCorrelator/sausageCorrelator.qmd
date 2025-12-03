@@ -212,3 +212,29 @@ $$
 
 ![Example of diagonal spatial correlator obtained in the non-interacting limit](assets/invMxx.png){fig-align='center'}
 
+## Calculating the fermion propagator ***on the fly***
+
+:::{style='font-size:80%'}
+
++ Currently in **NSL** the prefix $\Pi(t)$ and suffix $\Sigma(t)$ terms are evaluated when calculating the forces
+
+\begin{align}
+\Pi(t) &= F_k(t).F_k(t-1)\ldots F_k(0)\equiv U_\pi(t).D_\pi(t).V_\pi(t)\\
+\Sigma(t) &= F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\equiv U_\sigma(t).D_\sigma(t).V_\sigma(t)
+\end{align}
+
++ From these terms I want to determine which components of the inverse fermion matrix I can compute ***without*** having to evaluate an expression of the form $D.V.V^{-1}.D^{-1}$, since such an evaluation usually results in loss of precision^[Note that summing terms $V^{-1}.D^{-1}.U^\dagger+U.D.V$ is okay.]
+
++ A simple analysis shows that we can calulate the following:
+
+:::{style='font-size:80%'}
+\begin{align}
+M^{-1}[t,t]&= [\mathbb{1}+\Pi(t-1).\Sigma(t)]^{-1}=[\mathbb{1}+ U_\pi(t-1).D_\pi(t-1).V_\pi(t-1).U_\sigma(t).D_\sigma(t).V_\sigma(t)]^{-1} & \forall\ t\in[0,N_t-1]\\
+M^{-1}[t,0]&= [\Pi^{-1}(t-1)+\Sigma(t)]^{-1}=[V^{-1}_\pi(t-1).D^{-1}_\pi(t-1).U^\dagger_\pi(t-1)+ U_\sigma(t).D_\sigma(t).V_\sigma(t)]^{-1} & \forall\ t\in[1,N_t-1]\\
+M^{-1}[0,t]&= -[\Pi(t-1)+\Sigma^{-1}(t)]^{-1}=-[U_\pi(t-1).D_\pi(t-1).V_\pi(t-1)+ V^{-1}_\sigma(t).D^{-1}_\sigma(t).U^\dagger_\sigma(t)]^{-1} & \forall\ t\in[1,N_t-1]
+\end{align}
+:::
+
++ This corresponds to all elements on the diagonal, the first row, and the first column of $M^{-1}$.
+
+:::

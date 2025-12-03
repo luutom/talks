@@ -336,8 +336,34 @@ M^{-1}[\phi]_{t_f,t_i}=\mathcal{B}_{t_f,t_i}\times
 <section class="slide level2">
 
 
-
 <img data-src="assets/invMxx.png" class="r-stretch quarto-figure-center"><p class="caption">Example of diagonal spatial correlator obtained in the non-interacting limit</p></section>
+<section id="calculating-the-fermion-propagator-on-the-fly" class="slide level2">
+<h2>Calculating the fermion propagator <strong><em>on the fly</em></strong></h2>
+<div style="font-size:80%">
+<ul>
+<li>Currently in <strong>NSL</strong> the prefix <span class="math inline">\(\Pi(t)\)</span> and suffix <span class="math inline">\(\Sigma(t)\)</span> terms are evaluated when calculating the forces</li>
+</ul>
+<p><span class="math display">\[\begin{align}
+\Pi(t) &amp;= F_k(t).F_k(t-1)\ldots F_k(0)\equiv U_\pi(t).D_\pi(t).V_\pi(t)\\
+\Sigma(t) &amp;= F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\equiv U_\sigma(t).D_\sigma(t).V_\sigma(t)
+\end{align}\]</span></p>
+<ul>
+<li><p>From these terms I want to determine which components of the inverse fermion matrix I can compute <strong><em>without</em></strong> having to evaluate an expression of the form <span class="math inline">\(D.V.V^{-1}.D^{-1}\)</span>, since such an evaluation usually results in loss of precision<sup>1</sup></p></li>
+<li><p>A simple analysis shows that we can calulate the following:</p></li>
+</ul>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{align}
+M^{-1}[t,t]&amp;= [\mathbb{1}+\Pi(t-1).\Sigma(t)]^{-1}=[\mathbb{1}+ U_\pi(t-1).D_\pi(t-1).V_\pi(t-1).U_\sigma(t).D_\sigma(t).V_\sigma(t)]^{-1} &amp; \forall\ t\in[0,N_t-1]\\
+M^{-1}[t,0]&amp;= [\Pi^{-1}(t-1)+\Sigma(t)]^{-1}=[V^{-1}_\pi(t-1).D^{-1}_\pi(t-1).U^\dagger_\pi(t-1)+ U_\sigma(t).D_\sigma(t).V_\sigma(t)]^{-1} &amp; \forall\ t\in[1,N_t-1]\\
+M^{-1}[0,t]&amp;= -[\Pi(t-1)+\Sigma^{-1}(t)]^{-1}=-[U_\pi(t-1).D_\pi(t-1).V_\pi(t-1)+ V^{-1}_\sigma(t).D^{-1}_\sigma(t).U^\dagger_\sigma(t)]^{-1} &amp; \forall\ t\in[1,N_t-1]
+\end{align}\]</span></p>
+</div>
+<ul>
+<li>This corresponds to all elements on the diagonal, the first row, and the first column of <span class="math inline">\(M^{-1}\)</span>.</li>
+</ul>
+</div>
+
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Note that summing terms <span class="math inline">\(V^{-1}.D^{-1}.U^\dagger+U.D.V\)</span> is okay.</p></li></ol></aside></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
