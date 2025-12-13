@@ -223,9 +223,9 @@ $$
 \Sigma(t) &= F_k(N_t-1).F_k(N_t-2)\ldots F_k(t)\equiv U_\sigma(t).D_\sigma(t).V_\sigma(t)
 \end{align}
 
-+ From these terms I want to determine which components of the inverse fermion matrix I can compute ***without*** having to evaluate an expression of the form $D.V.V^{-1}.D^{-1}$, since such an evaluation usually results in loss of precision^[Note that summing terms $V^{-1}.D^{-1}.U^\dagger+U.D.V$ is okay.]
++ From these terms I want to determine which components of the inverse fermion matrix I can compute ***without*** having to evaluate an expression of the form $D(t').V(t').V^{-1}(t).D^{-1}(t)$, since such an evaluation usually results in loss of precision^[Note that summing terms $V^{-1}.D^{-1}.U^\dagger+U.D.V$ is okay.]
 
-+ A simple analysis shows that we can calulate the following:
++ A simple analysis shows that we can calculate the following:
 
 :::{style='font-size:80%'}
 \begin{align}
