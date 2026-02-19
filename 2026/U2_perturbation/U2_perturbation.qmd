@@ -93,8 +93,8 @@ I introduce the following operators^[e.g. see~\cite{fetter2003quantum} eq.(7.34)
 $$
 c_{k,s}=
 \begin{cases}
-a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad{\rm ``particles"}\\
-b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad {\rm ``holes"}\ .
+a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad{\rm "particles"}\\
+b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad {\rm "holes"}\ .
 \end{cases}
 $$
 
