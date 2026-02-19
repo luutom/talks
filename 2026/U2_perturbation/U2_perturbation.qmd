@@ -69,3 +69,14 @@ $$
 
 :::
 
+## Ground state $|\Omega\rangle$
+:::{style='font-size:70%'}
+The ground state $|\Omega\rangle$ is defined by filling all negative energy states
+
+$$
+|\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k<0,s}c^\dagger_{k,s}\right)|0\rangle
+$$
+
+where $|0\rangle$ is the vacuum state.
+
+:::
