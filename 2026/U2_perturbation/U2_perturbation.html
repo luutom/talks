@@ -174,28 +174,62 @@ H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,
 \]</span> where <span class="math inline">\(\kappa\)</span> is the “connectivity”, or “adjacency” matrix and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
 <p>To go to “momentum space”, I first diagonalize <span class="math inline">\(\kappa\)</span> (I assume bi-partite and symmetric) <span class="math display">\[
 -\kappa\to O^{}.(-\kappa).O^{-1}={\rm diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
-\]</span> where <span class="math inline">\(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> is an (non-interacting) eigenenergie with “momentum <span class="math inline">\(k\)</span>”. The orthogonal matrix <span class="math inline">\(O\)</span> can be constructed from the eigenfunctions of <span class="math inline">\(\kappa\)</span>.</p>
+\]</span> where <span class="math inline">\(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> is an (non-interacting) eigenenergie with “momentum <span class="math inline">\(k\)</span>”<sup>1</sup>. The orthogonal matrix <span class="math inline">\(O\)</span> can be constructed from the eigenfunctions of <span class="math inline">\(\kappa\)</span>.</p>
 <p>I now have (I suppress summation symbols over <span class="math inline">\(x,y,s\)</span>) <span class="math display">\[
-\begin{multline}
-H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}\\
+H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
-\end{multline}
-\]</span> This defines the diagonal momentum basis <span class="math display">\[
-c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}
-\]</span></p>
+\]</span> This defines the diagonal momentum basis <span class="math inline">\(\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}\)</span></p>
 </div>
-</section>
-<section id="ground-state-omegarangle" class="slide level2">
-<h2>Ground state <span class="math inline">\(|\Omega\rangle\)</span></h2>
+<aside><ol class="aside-footnotes"><li id="fn1"><p>The index <span class="math inline">\(k\)</span> represents multiple quantum numbers. For example, for a ribbon, <span class="math inline">\(k=(k_x,n,\sigma)\)</span>, where <span class="math inline">\(k_x\)</span> is the momentum in the <span class="math inline">\(x\)</span>-direction, <span class="math inline">\(n&lt;W\)</span> where <span class="math inline">\(W\)</span> is the width of the ribbon, and <span class="math inline">\(\sigma=\pm 1\)</span> is the band.</p></li></ol></aside></section>
+<section id="non-interacting-ground-state-omegarangle" class="slide level2">
+<h2>Non-Interacting Ground state <span class="math inline">\(|\Omega\rangle\)</span></h2>
 <div style="font-size:70%">
-<p>The ground state <span class="math inline">\(|\Omega\rangle\)</span> is defined by filling all negative energy states</p>
+<p>The ground state <span class="math inline">\(|\Omega\rangle\)</span> is defined by filling all negative energy states<sup>1</sup></p>
 <p><span class="math display">\[
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k&lt;0,s}c^\dagger_{k,s}\right)|0\rangle
 \]</span></p>
-<p>where <span class="math inline">\(|0\rangle\)</span> is the vacuum state.</p>
+<p>where <span class="math inline">\(|0\rangle\)</span> is the vacuum state<sup>2</sup> and</p>
+<p><span class="math display">\[
+H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
+\]</span></p>
+<p>with<sup>3</sup></p>
+<p><span class="math display">\[
+\mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k&lt;0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k&lt;0}\epsilon_{k}
+\]</span></p>
 </div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\(s.t.=\)</span> “such that”</p></li><li id="fn3"><p>Definition of vacuum state is such that <span class="math inline">\(c_{k,s}|0\rangle=0\ \forall\ k,s\)</span></p></li><li id="fn4"><p>Factor of 2 comes from summing over <span class="math inline">\(\uparrow\)</span> and <span class="math inline">\(\downarrow\)</span> fermions.</p></li></ol></aside></section>
+<section id="canonical-transformation-to-fermi-surface" class="slide level2">
+<h2>Canonical Transformation to Fermi Surface</h2>
+<div style="font-size:70%">
+<p>I introduce the following operators<sup>1</sup> <span class="math display">\[
+c_{k,s}=
+\begin{cases}
+a^{}_{k,s} &amp; \forall\ k\ s.t.\ \epsilon_k&gt;0 \quad{\rm ``particles"}\\
+b^{\dagger}_{-k,s}&amp; \forall\ k\ s.t.\ \epsilon_k&lt;0 \quad {\rm ``holes"}\ .
+\end{cases}
+\]</span></p>
+<h3 id="h_0"><span class="math inline">\(H_0\)</span></h3>
+<p>With this canonical transformation we have <span class="math display">\[
+\begin{align}
+H_0=&amp;\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
+=&amp;\sum_{k\ s.t.\ \epsilon_k&gt;0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
+\end{align}
+\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>e.g.&nbsp;see~ eq.(7.34)</p></li></ol></aside></section>
+<section class="slide level2">
+
+<section id="h_1" style="font-size:70%">
+<h3><span class="math inline">\(H_1\)</span></h3>
+<p>This term acts like a “mass term” <span class="math display">\[\begin{align}
+H_1=&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
+=&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
+\end{align}\]</span> where <span class="math inline">\(\Lambda=N_x/2\)</span> and <span class="math inline">\(N_x\)</span> is the number of lattice points.</p>
+<p>The canonical transformation of <span class="math inline">\(H_1\)</span> results in an overall constant shift <span class="math inline">\(-U\Lambda\)</span> to the Hamiltonian, which is irrelevant.</p>
+</section>
 
 </section></section>
+
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/fzj_ubonn_logo.png" class="slide-logo"></p>

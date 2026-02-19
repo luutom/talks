@@ -51,32 +51,75 @@ To go to "momentum space", I first diagonalize $\kappa$ (I assume bi-partite and
 $$
 -\kappa\to O^{}.(-\kappa).O^{-1}={\rm diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
 $$
-where $O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}$ and $\epsilon_{k}$ is an (non-interacting) eigenenergie with "momentum $k$".
+where $O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}$ and $\epsilon_{k}$ is an (non-interacting) eigenenergie with "momentum $k$"^[The index $k$ represents multiple quantum numbers.  For example, for a ribbon, $k=(k_x,n,\sigma)$, where $k_x$ is the momentum in the $x$-direction, $n<W$ where $W$ is the width of the ribbon, and $\sigma=\pm 1$ is the band.].
 The orthogonal matrix $O$ can be constructed from the eigenfunctions of $\kappa$.
 
 I now have (I suppress summation symbols over $x,y,s$)
 $$
-\begin{multline}
-H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}\\
+H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
-\end{multline}
 $$
 This defines the diagonal momentum basis
-$$
-c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}
-$$
+$\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}$
 
 
 :::
 
-## Ground state $|\Omega\rangle$
+## Non-Interacting Ground state $|\Omega\rangle$
 :::{style='font-size:70%'}
-The ground state $|\Omega\rangle$ is defined by filling all negative energy states
+The ground state $|\Omega\rangle$ is defined by filling all negative energy states^[$s.t.=$ "such that"]
 
 $$
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k<0,s}c^\dagger_{k,s}\right)|0\rangle
 $$
 
-where $|0\rangle$ is the vacuum state.
+where $|0\rangle$ is the vacuum state^[Definition of vacuum state is such that $c_{k,s}|0\rangle=0\ \forall\ k,s$] and
+
+$$
+H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
+$$
+
+with^[Factor of 2 comes from summing over $\uparrow$ and $\downarrow$ fermions.]
+
+$$
+\mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k<0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k<0}\epsilon_{k}
+$$
+
+:::
+
+## Canonical Transformation to Fermi Surface
+:::{style='font-size:70%'}
+I introduce the following operators^[e.g. see~\cite{fetter2003quantum} eq.(7.34)]
+$$
+c_{k,s}=
+\begin{cases}
+a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad{\rm ``particles"}\\
+b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad {\rm ``holes"}\ .
+\end{cases}
+$$
+
+### $H_0$
+
+With this canonical transformation we have
+$$
+\begin{align}
+H_0=&\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
+=&\sum_{k\ s.t.\ \epsilon_k>0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
+\end{align}
+$$
+:::
+
+---
+:::{style='font-size:70%'}
+
+### $H_1$
+This term acts like a "mass term"
+\begin{align}
+H_1=&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k<0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
+=&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
+\end{align}
+where $\Lambda=N_x/2$ and $N_x$ is the number of lattice points.
+
+The canonical transformation of $H_1$ results in an overall constant shift $-U\Lambda$ to the Hamiltonian, which is irrelevant.
 
 :::
