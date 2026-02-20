@@ -309,7 +309,7 @@ where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagge
 
 # Perturbation theory
 
-## Zeroth order in $\tilde V\propto U$
+## Zeroth order in $\tilde V$
 :::{style='font-size:70%'}
 
 The zeroth order term for the ground state is
@@ -344,5 +344,5 @@ $$
 \langle k,s|\tilde V|k,s\rangle=0
 $$
 
-So to order $\mathcal{O}(\tilde V\propto U)$ there is not contribution to the energy shift for both ground state and single particle state (above the ground state).
+So to order $\mathcal{O}(\tilde V\propto U)$ there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
 :::
