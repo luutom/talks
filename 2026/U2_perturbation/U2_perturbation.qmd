@@ -344,5 +344,5 @@ $$
 \langle k,s|\tilde V|k,s\rangle=0
 $$
 
-So to order $\mathcal{O}(\tilde V\propto U)$ there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
+So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
 :::
