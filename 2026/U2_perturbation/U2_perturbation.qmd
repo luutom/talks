@@ -101,7 +101,7 @@ $${#eq-CanTrans}
 With this definition it is clear that
 $$
 a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
-$$
+$${#eq-vanish}
 
 ### $H_0$
 
@@ -148,7 +148,7 @@ I want express $H_2$ in the canonical basis of ``holes`` and ``particles``.
 To do this, I need to simplify the notation, otherwise things get crazy.  I will assume that we have a bipartite lattice and the Fermi surface is defined such that $\epsilon_{{\rm fermi}}=0$^[This corresponds to half-filling.].
 This implies the following things:
 
-+ For each momentum index $k$ there exist $\epsilon_k\ge 0$ and $-\epsilon_k\le 0$ as eigenstates
++ For each momentum index $k$ there exist $\epsilon_k\ge 0$ and $-\epsilon_k\le 0$ as eigenenergies
 
 + The positive energies are associated with ``particle`` operators $a^{}_k,a^\dagger_k$ 
 
@@ -158,7 +158,7 @@ So to refer to the negative energy associated with a momentum index $k$ I add a 
 This allows me to express $H_2$ as (switching to [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation))
 
 $$
-\begin{align*}
+\begin{align}
 H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
 +&V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}\\
 +&V_{-k',l';k,l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
@@ -168,7 +168,181 @@ H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\down
 +&V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
 +&V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
 +&V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
-\end{align*}
+\end{align}
+$${#eq-H2_1}
+
+:::
+
+##
+
+#### Normal ordering $H_2$
+
+:::{style='font-size:70%'}
+
+Unfortunately I'm not done.  I also want to express $H_2$ in *normal ordered* form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of @eq-H2_1) are already in normal-ordered form (in $\color{blue}{\rm blue}$ below).
+Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes.  I'll do that now ($\color{red}{\rm red}$ terms)
+$$
+\begin{align}
+H_2&=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\color{red}{-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^{}_{k,\downarrow}}\\
+&\color{blue}{+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\\
+&\color{red}{-V_{-k',l';k,l}a^\dagger_{l',\downarrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\color{blue}{+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}}\\
+&\color{red}{+V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}}+V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
+%
+&+V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}\color{red}{+V_{-k',l';-k,l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}a^{}_{l,\uparrow}}\\
+&\color{blue}{+V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
+&+V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
+&+V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
+\end{align}
+$${#eq-H2_2}
+
+The remaining (black) terms require some work to normal order.
+
+:::
+
+##
+:::{style='font-size:70%'}
+
+Let's look at term 8.
+
+$$
+\begin{align}
+V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&=V_{-k',l';k,-l}\left(\delta_{-k',-l}-b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}\right)a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}\\
+&=\delta_{-k',-l}V_{-k',l';k,-l}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}
+\end{align}
+$$
+We can simplify the first term (remember that there is a sum over all momentum indices)
+$$
+\delta_{-k',-l}V_{-k',l';k,-l}=V_{-l,l';k,-l}=U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}
+$$
+Now $\sum_{-l}O^{-1}_{x,-l}O^{}_{-l,x}=1/2$ (!!) since we are only summing over the negative energies, which corresponds to only half of all possible states. This means we get
+$$
+U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}=\frac{U}{2}\sum_xO^{-1}_{x,l'}O^{}_{k,x}=\frac{U}{2}\delta_{l',k}
+$$
+Thus term 8 becomes
+$$
+V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}
+=\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad{\rm (term\ 8)}
 $$
 
+:::
+
+##
+:::{style='font-size:70%'}
+
+A similar calculation for term 9 gives
+
+$$
+V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}
+=\frac{U}{2}a^\dagger_{k,\uparrow}a^{}_{k,\uparrow}-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\downarrow}b^{}_{-k,\downarrow}a^{}_{l,\uparrow}\quad{\rm (term\ 9)}
+$$
+
+Now consider term 12
+
+$$
+\begin{align}
+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}=&V_{k',-l';-k,-l}\left(\delta_{-l',-k}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\right)\\
+=&\underbrace{V_{k',-k;-k,-l}}_{=\frac{U}{2} \delta_{k',-l}=0}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\\
+&=V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\quad{\rm (term\ 12)}
+\end{align}
+$$
+Similar thing happens for terms 13-15,
+$$
+\begin{align}
+V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}&=-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}&\quad{\rm (term\ 13)}\\
+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&=-V_{-k',-l';k,-l}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}&\quad{\rm (term\ 14)}\\
+V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}&=+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}&\quad{\rm (term\ 15)}
+\end{align}
+$$
+
+:::
+
+##
+:::{style='font-size:70%'}
+
+Now we come to the final term 16, which is the most difficult to normal order
+
+$$
+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
+$$
+
+I will write this out in more detail shortly.  I just give the final result here
+
+:::{style='font-size:80%'}
+$$
+\begin{align}
+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
+&= \underbrace{V_{-k',-k;-k,-k'}}_{=\frac{U}{2}\Lambda}-\underbrace{V_{-k',-l';-k,-k'}}_{=\frac{U}{2}\delta_{-l',-k}}b^\dagger_{-k\downarrow}b^{}_{-l',\downarrow}-\underbrace{V_{-k',-k;-k,-l}}_{=\frac{U}{2}\delta_{-k',-l}}b^\dagger_{-l\uparrow}b^{}_{-k',\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
+&=\frac{U}{2}\Lambda-\frac{U}{2}\left(b^\dagger_{-k\downarrow}b^{}_{-k,\downarrow}+b^\dagger_{-k\uparrow}b^{}_{-k,\uparrow}\right)+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\quad{\rm (term\ 16)}
+\end{align}
+$$
+:::
+
+Note that the bilinear terms in this expression and those from terms 8 and 9 exactly cancel the bilinear terms in $H_1$. 
+
+:::
+
+## The final expression for $H$
+:::{style='font-size:70%'}
+
+We finally come to the final expression for $H$.  Combining all terms, I get (repeated indices are summed)
+
+$$
+\begin{align}
+H&=H_0+H_1+H_2\\
+&=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\\
+%
+&+V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^{}_{k,\downarrow}\\
+&+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}\\
+&-V_{-k',l';k,l}a^\dagger_{l',\downarrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
+&+V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\\
+%
+&-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}+V_{-k',l';-k,l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}a^{}_{l,\uparrow}\\
+&+V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\\
+&-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}-V_{-k',-l';k,-l}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}\\
+&+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
+&\equiv \tilde H_0+\tilde V
+\end{align}
+$$
+
+where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda$ and $\tilde V$ is all terms with $V$.
+:::
+
+# Perturbation theory
+
+## Zeroth order in $\tilde V\propto U$
+:::{style='font-size:70%'}
+
+The zeroth order term for the ground state is
+
+$$
+\langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+$$
+
+Now let me consider a single-particle state with momentum index $k$ above the fermi energy, $|k,s\rangle=a^\dagger_{k,s}|\Omega\rangle$.
+
+The zeroth order energy for this state is
+
+$$
+\langle k,s|\tilde H_0|k,s\rangle=\langle k,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|k,s\rangle=\epsilon_k+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+$$
+
+:::
+
+## First order in $\tilde V$
+
+:::{style='font-size:70%'}
+
+Here having the the interaction term $\tilde V$ in normal order makes the calculation trivial
+$$
+\langle \Omega|\tilde V|\Omega\rangle=0
+$$
+due to @eq-vanish.
+
+A less obvious case, but just as trivial due to @eq-vanish, is
+
+$$
+\langle k,s|\tilde V|k,s\rangle=0
+$$
+
+So to order $\mathcal{O}(\tilde V\propto U)$ there is not contribution to the energy shift for both ground state and single particle state (above the ground state).
 :::
