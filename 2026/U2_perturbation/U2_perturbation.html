@@ -201,15 +201,15 @@ H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
 <section id="canonical-transformation-to-fermi-surface" class="slide level2">
 <h2>Canonical Transformation to Fermi Surface</h2>
 <div style="font-size:70%">
-<p>I introduce the following operators<sup>1</sup> <span class="math display">\[
+<p>I introduce the following operators<sup>1</sup> <span id="eq-CanTrans"><span class="math display">\[
 c_{k,s}=
 \begin{cases}
 a^{}_{k,s} &amp; \forall\ k\ s.t.\ \epsilon_k&gt;0 \quad{\rm "particles"}\\
 b^{\dagger}_{-k,s}&amp; \forall\ k\ s.t.\ \epsilon_k&lt;0 \quad {\rm "holes"}\ .
 \end{cases}
-\]</span></p>
+\tag{1}\]</span></span></p>
 <p>With this definition it is clear that <span class="math display">\[
-b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
+a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
 \]</span></p>
 <h3 id="h_0"><span class="math inline">\(H_0\)</span></h3>
 <p>With this canonical transformation we have <span class="math display">\[
@@ -222,16 +222,50 @@ H_0=&amp;\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 <aside><ol class="aside-footnotes"><li id="fn5"><p>e.g.&nbsp;see~ eq.(7.34)</p></li></ol></aside></section>
 <section class="slide level2">
 
-<section id="h_1" style="font-size:70%">
-<h3><span class="math inline">\(H_1\)</span></h3>
+<div style="font-size:70%">
+<h3 id="h_1"><span class="math inline">\(H_1\)</span></h3>
 <p>This term acts like a “mass term” <span class="math display">\[\begin{align}
 H_1=&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
 =&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
-\end{align}\]</span> where <span class="math inline">\(\Lambda=N_x/2\)</span> and <span class="math inline">\(N_x\)</span> is the number of lattice points.</p>
+\end{align}\]</span> where <span class="math inline">\(\Lambda=N_x/2\)</span> and <span class="math inline">\(N_x\)</span> is the number of lattice points<sup>1</sup>.</p>
 <p>The canonical transformation of <span class="math inline">\(H_1\)</span> results in an overall constant shift <span class="math inline">\(-U\Lambda\)</span> to the Hamiltonian, which is irrelevant.</p>
-</section>
+<h3 id="h_2"><span class="math inline">\(H_2\)</span></h3>
+<p>Now things get messy. I have <span class="math display">\[
+\begin{align}
+H_2&amp;=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
+=U\sum_x\sum_{k',l',k,l}O^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
+&amp;=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
+\equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
+\end{align}
+\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn6"><p><span class="math inline">\(\Lambda\)</span> is also the number of hexagonal unit cells.</p></li></ol></aside></section>
+<section id="section" class="slide level2">
+<h2></h2>
+<div style="font-size:70%">
+<p>I want express <span class="math inline">\(H_2\)</span> in the canonical basis of <code>holes</code> and <code>particles</code>. To do this, I need to simplify the notation, otherwise things get crazy. I will assume that we have a bipartite lattice and the Fermi surface is defined such that <span class="math inline">\(\epsilon_{{\rm fermi}}=0\)</span><sup>1</sup>. This implies the following things:</p>
+<ul>
+<li><p>For each momentum index <span class="math inline">\(k\)</span> there exist <span class="math inline">\(\epsilon_k\ge 0\)</span> and <span class="math inline">\(-\epsilon_k\le 0\)</span> as eigenstates</p></li>
+<li><p>The positive energies are associated with <code>particle</code> operators <span class="math inline">\(a^{}_k,a^\dagger_k\)</span></p></li>
+<li><p>The negative energies are associated with <code>hole</code> operators <span class="math inline">\(b^{}_{-k},b^\dagger_{-k}\)</span> (see <a href="#/eq-CanTrans" class="quarto-xref">Equation&nbsp;1</a>)</p></li>
+</ul>
+<p>So to refer to the negative energy associated with a momentum index <span class="math inline">\(k\)</span> I add a minus sign to the index: <span class="math inline">\(-k\)</span>. This allows me to express <span class="math inline">\(H_2\)</span> as (switching to <a href="https://en.wikipedia.org/wiki/Einstein_notation">Einstein summation convention</a>)</p>
+<p><span class="math display">\[
+\begin{align*}
+H_2= &amp;V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&amp;V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}\\
++&amp;V_{-k',l';k,l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&amp;V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
+%
++&amp;V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',l';-k,l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}\\
++&amp;V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&amp;V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&amp;V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
+\end{align*}
+\]</span></p>
+</div>
 
-</section></section>
+<aside><ol class="aside-footnotes"><li id="fn7"><p>This corresponds to half-filling.</p></li></ol></aside></section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

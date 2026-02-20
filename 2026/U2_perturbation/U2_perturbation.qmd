@@ -96,11 +96,11 @@ c_{k,s}=
 a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad{\rm "particles"}\\
 b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad {\rm "holes"}\ .
 \end{cases}
-$$
+$${#eq-CanTrans}
 
 With this definition it is clear that
 $$
-b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
+a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
 $$
 
 ### $H_0$
@@ -123,8 +123,52 @@ This term acts like a "mass term"
 H_1=&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k<0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
 =&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
 \end{align}
-where $\Lambda=N_x/2$ and $N_x$ is the number of lattice points.
+where $\Lambda=N_x/2$ and $N_x$ is the number of lattice points^[$\Lambda$ is also the number of hexagonal unit cells.].
 
 The canonical transformation of $H_1$ results in an overall constant shift $-U\Lambda$ to the Hamiltonian, which is irrelevant.
+
+### $H_2$
+Now things get messy.  I have
+$$
+\begin{align}
+H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
+=U\sum_x\sum_{k',l',k,l}O^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
+&=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
+\equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
+\end{align}
+$$
+
+:::
+
+##
+
+:::{style='font-size:70%'}
+
+I want express $H_2$ in the canonical basis of ``holes`` and ``particles``.
+To do this, I need to simplify the notation, otherwise things get crazy.  I will assume that we have a bipartite lattice and the Fermi surface is defined such that $\epsilon_{{\rm fermi}}=0$^[This corresponds to half-filling.].
+This implies the following things:
+
++ For each momentum index $k$ there exist $\epsilon_k\ge 0$ and $-\epsilon_k\le 0$ as eigenstates
+
++ The positive energies are associated with ``particle`` operators $a^{}_k,a^\dagger_k$ 
+
++ The negative energies are associated with ``hole`` operators $b^{}_{-k},b^\dagger_{-k}$ (see @eq-CanTrans)
+
+So to refer to the negative energy associated with a momentum index $k$ I add a minus sign to the index: $-k$.
+This allows me to express $H_2$ as (switching to [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation))
+
+$$
+\begin{align*}
+H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}\\
++&V_{-k',l';k,l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
+%
++&V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',l';-k,l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}\\
++&V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
++&V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
+\end{align*}
+$$
 
 :::
