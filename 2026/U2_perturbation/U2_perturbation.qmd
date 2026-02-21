@@ -317,22 +317,22 @@ where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagge
 The zeroth order term for the ground state is
 
 $$
-\langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E_\Omega
+\langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_\Omega
 $$
 
-### Single-particle state $|k,s\rangle$
+### Single-particle state $|p,s\rangle$
 
-Now let me consider a single-particle state with momentum index $k$ above the fermi energy, $|k,s\rangle=a^\dagger_{k,s}|\Omega\rangle$.
+Now let me consider a single-particle state with momentum index $p$ above the fermi energy, $|p,s\rangle=a^\dagger_{p,s}|\Omega\rangle$.
 
 The zeroth order energy for this state is
 
 $$
-\langle k,s|\tilde H_0|k,s\rangle=\langle k,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|k,s\rangle=\epsilon_k+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E_{k,s}
+\langle p,s|\tilde H_0|p,s\rangle=\langle p,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|p,s\rangle=\epsilon_p+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_{p,s}
 $$
 
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V^0)$
-$\therefore\quad$ the energy difference $E_{k,s}-E_\Omega=\epsilon_k$
+$\therefore\quad$ the energy difference $E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p$
 :::
 
 :::
@@ -348,18 +348,18 @@ $$
 $$
 due to @eq-vanish.
 
-### Single-particle state $|k,s\rangle$
+### Single-particle state $|p,s\rangle$
 A less obvious case, but just as trivial due to @eq-vanish, is
 
 $$
-\langle k,s|\tilde V|k,s\rangle=0
+\langle p,s|\tilde V|p,s\rangle=0
 $$
 
 So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
 
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V)$
-$\therefore\quad$ the energy difference $E_{k,s}-E_\Omega=\epsilon_k$
+$\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p$
 :::
 
 :::
@@ -389,7 +389,7 @@ $$
 Non-vanishing matrix elements implies that
 
 $$
-|n\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
+|n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
 $$
 
@@ -410,7 +410,63 @@ So we have (sum over all momentum indices)
 $$
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 -\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
+$${#eq-groundStateV2}
+
+### Single-particle state $|p,\uparrow\rangle$
+
 $$
+\sum_{n}\langle p,\uparrow|\tilde V|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|p,\uparrow\rangle
+$$
+
+There are two pairs of terms in this case that contribute: terms 3 and 4, and terms 6 and 11 (as for the ground state), but with restrictions
+
+:::{style='font-size:70%'}
+$$
+\begin{multline}
+\sum_{n}\langle p,\uparrow|V_{p,-l';k,l}a^\dagger_{p,\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{k',l';-k,p}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{p,\uparrow}|p,\uparrow\rangle\\
++
+\sum_{n}\langle p,\uparrow|V_{-k',-l';k,l\ne p}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k'\ne p,\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|p,\uparrow\rangle
+\end{multline}
+$$
+:::
+
+:::
+
+##
+
+:::{style='font-size:70%'}
+
+The first term requires
+
+$$
+|n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}|\Omega\rangle
+\quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l'
+$$
+
+The second term requires
+
+$$
+|n\rangle=|l\ne p,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow;p,\uparrow\rangle=a^{\dagger}_{l\ne p,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}a^{\dagger}_{p,\uparrow}|\Omega\rangle
+\quad;\quad \tilde k'=l\ne p,\tilde l'=k,\tilde k=l',\tilde l=k'
+$$
+
+When I apply these conditions I finally get
+
+$$
+\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} -
+\frac{V_{-k',-l';k,l\ne p}V_{l\ne p,k;-l',-k'}}{\epsilon_{l\ne p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
+$$
+Notice that the second term is *almost* like the ground state shift at second order in @eq-groundStateV2.
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V^2)$
+A little work shows that 
+$$
+E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} +
+\frac{V_{-k',-l';k,p}V_{p,k;-l',-k'}}{\epsilon_{p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
+$$
+:::
+
 
 :::
 
