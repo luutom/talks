@@ -433,6 +433,42 @@ H&amp;=H_0+H_1+H_2\\
 </div>
 </div>
 </div>
+</section>
+<section id="second-order-in-tilde-v" class="slide level2">
+<h2>Second order in <span class="math inline">\(\tilde V\)</span></h2>
+<h3 id="ground-state-omegarangle-2">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
+<div style="font-size:70%">
+<p>The second order contribution is</p>
+<p><span class="math display">\[
+\sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
+\]</span> where the sum is over all possible states <span class="math inline">\(|n\rangle\)</span> in the Fock space.</p>
+<p>Again the normal ordering of <span class="math inline">\(\tilde V\)</span> simplifies things. The only terms in <span class="math inline">\(\tilde V\)</span> that can contribute are terms 6 and 11<sup>1</sup> <span class="math display">\[
+\begin{multline}
+\sum_{n}\langle\Omega|V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k',\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle\\
+=
+V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle
+\end{multline}
+\]</span></p>
+<p>Non-vanishing matrix elements implies that</p>
+<p><span class="math display">\[
+|n\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
+\quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
+\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
+<section id="section-5" class="slide level2">
+<h2></h2>
+<div style="font-size:70%">
+<p>It is straightforward to show that</p>
+<p><span class="math display">\[
+\langle n|\tilde H_0|n\rangle=\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\]</span></p>
+<p>So we have (sum over all momentum indices)</p>
+<p><span class="math display">\[
+\sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
+-\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
+\]</span></p>
+</div>
 
 </section></section>
 

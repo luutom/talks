@@ -361,4 +361,56 @@ So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shif
 ## Energy difference at $\mathcal{O}(V)$
 $\therefore\quad$ the energy difference $E_{k,s}-E_\Omega=\epsilon_k$
 :::
+
 :::
+
+## Second order in $\tilde V$
+
+### Ground state $|\Omega\rangle$
+
+:::{style='font-size:70%'}
+
+The second order contribution is
+
+$$
+\sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
+$$
+where the sum is over all possible states $|n\rangle$ in the Fock space.
+
+Again the normal ordering of $\tilde V$ simplifies things.  The only terms in $\tilde V$ that can contribute are terms 6 and 11^[Repeated momentum indices are summed over.]
+$$
+\begin{multline}
+\sum_{n}\langle\Omega|V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k',\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle\\
+=
+V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle
+\end{multline}
+$$
+
+Non-vanishing matrix elements implies that
+
+$$
+|n\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
+\quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
+$$
+
+:::
+
+##
+
+:::{style='font-size:70%'}
+
+It is straightforward to show that
+
+$$
+\langle n|\tilde H_0|n\rangle=\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+$$
+
+So we have (sum over all momentum indices)
+
+$$
+\sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
+-\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
+$$
+
+:::
+
