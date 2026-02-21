@@ -460,10 +460,10 @@ Notice that the second term is *almost* like the ground state shift at second or
 
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V^2)$
-A little work shows that 
+A little work shows that (I now add the explicit summation symbols)
 $$
-E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} +
-\frac{V_{-k',-l';k,p}V_{p,k;-l',-k'}}{\epsilon_{p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
+E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} +
+\sum_{-k',-l',k}\frac{V_{-k',-l';k,p}V_{p,k;-l',-k'}}{\epsilon_{p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
 $$
 :::
 
