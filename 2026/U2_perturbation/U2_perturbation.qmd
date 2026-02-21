@@ -312,19 +312,28 @@ where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagge
 ## Zeroth order in $\tilde V$
 :::{style='font-size:70%'}
 
+### Ground state $|\Omega\rangle$
+
 The zeroth order term for the ground state is
 
 $$
-\langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E_\Omega
 $$
+
+### Single-particle state $|k,s\rangle$
 
 Now let me consider a single-particle state with momentum index $k$ above the fermi energy, $|k,s\rangle=a^\dagger_{k,s}|\Omega\rangle$.
 
 The zeroth order energy for this state is
 
 $$
-\langle k,s|\tilde H_0|k,s\rangle=\langle k,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|k,s\rangle=\epsilon_k+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\langle k,s|\tilde H_0|k,s\rangle=\langle k,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|k,s\rangle=\epsilon_k+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E_{k,s}
 $$
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V^0)$
+$\therefore\quad$ the energy difference $E_{k,s}-E_\Omega=\epsilon_k$
+:::
 
 :::
 
@@ -332,12 +341,14 @@ $$
 
 :::{style='font-size:70%'}
 
+### Ground state $|\Omega\rangle$
 Here having the the interaction term $\tilde V$ in normal order makes the calculation trivial
 $$
 \langle \Omega|\tilde V|\Omega\rangle=0
 $$
 due to @eq-vanish.
 
+### Single-particle state $|k,s\rangle$
 A less obvious case, but just as trivial due to @eq-vanish, is
 
 $$
@@ -345,4 +356,9 @@ $$
 $$
 
 So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V)$
+$\therefore\quad$ the energy difference $E_{k,s}-E_\Omega=\epsilon_k$
+:::
 :::
