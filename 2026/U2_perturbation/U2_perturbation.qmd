@@ -399,6 +399,10 @@ $$
 
 :::{style='font-size:70%'}
 
+:::{.columns}
+
+:::{.column width="60%"}
+
 It is straightforward to show that
 
 $$
@@ -411,6 +415,16 @@ $$
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 -\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
 $${#eq-groundStateV2}
+
+:::
+
+:::{.column width="40%"}
+
+![](assets/groundState.png){fig-align='right' width='65%'}
+
+:::
+
+:::
 
 ### Single-particle state $|p,\uparrow\rangle$
 
@@ -450,6 +464,9 @@ $$
 \quad;\quad \tilde k'=l\ne p,\tilde l'=k,\tilde k=l',\tilde l=k'
 $$
 
+:::{.columns}
+
+:::{.column width="50%"}
 When I apply these conditions I finally get
 
 $$
@@ -457,6 +474,16 @@ $$
 \frac{V_{-k',-l';k,l\ne p}V_{l\ne p,k;-l',-k'}}{\epsilon_{l\ne p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
 $$
 Notice that the second term is *almost* like the ground state shift at second order in @eq-groundStateV2.
+
+:::
+
+:::{.column width="50%"}
+
+![](assets/OrderU2_single.png){fig-align='center' width='80%'}
+
+:::
+
+:::
 
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V^2)$
