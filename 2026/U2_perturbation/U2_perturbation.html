@@ -537,6 +537,44 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 </div>
 </div>
 </div>
+</section>
+<section id="degenerate-perturbation-theory" class="slide level2">
+<h2>Degenerate perturbation theory</h2>
+<div style="font-size:70%">
+<p>Lin points out a very important fact that I have ignored up to now: the interesting systems have in the non-interacting limit single-particle degenerate zero-energy states. If I want to do perturbation theory properly, I have to perform <em>degenerate</em> perturbation theory. So let’s do this now.</p>
+<p>I assume there are degenerate single-particle states whose energy <span class="math inline">\(\epsilon_d=0\)</span>. The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band). I label these single-paricle degenerate states as<sup>1</sup> <span class="math display">\[
+a^\dagger_{d,s}|0\rangle\quad;\quad b^{}_{-d,s}|0\rangle
+\]</span> where <span class="math inline">\(d\)</span> denotes the degenerate state and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
+<p>I again define the ground state <span class="math inline">\(|\Omega\rangle\)</span> <span class="math display">\[
+|\Omega\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle
+\]</span> Notice that I <strong><em>include</em></strong> the <span class="math inline">\(b^{}_{-d,s}\)</span> states that have zero energy in the definition of the ground state <span class="math inline">\(|\Omega\rangle\)</span>.</p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>The labels <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for these degenerate states are completely arbitrary.</p></li></ol></aside></section>
+<section id="section-7" class="slide level2">
+<h2></h2>
+<div style="font-size:70%">
+<p>Because of these single-particle degenerate states, we now have 16 <em>many</em>-body non-interacting degenerate states</p>
+<p><span class="math display">\[
+\begin{align}
+a^\dagger_{d,s}|\Omega\rangle &amp; &amp; b^\dagger_{-d,s}|\Omega\rangle &amp; &amp; S_z=\pm\frac{1}{2}\\
+a^\dagger_{d,s}b^\dagger_{-d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; &amp; b^\dagger_{-d,s}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle &amp; &amp; S_z=\pm\frac{1}{2} \\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; &amp; S_z=\pm 1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; &amp; S_z=0\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; &amp; b^\dagger_{-d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; &amp; S_z=0\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; &amp;|\Omega\rangle &amp; &amp;  S_z=0
+\end{align}
+\]</span> All these states have eigenenergy <span class="math inline">\(\mathcal{E}_\Omega\)</span> (<span class="math inline">\(-\frac{U}{2}\Lambda\)</span>), but they have different <span class="math inline">\(S_z\)</span> as labelled above.</p>
+</div>
+</section>
+<section id="section-8" class="slide level2">
+<h2></h2>
+<h3 id="first-order-degenerate-perturbation-theory">First order (degenerate) perturbation theory</h3>
+<div style="font-size:70%">
+<p>To perform degenerate perturbation theory at leading order, I need to diagonalize within the different <span class="math inline">\(S_z\)</span> subspaces.</p>
+<p>I will consider <span class="math inline">\(S_z=0\)</span> first.</p>
+<p>Here I have to diagonalize the following matrix <span class="math display">\[
+\]</span></p>
+</div>
 
 </section></section>
 
