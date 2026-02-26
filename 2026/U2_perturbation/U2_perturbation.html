@@ -543,13 +543,13 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 <div style="font-size:70%">
 <p>Lin points out a very important fact that I have ignored up to now: the interesting systems have in the non-interacting limit single-particle degenerate zero-energy states. If I want to do perturbation theory properly, I have to perform <em>degenerate</em> perturbation theory. So let’s do this now.</p>
 <p>I assume there are degenerate single-particle states whose energy <span class="math inline">\(\epsilon_d=0\)</span>. The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band). I label these single-particle degenerate states as<sup>1</sup> <span class="math display">\[
-a^\dagger_{d,s}|0\rangle\quad;\quad b^{}_{-d,s}|0\rangle
-\]</span> where <span class="math inline">\(d\)</span> denotes the degenerate state and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
-<p>I define the following state <span class="math inline">\(|\mathcal{V}\rangle\)</span><sup>2</sup> <span class="math display">\[
+c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv b^{}_{-d,s}|0\rangle
+\]</span> where <span class="math inline">\(d\)</span> denotes the degenerate state, <span class="math inline">\(s=\uparrow,\downarrow\)</span>, and the <span class="math inline">\(\pm\)</span> index denotes the parity of the state<sup>2</sup>.</p>
+<p>I define the following state <span class="math inline">\(|\mathcal{V}\rangle\)</span><sup>3</sup> <span class="math display">\[
 |\mathcal{V}\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}&lt;0\ .
 \]</span> Notice that I <strong><em>do not include</em></strong> the <span class="math inline">\(b^{}_{-d,s}\)</span> states that have degenerate zero energies.</p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn9"><p>The labels <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for these degenerate states are completely arbitrary.</p></li><li id="fn10"><p>This state is <strong><em>not</em></strong> the half-filled ground state.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>The labels <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> for these degenerate states are completely arbitrary.</p></li><li id="fn10"><p>Lin points out correctly that we have full control over the parity of these non-interacting states.</p></li><li id="fn11"><p>This state is <strong><em>not</em></strong> the half-filled ground state.</p></li></ol></aside></section>
 <section id="section-7" class="slide level2">
 <h2></h2>
 <div style="font-size:70%">
@@ -584,8 +584,8 @@ a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle
 \langle S_z=0|\tilde V|S_z=0\rangle
 =
 \begin{pmatrix}
-V_{-d,-d;-d,-d} &amp; V_{-d,-d; d, d} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
-V_{ d, d;-d,-d} &amp;  V_{ d, d; d, d} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+V_{-d,-d;-d,-d} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp;  V_{ d, d; d, d} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
 0 &amp; 0 &amp; V_{ d, d; d, d} &amp; V_{ d, d;-d,-d} &amp; 0 &amp; 0\\
 0 &amp; 0 &amp; V_{-d,-d; d, d} &amp; V_{-d,-d;-d,-d} &amp; 0 &amp; 0\\
 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{-d, d;-d, d}\\

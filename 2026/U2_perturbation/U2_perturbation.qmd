@@ -504,9 +504,9 @@ Lin points out a very important fact that I have ignored up to now: the interest
 
 I assume there are degenerate single-particle states whose energy $\epsilon_d=0$.  The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band).  I label these single-particle degenerate states as^[The labels $a$ and $b$ for these degenerate states are completely arbitrary.]
 $$
-a^\dagger_{d,s}|0\rangle\quad;\quad b^{}_{-d,s}|0\rangle
+c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv b^{}_{-d,s}|0\rangle
 $$
-where $d$ denotes the degenerate state and $s=\uparrow,\downarrow$.
+where $d$ denotes the degenerate state, $s=\uparrow,\downarrow$, and the $\pm$ index denotes the parity of the state^[Lin points out correctly that we have full control over the parity of these non-interacting states.].
 
 I define the following state $|\mathcal{V}\rangle$^[This state is ***not*** the half-filled ground state.]
 $$
@@ -561,8 +561,8 @@ $$
 \langle S_z=0|\tilde V|S_z=0\rangle
 =
 \begin{pmatrix}
- V_{-d,-d;-d,-d} & V_{-d,-d; d, d} & 0 & 0 & 0 & 0\\
-V_{ d, d;-d,-d} &  V_{ d, d; d, d} & 0 & 0 & 0 & 0\\
+ V_{-d,-d;-d,-d} & 0 & 0 & 0 & 0 & 0\\
+0 &  V_{ d, d; d, d} & 0 & 0 & 0 & 0\\
 0 & 0 & V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0\\
 0 & 0 & V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0\\
 0 & 0 & 0 & 0 & 0 & V_{-d, d;-d, d}\\
