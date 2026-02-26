@@ -302,7 +302,7 @@ H&=H_0+H_1+H_2\\
 &+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
 &\equiv \tilde H_0+\tilde V
 \end{align}
-$$
+$${#eq-tildeV}
 
 where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda$ and $\tilde V$ is all terms with $V$.
 :::
@@ -524,15 +524,26 @@ Notice that I ***do not include*** the $b^{}_{-d,s}$ states that have degenerate
 Because of these single-particle degenerate states, we now have 16 *many*-body non-interacting degenerate states
 $$
 \begin{align}
-a^\dagger_{d,s}|\mathcal{V}\rangle & & b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2}\\
-a^\dagger_{d,s}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} \\
-a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=\pm 1\\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle & & b^{}_{-d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=0\\
-a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & S_z=0\\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & &|\mathcal{V}\rangle & &  S_z=0
+ & &|\mathcal{V}\rangle & &  S_z=0 && Q=-2 && \Pi=+1\\
+a^\dagger_{d,s}|\mathcal{V}\rangle & & b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=-1 && \Pi=\pm 1\\
+a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=\pm 1 && Q=0 && \Pi=-1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle & & b^{}_{-d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=+1\\
+a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=-1\\
+a^\dagger_{d,s}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 \end{align}
 $$
-All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different $S_z$ as labelled above.
+All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above.
+The interaction $\tilde V$ does not violate these quantum numbers.
+
+:::{.callout-note}
+## Can $\tilde V$ couple the $Q=-2$ state to the $Q=2$ state?
+As an example demonstrating that $\tilde V$ preserves $Q$ (which confused me until Lin clarified the issue for me), I consider the matrix element
+$$
+\langle Q=-2|\tilde V|Q=+2\rangle=\langle \mathcal{V}|\tilde V a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle
+$$
+A non-trivial result requires that $\tilde V$ has a term $b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
+:::
 
 :::
 

@@ -352,7 +352,7 @@ V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarro
 <h2>The final expression for <span class="math inline">\(H\)</span></h2>
 <div style="font-size:70%">
 <p>We finally come to the final expression for <span class="math inline">\(H\)</span>. Combining all terms, I get (repeated indices are summed)</p>
-<p><span class="math display">\[
+<p><span id="eq-tildeV"><span class="math display">\[
 \begin{align}
 H&amp;=H_0+H_1+H_2\\
 &amp;=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\\
@@ -368,7 +368,7 @@ H&amp;=H_0+H_1+H_2\\
 &amp;+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
 &amp;\equiv \tilde H_0+\tilde V
 \end{align}
-\]</span></p>
+\tag{5}\]</span></span></p>
 <p>where <span class="math inline">\(\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\)</span> and <span class="math inline">\(\tilde V\)</span> is all terms with <span class="math inline">\(V\)</span>.</p>
 </div>
 </section></section>
@@ -469,7 +469,7 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 <p><span id="eq-groundStateV2"><span class="math display">\[
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 -\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
-\tag{5}\]</span></span></p>
+\tag{6}\]</span></span></p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-right">
 <figure>
@@ -512,7 +512,7 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 <p><span class="math display">\[
 \frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} -
 \frac{V_{-k',-l';k,l\ne p}V_{l\ne p,k;-l',-k'}}{\epsilon_{l\ne p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
-\]</span> Notice that the second term is <em>almost</em> like the ground state shift at second order in <a href="#/eq-groundStateV2" class="quarto-xref">Equation&nbsp;5</a>.</p>
+\]</span> Notice that the second term is <em>almost</em> like the ground state shift at second order in <a href="#/eq-groundStateV2" class="quarto-xref">Equation&nbsp;6</a>.</p>
 </div><div class="column" style="width:50%;">
 <div class="quarto-figure quarto-figure-center">
 <figure>
@@ -555,14 +555,30 @@ c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{d,s}|0\rangle\quad;\quad c^\dagger_
 <div style="font-size:70%">
 <p>Because of these single-particle degenerate states, we now have 16 <em>many</em>-body non-interacting degenerate states <span class="math display">\[
 \begin{align}
-a^\dagger_{d,s}|\mathcal{V}\rangle &amp; &amp; b^{}_{-d,s}|\mathcal{V}\rangle &amp; &amp; S_z=\pm\frac{1}{2}\\
-a^\dagger_{d,s}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,s}|\mathcal{V}\rangle &amp; &amp; S_z=\pm\frac{1}{2} \\
-a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; S_z=\pm 1\\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle &amp; &amp; b^{}_{-d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; S_z=0\\
-a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; S_z=0\\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp;|\mathcal{V}\rangle &amp; &amp;  S_z=0
+&amp; &amp;|\mathcal{V}\rangle &amp; &amp;  S_z=0 &amp;&amp; Q=-2 &amp;&amp; \Pi=+1\\
+a^\dagger_{d,s}|\mathcal{V}\rangle &amp; &amp; b^{}_{-d,s}|\mathcal{V}\rangle &amp; &amp; S_z=\pm\frac{1}{2} &amp;&amp; Q=-1 &amp;&amp; \Pi=\pm 1\\
+a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; S_z=\pm 1 &amp;&amp; Q=0 &amp;&amp; \Pi=-1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle &amp; &amp; b^{}_{-d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=+1\\
+a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=-1\\
+a^\dagger_{d,s}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,s}|\mathcal{V}\rangle &amp; &amp; S_z=\pm\frac{1}{2} &amp;&amp; Q=+1 &amp;&amp; \Pi=\pm 1 \\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp; &amp; &amp;  S_z=0 &amp;&amp; Q=2 &amp;&amp; \Pi=+1
 \end{align}
-\]</span> All these states have eigenenergy <span class="math inline">\(\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda\)</span>, but they have different <span class="math inline">\(S_z\)</span> as labelled above.</p>
+\]</span> All these states have eigenenergy <span class="math inline">\(\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda\)</span>, but they have different spin projection <span class="math inline">\(S_z\)</span>, charge <span class="math inline">\(Q\)</span>, and parity <span class="math inline">\(\Pi\)</span> as labelled above. The interaction <span class="math inline">\(\tilde V\)</span> does not violate these quantum numbers.</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Can <span class="math inline">\(\tilde V\)</span> couple the <span class="math inline">\(Q=-2\)</span> state to the <span class="math inline">\(Q=2\)</span> state?</strong></p>
+</div>
+<div class="callout-content">
+<p>As an example demonstrating that <span class="math inline">\(\tilde V\)</span> preserves <span class="math inline">\(Q\)</span> (which confused me until Lin clarified the issue for me), I consider the matrix element <span class="math display">\[
+\langle Q=-2|\tilde V|Q=+2\rangle=\langle \mathcal{V}|\tilde V a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle
+\]</span> A non-trivial result requires that <span class="math inline">\(\tilde V\)</span> has a term <span class="math inline">\(b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}\)</span>, but when one looks at the form of <span class="math inline">\(\tilde V\)</span> in <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a>, one immediately sees that there is no such term. Thus this matrix element is zero.</p>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="section-8" class="slide level2">
