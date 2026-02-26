@@ -521,7 +521,7 @@ Notice that I ***do not include*** the $b^{}_{-d,s}$ states that have degenerate
 
 :::{style='font-size:70%'}
 
-Because of these single-particle degenerate states, we now have 16 *many*-body non-interacting degenerate states^[Remember that creation $b^\dagger_\uparrow$ of a hole with spin $\uparrow$, for example, actually results in a system with spin $\downarrow$!]
+Because of these single-particle degenerate states, we now have 16 *many*-body non-interacting degenerate states
 $$
 \begin{align}
 a^\dagger_{d,s}|\mathcal{V}\rangle & & b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2}\\
@@ -552,8 +552,8 @@ $$
  a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle\\
  a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
  b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle\\
- a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle\\
- a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle 
+ a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle 
 \end{pmatrix}
 $$
 This gives
