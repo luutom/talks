@@ -502,9 +502,9 @@ $$
 
 Lin points out a very important fact that I have ignored up to now: the interesting systems have in the non-interacting limit single-particle degenerate zero-energy states.  If I want to do perturbation theory properly, I have to perform *degenerate* perturbation theory.  So let's do this now.
 
-I assume there are degenerate single-particle states whose energy $\epsilon_d=0$.  The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band).  I label these single-particle degenerate states as^[The labels $a$ and $b$ for these degenerate states are completely arbitrary.]
+I assume there are degenerate single-particle states whose energy $\epsilon_d=0$.  The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band).  I label these single-particle degenerate states as
 $$
-c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv b^{}_{-d,s}|0\rangle
+c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv a^\dagger_{-d,s}|0\rangle
 $$
 where $d$ denotes the degenerate state, $s=\uparrow,\downarrow$, and the $\pm$ index denotes the parity of the state^[Lin points out correctly that we have full control over the parity of these non-interacting states.].
 
@@ -512,8 +512,13 @@ I define the following state $|\mathcal{V}\rangle$^[This state is ***not*** the 
 $$
 |\mathcal{V}\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}<0\ .
 $$
-Notice that I ***do not include*** the $b^{}_{-d,s}$ states that have degenerate zero energies.
+Notice that ***none*** of the degenerate states are included in the defintion of $|\mathcal{V}\rangle$.  $H_1$ slightly changes
 
+:::{style='font-size:70%'}
+$$
+H_1=-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k\ge 0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\left(\Lambda-1\right)\ .
+$$
+:::
 
 :::
 
@@ -525,12 +530,12 @@ Because of these single-particle degenerate states, we now have 16 *many*-body n
 $$
 \begin{align}
  & &|\mathcal{V}\rangle & &  S_z=0 && Q=-2 && \Pi=+1\\
-a^\dagger_{d,s}|\mathcal{V}\rangle & & b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=-1 && \Pi=\pm 1\\
-a^\dagger_{d,\uparrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=\pm 1 && Q=0 && \Pi=-1\\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle & & b^{}_{-d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=+1\\
-a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=-1\\
-a^\dagger_{d,s}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
+a^\dagger_{d,s}|\mathcal{V}\rangle & & a^\dagger_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=-1 && \Pi=\pm 1\\
+a^\dagger_{d,\uparrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=\pm 1 && Q=0 && \Pi=-1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle & & a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=+1\\
+a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle & & S_z=0 && Q=0 && \Pi=-1\\
+a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 \end{align}
 $$
 All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above.
@@ -540,9 +545,9 @@ The interaction $\tilde V$ does not violate these quantum numbers.
 ## Can $\tilde V$ couple the $Q=-2$ state to the $Q=2$ state?
 As an example demonstrating that $\tilde V$ preserves $Q$ (which confused me until Lin clarified the issue for me), I consider the matrix element
 $$
-\langle Q=-2|\tilde V|Q=+2\rangle=\langle \mathcal{V}|\tilde V a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle
+\langle Q=-2|\tilde V|Q=+2\rangle=\langle \mathcal{V}|\tilde V a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
 $$
-A non-trivial result requires that $\tilde V$ has a term $b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
+A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
 :::
 
 :::
@@ -560,24 +565,24 @@ $$
 |S_z=0\rangle=
 \begin{pmatrix}
  |\mathcal{V}\rangle\\
- a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle\\
  a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
- b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle\\
- a^\dagger_{d,\uparrow}b^{}_{-d,\downarrow}|\mathcal{V}\rangle\\
- a^\dagger_{d,\downarrow}b^{}_{-d,\uparrow}|\mathcal{V}\rangle 
+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
+ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
 \end{pmatrix}
 $$
-This gives
+Using $\tilde V$ from @eq-tildeV gives
 $$
 \langle S_z=0|\tilde V|S_z=0\rangle
 =
 \begin{pmatrix}
- V_{-d,-d;-d,-d} & 0 & 0 & 0 & 0 & 0\\
-0 &  V_{ d, d; d, d} & 0 & 0 & 0 & 0\\
-0 & 0 & V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0\\
-0 & 0 & V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0\\
-0 & 0 & 0 & 0 & 0 & V_{-d, d;-d, d}\\
-0 & 0 & 0 & 0 & V_{ d,-d; d,-d} & 0
+0  & 0 & 0 & 0 & 0 & 0\\
+0  & V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0 & 0\\
+0  & V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0 & 0\\
+0  & 0 & 0 & V_{d,-d;-d,d} & V_{-d, d;-d, d} & 0\\
+0  & 0 & 0 & V_{ d,-d; d,-d} & V_{-d,d;d,-d} & 0\\
+0 & 0 & 0 & 0 & 0 & V_{ d, d; d, d}
 \end{pmatrix}
 $$
 
