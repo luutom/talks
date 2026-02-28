@@ -601,7 +601,9 @@ a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
 a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
 \end{pmatrix}
-\]</span> Using <span class="math inline">\(\tilde V\)</span> from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> gives <span class="math display">\[
+\]</span> Using <span class="math inline">\(\tilde V\)</span> from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> gives</p>
+<div style="font-size:80%">
+<p><span class="math display">\[
 \langle S_z=0|\tilde V|S_z=0\rangle
 =
 \begin{pmatrix}
@@ -610,9 +612,10 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger
 0  &amp; V_{-d,-d; d, d} &amp; V_{-d,-d;-d,-d} &amp; 0 &amp; 0 &amp; 0\\
 0  &amp; 0 &amp; 0 &amp; V_{d,-d;-d,d} &amp; V_{-d, d;-d, d} &amp; 0\\
 0  &amp; 0 &amp; 0 &amp; V_{ d,-d; d,-d} &amp; V_{-d,d;d,-d} &amp; 0\\
-0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{ d, d; d, d}+V_{-d,-d;-d,-d}+ V_{d,-d;-d,d}+V_{-d,d;d,-d}
 \end{pmatrix}
 \]</span></p>
+</div>
 </div>
 </section>
 <section id="section-9" class="slide level2">
@@ -634,6 +637,19 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger
 \]</span></p>
 </div>
 </div>
+</div>
+<p>I do next the <span class="math inline">\(S_z=\pm 1\)</span> space, since this is trivial. A quick look at <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> shows that there is no term in <span class="math inline">\(\tilde V\)</span> that gives a non-trivial result. In other words, I have <span class="math display">\[
+\langle S_z=\pm 1|\tilde V|S_z=\pm 1\rangle =
+\langle \mathcal{V}|a^{}_{-d,s}a^{}_{d,s}\tilde V a^\dagger_{d,s}a^\dagger_{-d,s}|\mathcal{V}\rangle
+= 0\ .
+\]</span></p>
+<p>A similar thing happens for the <span class="math inline">\(S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1\)</span> space.</p>
+<div style="font-size:80%">
+<p><span class="math display">\[
+\langle S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1|\tilde V|S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1\rangle =
+\langle \mathcal{V}|a^{}_{\pm d,s}\tilde V a^\dagger_{\pm d,s}|\mathcal{V}\rangle
+= 0\ .
+\]</span></p>
 </div>
 </div>
 

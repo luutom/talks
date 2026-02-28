@@ -573,6 +573,8 @@ $$
 \end{pmatrix}
 $$
 Using $\tilde V$ from @eq-tildeV gives
+
+:::{style='font-size:80%'}
 $$
 \langle S_z=0|\tilde V|S_z=0\rangle
 =
@@ -582,9 +584,10 @@ $$
 0  & V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0 & 0\\
 0  & 0 & 0 & V_{d,-d;-d,d} & V_{-d, d;-d, d} & 0\\
 0  & 0 & 0 & V_{ d,-d; d,-d} & V_{-d,d;d,-d} & 0\\
-0 & 0 & 0 & 0 & 0 & 0
+0 & 0 & 0 & 0 & 0 & V_{ d, d; d, d}+V_{-d,-d;-d,-d}+ V_{d,-d;-d,d}+V_{-d,d;d,-d}
 \end{pmatrix}
 $$
+:::
 
 :::
 
@@ -594,14 +597,29 @@ $$
 
 :::{.callout-note}
 ## The matrix element $\langle Q=2|\tilde V|Q=2\rangle$
-
 The only tricky matrix element in the $S_z=0$ case is 
 $$
 \langle \mathcal{V}|a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}
 \tilde V 
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
 $$
+:::
 
+I do next the $S_z=\pm 1$ space, since this is trivial.  A quick look at @eq-tildeV shows that there is no term in $\tilde V$ that gives a non-trivial result.  In other words, I have 
+$$
+\langle S_z=\pm 1|\tilde V|S_z=\pm 1\rangle =
+\langle \mathcal{V}|a^{}_{-d,s}a^{}_{d,s}\tilde V a^\dagger_{d,s}a^\dagger_{-d,s}|\mathcal{V}\rangle
+= 0\ .
+$$
+
+A similar thing happens for the $S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1$ space.
+
+:::{style='font-size:80%'}
+$$
+\langle S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1|\tilde V|S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1\rangle =
+\langle \mathcal{V}|a^{}_{\pm d,s}\tilde V a^\dagger_{\pm d,s}|\mathcal{V}\rangle
+= 0\ .
+$$
 :::
 
 
