@@ -9,6 +9,7 @@ format:
   revealjs:
     slide-number: true
     incremental: false
+    fontsize: "14px"
 from: markdown+emoji
 ---
 
@@ -537,18 +538,18 @@ a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & a^\dagger
 a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 \end{align}
-$$
+$${#eq-states16}
 All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above.
 The interaction $\tilde V$ does not violate these quantum numbers.
 
-:::{.callout-note}
+::::{.callout-note}
 ## Can $\tilde V$ couple the $Q=-2$ state to the $Q=2$ state?
 As an example demonstrating that $\tilde V$ preserves $Q$ (which confused me until Lin clarified the issue for me), I consider the matrix element
 $$
 \langle Q=-2|\tilde V|Q=+2\rangle=\langle \mathcal{V}|\tilde V a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
 $$
 A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
-:::
+::::
 
 :::
 
@@ -556,71 +557,86 @@ A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}
 
 ### First order (degenerate) perturbation theory
 
-:::{style='font-size:70%'}
+:::{style='font-size: 70%'}
 
-To perform degenerate perturbation theory at leading order, I need to diagonalize within the different $S_z$ subspaces.
+To perform degenerate perturbation theory at leading order, I need to diagonalize within the different $Q,\ S_z$, and $\Pi$ subspaces.
 
-I will consider $S_z=0$ first.  Here is the subspace:
+#### $Q=-2$
+
+I start with $Q=-2$ space and work my way up.
+It is trivial to see that
 $$
-|S_z=0\rangle=
-\begin{pmatrix}
- |\mathcal{V}\rangle\\
- a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
- a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
- a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
- a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
- a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
-\end{pmatrix}
+\langle \mathcal{V}|\tilde V|\mathcal{V}\rangle=0
 $$
-Using $\tilde V$ from @eq-tildeV gives
 
-:::{style='font-size:80%'}
+#### $Q=-1$
+
+I believe it is also trivial to see that
 $$
-\langle S_z=0|\tilde V|S_z=0\rangle
-=
-\begin{pmatrix}
-0  & 0 & 0 & 0 & 0 & 0\\
-0  & V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0 & 0\\
-0  & V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0 & 0\\
-0  & 0 & 0 & V_{d,-d;-d,d} & V_{-d, d;-d, d} & 0\\
-0  & 0 & 0 & V_{ d,-d; d,-d} & V_{-d,d;d,-d} & 0\\
-0 & 0 & 0 & 0 & 0 & V_{ d, d; d, d}+V_{-d,-d;-d,-d}+ V_{d,-d;-d,d}+V_{-d,d;d,-d}
-\end{pmatrix}
+\langle\mathcal{V}|a^{}_{\sigma d,s}\tilde Va^\dagger_{\sigma' d,s'}|\mathcal{V}\rangle=0
 $$
-:::
 
-:::
-
-##
-
-:::{style='font-size=70%'}
-
-:::{.callout-note}
-## The matrix element $\langle Q=2|\tilde V|Q=2\rangle$
-The only tricky matrix element in the $S_z=0$ case is 
-$$
-\langle \mathcal{V}|a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}
-\tilde V 
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle
-$$
-:::
-
-I do next the $S_z=\pm 1$ space, since this is trivial.  A quick look at @eq-tildeV shows that there is no term in $\tilde V$ that gives a non-trivial result.  In other words, I have 
+#### $Q=0,\ S_z=\pm 1$
+A quick look at @eq-tildeV shows that there is no term in $\tilde V$ that gives a non-trivial result.  In other words, I have 
 $$
 \langle S_z=\pm 1|\tilde V|S_z=\pm 1\rangle =
 \langle \mathcal{V}|a^{}_{-d,s}a^{}_{d,s}\tilde V a^\dagger_{d,s}a^\dagger_{-d,s}|\mathcal{V}\rangle
 = 0\ .
 $$
 
-A similar thing happens for the $S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1$ space.
-
-:::{style='font-size:80%'}
-$$
-\langle S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1|\tilde V|S_z=\pm \frac{1}{2},\ Q=-1,\ \Pi=\pm1\rangle =
-\langle \mathcal{V}|a^{}_{\pm d,s}\tilde V a^\dagger_{\pm d,s}|\mathcal{V}\rangle
-= 0\ .
-$$
 :::
 
+##
+
+:::{style='font-size: 0.7em;'}
+
+#### $Q=0,\ S_z=0,\ \Pi=\pm 1$
+
+I now consider $Q=0,\ S_z=0, \Pi=\pm 1$ cases.  Here is the subspace:
+
+$$
+|Q=0,S_z=0,\Pi=\pm 1\rangle=
+\begin{pmatrix}
+ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
+\end{pmatrix}
+$$
+Using $\tilde V$ from @eq-tildeV gives
+
+$$
+\langle Q=0,S_z=0,\Pi=\pm 1|\tilde V|Q=0,S_z=0,\Pi=\pm 1\rangle
+=
+\begin{pmatrix}
+V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0\\
+V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0\\
+0 & 0 & V_{d,-d;-d,d} & V_{-d, d;-d, d}\\
+0 & 0 & V_{ d,-d; d,-d} & V_{-d,d;d,-d}
+\end{pmatrix}
+$$
+
+Eigenvalues of these two subspaces (assuming all matrix elements are the same (to be verified!!!)) are $0,\ 2V_{d,d;d,d}$.  This implies there are two zero-energy half-filled states of opposite parity (just as Lin predicted)
+
+$$
+\begin{align}
+&|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
+&|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
+\end{align}
+$$
 
 :::
+
+#
+
+:::{style='font-size: 0.7em;'}
+
+#### $Q=1$ 
+
+Instead of using the $Q=1$ states defined in @eq-states16, I will build these states from the newly found half-filled states $|\Omega_\pm\rangle$,
+$$
+a^\dagger_{\pm d,s}|\Omega_\pm\rangle
+$$
+
+:::
+
