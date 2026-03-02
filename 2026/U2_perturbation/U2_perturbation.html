@@ -151,7 +151,6 @@ Thomas Luu
 </section>
 <section id="hamiltonian" class="slide level2">
 <h2>Hamiltonian</h2>
-<div style="font-size:70%">
 <p>The Hamiltonian is <span class="math display">\[
 \begin{equation}\label{eqn:Hstart}
 H = -\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}-c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)^2\ ,
@@ -164,11 +163,9 @@ H =&amp;-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+
 =&amp;H_0+H_1+H_2\ .
 \end{align}
 \]</span> I cast the last “interaction” term (<span class="math inline">\(H_2\)</span>) in normal order.</p>
-</div>
 </section>
 <section id="momentum-space" class="slide level2">
 <h2>“Momentum Space”</h2>
-<div style="font-size:70%">
 <p>I rewrite the kinetic term as <span class="math display">\[
 H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,y,s}\left(c^\dagger_{x,s}\kappa_{x,y}c^{}_{y,s}\right)
 \]</span> where <span class="math inline">\(\kappa\)</span> is the “connectivity”, or “adjacency” matrix and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
@@ -179,11 +176,9 @@ H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,
 H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
 \]</span> This defines the diagonal momentum basis <span class="math inline">\(\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}\)</span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>The index <span class="math inline">\(k\)</span> represents multiple quantum numbers. For example, for a ribbon, <span class="math inline">\(k=(k_x,n,\sigma)\)</span>, where <span class="math inline">\(k_x\)</span> is the momentum in the <span class="math inline">\(x\)</span>-direction, <span class="math inline">\(n&lt;W\)</span> where <span class="math inline">\(W\)</span> is the width of the ribbon, and <span class="math inline">\(\sigma=\pm 1\)</span> is the band.</p></li></ol></aside></section>
 <section id="non-interacting-ground-state-omegarangle" class="slide level2">
 <h2>Non-Interacting Ground state <span class="math inline">\(|\Omega\rangle\)</span></h2>
-<div style="font-size:70%">
 <p>The ground state <span class="math inline">\(|\Omega\rangle\)</span> is defined by filling all negative energy states<sup>1</sup></p>
 <p><span class="math display">\[
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k&lt;0,s}c^\dagger_{k,s}\right)|0\rangle
@@ -196,11 +191,9 @@ H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
 <p><span class="math display">\[
 \mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k&lt;0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k&lt;0}\epsilon_{k}
 \]</span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\(s.t.=\)</span> “such that”</p></li><li id="fn3"><p>Definition of vacuum state is such that <span class="math inline">\(c_{k,s}|0\rangle=0\ \forall\ k,s\)</span></p></li><li id="fn4"><p>Factor of 2 comes from summing over <span class="math inline">\(\uparrow\)</span> and <span class="math inline">\(\downarrow\)</span> fermions.</p></li></ol></aside></section>
 <section id="canonical-transformation-to-fermi-surface" class="slide level2">
 <h2>Canonical Transformation to Fermi Surface</h2>
-<div style="font-size:70%">
 <p>I introduce the following operators<sup>1</sup> <span id="eq-CanTrans"><span class="math display">\[
 c_{k,s}=
 \begin{cases}
@@ -218,11 +211,9 @@ H_0=&amp;\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 =&amp;\sum_{k\ s.t.\ \epsilon_k&gt;0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
 \end{align}
 \]</span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn5"><p>e.g.&nbsp;see~ eq.(7.34)</p></li></ol></aside></section>
 <section class="slide level2">
 
-<div style="font-size:70%">
 <h3 id="h_1"><span class="math inline">\(H_1\)</span></h3>
 <p>This term acts like a “mass term” <span class="math display">\[\begin{align}
 H_1=&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
@@ -238,11 +229,9 @@ H_2&amp;=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c
 \equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \end{align}
 \]</span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn6"><p><span class="math inline">\(\Lambda\)</span> is also the number of hexagonal unit cells.</p></li></ol></aside></section>
-<section id="section" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>I want express <span class="math inline">\(H_2\)</span> in the canonical basis of <code>holes</code> and <code>particles</code>. To do this, I need to simplify the notation, otherwise things get crazy. I will assume that we have a bipartite lattice and the Fermi surface is defined such that <span class="math inline">\(\epsilon_{{\rm fermi}}=0\)</span><sup>1</sup>. This implies the following things:</p>
 <ul>
 <li><p>For each momentum index <span class="math inline">\(k\)</span> there exist <span class="math inline">\(\epsilon_k\ge 0\)</span> and <span class="math inline">\(-\epsilon_k\le 0\)</span> as eigenenergies</p></li>
@@ -263,12 +252,10 @@ H_2= &amp;V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\
 +&amp;V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
 \end{align}
 \tag{3}\]</span></span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn7"><p>This corresponds to half-filling.</p></li></ol></aside></section>
-<section id="section-1" class="slide level2">
-<h2></h2>
+<section class="slide level2">
+
 <h4 id="normal-ordering-h_2">Normal ordering <span class="math inline">\(H_2\)</span></h4>
-<div style="font-size:70%">
 <p>Unfortunately I’m not done. I also want to express <span class="math inline">\(H_2\)</span> in <em>normal ordered</em> form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of <a href="#/eq-H2_1" class="quarto-xref">Equation&nbsp;3</a>) are already in normal-ordered form (in <span class="math inline">\(\color{blue}{\rm blue}\)</span> below). Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes. I’ll do that now (<span class="math inline">\(\color{red}{\rm red}\)</span> terms) <span id="eq-H2_2"><span class="math display">\[
 \begin{align}
 H_2&amp;=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\color{red}{-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^{}_{k,\downarrow}}\\
@@ -283,11 +270,9 @@ H_2&amp;=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downar
 \end{align}
 \tag{4}\]</span></span></p>
 <p>The remaining (black) terms require some work to normal order.</p>
-</div>
 </section>
-<section id="section-2" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>Let’s look at term 8.</p>
 <p><span class="math display">\[
 \begin{align}
@@ -302,11 +287,9 @@ U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}=\frac{U}{2}\sum_xO^{-1}_{
 V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}
 =\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad{\rm (term\ 8)}
 \]</span></p>
-</div>
 </section>
-<section id="section-3" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>A similar calculation for term 9 gives</p>
 <p><span class="math display">\[
 V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}
@@ -326,11 +309,9 @@ V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\da
 V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}&amp;=+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}&amp;\quad{\rm (term\ 15)}
 \end{align}
 \]</span></p>
-</div>
 </section>
-<section id="section-4" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>Now we come to the final term 16, which is the most difficult to normal order</p>
 <p><span class="math display">\[
 V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
@@ -346,11 +327,9 @@ V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarro
 \]</span></p>
 </div>
 <p>Note that the bilinear terms in this expression and those from terms 8 and 9 exactly cancel the bilinear terms in <span class="math inline">\(H_1\)</span>.</p>
-</div>
 </section>
 <section id="the-final-expression-for-h" class="slide level2">
 <h2>The final expression for <span class="math inline">\(H\)</span></h2>
-<div style="font-size:70%">
 <p>We finally come to the final expression for <span class="math inline">\(H\)</span>. Combining all terms, I get (repeated indices are summed)</p>
 <p><span id="eq-tildeV"><span class="math display">\[
 \begin{align}
@@ -370,7 +349,6 @@ H&amp;=H_0+H_1+H_2\\
 \end{align}
 \tag{5}\]</span></span></p>
 <p>where <span class="math inline">\(\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\)</span> and <span class="math inline">\(\tilde V\)</span> is all terms with <span class="math inline">\(V\)</span>.</p>
-</div>
 </section></section>
 <section>
 <section id="perturbation-theory" class="title-slide slide level1 center">
@@ -379,7 +357,6 @@ H&amp;=H_0+H_1+H_2\\
 </section>
 <section id="zeroth-order-in-tilde-v" class="slide level2">
 <h2>Zeroth order in <span class="math inline">\(\tilde V\)</span></h2>
-<div style="font-size:70%">
 <h3 id="ground-state-omegarangle">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
 <p>The zeroth order term for the ground state is</p>
 <p><span class="math display">\[
@@ -404,11 +381,9 @@ H&amp;=H_0+H_1+H_2\\
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="first-order-in-tilde-v" class="slide level2">
 <h2>First order in <span class="math inline">\(\tilde V\)</span></h2>
-<div style="font-size:70%">
 <h3 id="ground-state-omegarangle-1">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
 <p>Here having the the interaction term <span class="math inline">\(\tilde V\)</span> in normal order makes the calculation trivial <span class="math display">\[
 \langle \Omega|\tilde V|\Omega\rangle=0
@@ -432,12 +407,10 @@ H&amp;=H_0+H_1+H_2\\
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="second-order-in-tilde-v" class="slide level2">
 <h2>Second order in <span class="math inline">\(\tilde V\)</span></h2>
 <h3 id="ground-state-omegarangle-2">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
-<div style="font-size:70%">
 <p>The second order contribution is</p>
 <p><span class="math display">\[
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
@@ -454,11 +427,9 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
 \]</span></p>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn8"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
-<section id="section-5" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <div class="columns">
 <div class="column" style="width:60%;">
 <p>It is straightforward to show that</p>
@@ -491,11 +462,9 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 \end{multline}
 \]</span></p>
 </div>
-</div>
 </section>
-<section id="section-6" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>The first term requires</p>
 <p><span class="math display">\[
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}|\Omega\rangle
@@ -536,11 +505,9 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 </div>
 </div>
 </div>
-</div>
 </section>
 <section id="degenerate-perturbation-theory" class="slide level2">
 <h2>Degenerate perturbation theory</h2>
-<div style="font-size:70%">
 <p>Lin points out a very important fact that I have ignored up to now: the interesting systems have in the non-interacting limit single-particle degenerate zero-energy states. If I want to do perturbation theory properly, I have to perform <em>degenerate</em> perturbation theory. So let’s do this now.</p>
 <p>I assume there are degenerate single-particle states whose energy <span class="math inline">\(\epsilon_d=0\)</span>. The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band). I label these single-particle degenerate states as <span class="math display">\[
 c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv a^\dagger_{-d,s}|0\rangle
@@ -553,11 +520,9 @@ c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger
 H_1=-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k\ge 0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\left(\Lambda-1\right)\ .
 \]</span></p>
 </div>
-</div>
 <aside><ol class="aside-footnotes"><li id="fn9"><p>Lin points out correctly that we have full control over the parity of these non-interacting states.</p></li><li id="fn10"><p>This state is <strong><em>not</em></strong> the half-filled ground state.</p></li></ol></aside></section>
-<section id="section-7" class="slide level2">
-<h2></h2>
-<div style="font-size:70%">
+<section class="slide level2">
+
 <p>Because of these single-particle degenerate states, we now have 16 <em>many</em>-body non-interacting degenerate states <span id="eq-states16"><span class="math display">\[
 \begin{align}
 &amp; &amp;|\mathcal{V}\rangle &amp; &amp;  S_z=0 &amp;&amp; Q=-2 &amp;&amp; \Pi=+1\\
@@ -584,12 +549,10 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger
 </div>
 </div>
 </div>
-</div>
 </section>
-<section id="section-8" class="slide level2">
-<h2></h2>
+<section class="slide level2">
+
 <h3 id="first-order-degenerate-perturbation-theory">First order (degenerate) perturbation theory</h3>
-<div style="font-size: 70%">
 <p>To perform degenerate perturbation theory at leading order, I need to diagonalize within the different <span class="math inline">\(Q,\ S_z\)</span>, and <span class="math inline">\(\Pi\)</span> subspaces.</p>
 <h4 id="q-2"><span class="math inline">\(Q=-2\)</span></h4>
 <p>I start with <span class="math inline">\(Q=-2\)</span> space and work my way up. It is trivial to see that <span class="math display">\[
@@ -605,12 +568,10 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger
 \langle \mathcal{V}|a^{}_{-d,s}a^{}_{d,s}\tilde V a^\dagger_{d,s}a^\dagger_{-d,s}|\mathcal{V}\rangle
 = 0\ .
 \]</span></p>
-</div>
 </section>
-<section id="section-9" class="slide level2">
-<h2></h2>
-<section id="q0-s_z0-pipm-1" style="font-size: 0.7em;">
-<h4><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=\pm 1\)</span></h4>
+<section class="slide level2">
+
+<h4 id="q0-s_z0-pipm-1"><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=\pm 1\)</span></h4>
 <p>I now consider <span class="math inline">\(Q=0,\ S_z=0, \Pi=\pm 1\)</span> cases. Here is the subspace:</p>
 <p><span class="math display">\[
 |Q=0,S_z=0,\Pi=\pm 1\rangle=
@@ -639,19 +600,17 @@ V_{-d,-d; d, d} &amp; V_{-d,-d;-d,-d} &amp; 0 &amp; 0\\
 \end{align}
 \]</span></p>
 </section>
-</section></section>
-<section>
-<section id="section-10" class="title-slide slide level1 center">
-<h1></h1>
+<section class="slide level2">
 
-</section>
-<section id="q1" style="font-size: 0.7em;">
-<h4><span class="math inline">\(Q=1\)</span></h4>
+<h4 id="q1"><span class="math inline">\(Q=1\)</span></h4>
 <p>Instead of using the <span class="math inline">\(Q=1\)</span> states defined in <a href="#/eq-states16" class="quarto-xref">Equation&nbsp;7</a>, I will build these states from the newly found half-filled states <span class="math inline">\(|\Omega_\pm\rangle\)</span>, <span class="math display">\[
-a^\dagger_{\pm d,s}|\Omega_\pm\rangle
+\begin{align}
+a^\dagger_{+d,s}|\Omega_+\rangle &amp;\quad; &amp; a^\dagger_{-d,s}|\Omega_-\rangle &amp;\quad; &amp; \Pi=+1\\
+a^\dagger_{-d,s}|\Omega_+\rangle &amp;\quad; &amp; a^\dagger_{+d,s}|\Omega_-\rangle &amp;\quad; &amp; \Pi=-1
+\end{align}
 \]</span></p>
-</section>
-</section>
+
+</section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
@@ -690,7 +649,7 @@ a^\dagger_{\pm d,s}|\Omega_\pm\rangle
 'autoAnimateUnmatched': true,
 'jumpToSlide': true,
 'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleScrollView(event)\"><kbd>r</kbd> Scroll View Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
-'smaller': false,
+'smaller': true,
  
         // Display controls in the bottom right corner
         controls: false,

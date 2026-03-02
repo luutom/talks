@@ -9,7 +9,7 @@ format:
   revealjs:
     slide-number: true
     incremental: false
-    fontsize: "14px"
+    smaller: true
 from: markdown+emoji
 ---
 
@@ -17,7 +17,6 @@ from: markdown+emoji
 # Setup
 
 ## Hamiltonian
-:::{style='font-size:70%'}
 
 The Hamiltonian is
 $$
@@ -37,11 +36,8 @@ $$
 I cast the last "interaction" term ($H_2$) in normal order.
 
 
-:::
-
 ## "Momentum Space"
 
-:::{style='font-size:70%'}
 I rewrite the kinetic term as
 $$
 H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,y,s}\left(c^\dagger_{x,s}\kappa_{x,y}c^{}_{y,s}\right)
@@ -64,10 +60,8 @@ This defines the diagonal momentum basis
 $\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}$
 
 
-:::
-
 ## Non-Interacting Ground state $|\Omega\rangle$
-:::{style='font-size:70%'}
+
 The ground state $|\Omega\rangle$ is defined by filling all negative energy states^[$s.t.=$ "such that"]
 
 $$
@@ -86,10 +80,8 @@ $$
 \mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k<0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k<0}\epsilon_{k}
 $$
 
-:::
-
 ## Canonical Transformation to Fermi Surface
-:::{style='font-size:70%'}
+
 I introduce the following operators^[e.g. see~\cite{fetter2003quantum} eq.(7.34)]
 $$
 c_{k,s}=
@@ -113,10 +105,8 @@ H_0=&\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 =&\sum_{k\ s.t.\ \epsilon_k>0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
 \end{align}
 $$
-:::
 
 ---
-:::{style='font-size:70%'}
 
 ### $H_1$
 This term acts like a "mass term"
@@ -139,11 +129,7 @@ H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_
 \end{align}
 $$
 
-:::
-
-##
-
-:::{style='font-size:70%'}
+---
 
 I want express $H_2$ in the canonical basis of ``holes`` and ``particles``.
 To do this, I need to simplify the notation, otherwise things get crazy.  I will assume that we have a bipartite lattice and the Fermi surface is defined such that $\epsilon_{{\rm fermi}}=0$^[This corresponds to half-filling.].
@@ -172,13 +158,9 @@ H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\down
 \end{align}
 $${#eq-H2_1}
 
-:::
-
-##
+---
 
 #### Normal ordering $H_2$
-
-:::{style='font-size:70%'}
 
 Unfortunately I'm not done.  I also want to express $H_2$ in *normal ordered* form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of @eq-H2_1) are already in normal-ordered form (in $\color{blue}{\rm blue}$ below).
 Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes.  I'll do that now ($\color{red}{\rm red}$ terms)
@@ -198,10 +180,7 @@ $${#eq-H2_2}
 
 The remaining (black) terms require some work to normal order.
 
-:::
-
-##
-:::{style='font-size:70%'}
+---
 
 Let's look at term 8.
 
@@ -225,10 +204,7 @@ V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^
 =\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad{\rm (term\ 8)}
 $$
 
-:::
-
-##
-:::{style='font-size:70%'}
+---
 
 A similar calculation for term 9 gives
 
@@ -255,10 +231,7 @@ V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow
 \end{align}
 $$
 
-:::
-
-##
-:::{style='font-size:70%'}
+---
 
 Now we come to the final term 16, which is the most difficult to normal order
 
@@ -280,10 +253,7 @@ $$
 
 Note that the bilinear terms in this expression and those from terms 8 and 9 exactly cancel the bilinear terms in $H_1$. 
 
-:::
-
 ## The final expression for $H$
-:::{style='font-size:70%'}
 
 We finally come to the final expression for $H$.  Combining all terms, I get (repeated indices are summed)
 
@@ -306,12 +276,10 @@ H&=H_0+H_1+H_2\\
 $${#eq-tildeV}
 
 where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda$ and $\tilde V$ is all terms with $V$.
-:::
 
 # Perturbation theory
 
 ## Zeroth order in $\tilde V$
-:::{style='font-size:70%'}
 
 ### Ground state $|\Omega\rangle$
 
@@ -336,11 +304,7 @@ $$
 $\therefore\quad$ the energy difference $E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p$
 :::
 
-:::
-
 ## First order in $\tilde V$
-
-:::{style='font-size:70%'}
 
 ### Ground state $|\Omega\rangle$
 Here having the the interaction term $\tilde V$ in normal order makes the calculation trivial
@@ -363,13 +327,9 @@ So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shif
 $\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p$
 :::
 
-:::
-
 ## Second order in $\tilde V$
 
 ### Ground state $|\Omega\rangle$
-
-:::{style='font-size:70%'}
 
 The second order contribution is
 
@@ -394,11 +354,7 @@ $$
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
 $$
 
-:::
-
-##
-
-:::{style='font-size:70%'}
+---
 
 :::{.columns}
 
@@ -445,11 +401,7 @@ $$
 $$
 :::
 
-:::
-
-##
-
-:::{style='font-size:70%'}
+---
 
 The first term requires
 
@@ -495,11 +447,7 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 $$
 :::
 
-:::
-
 ## Degenerate perturbation theory
-
-:::{style='font-size:70%'}
 
 Lin points out a very important fact that I have ignored up to now: the interesting systems have in the non-interacting limit single-particle degenerate zero-energy states.  If I want to do perturbation theory properly, I have to perform *degenerate* perturbation theory.  So let's do this now.
 
@@ -521,11 +469,7 @@ H_1=-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k\ge 0,s}a^{\dagger}_{k,s}a^{}_{k,
 $$
 :::
 
-:::
-
-##
-
-:::{style='font-size:70%'}
+---
 
 Because of these single-particle degenerate states, we now have 16 *many*-body non-interacting degenerate states
 $$
@@ -551,13 +495,9 @@ $$
 A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
 ::::
 
-:::
-
-##
+---
 
 ### First order (degenerate) perturbation theory
-
-:::{style='font-size: 70%'}
 
 To perform degenerate perturbation theory at leading order, I need to diagonalize within the different $Q,\ S_z$, and $\Pi$ subspaces.
 
@@ -584,11 +524,7 @@ $$
 = 0\ .
 $$
 
-:::
-
-##
-
-:::{style='font-size: 0.7em;'}
+---
 
 #### $Q=0,\ S_z=0,\ \Pi=\pm 1$
 
@@ -625,18 +561,16 @@ $$
 \end{align}
 $$
 
-:::
-
-#
-
-:::{style='font-size: 0.7em;'}
+---
 
 #### $Q=1$ 
 
 Instead of using the $Q=1$ states defined in @eq-states16, I will build these states from the newly found half-filled states $|\Omega_\pm\rangle$,
 $$
-a^\dagger_{\pm d,s}|\Omega_\pm\rangle
+\begin{align}
+a^\dagger_{+d,s}|\Omega_+\rangle &\quad; & a^\dagger_{-d,s}|\Omega_-\rangle &\quad; & \Pi=+1\\
+a^\dagger_{-d,s}|\Omega_+\rangle &\quad; & a^\dagger_{+d,s}|\Omega_-\rangle &\quad; & \Pi=-1
+\end{align}
 $$
 
-:::
 
