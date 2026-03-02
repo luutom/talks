@@ -493,7 +493,7 @@ a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rang
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 -->
 
-All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above. I only show the $Q=-2,\ -1$ and $0$ states. I will consider the $Q=1$ and $2$ states later.
+All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different total spin $S$, spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above. I only show the $Q=-2,\ -1$ and $0$ states. I will consider the $Q=1$ and $2$ states later.
 The interaction $\tilde V$ does not violate these quantum numbers.  
 
 <!--
