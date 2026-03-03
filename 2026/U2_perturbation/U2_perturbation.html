@@ -151,84 +151,99 @@ Thomas Luu
 </section>
 <section id="hamiltonian" class="slide level2">
 <h2>Hamiltonian</h2>
-<p>The Hamiltonian is <span class="math display">\[
-\begin{equation}\label{eqn:Hstart}
+<p>The Hamiltonian is</p>
+<p><span class="math display">\[\begin{equation}\label{eqn:Hstart}
 H = -\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}-c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)^2\ ,
-\end{equation}
-\]</span> where <span class="math inline">\(U\)</span> is the (dimensionless) Hubbard ratio (<span class="math inline">\(=U/\kappa\)</span>) and the operator <span class="math inline">\(c^\dagger_{x,s}\)</span> creates an electron at site <span class="math inline">\(x\)</span> with spin <span class="math inline">\(s\)</span>. The sum <span class="math inline">\({\langle x,y\rangle}\)</span> is over nearest neighbor sites only (i.e.&nbsp;Tight-binding model). I now expand the quadratic term in eq.~<span class="math inline">\(\eqref{eqn:Hstart}\)</span>, giving <span class="math display">\[
-\begin{align}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(U\)</span> is the (dimensionless) Hubbard ratio (<span class="math inline">\(=U/\kappa\)</span>) and the operator <span class="math inline">\(c^\dagger_{x,s}\)</span> creates an electron at site <span class="math inline">\(x\)</span> with spin <span class="math inline">\(s\)</span>. The sum <span class="math inline">\({\langle x,y\rangle}\)</span> is over nearest neighbor sites only (i.e.&nbsp;Tight-binding model). I now expand the quadratic term in eq.~<span class="math inline">\(\eqref{eqn:Hstart}\)</span>, giving</p>
+<p><span class="math display">\[\begin{align}
 H =&amp;-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}-2c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)\\
 =&amp;-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)+U\sum_xc^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\\
 =&amp;-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)+U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}\\
 =&amp;H_0+H_1+H_2\ .
-\end{align}
-\]</span> I cast the last “interaction” term (<span class="math inline">\(H_2\)</span>) in normal order.</p>
+\end{align}\]</span></p>
+<p>I cast the last “interaction” term (<span class="math inline">\(H_2\)</span>) in normal order.</p>
 </section>
 <section id="momentum-space" class="slide level2">
 <h2>“Momentum Space”</h2>
-<p>I rewrite the kinetic term as <span class="math display">\[
+<p>I rewrite the kinetic term as</p>
+<p><span class="math display">\[\begin{equation}
 H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,y,s}\left(c^\dagger_{x,s}\kappa_{x,y}c^{}_{y,s}\right)
-\]</span> where <span class="math inline">\(\kappa\)</span> is the “connectivity”, or “adjacency” matrix and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
-<p>To go to “momentum space”, I first diagonalize <span class="math inline">\(\kappa\)</span> (I assume bi-partite and symmetric) <span class="math display">\[
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\kappa\)</span> is the “connectivity”, or “adjacency” matrix and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
+<p>To go to “momentum space”, I first diagonalize <span class="math inline">\(\kappa\)</span> (I assume bi-partite and symmetric)</p>
+<p><span class="math display">\[\begin{equation}
 -\kappa\to O^{}.(-\kappa).O^{-1}={\rm diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
-\]</span> where <span class="math inline">\(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> is an (non-interacting) eigenenergie with “momentum <span class="math inline">\(k\)</span>”<sup>1</sup>. The orthogonal matrix <span class="math inline">\(O\)</span> can be constructed from the eigenfunctions of <span class="math inline">\(\kappa\)</span>.</p>
-<p>I now have (I suppress summation symbols over <span class="math inline">\(x,y,s\)</span>) <span class="math display">\[
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> is an (non-interacting) eigenenergie with “momentum <span class="math inline">\(k\)</span>”<sup>1</sup>. The orthogonal matrix <span class="math inline">\(O\)</span> can be constructed from the eigenfunctions of <span class="math inline">\(\kappa\)</span>.</p>
+<p>I now have (I suppress summation symbols over <span class="math inline">\(x,y,s\)</span>)</p>
+<p><span class="math display">\[\begin{equation}
 H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
-\]</span> This defines the diagonal momentum basis <span class="math inline">\(\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}\)</span></p>
+\end{equation}\]</span></p>
+<p>This defines the diagonal momentum basis</p>
+<p><span class="math display">\[\begin{equation}
+c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}
+\end{equation}\]</span></p>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>The index <span class="math inline">\(k\)</span> represents multiple quantum numbers. For example, for a ribbon, <span class="math inline">\(k=(k_x,n,\sigma)\)</span>, where <span class="math inline">\(k_x\)</span> is the momentum in the <span class="math inline">\(x\)</span>-direction, <span class="math inline">\(n&lt;W\)</span> where <span class="math inline">\(W\)</span> is the width of the ribbon, and <span class="math inline">\(\sigma=\pm 1\)</span> is the band.</p></li></ol></aside></section>
 <section id="non-interacting-ground-state-omegarangle" class="slide level2">
 <h2>Non-Interacting Ground state <span class="math inline">\(|\Omega\rangle\)</span></h2>
 <p>The ground state <span class="math inline">\(|\Omega\rangle\)</span> is defined by filling all negative energy states<sup>1</sup></p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{equation}
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k&lt;0,s}c^\dagger_{k,s}\right)|0\rangle
-\]</span></p>
+\end{equation}\]</span></p>
 <p>where <span class="math inline">\(|0\rangle\)</span> is the vacuum state<sup>2</sup> and</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{equation}
 H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
-\]</span></p>
+\end{equation}\]</span></p>
 <p>with<sup>3</sup></p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{equation}
 \mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k&lt;0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k&lt;0}\epsilon_{k}
-\]</span></p>
+\end{equation}\]</span></p>
 <aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\(s.t.=\)</span> “such that”</p></li><li id="fn3"><p>Definition of vacuum state is such that <span class="math inline">\(c_{k,s}|0\rangle=0\ \forall\ k,s\)</span></p></li><li id="fn4"><p>Factor of 2 comes from summing over <span class="math inline">\(\uparrow\)</span> and <span class="math inline">\(\downarrow\)</span> fermions.</p></li></ol></aside></section>
 <section id="canonical-transformation-to-fermi-surface" class="slide level2">
 <h2>Canonical Transformation to Fermi Surface</h2>
-<p>I introduce the following operators<sup>1</sup> <span id="eq-CanTrans"><span class="math display">\[
+<p>I introduce the following operators<sup>1</sup></p>
+<p><span id="eq-CanTrans"><span class="math display">\[
+\begin{equation}
 c_{k,s}=
 \begin{cases}
 a^{}_{k,s} &amp; \forall\ k\ s.t.\ \epsilon_k&gt;0 \quad{\rm "particles"}\\
 b^{\dagger}_{-k,s}&amp; \forall\ k\ s.t.\ \epsilon_k&lt;0 \quad {\rm "holes"}\ .
 \end{cases}
+\end{equation}
 \tag{1}\]</span></span></p>
-<p>With this definition it is clear that <span id="eq-vanish"><span class="math display">\[
+<p>With this definition it is clear that</p>
+<p><span id="eq-vanish"><span class="math display">\[
+\begin{equation}
 a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
+\end{equation}
 \tag{2}\]</span></span></p>
 <h3 id="h_0"><span class="math inline">\(H_0\)</span></h3>
-<p>With this canonical transformation we have <span class="math display">\[
-\begin{align}
+<p>With this canonical transformation we have</p>
+<p><span class="math display">\[\begin{align}
 H_0=&amp;\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 =&amp;\sum_{k\ s.t.\ \epsilon_k&gt;0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
-\end{align}
-\]</span></p>
+\end{align}\]</span></p>
 <aside><ol class="aside-footnotes"><li id="fn5"><p>e.g.&nbsp;see~ eq.(7.34)</p></li></ol></aside></section>
 <section class="slide level2">
 
 <h3 id="h_1"><span class="math inline">\(H_1\)</span></h3>
-<p>This term acts like a “mass term” <span class="math display">\[\begin{align}
+<p>This term acts like a “mass term”</p>
+<p><span class="math display">\[\begin{align}
 H_1=&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
 =&amp;-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k&gt;0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k&lt;0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
-\end{align}\]</span> where <span class="math inline">\(\Lambda=N_x/2\)</span> and <span class="math inline">\(N_x\)</span> is the number of lattice points<sup>1</sup>.</p>
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(\Lambda=N_x/2\)</span> and <span class="math inline">\(N_x\)</span> is the number of lattice points<sup>1</sup>.</p>
 <p>The canonical transformation of <span class="math inline">\(H_1\)</span> results in an overall constant shift <span class="math inline">\(-U\Lambda\)</span> to the Hamiltonian, which is irrelevant.</p>
 <h3 id="h_2"><span class="math inline">\(H_2\)</span></h3>
-<p>Now things get messy. I have <span class="math display">\[
-\begin{align}
+<p>Now things get messy. I have</p>
+<p><span class="math display">\[\begin{align}
 H_2&amp;=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
 =U\sum_x\sum_{k',l',k,l}O^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
 &amp;=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
-\end{align}
-\]</span></p>
+\end{align}\]</span></p>
 <aside><ol class="aside-footnotes"><li id="fn6"><p><span class="math inline">\(\Lambda\)</span> is also the number of hexagonal unit cells.</p></li></ol></aside></section>
 <section class="slide level2">
 
@@ -534,7 +549,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle &amp; &amp;  &a
 &amp; &amp; a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle &amp; &amp; S=1 &amp;&amp; S_z=-1 &amp;&amp; Q=0 &amp;&amp; \Pi=-1\\
 &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}-a^\dagger_{d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &amp;  &amp; &amp; S=0 &amp;&amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=-1\\
   &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}-a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &amp;  &amp; &amp; S=0 &amp;&amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=+1\\
-    &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &amp;  &amp; &amp; S=?? &amp;&amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=+1
+    &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &amp;  &amp; &amp; S=1 &amp;&amp; S_z=0 &amp;&amp; Q=0 &amp;&amp; \Pi=+1
 \end{align}
 \tag{7}\]</span></span></p>
 </div>
@@ -599,8 +614,8 @@ V_{-d,-d; d, d} &amp; V_{-d,-d;-d,-d} &amp; 0 &amp; 0\\
 <p>Eigenvalues of these two subspaces (assuming all matrix elements are the same (to be verified!!!)) are <span class="math inline">\(0,\ 2V_{d,d;d,d}\)</span>. This implies there are two zero-energy half-filled states of opposite parity (just as Lin predicted)</p>
 <p><span class="math display">\[
 \begin{align}
-&amp;|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
-&amp;|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
+&amp;|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
+&amp;|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
 \end{align}
 \]</span></p>
 </section>

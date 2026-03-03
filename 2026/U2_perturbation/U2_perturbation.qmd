@@ -19,115 +19,131 @@ from: markdown+emoji
 ## Hamiltonian
 
 The Hamiltonian is
-$$
+
 \begin{equation}\label{eqn:Hstart}
 H = -\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}-c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)^2\ ,
 \end{equation}
-$$
+
 where $U$ is the (dimensionless) Hubbard ratio ($=U/\kappa$) and the operator $c^\dagger_{x,s}$ creates an electron at site $x$ with spin $s$.  The sum ${\langle x,y\rangle}$ is over nearest neighbor sites only (i.e. Tight-binding model).   I now expand the quadratic term in eq.~\eqref{eqn:Hstart}, giving
-$$
+
 \begin{align}
 H =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}-2c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)\\
 =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)+U\sum_xc^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\\
 =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)+U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}\\
 =&H_0+H_1+H_2\ .
 \end{align}
-$$
+
 I cast the last "interaction" term ($H_2$) in normal order.
 
 
 ## "Momentum Space"
 
 I rewrite the kinetic term as
-$$
+
+\begin{equation}
 H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,y,s}\left(c^\dagger_{x,s}\kappa_{x,y}c^{}_{y,s}\right)
-$$
+\end{equation}
+
 where $\kappa$ is the "connectivity", or "adjacency" matrix and $s=\uparrow,\downarrow$.
 
 To go to "momentum space", I first diagonalize $\kappa$ (I assume bi-partite and symmetric)
-$$
+
+\begin{equation}
 -\kappa\to O^{}.(-\kappa).O^{-1}={\rm diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
-$$
+\end{equation}
+
 where $O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}$ and $\epsilon_{k}$ is an (non-interacting) eigenenergie with "momentum $k$"^[The index $k$ represents multiple quantum numbers.  For example, for a ribbon, $k=(k_x,n,\sigma)$, where $k_x$ is the momentum in the $x$-direction, $n<W$ where $W$ is the width of the ribbon, and $\sigma=\pm 1$ is the band.].
 The orthogonal matrix $O$ can be constructed from the eigenfunctions of $\kappa$.
 
 I now have (I suppress summation symbols over $x,y,s$)
-$$
+
+\begin{equation}
 H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
-$$
-This defines the diagonal momentum basis
-$\quad c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}$
+\end{equation}
 
+This defines the diagonal momentum basis
+
+\begin{equation}
+c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}
+\end{equation}
 
 ## Non-Interacting Ground state $|\Omega\rangle$
 
 The ground state $|\Omega\rangle$ is defined by filling all negative energy states^[$s.t.=$ "such that"]
 
-$$
+\begin{equation}
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k<0,s}c^\dagger_{k,s}\right)|0\rangle
-$$
+\end{equation}
 
 where $|0\rangle$ is the vacuum state^[Definition of vacuum state is such that $c_{k,s}|0\rangle=0\ \forall\ k,s$] and
 
-$$
+\begin{equation}
 H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
-$$
+\end{equation}
 
 with^[Factor of 2 comes from summing over $\uparrow$ and $\downarrow$ fermions.]
 
-$$
+\begin{equation}
 \mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k<0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k<0}\epsilon_{k}
-$$
+\end{equation}
 
 ## Canonical Transformation to Fermi Surface
 
 I introduce the following operators^[e.g. see~\cite{fetter2003quantum} eq.(7.34)]
+
 $$
+\begin{equation}
 c_{k,s}=
 \begin{cases}
 a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad{\rm "particles"}\\
 b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad {\rm "holes"}\ .
 \end{cases}
+\end{equation}
 $${#eq-CanTrans}
 
 With this definition it is clear that
+
 $$
+\begin{equation}
 a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
+\end{equation}
 $${#eq-vanish}
 
 ### $H_0$
 
 With this canonical transformation we have
-$$
+
 \begin{align}
 H_0=&\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 =&\sum_{k\ s.t.\ \epsilon_k>0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
 \end{align}
-$$
+
 
 ---
 
 ### $H_1$
 This term acts like a "mass term"
+
 \begin{align}
 H_1=&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k<0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
 =&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
 \end{align}
+
 where $\Lambda=N_x/2$ and $N_x$ is the number of lattice points^[$\Lambda$ is also the number of hexagonal unit cells.].
 
 The canonical transformation of $H_1$ results in an overall constant shift $-U\Lambda$ to the Hamiltonian, which is irrelevant.
 
 ### $H_2$
 Now things get messy.  I have
-$$
+
 \begin{align}
 H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
 =U\sum_x\sum_{k',l',k,l}O^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
 &=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \end{align}
-$$
+
 
 ---
 
@@ -483,7 +499,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & &  & & S=1 &&
  & & a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & S=1 && S_z=-1 && Q=0 && \Pi=-1\\
  & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}-a^\dagger_{d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=0 && S_z=0 && Q=0 && \Pi=-1\\
   & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}-a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=0 && S_z=0 && Q=0 && \Pi=+1\\
-    & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=?? && S_z=0 && Q=0 && \Pi=+1
+    & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=1 && S_z=0 && Q=0 && \Pi=+1
 \end{align}
 $${#eq-states16}
 :::
@@ -568,8 +584,8 @@ Eigenvalues of these two subspaces (assuming all matrix elements are the same (t
 
 $$
 \begin{align}
-&|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
-&|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
+&|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
+&|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
 \end{align}
 $$
 
