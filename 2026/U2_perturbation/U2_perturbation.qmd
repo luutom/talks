@@ -469,37 +469,34 @@ Lin points out a very important fact that I have ignored up to now: the interest
 
 I assume there are degenerate single-particle states whose energy $\epsilon_d=0$.  The systems we are interested in (ie armchair ribbons), if they have a zero energy, will have a degeneracy of 4 (2 for spin, and 2 for band).  I label these single-particle degenerate states as
 $$
-c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv a^\dagger_{-d,s}|0\rangle
+c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv b^{}_{-d,s}|0\rangle
 $$
 where $d$ denotes the degenerate state, $s=\uparrow,\downarrow$, and the $\pm$ index denotes the parity of the state^[Lin points out correctly that we have full control over the parity of these non-interacting states.].
 
-I define the following state $|\mathcal{V}\rangle$^[This state is ***not*** the half-filled ground state.]
-$$
-|\mathcal{V}\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}<0\ .
-$$
-Notice that ***none*** of the degenerate states are included in the defintion of $|\mathcal{V}\rangle$.  $H_1$ slightly changes
+With this definition I define the half-filled state as before
 
-:::{style='font-size:70%'}
-$$
-H_1=-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k\ge 0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\left(\Lambda-1\right)\ .
-$$
-:::
+\begin{equation}
+|\Omega\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}\le 0\ .
+\end{equation}
+
+Note that $|\Omega\rangle$ is a spin-singlet positive parity state.
 
 ---
 
-Because of these single-particle degenerate states, we now have ***many*** *many*-body non-interacting degenerate states
+Because of these single-particle degenerate states, we now have ***16*** *many*-body non-interacting degenerate states^[Recall that the creation of a hole with spin $s$, $b^\dagger_{-d,s}$, is equivalent to ***removing*** a particle with spin $s$, so the system will have a net spin $-s$.]
 
 :::{style='font-size: 0.7em'}
 $$
 \begin{align}
- & &|\mathcal{V}\rangle & & S=0 &&  S_z=0 && Q=-2 && \Pi=+1\\
-a^\dagger_{d,s}|\mathcal{V}\rangle & & a^\dagger_{-d,s}|\mathcal{V}\rangle & & S=\frac{1}{2} && S_z=\pm\frac{1}{2} && Q=-1 && \Pi=\pm 1\\
-a^\dagger_{d,\uparrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & &  & & S=1 && S_z=+1 && Q=0 && \Pi=-1\\
- & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}+a^\dagger_{d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=1 && S_z=0 && Q=0 && \Pi=-1\\
- & & a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle & & S=1 && S_z=-1 && Q=0 && \Pi=-1\\
- & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}-a^\dagger_{d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=0 && S_z=0 && Q=0 && \Pi=-1\\
-  & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}-a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=0 && S_z=0 && Q=0 && \Pi=+1\\
-    & \frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}+a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}\right)|\mathcal{V}\rangle &  & & S=1 && S_z=0 && Q=0 && \Pi=+1
+ & b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle & & & S=0 &&  S_z=0 && Q=-2 && \Pi=+1\\
+& b^\dagger_{-d,s}|\Omega\rangle &  & & S=\frac{1}{2} && S_z=\pm\frac{1}{2} && Q=-1 && \Pi=-1\\
+& a^\dagger_{d,s}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &  & & S=\frac{1}{2} && S_z=\pm\frac{1}{2} && Q=-1 && \Pi=+1\\
+|\Omega\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle & & S=0 && S_z=0 && Q=0 && \Pi=+1\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}|\Omega\rangle & & a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle  & & S=?? && S_z=0 && Q=0 && \Pi=-1\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle & & a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle  & & S=1 && S_z=\pm1 && Q=0 && \Pi=-1\\
+& b^\dagger_{-d,s}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle &  & & S=\frac{1}{2} && S_z=\pm\frac{1}{2} && Q=+1 && \Pi=-1\\
+& a^\dagger_{d,s}|\Omega\rangle &  & & S=\frac{1}{2} && S_z=\pm\frac{1}{2} && Q=+1 && \Pi=+1\\
+& a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle & & & S=0 &&  S_z=0 && Q=+2 && \Pi=+1\\
 \end{align}
 $${#eq-states16}
 :::
@@ -509,7 +506,7 @@ a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rang
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 -->
 
-All these states have eigenenergy $\mathcal{E}_\mathcal{V}-\frac{U}{2}\Lambda$, but they have different total spin $S$, spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above. I only show the $Q=-2,\ -1$ and $0$ states. I will consider the $Q=1$ and $2$ states later.
+All these states have eigenenergy $\mathcal{E}_\Omega-\frac{U}{2}\Lambda$, but they have different total spin $S$ (if known), spin projection $S_z$, charge $Q$, and parity $\Pi$ as labelled above. I only show the $Q=-2,\ -1$ and $0$ states. I will consider the $Q=1$ and $2$ states later.
 The interaction $\tilde V$ does not violate these quantum numbers.  
 
 <!--
