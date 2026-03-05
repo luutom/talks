@@ -555,7 +555,7 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; &amp; a^\dag
 a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & & &  S_z=0 && Q=2 && \Pi=+1
 -->
-<p>All these states have eigenenergy <span class="math inline">\(\mathcal{E}_\Omega-\frac{U}{2}\Lambda\)</span>, but they have different total spin <span class="math inline">\(S\)</span> (if known), spin projection <span class="math inline">\(S_z\)</span>, charge <span class="math inline">\(Q\)</span>, and parity <span class="math inline">\(\Pi\)</span> as labelled above. I only show the <span class="math inline">\(Q=-2,\ -1\)</span> and <span class="math inline">\(0\)</span> states. I will consider the <span class="math inline">\(Q=1\)</span> and <span class="math inline">\(2\)</span> states later. The interaction <span class="math inline">\(\tilde V\)</span> does not violate these quantum numbers.</p>
+<p>All these states have eigenenergy <span class="math inline">\(\mathcal{E}_\Omega-\frac{U}{2}\Lambda\)</span>, but they have different total spin <span class="math inline">\(S\)</span> (if known), spin projection <span class="math inline">\(S_z\)</span>, charge <span class="math inline">\(Q\)</span>, and parity <span class="math inline">\(\Pi\)</span> as labelled above. The interaction <span class="math inline">\(\tilde V\)</span> does not violate the <span class="math inline">\(S\)</span>, <span class="math inline">\(S_z\)</span>, and <span class="math inline">\(Q\)</span> quantum numbers<sup>2</sup>.</p>
 <!--
 ::::{.callout-note}
 ## Can $\tilde V$ couple the $Q=-2$ state to the $Q=2$ state?
@@ -566,25 +566,50 @@ $$
 A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
 ::::
 -->
-<aside><ol class="aside-footnotes"><li id="fn10"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, so the system will have a net spin <span class="math inline">\(-s\)</span>.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, so the system will have a net spin <span class="math inline">\(-s\)</span>.</p></li><li id="fn11"><p>It seems that <span class="math inline">\(\tilde V\)</span> will mix parities.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <h3 id="first-order-degenerate-perturbation-theory">First order (degenerate) perturbation theory</h3>
-<p>To perform degenerate perturbation theory at leading order, I need to diagonalize within the different <span class="math inline">\(Q,\ S_z\)</span>, and <span class="math inline">\(\Pi\)</span> subspaces.</p>
-<h4 id="q-2"><span class="math inline">\(Q=-2\)</span></h4>
-<p>I start with <span class="math inline">\(Q=-2\)</span> space and work my way up. It is trivial to see that <span class="math display">\[
-\langle \mathcal{V}|\tilde V|\mathcal{V}\rangle=0
-\]</span></p>
+<p>To perform degenerate perturbation theory at leading order, I need to diagonalize within the different <span class="math inline">\(Q,\ S_z\)</span>, and <span class="math inline">\(\Pi\)</span> subspaces. It is good to refer to <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a>.</p>
+<h4 id="q2"><span class="math inline">\(|Q|=2\)</span></h4>
+<p>I start with both <span class="math inline">\(Q=\pm2\)</span> states because why not. It is trivial to see that</p>
+<p><span class="math display">\[\begin{align}
+&amp; \langle \Omega|b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}\ \tilde V\ b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle =V_{-d,-d;-d,-d}\\
+&amp; \langle \Omega|a^{}_{d,\downarrow}a^{}_{d,\uparrow}\ \tilde V\ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle =V_{d,d;d,d}
+\end{align}\]</span></p>
+<p>I’m willing to bet 5 cents that <span class="math inline">\(V_{-d,-d;-d,-d}=V_{d,d;d,d}\)</span>, which would mean the shifts for <span class="math inline">\(Q=\pm 2\)</span> are the same, which is what we expect!</p>
 <h4 id="q-1"><span class="math inline">\(Q=-1\)</span></h4>
-<p>I believe it is also trivial to see that <span class="math display">\[
-\langle\mathcal{V}|a^{}_{\sigma d,s}\tilde Va^\dagger_{\sigma' d,s'}|\mathcal{V}\rangle=0
-\]</span></p>
-<h4 id="q0-s_zpm-1"><span class="math inline">\(Q=0,\ S_z=\pm 1\)</span></h4>
-<p>A quick look at <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> shows that there is no term in <span class="math inline">\(\tilde V\)</span> that gives a non-trivial result. In other words, I have <span class="math display">\[
+<p>I will just consider <span class="math inline">\(S_z=\frac{1}{2}\)</span>. Here is the basis and matrix</p>
+<div style="font-size: 0.7em">
+<p><span class="math display">\[\begin{equation}
+\left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
+\begin{pmatrix}
+b^\dagger_{-d,\downarrow}|\Omega\rangle\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{pmatrix}
+\quad;\quad \left\langle Q=-1;S_z=\frac{1}{2}\right\rvert\tilde V\left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
+\begin{bmatrix}
+0 &amp; V_{d,-d;-d,-d}\\
+V_{-d,-d;-d,d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
+\end{bmatrix}
+\end{equation}\]</span></p>
+</div>
+<p>Now I’m willing to bet 10 cents that <span class="math inline">\(V_{-d,-d;-d,-d}=V_{d,-d;-d,d}\)</span>, which would mean the matrix becomes</p>
+<p><span class="math display">\[\begin{equation}
+\begin{bmatrix}
+0 &amp; V_{d,-d;-d,-d}\\
+V_{-d,-d;-d,d} &amp; 0
+\end{bmatrix}
+\end{equation}\]</span></p>
+<!--
+#### $Q=0,\ S_z=\pm 1$
+A quick look at @eq-tildeV shows that there is no term in $\tilde V$ that gives a non-trivial result.  In other words, I have 
+$$
 \langle S_z=\pm 1|\tilde V|S_z=\pm 1\rangle =
 \langle \mathcal{V}|a^{}_{-d,s}a^{}_{d,s}\tilde V a^\dagger_{d,s}a^\dagger_{-d,s}|\mathcal{V}\rangle
 = 0\ .
-\]</span></p>
+$$
+-->
 </section>
 <section class="slide level2">
 
