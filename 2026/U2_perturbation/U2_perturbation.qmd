@@ -543,7 +543,7 @@ I'm willing to bet 5 cents that $V_{-d,-d;-d,-d}=V_{d,d;d,d}$, which would mean 
 :::{.callout-note icon=false}
 ## $Q=-1$
 
-I will just consider $S_z=\frac{1}{2}$.  Here is the basis and matrix
+I will just consider $S_z=\frac{1}{2}$.  The $S_z=-\frac{1}{2}$ gives the same result.  Here is the basis and matrix
 
 :::{style='font-size: 0.7em'}
 \begin{equation}
@@ -602,12 +602,12 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 \quad;\quad \left\langle  Q=0;S_z=0;\Pi=+1\right\rvert\tilde V\left\lvert  Q=0;S_z=0;\Pi=+1\right\rangle=
 \begin{bmatrix}
 0 & V_{-d,-d;d,d}\\
-V_{d,d;-d,-d} & V_{d,d;d,d}+V_{-d,-d;-d,d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
+V_{d,d;-d,-d} & V_{d,d;d,d}+V_{-d,-d;-d,-d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
 \end{bmatrix}
 \end{equation}
 :::
 
-Again I'm willing to bet 20 cents that $V_{d,d;d,d}=V_{-d,-d;-d,d}=V_{-d,d;d,-d}=V_{d,-d;-d,d}$, which would mean the matrix becomes
+Again I'm willing to bet 20 cents that $V_{d,d;d,d}=V_{-d,-d;-d,-d}=V_{-d,d;d,-d}=V_{d,-d;-d,d}$, which would mean the matrix becomes
 
 \begin{equation}
 \begin{bmatrix}
