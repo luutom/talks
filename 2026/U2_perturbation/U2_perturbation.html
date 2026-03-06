@@ -566,31 +566,45 @@ $$
 A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
 ::::
 -->
-<aside><ol class="aside-footnotes"><li id="fn10"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, so the system will have a net spin <span class="math inline">\(-s\)</span>.</p></li><li id="fn11"><p>It seems that <span class="math inline">\(\tilde V\)</span> will mix parities.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, resulting in the system <em>gaining</em> spin <span class="math inline">\(-s\)</span>.</p></li><li id="fn11"><p>It seems that <span class="math inline">\(\tilde V\)</span> will mix parities.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <h3 id="first-order-degenerate-perturbation-theory">First order (degenerate) perturbation theory</h3>
 <p>To perform degenerate perturbation theory at leading order, I need to diagonalize within the different <span class="math inline">\(Q,\ S_z\)</span>, and <span class="math inline">\(\Pi\)</span> subspaces. It is good to refer to <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a>.</p>
-<h4 id="q2"><span class="math inline">\(|Q|=2\)</span></h4>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><span class="math inline">\(Q=\pm2\)</span></strong></p>
+</div>
+<div class="callout-content">
 <p>I start with both <span class="math inline">\(Q=\pm2\)</span> states because why not. It is trivial to see that</p>
 <p><span class="math display">\[\begin{align}
 &amp; \langle \Omega|b^{}_{-d,\downarrow}b^{}_{-d,\uparrow}\ \tilde V\ b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle =V_{-d,-d;-d,-d}\\
 &amp; \langle \Omega|a^{}_{d,\downarrow}a^{}_{d,\uparrow}\ \tilde V\ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle =V_{d,d;d,d}
 \end{align}\]</span></p>
 <p>I’m willing to bet 5 cents that <span class="math inline">\(V_{-d,-d;-d,-d}=V_{d,d;d,d}\)</span>, which would mean the shifts for <span class="math inline">\(Q=\pm 2\)</span> are the same, which is what we expect!</p>
-<h4 id="q-1"><span class="math inline">\(Q=-1\)</span></h4>
+</div>
+</div>
+</div>
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><span class="math inline">\(Q=-1\)</span></strong></p>
+</div>
+<div class="callout-content">
 <p>I will just consider <span class="math inline">\(S_z=\frac{1}{2}\)</span>. Here is the basis and matrix</p>
 <div style="font-size: 0.7em">
 <p><span class="math display">\[\begin{equation}
 \left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
 \begin{pmatrix}
-b^\dagger_{-d,\downarrow}|\Omega\rangle\\
-a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+b^\dagger_{-d,\downarrow}\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
 \end{pmatrix}
+|\Omega\rangle
 \quad;\quad \left\langle Q=-1;S_z=\frac{1}{2}\right\rvert\tilde V\left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
 \begin{bmatrix}
-0 &amp; V_{d,-d;-d,-d}\\
-V_{-d,-d;-d,d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
+0 &amp; V_{-d,-d;-d,d}\\
+V_{d,-d;-d,-d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
 \end{bmatrix}
 \end{equation}\]</span></p>
 </div>
@@ -601,6 +615,10 @@ V_{-d,-d;-d,d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
 V_{-d,-d;-d,d} &amp; 0
 \end{bmatrix}
 \end{equation}\]</span></p>
+<p>If <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later. Also note that parities are mixed in this case.</p>
+</div>
+</div>
+</div>
 <!--
 #### $Q=0,\ S_z=\pm 1$
 A quick look at @eq-tildeV shows that there is no term in $\tilde V$ that gives a non-trivial result.  In other words, I have 
@@ -613,44 +631,76 @@ $$
 </section>
 <section class="slide level2">
 
-<h4 id="q0-s_z0-pipm-1"><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=\pm 1\)</span></h4>
-<p>I now consider <span class="math inline">\(Q=0,\ S_z=0, \Pi=\pm 1\)</span> cases. Here is the subspace:</p>
-<p><span class="math display">\[
+<div class="callout callout-note no-icon callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<p><strong><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=+1\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p>Here is the basis and matrix</p>
+<div style="font-size: 0.7em">
+<p><span class="math display">\[\begin{equation}
+\left\lvert Q=0;S_z=0;\Pi=+1\right\rangle=
+\begin{pmatrix}
+1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
+\end{pmatrix}
+|\Omega\rangle
+\quad;\quad \left\langle  Q=0;S_z=0;\Pi=+1\right\rvert\tilde V\left\lvert  Q=0;S_z=0;\Pi=+1\right\rangle=
+\begin{bmatrix}
+0 &amp; V_{-d,-d;d,d}\\
+V_{d,d;-d,-d} &amp; V_{d,d;d,d}+V_{-d,-d;-d,d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
+\end{bmatrix}
+\end{equation}\]</span></p>
+</div>
+<p>Again I’m willing to bet 20 cents that <span class="math inline">\(V_{d,d;d,d}=V_{-d,-d;-d,d}=V_{-d,d;d,-d}=V_{d,-d;-d,d}\)</span>, which would mean the matrix becomes</p>
+<p><span class="math display">\[\begin{equation}
+\begin{bmatrix}
+0 &amp; V_{-d,-d;d,d}\\
+V_{d,d;-d,-d} &amp; 0
+\end{bmatrix}
+\end{equation}\]</span></p>
+<p>If <span class="math inline">\(V_{d,d;-d,-d}=V_{-d,-d;d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later.</p>
+</div>
+</div>
+</div>
+<!--
+#### $Q=0,\ S_z=0,\ \Pi=\pm 1$
+
+I now consider $Q=0,\ S_z=0, \Pi=\pm 1$ cases.  Here is the subspace:
+
+$$
 |Q=0,S_z=0,\Pi=\pm 1\rangle=
 \begin{pmatrix}
-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
-a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
-a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
-a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
+ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}|\mathcal{V}\rangle\\
+ a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}|\mathcal{V}\rangle \\
 \end{pmatrix}
-\]</span> Using <span class="math inline">\(\tilde V\)</span> from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> gives</p>
-<p><span class="math display">\[
+$$
+Using $\tilde V$ from @eq-tildeV gives
+
+$$
 \langle Q=0,S_z=0,\Pi=\pm 1|\tilde V|Q=0,S_z=0,\Pi=\pm 1\rangle
 =
 \begin{pmatrix}
-V_{ d, d; d, d} &amp; V_{ d, d;-d,-d} &amp; 0 &amp; 0\\
-V_{-d,-d; d, d} &amp; V_{-d,-d;-d,-d} &amp; 0 &amp; 0\\
-0 &amp; 0 &amp; V_{d,-d;-d,d} &amp; V_{-d, d;-d, d}\\
-0 &amp; 0 &amp; V_{ d,-d; d,-d} &amp; V_{-d,d;d,-d}
+V_{ d, d; d, d} & V_{ d, d;-d,-d} & 0 & 0\\
+V_{-d,-d; d, d} & V_{-d,-d;-d,-d} & 0 & 0\\
+0 & 0 & V_{d,-d;-d,d} & V_{-d, d;-d, d}\\
+0 & 0 & V_{ d,-d; d,-d} & V_{-d,d;d,-d}
 \end{pmatrix}
-\]</span></p>
-<p>Eigenvalues of these two subspaces (assuming all matrix elements are the same (to be verified!!!)) are <span class="math inline">\(0,\ 2V_{d,d;d,d}\)</span>. This implies there are two zero-energy half-filled states of opposite parity (just as Lin predicted)</p>
-<p><span class="math display">\[
-\begin{align}
-&amp;|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
-&amp;|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
-\end{align}
-\]</span></p>
-</section>
-<section class="slide level2">
+$$
 
-<h4 id="q1"><span class="math inline">\(Q=1\)</span></h4>
-<p>Instead of using the <span class="math inline">\(Q=1\)</span> states defined in <a href="#/eq-states16" class="quarto-xref">Equation&nbsp;7</a>, I will build these states from the newly found half-filled states <span class="math inline">\(|\Omega_\pm\rangle\)</span>, <span class="math display">\[
+Eigenvalues of these two subspaces (assuming all matrix elements are the same (to be verified!!!)) are $0,\ 2V_{d,d;d,d}$.  This implies there are two zero-energy half-filled states of opposite parity (just as Lin predicted)
+
+$$
 \begin{align}
-a^\dagger_{+d,s}|\Omega_+\rangle &amp;\quad; &amp; a^\dagger_{-d,s}|\Omega_-\rangle &amp;\quad; &amp; \Pi=+1\\
-a^\dagger_{-d,s}|\Omega_+\rangle &amp;\quad; &amp; a^\dagger_{+d,s}|\Omega_-\rangle &amp;\quad; &amp; \Pi=-1
+&|\Omega_+\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{-d,\downarrow}\right)|\mathcal{V}\rangle\\
+&|\Omega_-\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}a^\dagger_{-d,\downarrow}- a^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}\right)|\mathcal{V}\rangle\\
 \end{align}
-\]</span></p>
+$$
+
+-->
 
 </section></section>
 

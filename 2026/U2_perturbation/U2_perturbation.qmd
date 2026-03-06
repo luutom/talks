@@ -483,7 +483,7 @@ Note that $|\Omega\rangle$ is a spin-singlet positive parity state.
 
 ---
 
-Because of these single-particle degenerate states, we now have ***16*** *many*-body non-interacting degenerate states^[Recall that the creation of a hole with spin $s$, $b^\dagger_{-d,s}$, is equivalent to ***removing*** a particle with spin $s$, so the system will have a net spin $-s$.]
+Because of these single-particle degenerate states, we now have ***16*** *many*-body non-interacting degenerate states^[Recall that the creation of a hole with spin $s$, $b^\dagger_{-d,s}$, is equivalent to ***removing*** a particle with spin $s$, resulting in the system *gaining* spin $-s$.]
 
 :::{style='font-size: 0.7em'}
 $$
@@ -526,7 +526,8 @@ A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}
 
 To perform degenerate perturbation theory at leading order, I need to diagonalize within the different $Q,\ S_z$, and $\Pi$ subspaces. It is good to refer to @eq-tildeV.
 
-#### $|Q|=2$
+:::{.callout-note icon=false}
+## $Q=\pm2$
 
 I start with both $Q=\pm2$ states because why not.
 It is trivial to see that
@@ -537,8 +538,10 @@ It is trivial to see that
 \end{align}
 
 I'm willing to bet 5 cents that $V_{-d,-d;-d,-d}=V_{d,d;d,d}$, which would mean the shifts for $Q=\pm 2$ are the same, which is what we expect!
+:::
 
-#### $Q=-1$
+:::{.callout-note icon=false}
+## $Q=-1$
 
 I will just consider $S_z=\frac{1}{2}$.  Here is the basis and matrix
 
@@ -546,13 +549,14 @@ I will just consider $S_z=\frac{1}{2}$.  Here is the basis and matrix
 \begin{equation}
 \left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
 \begin{pmatrix}
-b^\dagger_{-d,\downarrow}|\Omega\rangle\\
-a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+b^\dagger_{-d,\downarrow}\\
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
 \end{pmatrix}
+|\Omega\rangle
 \quad;\quad \left\langle Q=-1;S_z=\frac{1}{2}\right\rvert\tilde V\left\lvert Q=-1;S_z=\frac{1}{2}\right\rangle=
 \begin{bmatrix}
-0 & V_{d,-d;-d,-d}\\
-V_{-d,-d;-d,d} & V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
+0 & V_{-d,-d;-d,d}\\
+V_{d,-d;-d,-d} & V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
 \end{bmatrix}
 \end{equation}
 :::
@@ -565,6 +569,9 @@ Now I'm willing to bet 10 cents that $V_{-d,-d;-d,-d}=V_{d,-d;-d,d}$, which woul
 V_{-d,-d;-d,d} & 0
 \end{bmatrix}
 \end{equation}
+
+If $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.  Also note that parities are mixed in this case.
+:::
 
 <!--
 #### $Q=0,\ S_z=\pm 1$
@@ -579,6 +586,40 @@ $$
 
 ---
 
+:::{.callout-note icon=false}
+## $Q=0,\ S_z=0,\ \Pi=+1$
+
+Here is the basis and matrix
+
+:::{style='font-size: 0.7em'}
+\begin{equation}
+\left\lvert Q=0;S_z=0;\Pi=+1\right\rangle=
+\begin{pmatrix}
+1\\
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
+\end{pmatrix}
+|\Omega\rangle
+\quad;\quad \left\langle  Q=0;S_z=0;\Pi=+1\right\rvert\tilde V\left\lvert  Q=0;S_z=0;\Pi=+1\right\rangle=
+\begin{bmatrix}
+0 & V_{-d,-d;d,d}\\
+V_{d,d;-d,-d} & V_{d,d;d,d}+V_{-d,-d;-d,d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
+\end{bmatrix}
+\end{equation}
+:::
+
+Again I'm willing to bet 20 cents that $V_{d,d;d,d}=V_{-d,-d;-d,d}=V_{-d,d;d,-d}=V_{d,-d;-d,d}$, which would mean the matrix becomes
+
+\begin{equation}
+\begin{bmatrix}
+0 & V_{-d,-d;d,d}\\
+V_{d,d;-d,-d} & 0
+\end{bmatrix}
+\end{equation}
+
+If $V_{d,d;-d,-d}=V_{-d,-d;d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.
+:::
+
+<!--
 #### $Q=0,\ S_z=0,\ \Pi=\pm 1$
 
 I now consider $Q=0,\ S_z=0, \Pi=\pm 1$ cases.  Here is the subspace:
@@ -614,16 +655,7 @@ $$
 \end{align}
 $$
 
----
+-->
 
-#### $Q=1$ 
-
-Instead of using the $Q=1$ states defined in @eq-states16, I will build these states from the newly found half-filled states $|\Omega_\pm\rangle$,
-$$
-\begin{align}
-a^\dagger_{+d,s}|\Omega_+\rangle &\quad; & a^\dagger_{-d,s}|\Omega_-\rangle &\quad; & \Pi=+1\\
-a^\dagger_{-d,s}|\Omega_+\rangle &\quad; & a^\dagger_{+d,s}|\Omega_-\rangle &\quad; & \Pi=-1
-\end{align}
-$$
 
 
