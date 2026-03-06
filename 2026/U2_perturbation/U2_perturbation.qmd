@@ -667,6 +667,7 @@ a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}
 I think things are starting to make sense. . .
 :::
 
+Refer to @eq-tildeV
 <!--
 #### $Q=0,\ S_z=0,\ \Pi=\pm 1$
 
