@@ -643,6 +643,56 @@ V_{d,-d;d,-d} & 0
 Again, if $V_{-d,d;-d,d}=V_{d,-d;d,-d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.
 :::
 
+:::{.callout-note icon=false}
+## $Q=0,\ S_z=1,\ \Pi=-1$
+
+Here is the basis and matrix
+
+:::{style='font-size: 0.7em'}
+\begin{equation}
+\left\lvert Q=0;S_z=0;\Pi=-1\right\rangle=
+\begin{pmatrix}
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}\\
+a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}
+\end{pmatrix}
+|\Omega\rangle
+\quad;\quad \left\langle  Q=0;S_z=0;\Pi=-1\right\rvert\tilde V\left\lvert  Q=0;S_z=0;\Pi=-1\right\rangle=
+\begin{bmatrix}
+0 & V_{-d,d;-d,d}\\
+V_{d,-d;d,-d} & 0
+\end{bmatrix}
+\end{equation}
+:::
+
+Again, if $V_{-d,d;-d,d}=V_{d,-d;d,-d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.
+:::
+
+---
+
+:::{.callout-note icon=false}
+## $Q=0,\ S_z=\pm 1$
+
+Here is the basis and matrix
+
+:::{style='font-size: 0.7em'}
+\begin{equation}
+\left\lvert Q=0;S_z=\pm 1;\right\rangle=
+\begin{pmatrix}
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}\\
+a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}
+\end{pmatrix}
+|\Omega\rangle
+\quad;\quad \left\langle  Q=0;S_z=\pm 1\right\rvert\tilde V\left\lvert  Q=0;S_z=\pm 1\right\rangle=
+\begin{bmatrix}
+-V_{d,-d;-d,d} & 0\\
+0 & -V_{-d,d;d,-d}
+\end{bmatrix}
+\end{equation}
+:::
+
+I think things are starting to make sense. . .
+:::
+
 <!--
 #### $Q=0,\ S_z=0,\ \Pi=\pm 1$
 
