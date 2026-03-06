@@ -706,5 +706,9 @@ $$
 
 -->
 
+---
+
+![](assets/splittingLO.png){fig-align=center}
+
 
 
