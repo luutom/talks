@@ -713,4 +713,10 @@ $$
 ![](assets/splittingLO.png){fig-align=center}
 
 
-
+:::{.callout-warning}
+## Infinite volume limit $N_U\to\infty$
+As the ribbon becomes infinitely long I find that
+\begin{equation}
+\lim_{N_U\to\infty} V_{d,d;d,d}=0
+\end{equation}
+:::
