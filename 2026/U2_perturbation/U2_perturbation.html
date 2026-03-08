@@ -296,13 +296,13 @@ V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^
 \end{align}
 \]</span> We can simplify the first term (remember that there is a sum over all momentum indices) <span class="math display">\[
 \delta_{-k',-l}V_{-k',l';k,-l}=V_{-l,l';k,-l}=U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}
-\]</span> Now <span class="math inline">\(\sum_{-l}O^{-1}_{x,-l}O^{}_{-l,x}=1/2\)</span> (!!) since we are only summing over the negative energies, which corresponds to only half of all possible states. This means we get <span class="math display">\[
+\]</span> Now <span class="math inline">\(\sum_{-l}O^{-1}_{x,-l}O^{}_{-l,x}=1/2\)</span><sup>1</sup> since we are only summing over the negative energies, which corresponds to only half of all possible states. This means we get <span class="math display">\[
 U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}=\frac{U}{2}\sum_xO^{-1}_{x,l'}O^{}_{k,x}=\frac{U}{2}\delta_{l',k}
 \]</span> Thus term 8 becomes <span class="math display">\[
 V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}
 =\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad{\rm (term\ 8)}
 \]</span></p>
-</section>
+<aside><ol class="aside-footnotes"><li id="fn8"><p>I have verified this numerically.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <p>A similar calculation for term 9 gives</p>
@@ -442,7 +442,7 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
 \]</span></p>
-<aside><ol class="aside-footnotes"><li id="fn8"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <div class="columns">
@@ -532,7 +532,7 @@ c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger
 |\Omega\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}\le 0\ .
 \end{equation}\]</span></p>
 <p>Note that <span class="math inline">\(|\Omega\rangle\)</span> is a spin-singlet positive parity state.</p>
-<aside><ol class="aside-footnotes"><li id="fn9"><p>Lin points out correctly that we have full control over the parity of these non-interacting states.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>Lin points out correctly that we have full control over the parity of these non-interacting states.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <p>Because of these single-particle degenerate states, we now have <strong><em>16</em></strong> <em>many</em>-body non-interacting degenerate states<sup>1</sup></p>
@@ -566,7 +566,7 @@ $$
 A non-trivial result requires that $\tilde V$ has a term $a^{}_{-d,\uparrow}a^{}_{-d,\downarrow}a^{}_{d,\downarrow}a^{}_{d,\uparrow}$, but when one looks at the form of $\tilde V$ in @eq-tildeV, one immediately sees that there is no such term.  Thus this matrix element is zero.
 ::::
 -->
-<aside><ol class="aside-footnotes"><li id="fn10"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, resulting in the system <em>gaining</em> spin <span class="math inline">\(-s\)</span>.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn11"><p>Recall that the creation of a hole with spin <span class="math inline">\(s\)</span>, <span class="math inline">\(b^\dagger_{-d,s}\)</span>, is equivalent to <strong><em>removing</em></strong> a particle with spin <span class="math inline">\(s\)</span>, resulting in the system <em>gaining</em> spin <span class="math inline">\(-s\)</span>.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <h3 id="first-order-degenerate-perturbation-theory">First order (degenerate) perturbation theory</h3>
