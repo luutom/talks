@@ -139,8 +139,8 @@ Now things get messy.  I have
 
 \begin{align}
 H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
-=U\sum_x\sum_{k',l',k,l}O^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
-&=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{-1}_{x,k'}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{l,x}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
+=U\sum_x\sum_{k',l',k,l}O^{}_{k',x}O^{}_{l',x}O^{-1}_{x,k}O^{-1}_{x,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}\\
+&=\sum_{k',l',k,l}\underbrace{\left[U\sum_xO^{}_{k',x}O^{}_{l',x}O^{-1}_{x,k}O^{-1}_{x,l}\right]}_{V_{k',l';k,l}}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \end{align}
 
