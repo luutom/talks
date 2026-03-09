@@ -715,8 +715,8 @@ $$
 
 :::{.callout-warning}
 ## Infinite volume limit $N_U\to\infty$
-As the ribbon becomes infinitely long I find that
+For an AGNR with width $N_W=3m+2$ and number of unit cells $N_U$ I have $\Lambda=N_x/2=N_U\cdot N_W$, where $N_x$ is the total number of sites and $2N_W$ is the number of sites per unit cell. I find that
 \begin{equation}
-\lim_{N_U\to\infty} V_{d,d;d,d}=0
+V_{d,d;d,d}=\frac{1}{4(m+1)N_U}\implies\lim_{N_U\to\infty} V_{d,d;d,d}=0
 \end{equation}
 :::
