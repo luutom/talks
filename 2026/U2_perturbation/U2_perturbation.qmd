@@ -748,3 +748,11 @@ a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle & (S_z=-1)
 \end{align}
 
 where $|\Omega\rangle$ is defined in @eq-groundStateDeg.
+
+:::{.callout-important}
+Again, the LO shift vanishes as $m\to\infty$ and/or $N_U\to\infty$.
+:::
+
+---
+
+### 2nd order (degenerate) perturbation theory 
