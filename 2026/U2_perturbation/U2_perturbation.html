@@ -528,9 +528,11 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 c^\dagger_{d,s,+}|0\rangle \equiv a^\dagger_{+d,s}|0\rangle\quad;\quad c^\dagger_{d,s,-}|0\rangle\equiv b^{}_{-d,s}|0\rangle
 \]</span> where <span class="math inline">\(d\)</span> denotes the degenerate state, <span class="math inline">\(s=\uparrow,\downarrow\)</span>, and the <span class="math inline">\(\pm\)</span> index denotes the parity of the state<sup>1</sup>.</p>
 <p>With this definition I define the half-filled state as before</p>
-<p><span class="math display">\[\begin{equation}
+<p><span id="eq-groundStateDeg"><span class="math display">\[
+\begin{equation}
 |\Omega\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}\le 0\ .
-\end{equation}\]</span></p>
+\end{equation}
+\tag{7}\]</span></span></p>
 <p>Note that <span class="math inline">\(|\Omega\rangle\)</span> is a spin-singlet positive parity state.</p>
 <aside><ol class="aside-footnotes"><li id="fn10"><p>Lin points out correctly that we have full control over the parity of these non-interacting states.</p></li></ol></aside></section>
 <section class="slide level2">
@@ -549,7 +551,7 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; &amp; a^\dag
 &amp; a^\dagger_{d,s}|\Omega\rangle &amp;  &amp; &amp; S=\frac{1}{2} &amp;&amp; S_z=\pm\frac{1}{2} &amp;&amp; Q=+1 &amp;&amp; \Pi=+1\\
 &amp; a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle &amp; &amp; &amp; S=0 &amp;&amp;  S_z=0 &amp;&amp; Q=+2 &amp;&amp; \Pi=+1\\
 \end{align}
-\tag{7}\]</span></span></p>
+\tag{8}\]</span></span></p>
 </div>
 <!--
 a^\dagger_{d,s}a^\dagger_{-d,\downarrow}a^\dagger_{-d,\uparrow}|\mathcal{V}\rangle & & a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}a^\dagger_{-d,s}|\mathcal{V}\rangle & & S_z=\pm\frac{1}{2} && Q=+1 && \Pi=\pm 1 \\
@@ -615,7 +617,7 @@ V_{d,-d;-d,-d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
 V_{-d,-d;-d,d} &amp; 0
 \end{bmatrix}
 \end{equation}\]</span></p>
-<p>If <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later. Also note that parities are mixed in this case.</p>
+<p>If <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later. Also note that parities are mixed in this case. The same things happens for the <span class="math inline">\(Q=+1\)</span> sector.</p>
 <p><strong>UPDATE: I have numerically confirmed that <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}=0\)</span>. This means that the parities do NOT mix and there is no shift at LO.</strong></p>
 </div>
 </div>
@@ -773,6 +775,26 @@ V_{d,d;d,d}=V_{-d,-d;-d,-d}=V_{-d,-d;d,d}=V_{d,d;-d,-d}=V_{-d,d;d,-d}=V_{d,-d;-d
 </div>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
+<h3 id="the-new-ground-state">The new ground state</h3>
+<p>So LO perturbation theory shows us that in a finite volume, the ground state energy gets a shift</p>
+<p><span class="math display">\[\begin{equation}
+\mathcal{E}_\Omega-\frac{U\Lambda}{2}\to\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\frac{U}{4(m+1)N_U}\ ,
+\end{equation}\]</span></p>
+<p>where the width of the ribbon is defined as <span class="math inline">\(N_W=3m+2\)</span>.</p>
+<p>There are both spin singlet as well as spin triplet eigenstates</p>
+<p><span class="math display">\[\begin{align}
+|\Omega,S=0\rangle&amp;=\frac{1}{\sqrt{2}}\left(1-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
+|\Omega,S=1\rangle&amp;=
+\begin{cases}
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; (S_z=+1)\\
+\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}-a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle &amp; (S_z=0)\\
+a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; (S_z=-1)
+\end{cases}
+\end{align}\]</span></p>
+<p>where <span class="math inline">\(|\Omega\rangle\)</span> is defined in <a href="#/eq-groundStateDeg" class="quarto-xref">Equation&nbsp;7</a>.</p>
 
 </section></section>
 

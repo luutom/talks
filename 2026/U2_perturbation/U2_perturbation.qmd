@@ -475,9 +475,11 @@ where $d$ denotes the degenerate state, $s=\uparrow,\downarrow$, and the $\pm$ i
 
 With this definition I define the half-filled state as before
 
+$$
 \begin{equation}
 |\Omega\rangle=\left(\prod_{-k,s}b_{-k,s}\right)|0\rangle\quad\forall\ \epsilon_{-k}\le 0\ .
 \end{equation}
+$${#eq-groundStateDeg}
 
 Note that $|\Omega\rangle$ is a spin-singlet positive parity state.
 
@@ -570,7 +572,7 @@ V_{-d,-d;-d,d} & 0
 \end{bmatrix}
 \end{equation}
 
-If $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.  Also note that parities are mixed in this case.
+If $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.  Also note that parities are mixed in this case.  The same things happens for the $Q=+1$ sector.
 
 **UPDATE:  I have numerically confirmed that $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}=0$.  This means that the parities do NOT mix and there is no shift at LO.**
 :::
@@ -720,3 +722,29 @@ For an AGNR with width $N_W=3m+2$ and number of unit cells $N_U$ I have $\Lambda
 V_{d,d;d,d}=V_{-d,-d;-d,-d}=V_{-d,-d;d,d}=V_{d,d;-d,-d}=V_{-d,d;d,-d}=V_{d,-d;-d,d}=V_{d,-d;d,-d}=V_{-d,d;-d,d}=\frac{1}{4(m+1)N_U}\implies\lim_{N_U\to\infty} V_{d,d;d,d}=0
 \end{equation}
 :::
+
+---
+
+### The new ground state
+
+So LO perturbation theory shows us that in a finite volume, the ground state energy gets a shift
+
+\begin{equation}
+\mathcal{E}_\Omega-\frac{U\Lambda}{2}\to\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\frac{U}{4(m+1)N_U}\ ,
+\end{equation}
+
+where the width of the ribbon is defined as $N_W=3m+2$.  
+
+There are both spin singlet as well as spin triplet eigenstates
+
+\begin{align}
+|\Omega,S=0\rangle&=\frac{1}{\sqrt{2}}\left(1-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
+|\Omega,S=1\rangle&=
+\begin{cases}
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle & (S_z=+1)\\
+\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}-a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle & (S_z=0)\\
+a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle & (S_z=-1)
+\end{cases}
+\end{align}
+
+where $|\Omega\rangle$ is defined in @eq-groundStateDeg.
