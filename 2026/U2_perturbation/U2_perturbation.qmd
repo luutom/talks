@@ -605,8 +605,8 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 |\Omega\rangle
 \quad;\quad \left\langle  Q=0;S_z=0;\Pi=+1\right\rvert\tilde V\left\lvert  Q=0;S_z=0;\Pi=+1\right\rangle=
 \begin{bmatrix}
-0 & V_{-d,-d;d,d}\\
-V_{d,d;-d,-d} & V_{d,d;d,d}+V_{-d,-d;-d,-d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
+0 & -V_{-d,-d;d,d}\\
+-V_{d,d;-d,-d} & V_{d,d;d,d}+V_{-d,-d;-d,-d}-V_{-d,d;d,-d}-V_{d,-d;-d,d}
 \end{bmatrix}
 \end{equation}
 :::
@@ -615,8 +615,8 @@ Again I'm willing to bet 20 cents that $V_{d,d;d,d}=V_{-d,-d;-d,-d}=V_{-d,d;d,-d
 
 \begin{equation}
 \begin{bmatrix}
-0 & V_{-d,-d;d,d}\\
-V_{d,d;-d,-d} & 0
+0 & -V_{-d,-d;d,d}\\
+-V_{d,d;-d,-d} & 0
 \end{bmatrix}
 \end{equation}
 
@@ -738,7 +738,7 @@ where the width of the ribbon is defined as $N_W=3m+2$.
 There are both spin singlet as well as spin triplet eigenstates
 
 \begin{align}
-|\Omega,S=0\rangle&=\frac{1}{\sqrt{2}}\left(1-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
+|\Omega,S=0\rangle&=\frac{1}{\sqrt{2}}\left(1+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
 |\Omega,S=1\rangle&=
 \begin{cases}
 a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle & (S_z=+1)\\
@@ -755,4 +755,6 @@ Again, the LO shift vanishes as $m\to\infty$ and/or $N_U\to\infty$.
 
 ---
 
-### 2nd order (degenerate) perturbation theory 
+### 2nd order (degenerate) perturbation theory
+
+
