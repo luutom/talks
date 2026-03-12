@@ -572,7 +572,7 @@ V_{-d,-d;-d,d} & 0
 \end{bmatrix}
 \end{equation}
 
-If $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.  Also note that parities are mixed in this case.  The same things happens for the $Q=+1$ sector.
+If $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}$ then the diagonalization of this matrix is trivial.  I will confirm this later.  Also note that parities are mixed in this case.  The same things happen for the $Q=+1$ sector.
 
 **UPDATE:  I have numerically confirmed that $V_{d,-d;-d,-d}=V_{-d,-d;-d,d}=0$.  This means that the parities do NOT mix and there is no shift at LO.**
 :::
