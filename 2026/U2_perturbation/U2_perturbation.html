@@ -425,11 +425,12 @@ H&amp;=H_0+H_1+H_2\\
 </section>
 <section id="second-order-in-tilde-v" class="slide level2">
 <h2>Second order in <span class="math inline">\(\tilde V\)</span></h2>
-<h3 id="ground-state-omegarangle-2">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
+<h3 id="sec-2ndOrderGroundState">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
 <p>The second order contribution is</p>
-<p><span class="math display">\[
+<p><span class="math display">\[\begin{equation}
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
-\]</span> where the sum is over all possible states <span class="math inline">\(|n\rangle\)</span> in the Fock space.</p>
+\end{equation}\]</span></p>
+<p>where the sum is over all possible states <span class="math inline">\(|n\rangle\)</span> in the Fock space.</p>
 <p>Again the normal ordering of <span class="math inline">\(\tilde V\)</span> simplifies things. The only terms in <span class="math inline">\(\tilde V\)</span> that can contribute are terms 6 and 11<sup>1</sup> <span class="math display">\[
 \begin{multline}
 \sum_{n}\langle\Omega|V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k',\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle\\
@@ -454,7 +455,7 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 <p>So we have (sum over all momentum indices)</p>
 <p><span id="eq-groundStateV2"><span class="math display">\[
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
--\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
+-\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
 \tag{6}\]</span></span></p>
 </div><div class="column" style="width:40%;">
 <div class="quarto-figure quarto-figure-right">
@@ -617,7 +618,7 @@ V_{d,-d;-d,-d} &amp; V_{-d,-d;-d,-d}-V_{d,-d;-d,d}
 V_{-d,-d;-d,d} &amp; 0
 \end{bmatrix}
 \end{equation}\]</span></p>
-<p>If <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later. Also note that parities are mixed in this case. The same things happens for the <span class="math inline">\(Q=+1\)</span> sector.</p>
+<p>If <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}\)</span> then the diagonalization of this matrix is trivial. I will confirm this later. Also note that parities are mixed in this case. The same things happen for the <span class="math inline">\(Q=+1\)</span> sector.</p>
 <p><strong>UPDATE: I have numerically confirmed that <span class="math inline">\(V_{d,-d;-d,-d}=V_{-d,-d;-d,d}=0\)</span>. This means that the parities do NOT mix and there is no shift at LO.</strong></p>
 </div>
 </div>
@@ -808,10 +809,44 @@ a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; (S_z=-1)
 </div>
 </div>
 </div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Energy difference at <span class="math inline">\(\mathcal{O}(V)\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(\therefore\quad\)</span> the energy difference <span class="math inline">\(E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p+\frac{U}{4(m+1)N_U}\)</span></p>
+</div>
+</div>
+</div>
 </section>
 <section class="slide level2">
 
 <h3 id="nd-order-degenerate-perturbation-theory">2nd order (degenerate) perturbation theory</h3>
+<p>I want to consider first the singlet ground state case,</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega,S=0|\tilde V|n\rangle\frac{1}{\langle\Omega,S=0|\tilde H_0|\Omega,S=0\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=0\rangle
+\end{equation}\]</span></p>
+<p>There are three terms that contribute to this effect<sup>1</sup> The first term is</p>
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
+\end{equation}\]</span></p>
+<p>We’ve done this already in <a href="#/sec-2ndOrderGroundState" class="quarto-xref">Section&nbsp;2.3.1</a>. The result is similar to <a href="#/eq-groundStateV2" class="quarto-xref">Equation&nbsp;6</a>, but with some restrictions on the sums</p>
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne\pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
+-\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
+\end{equation}\]</span></p>
+<p>The restriction on the sums <span class="math inline">\(k',l',k,l\)</span> is such that at most three of these terms can be equal to <span class="math inline">\(d\)</span>, but not all four. In other words the denominator cannot vanish.</p>
+<aside><ol class="aside-footnotes"><li id="fn12"><p>Actually there are four terms, but the cross terms are identical.</p></li></ol></aside></section>
+<section class="slide level2">
+
+<p>The second term is the “cross” term,</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}\]</span></p>
 
 </section></section>
 

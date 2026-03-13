@@ -345,13 +345,14 @@ $\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p
 
 ## Second order in $\tilde V$
 
-### Ground state $|\Omega\rangle$
+### Ground state $|\Omega\rangle$ {#sec-2ndOrderGroundState}
 
 The second order contribution is
 
-$$
+\begin{equation}
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
-$$
+\end{equation}
+
 where the sum is over all possible states $|n\rangle$ in the Fock space.
 
 Again the normal ordering of $\tilde V$ simplifies things.  The only terms in $\tilde V$ that can contribute are terms 6 and 11^[Repeated momentum indices are summed over.]
@@ -386,7 +387,7 @@ So we have (sum over all momentum indices)
 
 $$
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
--\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}\\
+-\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
 $${#eq-groundStateV2}
 
 :::
@@ -753,8 +754,40 @@ where $|\Omega\rangle$ is defined in @eq-groundStateDeg.
 Again, the LO shift vanishes as $m\to\infty$ and/or $N_U\to\infty$.
 :::
 
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V)$
+$\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p+\frac{U}{4(m+1)N_U}$
+:::
+
 ---
 
 ### 2nd order (degenerate) perturbation theory
 
+I want to consider first the singlet ground state case,
 
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega,S=0|\tilde V|n\rangle\frac{1}{\langle\Omega,S=0|\tilde H_0|\Omega,S=0\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=0\rangle
+\end{equation}
+
+There are three terms that contribute to this effect^[Actually there are four terms, but the cross terms are identical.]  The first term is
+
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
+\end{equation}
+
+We've done this already in @sec-2ndOrderGroundState.  The result is similar to @eq-groundStateV2, but with some restrictions on the sums
+
+\begin{equation}
+\frac{1}{2}\sum_{n\ne\pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
+-\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
+\end{equation}
+
+The restriction on the sums $k',l',k,l$ is such that at most three of these terms can be equal to $d$, but not all four.  In other words the denominator cannot vanish.
+
+---
+
+The second term is the "cross" term,
+
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
