@@ -769,7 +769,7 @@ I want to consider first the singlet ground state case,
 \sum_{n\ne \pm d}\langle\Omega,S=0|\tilde V|n\rangle\frac{1}{\langle\Omega,S=0|\tilde H_0|\Omega,S=0\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=0\rangle
 \end{equation}
 
-There are three terms that contribute to this effect^[Actually there are four terms, but the cross terms are identical.]  The first term is
+There are three terms that contribute to this effect^[Actually there are four terms, but the cross terms are identical.].  The first term is
 
 \begin{equation}
 \frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
@@ -790,4 +790,65 @@ The second term is the "cross" term,
 
 \begin{equation}
 \sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+
+For this matrix element to be non-vanishing, the $\tilde V$ on the left must be term 11 in @eq-tildeV.  The $\tilde V$ on the right can be terms 1, 8, 9, and 16,
+
+:::{style='font-size:70%'}
+\begin{equation}
+\langle\Omega|V_{-\kappa',-\lambda',\kappa,\lambda}b_{-\kappa',\uparrow}b_{-\lambda',\downarrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|
+\left\{
+\begin{matrix}
+V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a_{k,\downarrow}a_{l,\uparrow}\\
+-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b_{-k',\uparrow}a_{k,\downarrow}\\
+-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b_{-l',\downarrow}a_{l,\uparrow}\\
+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b_{-k',\uparrow}b_{-l',\downarrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+\begin{equation}
+=\langle\Omega|V_{-\kappa',-\lambda',\kappa,\lambda}b_{-\kappa',\uparrow}b_{-\lambda',\downarrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|
+\left\{
+\begin{matrix}
+V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\\
+-V_{-d,l';d,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}\\
+-V_{k',-d;-k,d}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}\\
+-V_{-d,-d;-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
+\begin{equation}
+=\langle\Omega|V_{-\kappa',-\lambda',\kappa,\lambda}b_{-\kappa',\uparrow}b_{-\lambda',\downarrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|
+\left\{
+\begin{matrix}
+-V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}b^\dagger_{-d,\uparrow}\\
++V_{-d,l';d,-l}a^\dagger_{d,\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}b^\dagger_{-l,\uparrow}\\
++V_{k',-d;-k,d}a^\dagger_{k',\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-d,\uparrow}\\
+-V_{-d,-d;-k,-l}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+---
+
+Therefore the "cross" term is^[Recall that $\epsilon_{-l}=-\epsilon_{l}$ and $\epsilon_{-d}=\epsilon_{d}=0$.]
+
+\begin{multline}
+\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\\
+=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
++\sum_{l',l}\frac{V_{-l,-d;l',d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
++\sum_{k',k}\frac{V_{-d,-k;d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
+-\sum_{k,l}\frac{V_{l,k;d,d}V_{-d,-d;k,l}}{\epsilon_{-l}+\epsilon_{-k}}
+\end{multline}
+
+The restrictions on the sums are such that the denominators cannot vanish.
+
+The final term is
+
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}
