@@ -836,8 +836,10 @@ a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; (S_z=-1)
 \end{equation}\]</span></p>
 <p>We’ve done this already in <a href="#/sec-2ndOrderGroundState" class="quarto-xref">Section&nbsp;2.3.1</a>. The result is similar to <a href="#/eq-groundStateV2" class="quarto-xref">Equation&nbsp;6</a>, but with some restrictions on the sums</p>
 <p><span class="math display">\[\begin{equation}
+\boxed{
 \frac{1}{2}\sum_{n\ne\pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 -\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
+}
 \end{equation}\]</span></p>
 <p>The restriction on the sums <span class="math inline">\(k',l',k,l\)</span> is such that at most three of these terms can be equal to <span class="math inline">\(d\)</span>, but not all four. In other words the denominator cannot vanish.</p>
 <aside><ol class="aside-footnotes"><li id="fn12"><p>Actually there are four terms, but the cross terms are identical.</p></li></ol></aside></section>
@@ -888,20 +890,177 @@ V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\upar
 <section class="slide level2">
 
 <p>Therefore the “cross” term is<sup>1</sup></p>
-<p><span class="math display">\[\begin{multline}
-\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\\
-=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
+<p><span class="math display">\[
+\boxed{
+\begin{align}
+&amp;\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\\
+&amp;=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
 +\sum_{l',l}\frac{V_{-l,-d;l',d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
 +\sum_{k',k}\frac{V_{-d,-k;d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 -\sum_{k,l}\frac{V_{l,k;d,d}V_{-d,-d;k,l}}{\epsilon_{-l}+\epsilon_{-k}}
-\end{multline}\]</span></p>
+\end{align}
+}
+\]</span></p>
 <p>The restrictions on the sums are such that the denominators cannot vanish.</p>
 <p>The final term is</p>
 <p><span class="math display">\[\begin{equation}
 \frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}\]</span></p>
+<p>Unfortunately there are a lot of terms in <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> that can contribute. They are listed here:</p>
+<div class="columns">
+<div style="font-size: 70%">
+<div class="column" style="width:33%;">
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">left <span class="math inline">\(\tilde V\)</span></th>
+<th style="text-align: center;">right <span class="math inline">\(\tilde V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">3</td>
+<td style="text-align: center;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">13</td>
+<td style="text-align: center;">14</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">left <span class="math inline">\(\tilde V\)</span></th>
+<th style="text-align: center;">right <span class="math inline">\(\tilde V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:33%;">
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">left <span class="math inline">\(\tilde V\)</span></th>
+<th style="text-align: center;">right <span class="math inline">\(\tilde V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">5</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">10</td>
+<td style="text-align: center;">7</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn13"><p>Recall that <span class="math inline">\(\epsilon_{-l}=-\epsilon_{l}\)</span> and <span class="math inline">\(\epsilon_{-d}=\epsilon_{d}=0\)</span>.</p></li></ol></aside></section>
+<section class="slide level2">
 
-<aside><ol class="aside-footnotes"><li id="fn13"><p>Recall that <span class="math inline">\(\epsilon_{-l}=-\epsilon_{l}\)</span> and <span class="math inline">\(\epsilon_{-d}=\epsilon_{d}=0\)</span>.</p></li></ol></aside></section></section>
+<p>I will work out an explict calculation for the <span class="math inline">\((2,5)\)</span> and <span class="math inline">\((5,2)\)</span> pairs. We have in this case</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}
+\left\{
+\begin{matrix}
+-V_{\kappa',\lambda';\kappa,-\lambda}a^\dagger_{\kappa',\uparrow}a^\dagger_{\lambda',\downarrow}b^\dagger_{-\lambda,\uparrow}a_{\kappa,\downarrow}\\
+-V_{-\kappa',\lambda';\kappa,\lambda}a^\dagger_{\lambda',\downarrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-k',l';k,l}a^\dagger_{l',\downarrow}b_{-k',\uparrow}a_{k,\downarrow}a_{l,\uparrow}\\
+-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a_{k,\downarrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}\]</span></p>
+</div>
+<p>The top pair corresponds to <span class="math inline">\((2,5)\)</span>, and the bottom pair <span class="math inline">\((5,2)\)</span>. An intermediate step gives</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{d,d;\kappa,-d}b_{-d,\downarrow}a_{\kappa,\downarrow}\\
++V_{-\kappa',d;\kappa,\lambda}b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';d,d}a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}\\
++V_{k',l';d,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}\]</span></p>
+</div>
+<p>The top case is non-vanishing when <span class="math inline">\(|n\rangle=a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>, while the bottom case is non-vanishing when <span class="math inline">\(|n\rangle=a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span> and <span class="math inline">\(k'\ne d\)</span> and <span class="math inline">\(l\ne d\)</span>.</p>
+<p>This results in two terms<sup>1</sup></p>
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{l'\ne d}\frac{V_{d,d;l',-d}V_{-d,l';d,d}}{-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\end{equation}\]</span></p>
+<p>Things are getting complicated.</p>
+
+<aside><ol class="aside-footnotes"><li id="fn14"><p>It might be that some of these matrix elements vanish. Need to check –T.L.</p></li></ol></aside></section></section>
 
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">

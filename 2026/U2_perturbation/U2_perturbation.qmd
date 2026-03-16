@@ -778,8 +778,10 @@ There are three terms that contribute to this effect^[Actually there are four te
 We've done this already in @sec-2ndOrderGroundState.  The result is similar to @eq-groundStateV2, but with some restrictions on the sums
 
 \begin{equation}
+\boxed{
 \frac{1}{2}\sum_{n\ne\pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 -\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
+}
 \end{equation}
 
 The restriction on the sums $k',l',k,l$ is such that at most three of these terms can be equal to $d$, but not all four.  In other words the denominator cannot vanish.
@@ -837,13 +839,17 @@ V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\upar
 
 Therefore the "cross" term is^[Recall that $\epsilon_{-l}=-\epsilon_{l}$ and $\epsilon_{-d}=\epsilon_{d}=0$.]
 
-\begin{multline}
-\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\\
-=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
+$$
+\boxed{
+\begin{align}
+&\sum_{n\ne \pm d}\langle\Omega|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\\
+&=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
 +\sum_{l',l}\frac{V_{-l,-d;l',d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
 +\sum_{k',k}\frac{V_{-d,-k;d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 -\sum_{k,l}\frac{V_{l,k;d,d}V_{-d,-d;k,l}}{\epsilon_{-l}+\epsilon_{-k}}
-\end{multline}
+\end{align}
+}
+$$
 
 The restrictions on the sums are such that the denominators cannot vanish.
 
@@ -852,3 +858,113 @@ The final term is
 \begin{equation}
 \frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}
+
+Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They are listed here:
+
+:::{.columns}
+
+:::{style='font-size: 70%'}
+
+:::{.column width=33%}
+
+:::{.r-stack}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 2               | 5                |
+| 3               | 4                |
+| 7               | 10               |
+| 8               | 9                |
+| 12              | 15               |
+| 13              | 14               |
+:::
+
+:::
+
+:::{.column width=33%}
+
+:::{.r-stack}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 1               | 1                |
+| 11              | 6                |
+| 16              | 16               |
+
+:::
+
+:::
+
+:::{.column width=33%}
+
+:::{.r-stack}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 5               | 2                |
+| 4               | 3                |
+| 10              | 7                |
+| 9               | 8                |
+| 15              | 12               |
+| 14              | 13               |
+:::
+
+:::
+
+:::
+
+:::
+
+---
+
+I will work out an explict calculation for the $(2,5)$ and $(5,2)$ pairs.  We have in this case
+
+:::{style='font-size:70%'}
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}
+\left\{
+\begin{matrix}
+-V_{\kappa',\lambda';\kappa,-\lambda}a^\dagger_{\kappa',\uparrow}a^\dagger_{\lambda',\downarrow}b^\dagger_{-\lambda,\uparrow}a_{\kappa,\downarrow}\\
+-V_{-\kappa',\lambda';\kappa,\lambda}a^\dagger_{\lambda',\downarrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-k',l';k,l}a^\dagger_{l',\downarrow}b_{-k',\uparrow}a_{k,\downarrow}a_{l,\uparrow}\\
+-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a_{k,\downarrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+:::
+
+The top pair corresponds to $(2,5)$, and the bottom pair $(5,2)$. An intermediate step gives
+
+:::{style='font-size:70%'}
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{d,d;\kappa,-d}b_{-d,\downarrow}a_{\kappa,\downarrow}\\
++V_{-\kappa',d;\kappa,\lambda}b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';d,d}a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}\\
++V_{k',l';d,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+The top case is non-vanishing when $|n\rangle=a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$, while the bottom case is non-vanishing when $|n\rangle=a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$ and $k'\ne d$ and $l\ne d$.
+
+This results in two terms^[It might be that some of these matrix elements vanish.  Need to check --T.L.]
+
+\begin{equation}
+\frac{1}{2}\sum_{l'\ne d}\frac{V_{d,d;l',-d}V_{-d,l';d,d}}{-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\end{equation}
+
+Things are getting complicated.
+
