@@ -846,7 +846,7 @@ $$
 &=-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
 +\sum_{l',l}\frac{V_{-l,-d;l',d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
 +\sum_{k',k}\frac{V_{-d,-k;d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
--\sum_{k,l}\frac{V_{l,k;d,d}V_{-d,-d;k,l}}{\epsilon_{-l}+\epsilon_{-k}}
+-\sum_{k,l}\frac{V_{-l,-k;d,d}V_{-d,-d;-k,-l}}{\epsilon_{-l}+\epsilon_{-k}}
 \end{align}
 }
 $$
