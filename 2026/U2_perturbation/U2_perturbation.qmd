@@ -964,7 +964,13 @@ This results in two terms^[It might be that some of these matrix elements vanish
 \frac{1}{2}\sum_{l'\ne d}\frac{V_{d,d;l',-d}V_{-d,l';d,d}}{-\epsilon_{l'}}
 +
 \frac{1}{2}\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\quad (2,5),\ (5,2)\ {\rm pairs}
 \end{equation}
 
-Things are getting complicated.
+Things are getting complicated.  The $(11,6)$ pair can be done without much thinking
 
+\begin{equation}
+\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_{-k'}+\epsilon_{-l'}-\epsilon_k-\epsilon_l}\quad (11,6)\ {\rm pair}
+\end{equation}
+
+Here *none* of the indices can be equal to $d$
