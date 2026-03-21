@@ -974,3 +974,28 @@ Things are getting complicated.  The $(11,6)$ pair can be done without much thin
 \end{equation}
 
 Here *none* of the indices can be equal to $d$
+
+---
+
+After inspection, the $(3,4)$ and $(4,3)$ terms are identical to the $(2,5)$ and $(5,2)$ terms.  So I won't write these terms.
+
+Now I consider the $(7,10)$ and $(10,7)$ terms
+
+:::{style='font-size:70%'}
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}
+\left\{
+\begin{matrix}
+V_{\kappa',-\lambda';\kappa,-\lambda}a^\dagger_{\kappa',\uparrow}b^\dagger_{-\lambda,\uparrow}b_{-\lambda',\downarrow}a_{\kappa,\downarrow}\\
+V_{-\kappa',\lambda';-\kappa,\lambda}a^\dagger_{\lambda',\downarrow}b^\dagger_{-\kappa,\downarrow}b_{-\kappa',\uparrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+V_{-k',l';-k,l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b_{-k',\uparrow}a_{l,\uparrow}\\
+V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}b_{-l',\downarrow}a_{k,\downarrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+:::
