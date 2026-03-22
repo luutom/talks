@@ -998,4 +998,28 @@ V_{k',-l';k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}b_{-l',\downarrow}a
 \right\}
 a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}
+
+\begin{equation}
+=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{d,-\lambda';\kappa,-d}b_{-d,\downarrow}a_{d,\downarrow}b_{-\lambda',\downarrow}a_{\kappa,\downarrow}\\
+-V_{-\kappa',d;-d,\lambda}b_{-d,\uparrow}a_{d,\uparrow}b_{-\kappa',\uparrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';-k,d}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}\\
+-V_{k',-d;d,-l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
 :::
+
+\begin{equation}
+=\frac{1}{2}\sum_{l',k\ne d}\frac{V_{d,-k;l',-d}V_{-d,l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',l\ne d}\frac{V_{-l,d;-d,k'}V_{k',-d;d,-l}}{\epsilon_{-l}-\epsilon_{k'}}
+\quad (7,10),\ (10,7)\ {\rm pairs}
+\end{equation}
