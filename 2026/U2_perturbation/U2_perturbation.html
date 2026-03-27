@@ -932,14 +932,10 @@ V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\upar
 <td style="text-align: center;">10</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">8</td>
-<td style="text-align: center;">9</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">12</td>
 <td style="text-align: center;">15</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">13</td>
 <td style="text-align: center;">14</td>
 </tr>
@@ -968,6 +964,14 @@ V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\upar
 <td style="text-align: center;">16</td>
 <td style="text-align: center;">16</td>
 </tr>
+<tr class="even">
+<td style="text-align: center;">8</td>
+<td style="text-align: center;">8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">9</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -994,14 +998,10 @@ V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\upar
 <td style="text-align: center;">7</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">8</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">15</td>
 <td style="text-align: center;">12</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">13</td>
 </tr>
@@ -1052,7 +1052,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 \end{equation}\]</span></p>
 </div>
 <p>The top case is non-vanishing when <span class="math inline">\(|n\rangle=a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>, while the bottom case is non-vanishing when <span class="math inline">\(|n\rangle=a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span> and <span class="math inline">\(k'\ne d\)</span> and <span class="math inline">\(l\ne d\)</span>.</p>
-<p>This results in two terms<sup>1</sup></p>
+<p>This results in two terms<sup>1</sup> <sup>2</sup></p>
 <p><span class="math display">\[\begin{equation}
 \frac{1}{2}\sum_{l'\ne d}\frac{V_{d,d;l',-d}V_{-d,l';d,d}}{-\epsilon_{l'}}
 +
@@ -1064,7 +1064,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 \frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_{-k'}+\epsilon_{-l'}-\epsilon_k-\epsilon_l}\quad (11,6)\ {\rm pair}
 \end{equation}\]</span></p>
 <p>Here <em>none</em> of the indices can be equal to <span class="math inline">\(d\)</span></p>
-<aside><ol class="aside-footnotes"><li id="fn14"><p>It might be that some of these matrix elements vanish. Need to check –T.L.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn14"><p>It might be that some of these matrix elements vanish. Need to check –T.L.</p></li><li id="fn15"><p>Lin has proven that <span class="math inline">\(V_{\pm d,\pm d;\pm d,i}=0\ \forall i\ne\pm d\)</span>.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <p>After inspection, the <span class="math inline">\((3,4)\)</span> and <span class="math inline">\((4,3)\)</span> terms are identical to the <span class="math inline">\((2,5)\)</span> and <span class="math inline">\((5,2)\)</span> terms. So I won’t write these terms.</p>
@@ -1108,6 +1108,47 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 +
 \frac{1}{2}\sum_{k',l\ne d}\frac{V_{-l,d;-d,k'}V_{k',-d;d,-l}}{\epsilon_{-l}-\epsilon_{k'}}
 \quad (7,10),\ (10,7)\ {\rm pairs}
+\end{equation}\]</span></p>
+<p>Now Lin predicts that this expression is the result of the (8,8) and (9,9) pairs as well. I’m very sure that he is correct, but I’ll check it as well,</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}
+\left\{
+\begin{matrix}
+-V_{-\kappa',\lambda';\kappa,-\lambda}a^\dagger_{\lambda',\downarrow}b^\dagger_{-\lambda,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}\\
+-V_{\kappa',-\lambda';-\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^\dagger_{-\kappa,\downarrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b_{-k',\uparrow}a_{k,\downarrow}\\
+-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b_{-l',\downarrow}a_{l,\uparrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{-\kappa',d;\kappa,-d}b_{-d,\downarrow}a_{d,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}\\
+-V_{d,-\lambda';-d,\lambda}b_{-d,\uparrow}a_{d,\downarrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';d,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}\\
+-V_{k',-d;-k,d}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}\]</span></p>
+</div>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\sum_{l',l\ne d}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l'}-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',k\ne d}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
+\quad (8,8),\ (9,9)\ {\rm pairs}
 \end{equation}\]</span></p>
 
 </section></section>

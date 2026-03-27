@@ -873,7 +873,6 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 | 2               | 5                |
 | 3               | 4                |
 | 7               | 10               |
-| 8               | 9                |
 | 12              | 15               |
 | 13              | 14               |
 :::
@@ -888,6 +887,8 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 | 1               | 1                |
 | 11              | 6                |
 | 16              | 16               |
+| 8               | 8                |
+| 9               | 9                |
 
 :::
 
@@ -901,7 +902,6 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 | 5               | 2                |
 | 4               | 3                |
 | 10              | 7                |
-| 9               | 8                |
 | 15              | 12               |
 | 14              | 13               |
 :::
@@ -958,7 +958,7 @@ The top pair corresponds to $(2,5)$, and the bottom pair $(5,2)$. An intermediat
 
 The top case is non-vanishing when $|n\rangle=a^\dagger_{l',\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$, while the bottom case is non-vanishing when $|n\rangle=a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$ and $k'\ne d$ and $l\ne d$.
 
-This results in two terms^[It might be that some of these matrix elements vanish.  Need to check --T.L.]
+This results in two terms^[It might be that some of these matrix elements vanish.  Need to check --T.L.] ^[Lin has proven that $V_{\pm d,\pm d;\pm d,i}=0\ \forall i\ne\pm d$.]
 
 \begin{equation}
 \frac{1}{2}\sum_{l'\ne d}\frac{V_{d,d;l',-d}V_{-d,l';d,d}}{-\epsilon_{l'}}
@@ -1022,4 +1022,49 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 +
 \frac{1}{2}\sum_{k',l\ne d}\frac{V_{-l,d;-d,k'}V_{k',-d;d,-l}}{\epsilon_{-l}-\epsilon_{k'}}
 \quad (7,10),\ (10,7)\ {\rm pairs}
+\end{equation}
+
+Now Lin predicts that this expression is the result of the (8,8) and (9,9) pairs as well.  I'm very sure that he is correct, but I'll check it as well,
+
+:::{style='font-size:70%'}
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}
+\left\{
+\begin{matrix}
+-V_{-\kappa',\lambda';\kappa,-\lambda}a^\dagger_{\lambda',\downarrow}b^\dagger_{-\lambda,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}\\
+-V_{\kappa',-\lambda';-\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^\dagger_{-\kappa,\downarrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b_{-k',\uparrow}a_{k,\downarrow}\\
+-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b_{-l',\downarrow}a_{l,\uparrow}
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{-\kappa',d;\kappa,-d}b_{-d,\downarrow}a_{d,\uparrow}b_{-\kappa',\uparrow}a_{\kappa,\downarrow}\\
+-V_{d,-\lambda';-d,\lambda}b_{-d,\uparrow}a_{d,\downarrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';d,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}\\
+-V_{k',-d;-k,d}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\frac{1}{2}\sum_{l',l\ne d}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l'}-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',k\ne d}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
+\quad (8,8),\ (9,9)\ {\rm pairs}
 \end{equation}
