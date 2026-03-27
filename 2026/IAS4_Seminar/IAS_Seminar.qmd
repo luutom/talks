@@ -1,0 +1,69 @@
+---
+title: 'Living the low-life'
+abstract: ""
+author:
+  name: Thomas Luu
+  affiliation: IAS-4, FZJ & HISKP, Uni. Bonn
+  email: t.luu@fz-juelich.de
+format:
+  revealjs:
+    slide-number: true
+    incremental: false
+    smaller: true
+    auto-stretch: false
+from: markdown+emoji
+---
+
+## Who is this guy?
+
+:::{.columns}
+
+:::{.column width='50%'}
+
++ Originally a nuclear many-body theorist
+  - University of Washington (Seattle)
+  
++ Staff member at Lawrence Livermore National Lab (California) 2005-2013
+  - Access to big computers
+  - Performed quantum monte carlo (QMC) simulations of ***Quantum Chromodynamics*** (QCD)
+	* quarks and gluons and discretized space-time lattices
+  
++ University of Bonn/Forschungszentrum Jülich (2013-present)
+  - Applied QMC methods to low-dimensional strongly correlated electronic systems
+    * electrons on physical crystal lattices
+	
+:::
+
+:::{.column width='50%'}
+
+![](assets/IMG_4637.jpeg){fig-align='right' width="70%"}
+
+:::
+	
+:::
+
+## How it all started
+
+:::{.columns}
+:::{.column width='50%'}
+**Trion**
+
+![Figure by [Alan Stonebraker](https://physics.aps.org/articles/v4/5)](assets/trion.png){width=75% fig-align='center'}
+
+:::{.r-stack}
+[Matsunaga et al., PRL 106, 037404 (2011)](https://journals.aps.org/prl/abstract/10.1103/PhysRevLett.106.037404) found evidence for a ***bound*** 3-body quasi-particle system with ***non-zero net charge*** in [*doped*]{style="color:red;"} (7,5) chiral carbon nanotube.
+:::
+:::
+
+:::{.column width='50%'}
+**Nucleon**
+
+![Figure by [Thomas Luu](https://shattereddisk.github.io/rickroll/rickroll.mp4)](assets/nucleon.png){width=61% fig-align='right'}
+:::
+
+:::
+
+## Physics in low dimensions is really cool!
+
+
+
