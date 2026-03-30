@@ -1063,7 +1063,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 :::
 
 \begin{equation}
-=\frac{1}{2}\sum_{l',l\ne d}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l'}-\epsilon_{l'}}
+=\frac{1}{2}\sum_{l',l\ne d}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
 +
 \frac{1}{2}\sum_{k',k\ne d}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 \quad (8,8),\ (9,9)\ {\rm pairs}
