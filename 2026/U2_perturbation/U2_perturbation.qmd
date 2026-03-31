@@ -1133,4 +1133,29 @@ The final pairs (1,1) and (16,16) can be done by inspection
 
 I will now collect all terms for the singlet ground state shift
 
+:::{.callout-note}
+## Singlet 2nd-order shift
+
+:::{style='font-size:90%'}
+\begin{align}
+&\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_{-l'}+\epsilon_{-k'}-\epsilon_l-\epsilon_k}\\
+&-\sum_{k',l'}\frac{V_{-d,-d;l',k'}V_{k',l';d,d}}{-\epsilon_{l'}-\epsilon_{k'}}
++\sum_{l',l}\frac{V_{-l,-d;l',d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
++\sum_{k',k}\frac{V_{-d,-k;d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
+-\sum_{k,l}\frac{V_{-l,-k;d,d}V_{-d,-d;-k,-l}}{\epsilon_{-l}+\epsilon_{-k}}\\
+&+\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}\\
+&+\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_{-k'}+\epsilon_{-l'}-\epsilon_k-\epsilon_l}\\
+&+\frac{1}{2}\sum_{l',k\ne d}\frac{V_{d,-k;l',-d}V_{-d,l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}}
++\frac{1}{2}\sum_{k',l\ne d}\frac{V_{-l,d;-d,k'}V_{k',-d;d,-l}}{\epsilon_{-l}-\epsilon_{k'}}\\
+&+\frac{1}{2}\sum_{l',l\ne d}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
++
+\frac{1}{2}\sum_{k',k\ne d}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}\\
+&+\sum_{k',k,l\ne d}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}\\
+&+\frac{1}{2}\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{-\epsilon_{k}-\epsilon_{l}}
++
+\frac{1}{2}\sum_{k,l\ne d}\frac{V_{-d,-d;-k,-l}V_{-l,-k;-d,-d}}{\epsilon_{-k}+\epsilon_{-l}}
+\end{align}
+:::
+:::
+
 
