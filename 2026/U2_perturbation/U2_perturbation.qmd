@@ -1136,6 +1136,16 @@ I will now collect all terms for the singlet ground state shift
 :::{.callout-note}
 ## Singlet 2nd-order shift
 
+\begin{equation}
+\boxed{
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+
+None of the indices can be equal to $d$.
+<!--
 :::{style='font-size:90%'}
 \begin{align}
 &\frac{1}{2}\sum_{k',l',k,l\ne d}\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_{-l'}+\epsilon_{-k'}-\epsilon_l-\epsilon_k}\\
@@ -1154,11 +1164,15 @@ I will now collect all terms for the singlet ground state shift
 \frac{1}{2}\sum_{k,l\ne d}\frac{V_{-d,-d;-k,-l}V_{-l,-k;-d,-d}}{\epsilon_{-k}+\epsilon_{-l}}
 \end{align}
 :::
+-->
+
 :::
 
 <!--
 &+\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}\\
 &+\sum_{k',k,l\ne d}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}\\
 -->
+
+A lot of symmetries was used to obtain this compact expression!^[I hope it's correct!]
 
 
