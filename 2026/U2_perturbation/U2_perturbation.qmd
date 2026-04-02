@@ -1192,10 +1192,10 @@ Pairs of terms that contribute:
 :::{style='font-size:80%'}
 | left $\tilde V$ | right $\tilde V$ |
 |:---------------:|:----------------:|
-| x               | 3                |
-| x               | 6                |
-| x               | 9                |
-| x               | 12               |
+| 4               | 3                |
+| 11              | 6                |
+| 9               | 9                |
+| 15              | 12               |
 :::
 
 :::
