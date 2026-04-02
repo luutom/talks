@@ -1175,4 +1175,27 @@ None of the indices can be equal to $d$.
 
 A lot of symmetries was used to obtain this compact expression!^[I hope it's correct!]
 
+I now to consider the spin-triplet ground state case and only consider the $S_z=1$ case since the $S_z=0,-1$ cases should be the same due to SU(2) symmetry,
 
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega,S=1;S_z=1|\tilde V|n\rangle\frac{1}{\langle\Omega,S=1|\tilde H_0|\Omega,S=1\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=1;S_z=1\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\langle\Omega,S=1|\tilde H_0|\Omega,S=1\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+
+Pairs of terms that contribute:
+
+:::{.r-stack}
+
+:::{style='font-size:80%'}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| x               | 3                |
+| x               | 6                |
+| x               | 9                |
+| x               | 12               |
+:::
+
+:::
