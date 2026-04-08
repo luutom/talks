@@ -1096,7 +1096,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 \left\{
 \begin{matrix}
 -V_{d,-\lambda';-d,-d}a_{d,\downarrow}b_{-\lambda',\downarrow}\\
-V_{-\kappa',-\lambda';-d,\lambda}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}b_{-\kappa',\uparrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
+-V_{-\kappa',-\lambda';-d,\lambda}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}b_{-\kappa',\uparrow}b_{-\lambda',\downarrow}a_{\lambda,\uparrow}
 \end{matrix}
 \right\}
 |n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
@@ -1112,7 +1112,7 @@ V_{-\kappa',-\lambda';-d,\lambda}b_{-d,\uparrow}a_{d,\downarrow}a_{d,\uparrow}b_
 \begin{equation}
 =\frac{1}{2}\sum_{k,l\ne d}\frac{V_{d,-k;-d,-d}V_{-d,-d;-k,d}}{\epsilon_{-k}}
 +
-\frac{1}{2}\sum_{k',k,l\ne d}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
+\frac{1}{2}\sum_{k',l\ne d,k}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
 \quad (12,15),\ (15,12)\ {\rm pairs}
 \end{equation}
 
@@ -1138,9 +1138,9 @@ I will now collect all terms for the singlet ground state shift
 
 \begin{equation}
 \boxed{
--2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-7\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
@@ -1263,7 +1263,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -->
 
 \begin{equation}
-=\frac{1}{2}\sum_{k',l',k\ne d}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
+=\frac{1}{2}\sum_{k\ne d,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
 +
 \frac{1}{2}\sum_{k',k\ne d, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}
@@ -1271,7 +1271,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 \begin{equation}
 +\frac{1}{2}\sum_{k',k}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 +
-\frac{1}{2}\sum_{k',k\ne d, l,l'}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
+\frac{1}{2}\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
 \end{equation}
 
 :::{.callout-note}
@@ -1279,9 +1279,9 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 
 \begin{equation}
 \boxed{
--\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\frac{1}{2}\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
