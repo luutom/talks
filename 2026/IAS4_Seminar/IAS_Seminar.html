@@ -6,8 +6,8 @@
 <script src="IAS_Seminar_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="IAS_Seminar_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="IAS_Seminar_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="IAS_Seminar_files/libs/quarto-html/quarto-syntax-highlighting-ed96de9b727972fe78a7b5d16c58bf87.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.8.27">
+<link href="IAS_Seminar_files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.36">
 
   <meta name="author" content="Thomas Luu">
   <title>Living the low-life</title>
@@ -17,6 +17,9 @@
   <link rel="stylesheet" href="IAS_Seminar_files/libs/revealjs/dist/reset.css">
   <link rel="stylesheet" href="IAS_Seminar_files/libs/revealjs/dist/reveal.css">
   <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
     code{white-space: pre-wrap;}
     span.smallcaps{font-variant: small-caps;}
     div.columns{display: flex; gap: min(4vw, 1.5em);}
@@ -29,7 +32,7 @@
       vertical-align: middle;
     }
   </style>
-  <link rel="stylesheet" href="IAS_Seminar_files/libs/revealjs/dist/theme/quarto-b5252905f04b310507bddab422f15fd1.css">
+  <link rel="stylesheet" href="IAS_Seminar_files/libs/revealjs/dist/theme/quarto-bc9bd5e4813b0851da89a0f61deb92ce.css">
   <link href="IAS_Seminar_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
   <link href="IAS_Seminar_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
   <link href="IAS_Seminar_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
@@ -203,6 +206,184 @@ Thomas Luu
 </section>
 <section id="physics-in-low-dimensions-is-really-cool" class="slide level2">
 <h2>Physics in low dimensions is really cool!</h2>
+</section>
+<section id="why-one-would-think-low-d-is-easier" class="slide level2">
+<h2>Why one would think low-D is <strong><em>easier</em></strong></h2>
+</section>
+<section id="why-i-lose-sleep-over-this-problem" class="slide level2">
+<h2>Why I lose sleep over this problem</h2>
+</section>
+<section id="how-to-put-a-hamiltonian-on-the-lattice-101" class="slide level2">
+<h2>How to put a Hamiltonian on the lattice 101</h2>
+<ul>
+<li>General Hamiltonian is of the form</li>
+</ul>
+<p><span class="math display">\[\begin{equation}
+  H
+    =
+    \sum_{yx} \left(p^\dagger_y K_{yx} p_x + h^\dagger_y K_{yx} h_x \right)
+    + \frac{1}{2} \sum_{yx} \rho_y V_{yx} \rho_x
+    - \mu \sum_x \rho_x
+\end{equation}\]</span></p>
+<ul>
+<li><span class="math inline">\(\rho_x\equiv p_x^\dagger p_x^{}-h_x^\dagger h_x^{}\)</span> (particle and hole creation/annihilation operators)</li>
+</ul>
+<div class="columns fragment">
+<div class="column" style="width:60%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The Hubbard model</strong></p>
+</div>
+<div class="callout-content">
+<p>For most of the work presented here we use tight-binding dynamics and Hubbard onsite interaction:</p>
+<p><span class="math display">\[\begin{align}
+    K_{xy} &amp;= \kappa \delta_{\langle xy \rangle}
+    &amp;
+    V_{xy} &amp;= U \delta_{xy}.
+    \label{eq:hubbard}
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/intro_lattice.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</section>
+<section id="attempting-a-direct-diagonalization-of-h" class="slide level2">
+<h2>Attempting a direct diagonalization of <span class="math inline">\(H\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/intro_lattice.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+<p><span class="math inline">\(N_x=72\)</span> sites</p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Full diagonalization of this problem</strong></p>
+</div>
+<div class="callout-content">
+<p>Dimensionality of the problem scales as <span class="math inline">\(4^{N_x}\)</span></p>
+<p>Example: <span class="math inline">\(4^{72}=22300745198530623141535718272648361505980416\)</span></p>
+</div>
+</div>
+</div>
+</section>
+<section id="first-steps-towards-quantum-monte-carlo" class="slide level2">
+<h2>First steps towards Quantum Monte Carlo</h2>
+<p>Instead of diagonalizing <span class="math inline">\(H\)</span>, we concentrate on obtaining thermal expectation values of any operator <span class="math inline">\(O\)</span></p>
+<p><span class="math display">\[\begin{equation}
+  \langle O \rangle = \frac{1}{Z}\mathrm{Tr}\  Oe^{-\beta H}
+\end{equation}\]</span></p>
+<p>where <span class="math inline">\(\beta=1/T\)</span> is in inverse temperature and</p>
+<p><span class="math display">\[\begin{equation}
+Z=\mathrm{Tr}\ e^{-\beta H}
+\end{equation}\]</span></p>
+<p>is the <strong><em>partition function</em></strong>.</p>
+<p>The trace is performed over the entire <strong><em>Fock space</em></strong></p>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Have we gained anything</strong></p>
+</div>
+<div class="callout-content">
+<p>Not really. . .</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="introduce-auxiliary-field-phi" class="slide level2">
+<h2>Introduce Auxiliary Field <span class="math inline">\(\phi\)</span></h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/PI_formalism.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Hubbard-Stratonovich transformation</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{equation}
+e^{-\frac{\delta U}{2}\rho_{x,t}^2}\propto\int d\phi_{x,t}e^{-\frac{\phi_{x,t}^2}{2\delta U}+i\phi_{x,t}\rho_{x,t}}
+\end{equation}\]</span></p>
+<p>“Linearized” the density term</p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Integration measure <span class="math inline">\(\mathcal{D}[\phi]\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{equation}
+\int \mathcal{D}[\phi]=\int\Pi_{x,t}d\phi_{x,t}
+\end{equation}\]</span></p>
+<p>High-dimensional integral!! Enter Monte Carlo. . .</p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="techniques-adapted-from-lattice-qcd" class="slide level2">
+<h2>Techniques adapted from lattice QCD</h2>
+<div class="callout callout-tip callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Markov Chain Monte Carlo (MCMC) w/ Hybrid (Hamiltonian) MC (<a href="https://www.sciencedirect.com/science/article/pii/037026938791197X?via%3Dihub">Duane et al.&nbsp;Phys.Lett. B195 (1987) 216-222</a>)</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hmc.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div style="font-size:80%">
+<ul>
+<li>Other “borrowed” ideas
+<ul>
+<li>pseudo-fermions, J. Ostmeyer, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2005.11112">Phys.Rev.B 102 (2020) 245105</a></li>
+<li>Hasenbusch preconditioning, J. Ostmeyer, <strong>T.L.</strong> et al.&nbsp;<a href="https://arxiv.org/abs/1804.07195">Comput.Phys.Commun. 236 (2019) 15-25</a></li>
+</ul></li>
+</ul>
+</div>
 
 </section>
     </div>
