@@ -6,8 +6,8 @@
 <script src="U2_perturbation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="U2_perturbation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="U2_perturbation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="U2_perturbation_files/libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.36">
+<link href="U2_perturbation_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.37">
 
   <meta name="author" content="Thomas Luu">
   <title>The Gap \Delta at order \mathcal{O}(U^2)</title>
@@ -1379,6 +1379,103 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -\frac{1}{2}\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 -2\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}\]</span></p>
+<p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="single-particle-excitation-at-2nd-order-finally">Single particle excitation at 2nd order (finally!!)</h3>
+<p>I first consider the state <span class="math inline">\(a^\dagger_{d,\uparrow}|\Omega\rangle\)</span>,</p>
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}|\Omega\rangle
+\end{equation}\]</span></p>
+<p>The pairs of terms from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> that contribute are</p>
+<div class="r-stack">
+<div style="font-size:80%">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">left <span class="math inline">\(\tilde V\)</span></th>
+<th style="text-align: center;">right <span class="math inline">\(\tilde V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">6</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Wow! Not so many terms!!! This gives</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|a_{d,\uparrow}
+\left\{
+\begin{matrix}
+V_{\kappa',-\lambda';\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+V_{-\kappa',-\lambda';\kappa,\lambda}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}\\
+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
+\end{matrix}
+\right\}
+a^\dagger_{d,\uparrow}|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+V_{d,-\lambda';\kappa,\lambda}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+V_{-\kappa',-\lambda';\kappa,\lambda}a_{d,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+V_{k',l';-k,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}\\
+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}\\
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}\]</span></p>
+</div>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\sum_{k,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
++
+\frac{1}{2}\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\end{equation}\]</span></p>
+</section>
+<section class="slide level2">
+
+<p>This ultimately gives</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Single particle <span class="math inline">\(a^\dagger_{d,\sigma}|\Omega\rangle\)</span> 2nd-order shift</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{equation}
+\boxed{
+-\frac{3}{2}\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\frac{1}{2}\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\frac{1}{2}\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-\frac{3}{2}\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-\frac{3}{2}\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}\]</span></p>
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
