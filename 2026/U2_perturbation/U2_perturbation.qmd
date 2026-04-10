@@ -1208,7 +1208,7 @@ Let's do all pairs at the same time
 
 :::{style='font-size:70%'}
 \begin{equation}
-\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}a_{d,\uparrow}
+\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}a_{d,\uparrow}
 \left\{
 \begin{matrix}
 V_{\kappa',-\lambda';\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
@@ -1229,7 +1229,7 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}
 
 \begin{equation}
-=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+=\sum_{n\ne \pm d}\langle\Omega|
 \left\{
 \begin{matrix}
 V_{d,-\lambda';\kappa,\lambda}b_{-d,\downarrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
@@ -1265,15 +1265,15 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -->
 
 \begin{equation}
-=\frac{1}{2}\sum_{k\ne d,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k\ne d,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
 +
-\frac{1}{2}\sum_{k',k\ne d, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\sum_{k',k\ne d, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}
 
 \begin{equation}
-+\frac{1}{2}\sum_{k',k}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
++\sum_{k',k}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 +
-\frac{1}{2}\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
+\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
 \end{equation}
 
 :::{.callout-note}
@@ -1281,11 +1281,11 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 
 \begin{equation}
 \boxed{
--\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
--\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
--\frac{1}{2}\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--2\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
@@ -1320,7 +1320,7 @@ Wow!  Not so many terms!!!  This gives
 
 :::{style='font-size:70%'}
 \begin{equation}
-\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|a_{d,\uparrow}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\uparrow}
 \left\{
 \begin{matrix}
 V_{\kappa',-\lambda';\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
@@ -1337,7 +1337,7 @@ a^\dagger_{d,\uparrow}|\Omega\rangle
 \end{equation}
 
 \begin{equation}
-=\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|
+=\sum_{n\ne \pm d}\langle\Omega|
 \left\{
 \begin{matrix}
 V_{d,-\lambda';\kappa,\lambda}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
@@ -1355,9 +1355,9 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 :::
 
 \begin{equation}
-=\frac{1}{2}\sum_{k,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k,k',l'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}
 +
-\frac{1}{2}\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}
 
 ---
@@ -1369,11 +1369,11 @@ This ultimately gives
 
 \begin{equation}
 \boxed{
--\frac{3}{2}\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
--\frac{1}{2}\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
--\frac{1}{2}\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--\frac{3}{2}\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--\frac{3}{2}\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
