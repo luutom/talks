@@ -1380,3 +1380,28 @@ This ultimately gives
 None of the indices can be equal to $d$.
 
 :::
+
+Now I consider the $b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle$ single-particle state,
+
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Vb^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
+
+Sigh.  There are a lot of pairs that can contribute :pensive:.  The pairs of terms from @eq-tildeV that contribute are
+
+:::{.r-stack}
+
+:::{style='font-size:80%'}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 1               | 1                |
+| 5               | 2                |
+| 2               | 5                |
+| 4               | 3                |
+| 8               | 8                |
+| 7               | 10               |
+| 11              | 6                |
+| 14              | 13               |
+:::
+
+:::
