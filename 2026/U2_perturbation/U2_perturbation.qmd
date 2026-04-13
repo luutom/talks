@@ -1399,9 +1399,183 @@ Sigh.  There are a lot of pairs that can contribute :pensive:.  The pairs of ter
 | 2               | 5                |
 | 4               | 3                |
 | 8               | 8                |
+| 9               | 9                |
 | 7               | 10               |
 | 11              | 6                |
 | 14              | 13               |
 :::
+
+:::
+
+---
+
+Let me do try to be as efficient as possible.  First off, if you consider the (2,5) pair, this will result in matrix elements with "3 d's", and thus vanish.
+
++ Now consider (1,1):
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}
+\left\{
+V_{\kappa',\lambda';\kappa,\lambda}a^\dagger_{\kappa',\uparrow}a^\dagger_{\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}
+\right\}
+b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|b_{d,\uparrow}
+\left\{
+V_{d,d;\kappa,\lambda}b_{d,\uparrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+V_{k',l';d,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-d,\uparrow}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\sum_{k,l\ne d}\frac{V_{d,d;l,k}V_{k,l;d,d}}{-\epsilon_{l}-\epsilon_{k}}
+\end{equation}
+
++ (5,2):
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}
+\left\{
+-V_{-\kappa',\lambda';\kappa,\lambda}a^\dagger_{\lambda',\downarrow}b^{}_{-\kappa',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^{\dagger}_{-l,\uparrow}a^{}_{k,\downarrow}
+\right\}
+b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+-V_{-\kappa',d;\kappa,\lambda}a_{d,\uparrow}b_{d,\uparrow}b^{}_{-\kappa',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{k',l';d,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^{\dagger}_{-l,\uparrow}b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+\end{equation}
+
+---
+
++ (4,3) gives the same as (5,2):
+
+\begin{equation}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+\end{equation}
+
++ (8,8):
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}
+\left\{
+-V_{-\kappa',\lambda';\kappa,-\lambda}a^\dagger_{\lambda',\downarrow}b^{\dagger}_{-\lambda,\uparrow}b^{}_{-\kappa',\uparrow}a^{}_{\kappa,\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}
+\right\}
+b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+-V_{-\kappa',d;\kappa,-d}a_{d,\uparrow}b^{}_{-\kappa',\uparrow}a^{}_{\kappa,\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{-d,l';d,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\sum_{l, l'}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
+\end{equation}
+
++ (9,9) gives the same as (8,8):
+
+\begin{equation}
+=\sum_{l, l'}\frac{V_{-l,d;-d,l'}V_{l',-d;d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
+\end{equation}
+
+---
+
++ (7,10) is also very similar:
+
+\begin{equation}
+=\sum_{k', l'}\frac{V_{d,-d;l',-k'}V_{-k',l';-d,d}}{\epsilon_{-k'}-\epsilon_{l'}}
+\end{equation}
+
++ (11,6) is done by inspection (Lin please check!!!):
+
+\begin{equation}
+=\sum_{k', l',l\ne d, k}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\end{equation}
+
++ (14,13):
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}
+\left\{
+-V_{-\kappa',-\lambda';\kappa,-\lambda}b^\dagger_{\lambda,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^{\dagger}_{-l,\uparrow}b^{}_{-k',\uparrow}
+\right\}
+b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+-V_{-\kappa',-\lambda';\kappa,-d}a_{d,\downarrow}a_{d,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{-d,l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^{\dagger}_{-l,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\sum_{l'\ne d, k,l}\frac{V_{-l,-k;l',-d}V_{-d,l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{l'}}
+\end{equation}
+
+---
+
+Collecting everything and massaging the terms gives
+
+:::{.callout-note}
+## Single particle $b^\dagger_{-d,\sigma}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle$ 2nd-order shift
+
+\begin{equation}
+\boxed{
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-7\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+
+None of the indices can be equal to $d$.
 
 :::
