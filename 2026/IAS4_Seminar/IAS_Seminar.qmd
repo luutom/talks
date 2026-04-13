@@ -1,5 +1,5 @@
 ---
-title: 'Living the low-life'
+title: 'Life in low-D'
 abstract: ""
 author:
   name: Thomas Luu
