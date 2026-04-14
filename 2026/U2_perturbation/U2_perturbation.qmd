@@ -1399,7 +1399,6 @@ Sigh.  There are a lot of pairs that can contribute :pensive:.  The pairs of ter
 | 2               | 5                |
 | 4               | 3                |
 | 8               | 8                |
-| 9               | 9                |
 | 7               | 10               |
 | 11              | 6                |
 | 14              | 13               |
@@ -1468,7 +1467,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 :::
 
 \begin{equation}
-=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',l,l'\ne d}\frac{V_{l,-d;l',k'}V_{k',l';-d,l}}{-\epsilon_{l}-\epsilon_{l'}-\epsilon_{k'}}+\sum_{k',l\ne d}\frac{V_{l,-d;d,k'}V_{k',d;-d,l}}{-\epsilon_{l}-\epsilon_{k'}}
 \end{equation}
 
 ---
@@ -1476,7 +1475,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 + (4,3) gives the same as (5,2):
 
 \begin{equation}
-=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',l,l'\ne d}\frac{V_{l,-d;l',k'}V_{k',l';-d,l}}{-\epsilon_{l}-\epsilon_{l'}-\epsilon_{k'}}+\sum_{k',l\ne d}\frac{V_{l,-d;d,k'}V_{k',d;-d,l}}{-\epsilon_{l}-\epsilon_{k'}}
 \end{equation}
 
 + (8,8):
@@ -1507,12 +1506,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 
 \begin{equation}
 =\sum_{l, l'}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
-\end{equation}
-
-+ (9,9) gives the same as (8,8):
-
-\begin{equation}
-=\sum_{l, l'}\frac{V_{-l,d;-d,l'}V_{l',-d;d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
+=\sum_{l, l'}\frac{V_{l,d;l',d}V_{d,l';d,l}}{-\epsilon_{l}-\epsilon_{l'}}
 \end{equation}
 
 ---
@@ -1521,12 +1515,15 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 
 \begin{equation}
 =\sum_{k', l'}\frac{V_{d,-d;l',-k'}V_{-k',l';-d,d}}{\epsilon_{-k'}-\epsilon_{l'}}
+=\sum_{k', l'}\frac{V_{d,d;l',k'}V_{k',l';d,d}}{-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}
 
 + (11,6) is done by inspection (Lin please check!!!):
 
 \begin{equation}
 =\sum_{k', l',l\ne d, k}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+=\sum_{k', l',l,k\ne d}\frac{V_{l,k;l',k'}V_{k',l';k,l}}{-\epsilon_{k}-\epsilon_{l}-\epsilon_{k'}-\epsilon_{l'}}
++\sum_{k', l',l\ne d}\frac{V_{l,d;l',k'}V_{k',l';d,l}}{-\epsilon_{l}-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}
 
 + (14,13):
@@ -1557,6 +1554,8 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 
 \begin{equation}
 =\sum_{l'\ne d, k,l}\frac{V_{-l,-k;l',-d}V_{-d,l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{l'}}
+=\sum_{l', k,l \ne d}\frac{V_{l,k;l',-d}V_{-d,l';k,l}}{-\epsilon_{k}-\epsilon_{l}-\epsilon_{l'}}
++2\sum_{l', l \ne d}\frac{V_{l,d;l',-d}V_{-d,l';d,l}}{-\epsilon_{l}-\epsilon_{l'}}
 \end{equation}
 
 ---
@@ -1571,8 +1570,8 @@ Collecting everything and massaging the terms gives
 -\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--7\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 

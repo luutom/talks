@@ -1518,18 +1518,14 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 <td style="text-align: center;">8</td>
 </tr>
 <tr class="even">
-<td style="text-align: center;">9</td>
-<td style="text-align: center;">9</td>
-</tr>
-<tr class="odd">
 <td style="text-align: center;">7</td>
 <td style="text-align: center;">10</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td style="text-align: center;">11</td>
 <td style="text-align: center;">6</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td style="text-align: center;">14</td>
 <td style="text-align: center;">13</td>
 </tr>
@@ -1595,7 +1591,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 \end{equation}\]</span></p>
 </div>
 <p><span class="math display">\[\begin{equation}
-=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',l,l'\ne d}\frac{V_{l,-d;l',k'}V_{k',l';-d,l}}{-\epsilon_{l}-\epsilon_{l'}-\epsilon_{k'}}+\sum_{k',l\ne d}\frac{V_{l,-d;d,k'}V_{k',d;-d,l}}{-\epsilon_{l}-\epsilon_{k'}}
 \end{equation}\]</span></p>
 </section>
 <section class="slide level2">
@@ -1604,7 +1600,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 <li>(4,3) gives the same as (5,2):</li>
 </ul>
 <p><span class="math display">\[\begin{equation}
-=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}
+=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',l,l'\ne d}\frac{V_{l,-d;l',k'}V_{k',l';-d,l}}{-\epsilon_{l}-\epsilon_{l'}-\epsilon_{k'}}+\sum_{k',l\ne d}\frac{V_{l,-d;d,k'}V_{k',d;-d,l}}{-\epsilon_{l}-\epsilon_{k'}}
 \end{equation}\]</span></p>
 <ul>
 <li>(8,8):</li>
@@ -1633,12 +1629,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 </div>
 <p><span class="math display">\[\begin{equation}
 =\sum_{l, l'}\frac{V_{-l,d;l',-d}V_{-d,l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
-\end{equation}\]</span></p>
-<ul>
-<li>(9,9) gives the same as (8,8):</li>
-</ul>
-<p><span class="math display">\[\begin{equation}
-=\sum_{l, l'}\frac{V_{-l,d;-d,l'}V_{l',-d;d,-l}}{\epsilon_{-l}-\epsilon_{l'}}
+=\sum_{l, l'}\frac{V_{l,d;l',d}V_{d,l';d,l}}{-\epsilon_{l}-\epsilon_{l'}}
 \end{equation}\]</span></p>
 </section>
 <section class="slide level2">
@@ -1648,12 +1639,15 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 </ul>
 <p><span class="math display">\[\begin{equation}
 =\sum_{k', l'}\frac{V_{d,-d;l',-k'}V_{-k',l';-d,d}}{\epsilon_{-k'}-\epsilon_{l'}}
+=\sum_{k', l'}\frac{V_{d,d;l',k'}V_{k',l';d,d}}{-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}\]</span></p>
 <ul>
 <li>(11,6) is done by inspection (Lin please check!!!):</li>
 </ul>
 <p><span class="math display">\[\begin{equation}
 =\sum_{k', l',l\ne d, k}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+=\sum_{k', l',l,k\ne d}\frac{V_{l,k;l',k'}V_{k',l';k,l}}{-\epsilon_{k}-\epsilon_{l}-\epsilon_{k'}-\epsilon_{l'}}
++\sum_{k', l',l\ne d}\frac{V_{l,d;l',k'}V_{k',l';d,l}}{-\epsilon_{l}-\epsilon_{k'}-\epsilon_{l'}}
 \end{equation}\]</span></p>
 <ul>
 <li>(14,13):</li>
@@ -1682,6 +1676,8 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 </div>
 <p><span class="math display">\[\begin{equation}
 =\sum_{l'\ne d, k,l}\frac{V_{-l,-k;l',-d}V_{-d,l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{l'}}
+=\sum_{l', k,l \ne d}\frac{V_{l,k;l',-d}V_{-d,l';k,l}}{-\epsilon_{k}-\epsilon_{l}-\epsilon_{l'}}
++2\sum_{l', l \ne d}\frac{V_{l,d;l',-d}V_{-d,l';d,l}}{-\epsilon_{l}-\epsilon_{l'}}
 \end{equation}\]</span></p>
 </section>
 <section class="slide level2">
@@ -1693,7 +1689,7 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Single particle <span class="math inline">\(b^\dagger_{-d,\sigma}a^\dagger_{d,\downarrow}a^\dagger_{d,\uparrow}|\Omega\rangle\)</span> 2nd-order shift</strong></p>
+<p><strong>Single particle <span class="math inline">\(b^\dagger_{-d,\sigma}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle\)</span> 2nd-order shift</strong></p>
 </div>
 <div class="callout-content">
 <p><span class="math display">\[\begin{equation}
@@ -1701,8 +1697,8 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 -\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
--\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--7\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}\]</span></p>
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
