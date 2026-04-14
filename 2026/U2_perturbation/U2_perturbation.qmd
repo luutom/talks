@@ -1472,10 +1472,34 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 
 ---
 
-+ (4,3) gives the same as (5,2):
++ (4,3):
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|a_{d,\downarrow}a_{d,\uparrow}b_{d,\uparrow}
+\left\{
+V_{\kappa',-\lambda';\kappa,\lambda}a^\dagger_{\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^{\dagger}_{-k,\downarrow}a^{}_{l,\uparrow}
+\right\}
+b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
+\end{equation}
 
 \begin{equation}
-=\sum_{k',l\ne d, l'}\frac{V_{-l,d;l',k'}V_{k',l';d,-l}}{\epsilon_{-l}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',l,l'\ne d}\frac{V_{l,-d;l',k'}V_{k',l';-d,l}}{-\epsilon_{l}-\epsilon_{l'}-\epsilon_{k'}}+\sum_{k',l\ne d}\frac{V_{l,-d;d,k'}V_{k',d;-d,l}}{-\epsilon_{l}-\epsilon_{k'}}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+-V_{d,-\lambda';\kappa,\lambda}a_{d,\downarrow}b_{d,\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{k',l';-k,d}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^{\dagger}_{-k,\downarrow}b^\dagger_{-d,\uparrow}a^\dagger_{d,\downarrow}
+\right\}
+|\Omega\rangle
+\end{equation}
+:::
+
+\begin{equation}
+=\sum_{l'\ne d,k, k'}\frac{V_{d,-k;l',k'}V_{k',l';-k,d}}{\epsilon_{-k}-\epsilon_{l'}-\epsilon_{k'}}=\sum_{k',k,l'\ne d}\frac{V_{-d,k;l',k'}V_{k',l';k,-d}}{-\epsilon_{k}-\epsilon_{l'}-\epsilon_{k'}}+2\sum_{k',l'\ne d}\frac{V_{-d;d,l',k'}V_{k',l';d,-d}}{-\epsilon_{l'}-\epsilon_{k'}}
 \end{equation}
 
 + (8,8):
@@ -1571,7 +1595,7 @@ Collecting everything and massaging the terms gives
 -3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
