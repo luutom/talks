@@ -206,12 +206,107 @@ Thomas Luu
 </section>
 <section id="physics-in-low-dimensions-is-really-cool" class="slide level2">
 <h2>Physics in low dimensions is really cool!</h2>
+<ul>
+<li class="fragment">Non-trivial excitations
+<ul>
+<li class="fragment">many-body quasi-particle states</li>
+<li class="fragment">spin waves or <strong><em>magnons</em></strong></li>
+<li class="fragment">charge density waves</li>
+</ul></li>
+<li class="fragment">Mermin-Wagner theorem prevents spontaneous symmetry breaking in low-D
+<ul>
+<li class="fragment">topological phase transitions</li>
+<li class="fragment">states can exist in different topological sectors</li>
+<li class="fragment">localized states vs bulk states</li>
+<li class="fragment">Majorana fermions!</li>
+</ul></li>
+<li class="fragment">Novel phenomena only in 2-D
+<ul>
+<li class="fragment">Wilczek predicted in 1982 a novel excitation in 2-D <a href="https://arxiv.org/abs/0812.5097">(New Kinds of Quantum Statistics)</a></li>
+<li class="fragment">“Anyons” = <strong><em>anything goes</em></strong> type of statistics
+<ul>
+<li class="fragment">Abelian anyons <span class="math inline">\(\to\)</span> fractional quantum Hall effect</li>
+<li class="fragment">Non-abelian anyons <span class="math inline">\(\to\)</span> true fault tolerant quantum computing (???)</li>
+</ul></li>
+</ul></li>
+</ul>
 </section>
 <section id="why-one-would-think-low-d-is-easier" class="slide level2">
 <h2>Why one would think low-D is <strong><em>easier</em></strong></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li class="fragment">Dimensionality of system is <strong><em>smaller</em></strong> than that in LQCD
+<ul>
+<li class="fragment">spatial volume <span class="math inline">\(\sim \mathcal{O}(1)-\mathcal{O}(10000)\)</span></li>
+<li class="fragment">temporal volume <span class="math inline">\(\sim \mathcal{O}(10)-\mathcal{O}(1000)\)</span></li>
+<li class="fragment">2 species (spin up/down or particle/hole)</li>
+<li class="fragment">all to all propagators!</li>
+</ul></li>
+<li class="fragment">Spatial lattices are <strong><em>physical</em></strong>
+<ul>
+<li class="fragment">no spatial continuum limit required</li>
+<li class="fragment">no <strong><em>scale setting</em></strong> required</li>
+</ul></li>
+<li class="fragment">All the hard work has been already done by LQCD (thank you!)
+<ul>
+<li class="fragment">preconditioners</li>
+<li class="fragment">pseudofermions</li>
+<li class="fragment">interpolating operators</li>
+<li class="fragment">finite volume quantizations</li>
+</ul></li>
+</ul>
+<div class="r-stack fragment">
+<p><strong><em>“THIS WILL BE SO EASY!!!”</em></strong> <span class="emoji" data-emoji="smirk">😏</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hybridRibbon.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+</figure>
+</div>
+</div>
+</div></div>
 </section>
-<section id="why-i-lose-sleep-over-this-problem" class="slide level2">
-<h2>Why I lose sleep over this problem</h2>
+<section id="section" class="slide level2">
+<h2><span class="emoji" data-emoji="smirk">😏</span> <span class="emoji" data-emoji="blush">😊</span> <span class="emoji" data-emoji="grin">😁</span> <span class="emoji" data-emoji="grimacing">😬</span> <span class="emoji" data-emoji="sweat_smile">😅</span> <span class="emoji" data-emoji="sweat">😓</span> <span class="emoji" data-emoji="confused">😕</span> <span class="emoji" data-emoji="frowning">😦</span> <span class="emoji" data-emoji="unamused">😒</span> <span class="emoji" data-emoji="confounded">😖</span> <span class="emoji" data-emoji="angry">😠</span> <span class="emoji" data-emoji="rage">😡</span> <span class="emoji" data-emoji="pensive">😔</span> <span class="emoji" data-emoji="fearful">😨</span> <span class="emoji" data-emoji="cold_sweat">😰</span> <span class="emoji" data-emoji="cry">😢</span> <span class="emoji" data-emoji="sob">😭</span> <span class="emoji" data-emoji="tired_face">😫</span></h2>
+<ul>
+<li class="fragment"><p>Don’t know the interaction!</p>
+<ul>
+<li class="fragment">Approximate system with <strong><em>models</em></strong>, eg Hubbard model</li>
+<li class="fragment">The term <strong><em>ab initio</em></strong> is used very carelessly in this field</li>
+</ul></li>
+<li class="fragment"><p>Many systems of interest are (nearly) gapless</p>
+<ul>
+<li class="fragment">temperature must be <strong><em>colder</em></strong> than gap</li>
+<li class="fragment"><span class="math inline">\(T\ll 1\implies \beta\gg 1\)</span> <span class="math inline">\(\implies\)</span> numerical instabilities</li>
+</ul></li>
+<li class="fragment"><p>Ergodicity is not guaranteed!</p></li>
+<li class="fragment"><p>The most interesting systems occur away from <strong><em>half-filling</em></strong>, i.e.&nbsp;they are doped!</p>
+<ul>
+<li class="fragment">presents numerical sign problem</li>
+</ul></li>
+<li class="fragment"><p>Geometry of system can also cause sign problem</p>
+<ul>
+<li class="fragment">non-bipartite <strong><em>frustrated</em></strong> systems</li>
+</ul></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Most of the work I show will be related to addressing these issues!</p>
+</div>
+</div>
+</div>
+</div>
 </section>
 <section id="how-to-put-a-hamiltonian-on-the-lattice-101" class="slide level2">
 <h2>How to put a Hamiltonian on the lattice 101</h2>
@@ -384,8 +479,87 @@ e^{-\frac{\delta U}{2}\rho_{x,t}^2}\propto\int d\phi_{x,t}e^{-\frac{\phi_{x,t}^2
 </ul></li>
 </ul>
 </div>
+</section>
+<section>
+<section id="what-observables-o-are-we-interested-in" class="title-slide slide level1 center">
+<h1>What observables <span class="math inline">\(O\)</span> are we interested in?</h1>
 
 </section>
+<section id="anatomy-of-a-correlator" class="slide level2">
+<h2>Anatomy of a correlator</h2>
+<p>Single-body correlation functions <span class="math inline">\(\langle p_x^{}(\tau)p_y^\dagger(0)\rangle = \langle M_{xy;\tau}^{-1}\rangle\equiv C(\tau)\)</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/correlator.png" class="quarto-figure quarto-figure-center" style="height:4in"></p>
+</figure>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Spectral Decomposition Theorem</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{align}
+C(\tau)&amp;=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldots+A_he^{(E_h-E_\Omega)(\tau-\beta)}\\
+&amp;\to A_pe^{-(E_p-E_\Omega)\tau}\quad\quad(0\ll\tau\ll\beta)
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+<!--  - two-body $\langle p_{y'}^{}(\tau)p_{x'}^{}(\tau)p_x^\dagger(0)p_y^\dagger(0)\rangle = \langle M_{x'x;\tau}^{-1}M_{y'y;\tau}^{-1}-M_{x'y;\tau}^{-1}M_{y'x;\tau}^{-1}\rangle$
+
+::: {layout="[[33,33,33]]" layout-valign="center"}
+![](assets/GammaCorr.png)
+
+![](assets/halfDispersion33.png)
+
+![](assets/KCorr.png)
+
+:::
+-->
+</section>
+<section id="we-can-now-extract-excitation-energies" class="slide level2">
+<h2>We can now extract excitation energies</h2>
+<div class="r-stack">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/tube_example1.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/tube_example2.png" class="fragment quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/tube_example3.png" class="fragment quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div>
+<ul>
+<li>First QMC simulation of nanotube
+<ul>
+<li><strong>T.L.</strong> &amp; Lähde <a href="https://arxiv.org/abs/1511.04918">Phys.Rev. B93 (2016) 155106</a></li>
+</ul></li>
+</ul>
+</section>
+<section id="determined-quantum-phase-transition-in-2d-hubbard-honeycomb" class="slide level2">
+<h2>Determined quantum phase transition in 2D Hubbard (honeycomb)</h2>
+<p><img data-src="assets/hubbardUc.png"></p>
+<ul>
+<li>Finite size scaling analysis
+<ul>
+<li>tune <span class="math inline">\(U_c\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\nu\)</span> to obtain data collapse (universal line)</li>
+<li>most precise value of critical coupling to date : <span class="math inline">\(U_c=3.835(14)\)</span></li>
+<li>J. Ostmeyer, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2105.06936">Phys.Rev.B 104 (2021) 155142</a></li>
+</ul></li>
+</ul>
+
+</section></section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <p><img src="assets/fzj_ubonn_logo.png" class="slide-logo"></p>

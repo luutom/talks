@@ -65,10 +65,92 @@ from: markdown+emoji
 
 ## Physics in low dimensions is really cool!
 
+:::{.incremental}
+
++ Non-trivial excitations
+  - many-body quasi-particle states
+  - spin waves or ***magnons***
+  - charge density waves
+  
++ Mermin-Wagner theorem prevents spontaneous symmetry breaking in low-D
+  - topological phase transitions
+  - states can exist in different topological sectors
+  - localized states vs bulk states
+  - Majorana fermions!
+
++ Novel phenomena only in 2-D
+  - Wilczek predicted in 1982 a novel excitation in 2-D [(New Kinds of Quantum Statistics)](https://arxiv.org/abs/0812.5097)
+  - "Anyons" = ***anything goes*** type of statistics
+	* Abelian anyons $\to$ fractional quantum Hall effect
+	* Non-abelian anyons $\to$ true fault tolerant quantum computing (???)
+
+:::
 
 ## Why one would think low-D is ***easier***
 
-## Why I lose sleep over this problem
+:::{.columns}
+
+:::{.column width='50%'}
+:::{.incremental}
+
++ Dimensionality of system is ***smaller*** than that in LQCD
+  - spatial volume $\sim \mathcal{O}(1)-\mathcal{O}(10000)$
+  - temporal volume $\sim \mathcal{O}(10)-\mathcal{O}(1000)$
+  - 2 species (spin up/down or particle/hole)
+  - all to all propagators!
+  
++ Spatial lattices are ***physical***
+  - no spatial continuum limit required
+  - no ***scale setting*** required
+
++ All the hard work has been already done by LQCD (thank you!)
+  - preconditioners
+  - pseudofermions
+  - interpolating operators
+  - finite volume quantizations
+
+:::{.r-stack .fragment}
+***"THIS WILL BE SO EASY!!!"*** :smirk:
+:::
+
+:::
+
+:::
+
+:::{.column width='50%'}
+
+:::{.r-stack}
+![](assets/hybridRibbon.png){width=30% fig-align='center'}
+:::
+
+:::
+:::
+
+## :smirk: :blush: :grin: :grimacing: :sweat_smile: :sweat: :confused: :frowning: :unamused: :confounded:  :angry: :rage: :pensive: :fearful: :cold_sweat: :cry: :sob: :tired_face:
+
+:::{.incremental}
+
++ Don't know the interaction!
+  - Approximate system with ***models***, eg Hubbard model
+  - The term ***ab initio*** is used very carelessly in this field
+
++ Many systems of interest are (nearly) gapless
+  - temperature must be ***colder*** than gap
+  - $T\ll 1\implies \beta\gg 1$ $\implies$ numerical instabilities
+  
++ Ergodicity is not guaranteed!
+
++ The most interesting systems occur away from ***half-filling***, i.e. they are doped!
+  - presents numerical sign problem
+  
++ Geometry of system can also cause sign problem
+  - non-bipartite ***frustrated*** systems
+  
+:::{.callout-warning .fragment}
+Most of the work I show will be related to addressing these issues!
+:::
+
+:::
 
 
 ## How to put a Hamiltonian on the lattice 101 
@@ -204,4 +286,56 @@ High-dimensional integral!!  Enter Monte Carlo. . .
   - pseudo-fermions, J. Ostmeyer, **T.L.**, et al., [Phys.Rev.B 102 (2020) 245105](https://arxiv.org/abs/2005.11112)
   - Hasenbusch preconditioning, J. Ostmeyer, **T.L.** et al. [Comput.Phys.Commun. 236 (2019) 15-25](https://arxiv.org/abs/1804.07195) 
 :::
+
+# What observables $O$ are we interested in?
+
+## Anatomy of a correlator
+
+Single-body correlation functions $\langle p_x^{}(\tau)p_y^\dagger(0)\rangle = \langle M_{xy;\tau}^{-1}\rangle\equiv C(\tau)$
+
+![](assets/correlator.png){fig-align="center" height=4in}
+
+:::{.callout-note}
+## Spectral Decomposition Theorem
+\begin{align}
+C(\tau)&=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldots+A_he^{(E_h-E_\Omega)(\tau-\beta)}\\
+&\to A_pe^{-(E_p-E_\Omega)\tau}\quad\quad(0\ll\tau\ll\beta)
+\end{align}
+:::
+
+
+
+<!--  - two-body $\langle p_{y'}^{}(\tau)p_{x'}^{}(\tau)p_x^\dagger(0)p_y^\dagger(0)\rangle = \langle M_{x'x;\tau}^{-1}M_{y'y;\tau}^{-1}-M_{x'y;\tau}^{-1}M_{y'x;\tau}^{-1}\rangle$
+
+::: {layout="[[33,33,33]]" layout-valign="center"}
+![](assets/GammaCorr.png)
+
+![](assets/halfDispersion33.png)
+
+![](assets/KCorr.png)
+
+:::
+-->
+
+## We can now extract excitation energies
+
+:::{.r-stack}
+![](assets/tube_example1.png){fig-align="center"}
+
+![](assets/tube_example2.png){fig-align="center" .fragment}
+
+![](assets/tube_example3.png){fig-align="center" .fragment}
+:::
+
++ First QMC simulation of nanotube
+  - **T.L.** & Lähde [Phys.Rev. B93 (2016) 155106](https://arxiv.org/abs/1511.04918)
+
+## Determined quantum phase transition in 2D Hubbard (honeycomb)
+
+![](assets/hubbardUc.png)
+
++ Finite size scaling analysis
+  - tune $U_c$, $\beta$ and $\nu$ to obtain data collapse (universal line)
+  - most precise value of critical coupling to date :  $U_c=3.835(14)$
+  - J. Ostmeyer, **T.L.**, et al., [Phys.Rev.B 104 (2021) 155142](https://arxiv.org/abs/2105.06936)
 
