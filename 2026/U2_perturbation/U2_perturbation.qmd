@@ -1293,6 +1293,40 @@ None of the indices can be equal to $d$.
 
 :::
 
+
+---
+
+:::{.callout-note}
+## Symmetries of the matrix element $V_{k,l;m,p}$
+
+Lin has demonstrated the following properties of the matrix element $V_{k,l;m,p}$.
+
++ Indices can be freely swapped, e.g.
+\begin{equation}
+V_{k,l;p,m}=V_{l,k;,p,m}=V_{m,l;k,p}=V_{p,l;m,k}
+\end{equation}
+
++ The sign of an index can be moved to any other index
+\begin{equation}
+V_{-k,l;p,m}=V_{k,-l;,p,m}=V_{k,l;-m,p}=V_{k,l;m,-p}
+\end{equation}
+
++ Matrix elements are equivalent if their product of signs are the same
+\begin{align}
+V_{-k,l;p,m}&=V_{k,-l;,-p,-m}\\
+V_{k,l;-m,-p}&=V_{k,l;m,p}
+\end{align}
+
++ Matrix elements with three $d$'s of any sign vanish, e.g.
+\begin{align}
+V_{-d,d;d,m}&=0\\
+V_{k,d;-d,-d}&=0
+\end{align}
+
+
+
+:::
+
 ---
 
 ### Single particle excitation at 2nd order (finally!!)
@@ -1600,5 +1634,26 @@ Collecting everything and massaging the terms gives
 \end{equation}
 
 None of the indices can be equal to $d$.
+
+:::
+
+---
+
+Now I first consider the state $b^\dagger_{-d,\uparrow}|\Omega\rangle$,
+
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|b_{-d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Vb^\dagger_{-d,\uparrow}|\Omega\rangle
+\end{equation}
+
+The pairs of terms from @eq-tildeV that contribute are
+
+:::{.r-stack}
+
+:::{style='font-size:80%'}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 14              | 13               |
+| 11              | 6                |
+:::
 
 :::
