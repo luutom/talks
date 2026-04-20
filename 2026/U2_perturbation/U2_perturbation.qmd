@@ -1400,7 +1400,7 @@ This ultimately gives
 
 :::{.callout-note}
 ## Single particle $a^\dagger_{d,\sigma}|\Omega\rangle$ 2nd-order shift
-
+$$
 \begin{equation}
 \boxed{
 -3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
@@ -1410,6 +1410,7 @@ This ultimately gives
 -3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
+$${#eq-Q1}
 
 None of the indices can be equal to $d$.
 
@@ -1641,9 +1642,11 @@ None of the indices can be equal to $d$.
 
 Now I first consider the state $b^\dagger_{-d,\uparrow}|\Omega\rangle$,
 
+:::{style='font-size:70%'}
 \begin{equation}
 \sum_{n\ne \pm d}\langle\Omega|b_{-d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Vb^\dagger_{-d,\uparrow}|\Omega\rangle
 \end{equation}
+:::
 
 The pairs of terms from @eq-tildeV that contribute are
 
@@ -1655,5 +1658,66 @@ The pairs of terms from @eq-tildeV that contribute are
 | 14              | 13               |
 | 11              | 6                |
 :::
+
+:::
+
+This gives
+
+:::{style='font-size:70%'}
+\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|b_{-d,\uparrow}
+\left\{
+\begin{matrix}
+-V_{-\kappa',-\lambda';\kappa,-\lambda}b^\dagger_{-\lambda,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}\\
+V_{-\kappa',-\lambda';\kappa,\lambda}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}\\
+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
+\end{matrix}
+\right\}
+b^\dagger_{-d,\uparrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+\begin{matrix}
+-V_{-\kappa',-\lambda';\kappa,-d}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}\\
+V_{-\kappa',-\lambda';\kappa,\lambda}b_{-d,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}\\
+\end{matrix}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+\begin{matrix}
+-V_{-d,l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\\
+V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^\dagger_{-d,\uparrow}\\
+\end{matrix}
+\right\}
+|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+=\sum_{k,l,l'}\frac{V_{-l,-k;l',-d}V_{-d,l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{l'}}
++
+\sum_{l\ne d,k, k',l'}\frac{V_{-l,-k;l',k'}V_{k',l';-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}-\epsilon_{l'}}
+\end{equation}
+:::
+
+:::{.callout-note}
+## Single particle $b^\dagger_{-d,\sigma}|\Omega\rangle$ 2nd-order shift
+
+\begin{equation}
+\boxed{
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+
+None of the indices can be equal to $d$. This result is the same as @eq-Q1
 
 :::
