@@ -222,7 +222,11 @@ Thomas Luu
 </ul></li>
 <li class="fragment">Novel phenomena only in 2-D
 <ul>
-<li class="fragment">Wilczek predicted in 1982 a novel excitation in 2-D <a href="https://arxiv.org/abs/0812.5097">(New Kinds of Quantum Statistics)</a></li>
+<li class="fragment">Wilczek predicted in 1982 a novel excitation in 2-D
+<ul>
+<li class="fragment"><a href="https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.49.957">Phys.Rev.Lett. 49 (1982) 957</a></li>
+<li class="fragment"><a href="https://arxiv.org/abs/0812.5097">New Kinds of Quantum Statistics</a></li>
+</ul></li>
 <li class="fragment">“Anyons” = <strong><em>anything goes</em></strong> type of statistics
 <ul>
 <li class="fragment">Abelian anyons <span class="math inline">\(\to\)</span> fractional quantum Hall effect</li>
@@ -263,7 +267,7 @@ Thomas Luu
 <div class="r-stack">
 <div class="quarto-figure quarto-figure-center">
 <figure>
-<p><img data-src="assets/hybridRibbon.png" class="quarto-figure quarto-figure-center" style="width:30.0%"></p>
+<p><img data-src="assets/hybrid.png" class="quarto-figure quarto-figure-center" style="width:40.0%"></p>
 </figure>
 </div>
 </div>
@@ -474,15 +478,15 @@ e^{-\frac{\delta U}{2}\rho_{x,t}^2}\propto\int d\phi_{x,t}e^{-\frac{\phi_{x,t}^2
 <ul>
 <li>Other “borrowed” ideas
 <ul>
-<li>pseudo-fermions, J. Ostmeyer, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2005.11112">Phys.Rev.B 102 (2020) 245105</a></li>
-<li>Hasenbusch preconditioning, J. Ostmeyer, <strong>T.L.</strong> et al.&nbsp;<a href="https://arxiv.org/abs/1804.07195">Comput.Phys.Commun. 236 (2019) 15-25</a></li>
+<li>pseudo-fermions, J. Ostmeyer, S.Krieg, T.Lähde,<strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2005.11112">Phys.Rev.B 102 (2020) 245105</a></li>
+<li>Hasenbusch preconditioning, J. Ostmeyer, S.Krieg, <strong>T.L.</strong> et al.&nbsp;<a href="https://arxiv.org/abs/1804.07195">Comput.Phys.Commun. 236 (2019) 15-25</a></li>
 </ul></li>
 </ul>
 </div>
 </section>
 <section>
-<section id="what-observables-o-are-we-interested-in" class="title-slide slide level1 center">
-<h1>What observables <span class="math inline">\(O\)</span> are we interested in?</h1>
+<section id="quasi-particle-excitations-from-correlators" class="title-slide slide level1 center">
+<h1>Quasi-particle excitations from correlators</h1>
 
 </section>
 <section id="anatomy-of-a-correlator" class="slide level2">
@@ -543,7 +547,7 @@ C(\tau)&amp;=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldot
 <ul>
 <li>First QMC simulation of nanotube
 <ul>
-<li><strong>T.L.</strong> &amp; Lähde <a href="https://arxiv.org/abs/1511.04918">Phys.Rev. B93 (2016) 155106</a></li>
+<li><strong>T.L.</strong> &amp; T. Lähde <a href="https://arxiv.org/abs/1511.04918">Phys.Rev. B93 (2016) 155106</a></li>
 </ul></li>
 </ul>
 </section>
@@ -555,9 +559,640 @@ C(\tau)&amp;=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldot
 <ul>
 <li>tune <span class="math inline">\(U_c\)</span>, <span class="math inline">\(\beta\)</span> and <span class="math inline">\(\nu\)</span> to obtain data collapse (universal line)</li>
 <li>most precise value of critical coupling to date : <span class="math inline">\(U_c=3.835(14)\)</span></li>
-<li>J. Ostmeyer, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2105.06936">Phys.Rev.B 104 (2021) 155142</a></li>
+<li>J. Ostmeyer, S. Krieg, T. Lähde, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2105.06936">Phys.Rev.B 104 (2021) 155142</a></li>
 </ul></li>
 </ul>
+</section>
+<section id="two-body-excitations" class="slide level2">
+<h2>Two-body excitations</h2>
+<ul>
+<li>Can assign spin/isospin quantum numbers to the holes and particles</li>
+</ul>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size:70%">
+<table class="caption-top">
+<caption>Pseudospin (Isospin) <span class="math inline">\(I\)</span> and Spin <span class="math inline">\(S\)</span> assignments</caption>
+<thead>
+<tr class="header">
+<th></th>
+<th style="text-align: center;"><span class="math inline">\(S_z=1/2\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(S_z=-1/2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\(I_z=1/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p^\dagger\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h^{}\)</span></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\(I_z=-1/2\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(h^\dagger\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(p^{}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/exciton.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>Two-body interpolating operators</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/2bodyOps.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="excitons">Excitons</h3>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/10_2_tube.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div style="font-size:80%">
+<ul>
+<li><span class="math inline">\(I_z=0\)</span> corresponds to particle-hole excitations
+<ul>
+<li>“bright” excitons</li>
+<li>“dark” excitons</li>
+</ul></li>
+<li>analogous to mesons in lattice QCD</li>
+<li>First “dark” excitons from QMC: P. Sinilkov, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2502.04015">PoS LATTICE2024 (2025) 075</a></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/excitonCorrelators.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<p>P. Sinilkov et al., in preparation</p>
+</div>
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<div class="r-stack">
+<p>But what about disconnected diagrams?</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="stabilizing-the-sausage-and-disc.-diagrams" class="slide level2">
+<h2>Stabilizing the “Sausage” and disc. diagrams</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size:80%">
+<ul>
+<li>At large <span class="math inline">\(\beta\)</span>, numerical instabilities occur in constructing <span class="math inline">\(\det M\)</span>,</li>
+</ul>
+<div style="font-size:100%">
+<p><span class="math display">\[\begin{equation}
+\det M[\phi]=\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage"}})
+\end{equation}\]</span></p>
+</div>
+<ul>
+<li>Inspired by <a href="https://scipost.org/SciPostPhysCore.2.2.011">C.Bauer, SciPost Phys. Core 2, 011 (2020)</a>
+<ul>
+<li>Used recursive matrix decompositions (QR) to stablize construction of “sausage”</li>
+<li>Extended formalism to force calculations to stabilize HMC</li>
+<li>Can now simulate to much larger values of <span class="math inline">\(\beta\)</span> (room temperature)</li>
+</ul></li>
+<li>With decompositions, the force terms give direct access to
+<ul>
+<li><span class="math inline">\(M^{-1}_{x,y}(t,t,\phi)\)</span></li>
+<li><span class="math inline">\(M^{-1}_{x,y}(t,0,\phi)\)</span></li>
+<li><span class="math inline">\(M^{-1}_{x,y}(0,t,\phi)\)</span></li>
+<li><strong><em>without</em></strong> approximations</li>
+</ul></li>
+<li>Can construct <strong><em>any</em></strong> many-body two-point function</li>
+</ul>
+<div class="r-stack">
+<p><strong>T.L.</strong>, P. Sinilkov, F. Temmen, et al.&nbsp;<a href="https://arxiv.org/abs/2604.00815">arXiv:2604.00815</a></p>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<p><img data-src="assets/dH_convergence.png"></p>
+</div></div>
+</section></section>
+<section id="ergodicity-and-all-that" class="title-slide slide level1 center">
+<h1>Ergodicity and all that</h1>
+
+</section>
+
+<section id="section-1" class="title-slide slide level1 center" data-background-video="assets/snakeV2.m4v" data-background-video-loop="true" data-background-video-muted="true" data-background-size="contain">
+<h1></h1>
+<div class="r-stack fragment">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/snakeV3.png" class="quarto-figure quarto-figure-center" style="width:72.0%"></p>
+</figure>
+</div>
+</div>
+<div class="r-stack fragment">
+<p>F. Temmen, <strong>T.L.</strong>, et al.&nbsp;<a href="https://arxiv.org/abs/2504.01575">Phys.Rev.B 112 (2025) 045134</a></p>
+</div>
+</section>
+
+<section>
+<section id="localized-states-in-low-d-systems" class="title-slide slide level1 center">
+<h1>Localized states in low-D systems</h1>
+
+</section>
+<section id="hybrid-nanoribbons" class="slide level2">
+<h2>Hybrid nanoribbons</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hybridRibbon.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="lowest-energy-state-exhibits-localization" class="slide level2">
+<h2>Lowest energy state exhibits “localization”</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/hybridRibbon2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</section>
+<section id="qmc-simulations" class="slide level2">
+<h2>QMC Simulations</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="r-stack">
+<p>Localizations persist with strong interactions</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/localization.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<ul>
+<li><strong>T.L.</strong>, U.-G. Meißner, L. Razmadze <a href="https://arxiv.org/abs/2204.02742">Phys.Rev.B 106 (2022) 195422</a></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="r-stack">
+<p>An effective theory for 1-D spin chain</p>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/localization2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="font-size:80%">
+<p><span class="math display">\[
+H_{1D}=
+-\sum_ka^\dagger_k
+\begin{pmatrix}
+m_s &amp; t_Ae^{ik}+t_Be^{-ik}\\
+t_A e^{-ik}+t_Be^{ik} &amp; -m_s
+\end{pmatrix}
+a^{}_k
+\]</span></p>
+</div>
+</div></div>
+</section>
+<section id="a-novel-form-of-localization" class="slide level2">
+<h2>A novel form of localization</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/localization3.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<ul>
+<li>J. Ostmeyer, <strong>T.L.</strong>, et al.&nbsp;<a href="https://arxiv.org/abs/2401.04715">Phys.Rev.B 109 (2024) 195135</a></li>
+</ul>
+</section>
+<section id="the-interacting-ssh-model" class="slide level2">
+<h2>The interacting SSH model</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/ssh.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div style="font-size:80%">
+<ul>
+<li>Topological <span class="math inline">\(t_1&lt;t_2\)</span>, <span class="math inline">\(t_1=v,\ t_2=w\)</span></li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sshExperiment.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sshLocalization.png" class="quarto-figure quarto-figure-center" style="width:80.0%"></p>
+</figure>
+</div>
+<ul>
+<li>Experimentally realizable
+<ul>
+<li>Silicon quantum dots <a href="https://www.nature.com/articles/s41586-022-04706-0">Kiczynski et al., Nature 606 (2022) 694</a></li>
+<li>Artificial lattices <a href="https://www.nature.com/articles/ncomms13986">Meier et al., Nature Commun. 7 (2016) 13986</a></li>
+</ul></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="font-size:80%">
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Localized spin centers w/ defects and interactions</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sshDefects.png" class="quarto-figure quarto-figure-center" style="width:65.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sshSz2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/sshMeanfield.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<p>L. Wang, <strong>T.L.</strong>, U.-G. Meißner <a href="https://journals.aps.org/prb/abstract/10.1103/n1h1-4vtr">Phys.Rev.B 113 (2026) 085111</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="the-sign-problem" class="title-slide slide level1 center">
+<h1>The “Sign Problem”</h1>
+
+</section>
+<section id="complex-action-sphi" class="slide level2">
+<h2>Complex Action <span class="math inline">\(S[\phi]\)</span></h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<ul>
+<li><p>Probability only makes sense when <span class="math display">\[
+\mathbb{P}[\phi]=\frac{e^{-S[\phi]}}{Z}\in \mathbb{R}_+ \implies S[\phi]\in \mathbb{R}
+\]</span></p></li>
+<li><p><span class="math inline">\(\exists\)</span> systems when <span class="math inline">\(S[\phi]\in \mathbb{C}\)</span></p>
+<ul>
+<li>non-bipartite lattice
+<ul>
+<li>cannot divide system into sublattices</li>
+</ul></li>
+<li>non-zero chemical potential <span class="math inline">\(\mu\ne0\)</span>
+<ul>
+<li>doping (away from half-filling)</li>
+<li>QCD at finite baryon density</li>
+</ul></li>
+</ul></li>
+</ul>
+</div><div class="column" style="width:50%;">
+<div class="fragment">
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Important</strong></p>
+</div>
+<div class="callout-content">
+<p>Most interesting problems have a sign problem!</p>
+<ul>
+<li>Phase transitions at finite density (e.g.&nbsp;hardonic matter to quark/gluon plasma)</li>
+<li>Doped Mott-Insulators (e.g.&nbsp;high-<span class="math inline">\(T_c\)</span> superconductivity)</li>
+<li>Frustrated systems (quantum spin-systems on non-bipartite lattices)</li>
+<li>Real-time evolution (e.g.&nbsp;non-equilibrium processes)</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Reweighting</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[\begin{align}
+    \langle O\rangle &amp;= \frac{1}{\mathcal{Z}}\int \mathcal{D}[\phi]\ O[\phi]\; e^{-S_{\mathcal{R}}[\phi]-iS_{\mathcal{I}}[\phi]}\\
+    &amp;=\frac{\int \mathcal{D}[\phi]\; O[\phi]e^{-iS_{\mathcal{I}}[\phi]}e^{-S_{\mathcal{R}}[\phi]}}{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]}}\frac{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]}}{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]-iS_{\mathcal{I}}[\phi]}}\\
+    &amp;=\frac{\langle Oe^{-iS_{\mathcal{I}}}\rangle_{\mathcal{R}}}{\langle e^{-iS_{\mathcal{I}}}\rangle_{\mathcal{R}}}
+    \quad;\quad\mbox{"average phase"}\  =\ \langle e^{-iS_{\mathcal{I}}}\rangle
+\end{align}\]</span></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="examples" class="slide level2">
+<h2>Examples</h2>
+<div class="quarto-layout-panel" data-layout="[[33,33,33]]">
+<div class="quarto-layout-row quarto-layout-valign-center">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/C20_Fullerene.png" style="width:90.0%"></p>
+<figcaption><span class="math inline">\(C_{20}\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets//ball.png"></p>
+<figcaption><span class="math inline">\(C_{60}\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/dopedPerylene.png"></p>
+<figcaption>doped Perylene</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<!--
+## Life gets really hard!
+
++ In most cases reweighting is insufficient
++ $|\langle e^{-iS_{\mathcal{I}}}\rangle|\sim 0$ already for modest sizes of $\mu$
++ Extensive property$\implies$ gets worse with system size
+
+::: {layout="[[50,50]]" layout-valign="center"}
+
+![](assets/Sigma_beta.png)
+
+![](assets/Sigma_mu.png)
+Can we do better than vanilla reweighting?
+
+:::
+-->
+</section>
+<section id="alleviating-the-sign-problem-w-contour-deformations" class="slide level2">
+<h2>Alleviating the Sign Problem w/ Contour deformations</h2>
+<p>Push domain of <span class="math inline">\(\phi\in\mathbb{R}^N\to\mathbb{C}^N\)</span></p>
+<div class="panel-tabset">
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Lefschtz thimbles</a></li><li><a href="#tabset-1-2">“Learning” manifolds</a></li><li><a href="#tabset-1-3">Constant shifts</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1">
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size: 80%;">
+<ul>
+<li><span class="math inline">\(\exists\)</span> certain manifolds <span class="math inline">\(\mathcal{T}\subset\mathbb{C}^N\)</span> where <span class="math inline">\(S_{\mathcal{I}}[\phi\in\mathcal{T}]={\rm constant}\)</span></li>
+</ul>
+</div>
+<p><span class="math display">\[\begin{align}
+\int_{\phi\in\mathbb{R}^N}&amp;\mathcal{D}[\phi]e^{-S[\phi]}\\
+\to&amp;
+\sum_{\mathcal{T}}e^{-iS_{\mathcal{I}}^{\mathcal{T}}}\int_{\varphi\in\mathcal{T}\subset\mathbb{C}^N}\mathcal{D}[\varphi]e^{-S_{\mathcal{R}}[\varphi]}
+\end{align}\]</span></p>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-right">
+<figure>
+<p><img data-src="assets/LefschetzThimble.png" class="quarto-figure quarto-figure-right"></p>
+</figure>
+</div>
+</div></div>
+<ul>
+<li>M. Cristoforetti et al., <a href="https://arxiv.org/abs/1303.7204">Phys.Rev. D88 (2013) 051501</a></li>
+<li>Kanazawa &amp; Tanizaki <a href="https://arxiv.org/abs/1412.2802">JHEP 1503 (2015) 044</a></li>
+</ul>
+</div>
+<div id="tabset-1-2">
+<div class="columns">
+<div class="column" style="width:40%;">
+<div style="font-size: 60%;">
+<ul>
+<li>Location of thimbles not know <em>a priori</em>
+<ul>
+<li>Can approach thimbles via holomorphic flow</li>
+<li>However, determining exact locations of all relevant thimbles just as hard as original sign problem</li>
+<li>Numerically intensive</li>
+</ul></li>
+<li>Train a NN to “learn” location of Lefschetz thimbles</li>
+</ul>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/ML_LT.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="font-size:60%">
+<ul>
+<li>J.-L. Wynen, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2006.11221">Phys.Rev.B 103 (2021) 125153</a></li>
+<li>M. Rodekamp, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2203.00390">Phys.Rev.B 106 (2022) 125139</a></li>
+</ul>
+</div>
+</div><div class="column" style="width:60%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/ML_correlators2.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+</div></div>
+</div>
+<div id="tabset-1-3">
+<p><span class="math display">\[\phi_{x,t}\to\phi_{x,t}+i\phi_c\quad\forall\ x,t\]</span></p>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/constantShiftResults.png" class="quarto-figure quarto-figure-center"></p>
+</figure>
+</div>
+<div style="font-size:60%">
+<ul>
+<li>M. Rodekamp, <strong>T.L.</strong>, et al.,<a href="https://arxiv.org/abs/2406.06711">Eur.Phys.J.B 98 (2025) 36</a></li>
+<li>C. Gäntgen, <strong>T.L.</strong>, et al., <a href="https://arxiv.org/abs/2307.06785">Phys.Rev.B 109 (2024) 195158</a></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="alleviating-sign-problem-by-avoiding-it" class="slide level2">
+<h2>Alleviating Sign Problem by avoiding it</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<ul>
+<li><p>Array of 1-d quantum wires</p></li>
+<li><p>Electrons can</p>
+<ul>
+<li>hop within a wire, but <strong><em>NOT</em></strong> across wires</li>
+<li>have onsite interaction <span class="math inline">\(U\)</span></li>
+<li>can feel presence of electrons <span class="math inline">\(V\)</span> on nearest wires</li>
+</ul></li>
+<li><p>Solve each 1d system with direct method</p>
+<ul>
+<li>exact diagonalization</li>
+<li>tensor networks</li>
+<li>NO sign problem</li>
+</ul></li>
+<li><p>Collection of wires treated stochastically with QMC</p>
+<ul>
+<li>much milder sign problem</li>
+</ul></li>
+<li><p>Hybrid approach: F. Temmen, <strong>T.L.</strong>, et al.&nbsp;<a href="https://arxiv.org/abs/2603.17788">arXiv:2603.17788</a></p></li>
+</ul>
+<div class="fragment">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<div class="r-stack">
+<p>“Hey Tom! This looks like a <strong><em>very</em></strong> contrived problem!”</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/1dwires.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/majorana1.png" class="fragment quarto-figure quarto-figure-center" data-with="100%"></p>
+</figure>
+</div>
+<div class="r-stack fragment">
+<p><a href="https://news.microsoft.com/source/features/ai/microsofts-majorana-1-chip-carves-new-path-for-quantum-computing/">Majorana 1 QPU</a> <strong>controversy of 2025</strong></p>
+</div>
+</div></div>
+</section>
+<section id="so-whats-in-the-future" class="slide level2">
+<h2>So what’s in the future?</h2>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Direct simulations at room temperature</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/perylene.png" class="quarto-figure quarto-figure-center" style="width:45.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<p>Talk to Petar S.!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Investigating <strong><em>Transition Metal Dichalcogenides</em></strong> (TMDs)</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/TMD.png" class="quarto-figure quarto-figure-center" style="width:93.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<p>Talk to Finn T.! <a href="https://elu.sav.sk/en/departments/microelectronics-and-sensors/about-department/2d-materials/">(source)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Engineering phase transitions in nanoribbons</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/zigzagPhase.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<p>Talk to Felix S. and Lin W.!</p>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Majorana systems via pfaffian QMC</strong></p>
+</div>
+<div class="callout-content">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/majorana.png" class="quarto-figure quarto-figure-center" style="width:50.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<p>Talk to Thomas H.! <a href="https://phys.org/news/2014-10-majorana-fermion-physicists-elusive-particle.html#google_vignette">(source)</a></p>
+</div>
+</div>
+</div>
+</div>
+</div></div>
 
 </section></section>
     </div>

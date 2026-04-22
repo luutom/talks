@@ -79,7 +79,9 @@ from: markdown+emoji
   - Majorana fermions!
 
 + Novel phenomena only in 2-D
-  - Wilczek predicted in 1982 a novel excitation in 2-D [(New Kinds of Quantum Statistics)](https://arxiv.org/abs/0812.5097)
+  - Wilczek predicted in 1982 a novel excitation in 2-D
+	* [Phys.Rev.Lett. 49 (1982) 957](https://journals.aps.org/prl/pdf/10.1103/PhysRevLett.49.957)
+	* [New Kinds of Quantum Statistics](https://arxiv.org/abs/0812.5097)
   - "Anyons" = ***anything goes*** type of statistics
 	* Abelian anyons $\to$ fractional quantum Hall effect
 	* Non-abelian anyons $\to$ true fault tolerant quantum computing (???)
@@ -120,7 +122,7 @@ from: markdown+emoji
 :::{.column width='50%'}
 
 :::{.r-stack}
-![](assets/hybridRibbon.png){width=30% fig-align='center'}
+![](assets/hybrid.png){width=40% fig-align='center'}
 :::
 
 :::
@@ -283,11 +285,11 @@ High-dimensional integral!!  Enter Monte Carlo. . .
 
 :::{style='font-size:80%'}
 + Other "borrowed" ideas
-  - pseudo-fermions, J. Ostmeyer, **T.L.**, et al., [Phys.Rev.B 102 (2020) 245105](https://arxiv.org/abs/2005.11112)
-  - Hasenbusch preconditioning, J. Ostmeyer, **T.L.** et al. [Comput.Phys.Commun. 236 (2019) 15-25](https://arxiv.org/abs/1804.07195) 
+  - pseudo-fermions, J. Ostmeyer, S.Krieg, T.Lähde,**T.L.**, et al., [Phys.Rev.B 102 (2020) 245105](https://arxiv.org/abs/2005.11112)
+  - Hasenbusch preconditioning, J. Ostmeyer, S.Krieg, **T.L.** et al. [Comput.Phys.Commun. 236 (2019) 15-25](https://arxiv.org/abs/1804.07195) 
 :::
 
-# What observables $O$ are we interested in?
+# Quasi-particle excitations from correlators
 
 ## Anatomy of a correlator
 
@@ -328,7 +330,7 @@ C(\tau)&=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldots+A_
 :::
 
 + First QMC simulation of nanotube
-  - **T.L.** & Lähde [Phys.Rev. B93 (2016) 155106](https://arxiv.org/abs/1511.04918)
+  - **T.L.** & T. Lähde [Phys.Rev. B93 (2016) 155106](https://arxiv.org/abs/1511.04918)
 
 ## Determined quantum phase transition in 2D Hubbard (honeycomb)
 
@@ -337,5 +339,508 @@ C(\tau)&=A_p e^{-(E_p-E_\Omega)\tau}+A_{ex} e^{-(E_{ex}-E_\Omega)\tau}+\ldots+A_
 + Finite size scaling analysis
   - tune $U_c$, $\beta$ and $\nu$ to obtain data collapse (universal line)
   - most precise value of critical coupling to date :  $U_c=3.835(14)$
-  - J. Ostmeyer, **T.L.**, et al., [Phys.Rev.B 104 (2021) 155142](https://arxiv.org/abs/2105.06936)
+  - J. Ostmeyer, S. Krieg, T. Lähde, **T.L.**, et al., [Phys.Rev.B 104 (2021) 155142](https://arxiv.org/abs/2105.06936)
+  
+
+## Two-body excitations
+
++ Can assign spin/isospin quantum numbers to the holes and particles
+
+:::{.columns}
+
+:::{.column width='50%'}
+
+:::{style='font-size:70%'}
+
+|            | $S_z=1/2$   | $S_z=-1/2$  |
+|------------|:-------------:|:-------------:|
+| $I_z=1/2$  | $p^\dagger$ |  $h^{}$     |
+| $I_z=-1/2$ | $h^\dagger$ |  $p^{}$     |
+
+: Pseudospin (Isospin) $I$ and Spin $S$ assignments
+
+:::
+
+:::
+
+:::{.column width='50%'}
+
+![](assets/exciton.png){fig-align='center' width="50%"}
+
+:::
+
+
+:::
+
++ Two-body interpolating operators
+
+![](assets/2bodyOps.png){fig-align="center" width='80%'}
+
+---
+
+### Excitons
+
+:::{.columns}
+
+:::{.column width=50%}
+
+![](assets/10_2_tube.png){fig-align='center' width='100%'}
+
+:::{style='font-size:80%'}
+ - $I_z=0$ corresponds to particle-hole excitations 
+   * "bright" excitons
+   * "dark" excitons
+ - analogous to mesons in lattice QCD
+ - First "dark" excitons from QMC:  P. Sinilkov, **T.L.**, et al., [PoS LATTICE2024 (2025) 075](https://arxiv.org/abs/2502.04015)
+:::
+
+:::
+
+:::{.column width=50%}
+
+![](assets/excitonCorrelators.png){fig-align='center' width='100%'}
+
+:::{.r-stack}
+
+P. Sinilkov et al., in preparation
+
+:::
+
+:::{.callout-important .fragment}
+
+:::{.r-stack}
+But what about disconnected diagrams?
+:::
+
+:::
+
+
+:::
+
+
+:::
+
+## Stabilizing the "Sausage" and disc. diagrams
+
+:::{.columns}
+
+:::{.column width=50%}
+
+:::{style='font-size:80%'}
++ At large $\beta$, numerical instabilities occur in constructing $\det M$,
+
+:::{style='font-size:100%'}
+\begin{equation}
+\det M[\phi]=\det(\mathbb{1}_{N_x}+\underbrace{F_k(N_t-1).F_k(N_t-2)\ldots F_k(0)}_{\mathrm{``sausage"}})
+\end{equation}
+:::
+
++ Inspired by [C.Bauer, SciPost Phys. Core 2, 011 (2020)](https://scipost.org/SciPostPhysCore.2.2.011)
+  - Used recursive matrix decompositions (QR) to stablize construction of "sausage"
+  - Extended formalism to force calculations to stabilize HMC
+  - Can now simulate to much larger values of $\beta$ (room temperature)
+
++ With decompositions, the force terms give direct access to
+  - $M^{-1}_{x,y}(t,t,\phi)$
+  - $M^{-1}_{x,y}(t,0,\phi)$
+  - $M^{-1}_{x,y}(0,t,\phi)$
+  - ***without*** approximations
+  
++ Can construct ***any*** many-body two-point function
+  
+:::{.r-stack}
+  **T.L.**, P. Sinilkov, F. Temmen, et al. [arXiv:2604.00815](https://arxiv.org/abs/2604.00815)
+:::
+
+:::
+
+:::
+
+:::{.column width=50%}
+
+![](assets/dH_convergence.png)
+
+:::
+
+:::
+
+
+# Ergodicity and all that
+
+#  {background-video="assets/snakeV2.m4v" background-video-loop="true" background-video-muted="true" background-size="contain" .center}
+
+:::{.r-stack .fragment}
+![](assets/snakeV3.png){fig-align='center' width="72%"}
+:::
+:::{.r-stack .fragment}
+F. Temmen, **T.L.**, et al. [Phys.Rev.B 112 (2025) 045134](https://arxiv.org/abs/2504.01575)
+:::
+
+# Localized states in low-D systems
+
+## Hybrid nanoribbons
+
+![](assets/hybridRibbon.png){fig-align="center"}
+
+
+## Lowest energy state exhibits "localization"
+
+![](assets/hybridRibbon2.png){fig-align="center"}
+
+## QMC Simulations
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+:::{.r-stack}
+Localizations persist with strong interactions
+:::
+
+![](assets/localization.png){fig-align="center"}
+
++  **T.L.**, U.-G. Meißner, L. Razmadze [Phys.Rev.B 106 (2022) 195422](https://arxiv.org/abs/2204.02742)
+
+:::
+
+:::{.column width="50%"}
+
+:::{.r-stack}
+An effective theory for 1-D spin chain
+:::
+
+![](assets/localization2.png){fig-align="center"}
+
+:::{style='font-size:80%'}
+$$
+H_{1D}=
+-\sum_ka^\dagger_k
+\begin{pmatrix}
+m_s & t_Ae^{ik}+t_Be^{-ik}\\
+t_A e^{-ik}+t_Be^{ik} & -m_s
+\end{pmatrix}
+a^{}_k
+$$
+:::
+
+:::
+
+:::
+
+## A novel form of localization
+
+![](assets/localization3.png){fig-align='center'}
+
++ J. Ostmeyer, **T.L.**, et al. [Phys.Rev.B 109 (2024) 195135](https://arxiv.org/abs/2401.04715)
+
+## The interacting SSH model
+
+:::{.columns}
+
+:::{.column width="50%"}
+
+![](assets/ssh.png){fig-align='center' width="100%"}
+
+:::{style='font-size:80%'}
++ Topological $t_1<t_2$, $t_1=v,\ t_2=w$
+
+![](assets/sshExperiment.png){fig-align="center"}
+
+![](assets/sshLocalization.png){fig-align='center' width="80%"}
+
++ Experimentally realizable
+  - Silicon quantum dots
+    [Kiczynski et al., Nature 606 (2022) 694](https://www.nature.com/articles/s41586-022-04706-0)
+  - Artificial lattices
+    [Meier et al., Nature Commun. 7 (2016) 13986](https://www.nature.com/articles/ncomms13986)
+:::
+
+:::
+
+:::{.column width="50%"}
+
+:::{style='font-size:80%'}
+
+:::{.callout-note .fragment}
+## Localized spin centers w/ defects and interactions
+
+![](assets/sshDefects.png){fig-align='center' width="65%"}
+
+![](assets/sshSz2.png){fig-align='center'}
+
+![](assets/sshMeanfield.png){fig-align='center' width="70%"}
+
+L. Wang, **T.L.**, U.-G. Meißner [Phys.Rev.B 113 (2026) 085111](https://journals.aps.org/prb/abstract/10.1103/n1h1-4vtr)
+:::
+
+:::
+
+:::
+
+:::
+
+# The "Sign Problem"
+
+## Complex Action $S[\phi]$
+
+:::{.columns}
+
+:::{.column width="50%"}
+
++ Probability only makes sense when
+  $$
+  \mathbb{P}[\phi]=\frac{e^{-S[\phi]}}{Z}\in \mathbb{R}_+ \implies S[\phi]\in \mathbb{R}
+  $$
+
++ $\exists$ systems when $S[\phi]\in \mathbb{C}$
+  + non-bipartite lattice
+	- cannot divide system into sublattices
+   + non-zero chemical potential $\mu\ne0$
+	 - doping (away from half-filling)
+	 - QCD at finite baryon density
+	 
+	 
+:::
+
+:::{.column width="50%"}
+
+:::{.callout-important .fragment}
+
+Most interesting problems have a sign problem!
+
++ Phase transitions at finite density (e.g. hardonic matter to quark/gluon plasma)
++ Doped Mott-Insulators (e.g. high-$T_c$ superconductivity)
++ Frustrated systems (quantum spin-systems on non-bipartite lattices)
++ Real-time evolution (e.g. non-equilibrium processes)
+:::
+
+:::{.callout-note .fragment}
+## Reweighting
+\begin{align}
+	\langle O\rangle &= \frac{1}{\mathcal{Z}}\int \mathcal{D}[\phi]\ O[\phi]\; e^{-S_{\mathcal{R}}[\phi]-iS_{\mathcal{I}}[\phi]}\\
+	&=\frac{\int \mathcal{D}[\phi]\; O[\phi]e^{-iS_{\mathcal{I}}[\phi]}e^{-S_{\mathcal{R}}[\phi]}}{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]}}\frac{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]}}{\int D\phi\; e^{-S_{\mathcal{R}}[\phi]-iS_{\mathcal{I}}[\phi]}}\\
+	&=\frac{\langle Oe^{-iS_{\mathcal{I}}}\rangle_{\mathcal{R}}}{\langle e^{-iS_{\mathcal{I}}}\rangle_{\mathcal{R}}}
+	\quad;\quad\mbox{"average phase"}\  =\ \langle e^{-iS_{\mathcal{I}}}\rangle
+\end{align}
+:::
+
+:::
+
+:::
+
+## Examples
+
+
+::: {layout="[[33,33,33]]" layout-valign="center"}
+
+![$C_{20}$](assets/C20_Fullerene.png){width='90%'}
+
+![$C_{60}$](assets//ball.png)
+
+![doped Perylene](assets/dopedPerylene.png)
+
+:::
+
+<!--
+## Life gets really hard!
+
++ In most cases reweighting is insufficient
++ $|\langle e^{-iS_{\mathcal{I}}}\rangle|\sim 0$ already for modest sizes of $\mu$
++ Extensive property$\implies$ gets worse with system size
+
+::: {layout="[[50,50]]" layout-valign="center"}
+
+![](assets/Sigma_beta.png)
+
+![](assets/Sigma_mu.png)
+Can we do better than vanilla reweighting?
+
+:::
+-->
+
+## Alleviating the Sign Problem w/ Contour deformations
+
+Push domain of $\phi\in\mathbb{R}^N\to\mathbb{C}^N$ 
+
+::: {.panel-tabset}
+
+### Lefschtz thimbles
+:::: {.columns}
+
+::: {.column width="50%"}
+::: {style="font-size: 80%;"}
++ $\exists$ certain manifolds $\mathcal{T}\subset\mathbb{C}^N$ where $S_{\mathcal{I}}[\phi\in\mathcal{T}]={\rm constant}$
+:::
+
+\begin{align}
+\int_{\phi\in\mathbb{R}^N}&\mathcal{D}[\phi]e^{-S[\phi]}\\
+\to&
+\sum_{\mathcal{T}}e^{-iS_{\mathcal{I}}^{\mathcal{T}}}\int_{\varphi\in\mathcal{T}\subset\mathbb{C}^N}\mathcal{D}[\varphi]e^{-S_{\mathcal{R}}[\varphi]}
+\end{align}
+
+:::
+
+::: {.column width="10%"}
+
+:::
+
+::: {.column width="40%"}
+
+![](assets/LefschetzThimble.png){fig-align="right"}
+
+:::
+
+:::
+
++ M. Cristoforetti et al., [Phys.Rev. D88 (2013) 051501](https://arxiv.org/abs/1303.7204)
++ Kanazawa & Tanizaki [JHEP 1503 (2015) 044](https://arxiv.org/abs/1412.2802)
+
+
+### "Learning" manifolds
+
+::: {.columns}
+
+::: {.column width="40%"}
+::: {style="font-size: 60%;"}
++ Location of thimbles not know *a priori*
+  - Can approach thimbles via holomorphic flow
+  - However, determining exact locations of all relevant thimbles just as hard as original sign problem
+  - Numerically intensive
++ Train a NN to "learn" location of Lefschetz thimbles
+:::
+
+![](assets/ML_LT.png){fig-align="center"}
+
+:::{style='font-size:60%'}
++ J.-L. Wynen, **T.L.**, et al., [Phys.Rev.B 103 (2021) 125153](https://arxiv.org/abs/2006.11221)
++ M. Rodekamp, **T.L.**, et al., [Phys.Rev.B 106 (2022) 125139](https://arxiv.org/abs/2203.00390)
+:::
+
+:::
+
+::: {.column width="60%"}
+
+![](assets/ML_correlators2.png){fig-align="center"}
+
+:::
+
+:::
+
+### Constant shifts
+
+$$\phi_{x,t}\to\phi_{x,t}+i\phi_c\quad\forall\ x,t$$
+
+![](assets/constantShiftResults.png){fig-align='center'}
+
+:::{style='font-size:60%'}
++ M. Rodekamp, **T.L.**, et al.,[Eur.Phys.J.B 98 (2025) 36](https://arxiv.org/abs/2406.06711)
++ C. Gäntgen, **T.L.**, et al., [Phys.Rev.B 109 (2024) 195158](https://arxiv.org/abs/2307.06785)
+:::
+
+:::
+
+## Alleviating Sign Problem by avoiding it
+
+:::{.columns}
+
+:::{.column width='60%'}
+
++ Array of 1-d quantum wires
+
++ Electrons can 
+  - hop within a wire, but ***NOT*** across wires
+  - have onsite interaction $U$
+  - can feel presence of electrons $V$ on nearest wires
+  
++ Solve each 1d system with direct method 
+  - exact diagonalization
+  - tensor networks
+  - NO sign problem
+  
++ Collection of wires treated stochastically with QMC
+  - much milder sign problem
+  
++ Hybrid approach:  F. Temmen, **T.L.**, et al. [arXiv:2603.17788](https://arxiv.org/abs/2603.17788)
+
+:::{.callout-warning .fragment}
+:::{.r-stack}
+"Hey Tom!  This looks like a ***very*** contrived problem!"
+:::
+:::
+
+
+:::
+
+:::{.column width='40%'}
+
+![](assets/1dwires.png){fig-align='center' width='100%'}
+
+![](assets/majorana1.png){fig-align='center' with='100%' .fragment}
+
+:::{.r-stack .fragment}
+[Majorana 1 QPU](https://news.microsoft.com/source/features/ai/microsofts-majorana-1-chip-carves-new-path-for-quantum-computing/)   **controversy of 2025**
+:::
+
+:::
+
+:::
+
+## So what's in the future?
+
+:::{.columns}
+
+:::{.column width='50%'}
+
+:::{.callout-note}
+## Direct simulations at room temperature
+
+![](assets/perylene.png){fig-align='center' width='45%'}
+
+:::{.r-stack}
+Talk to Petar S.!
+:::
+
+:::
+  
+:::{.callout-note}
+## Investigating ***Transition Metal Dichalcogenides*** (TMDs)
+
+![](assets/TMD.png){fig-align='center' width='93%'}
+
+:::{.r-stack}
+Talk to Finn T.! [(source)](https://elu.sav.sk/en/departments/microelectronics-and-sensors/about-department/2d-materials/)
+:::
+
+:::
+
+:::
+
+
+:::{.column width='50%'}
+
+:::{.callout-note}
+##  Engineering phase transitions in nanoribbons
+  
+![](assets/zigzagPhase.png){fig-align='center' width='50%'}
+
+:::{.r-stack}
+Talk to Felix S. and Lin W.!
+:::
+
+:::
+
+:::{.callout-note}
+##  Majorana systems via pfaffian QMC
+  
+![](assets/majorana.png){fig-align='center' width='50%'}
+
+:::{.r-stack}
+Talk to Thomas H.! [(source)](https://phys.org/news/2014-10-majorana-fermion-physicists-elusive-particle.html#google_vignette)
+:::
+
+:::
+
+:::
+
+:::
 
