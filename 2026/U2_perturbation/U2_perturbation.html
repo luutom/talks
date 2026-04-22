@@ -641,7 +641,7 @@ $$
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=+1\)</span></strong></p>
+<p><strong><span class="math inline">\(Q=0,\ S=0,\ S_z=0,\ \Pi=+1\)</span></strong></p>
 </div>
 <div class="callout-content">
 <p>Here is the basis and matrix</p>
@@ -674,7 +674,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong><span class="math inline">\(Q=0,\ S_z=0,\ \Pi=-1\)</span></strong></p>
+<p><strong><span class="math inline">\(Q=0,\ S=??,\ S_z=0,\ \Pi=-1\)</span></strong></p>
 </div>
 <div class="callout-content">
 <p>Here is the basis and matrix</p>
@@ -700,7 +700,7 @@ V_{d,-d;d,-d} &amp; 0
 <div class="callout callout-note no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong><span class="math inline">\(Q=0,\ S_z=\pm 1\)</span></strong></p>
+<p><strong><span class="math inline">\(Q=0,\ S=1,\ S_z=\pm 1\)</span></strong></p>
 </div>
 <div class="callout-content">
 <p>Here is the basis and matrix</p>
@@ -789,8 +789,14 @@ V_{d,d;d,d}=V_{-d,-d;-d,-d}=V_{-d,-d;d,d}=V_{d,d;-d,-d}=V_{-d,d;d,-d}=V_{d,-d;-d
 \end{equation}\]</span></p>
 <p>where the width of the ribbon is defined as <span class="math inline">\(N_W=3m+2\)</span>.</p>
 <p>There are both spin singlet as well as spin triplet eigenstates</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div style="font-size:80%">
+<div class="r-stack">
+<p><span class="math display">\[ \mathcal{E}_\Omega-V_{d,d;d,d} \]</span></p>
+</div>
 <p><span class="math display">\[\begin{align}
-|\Omega,S=0\rangle&amp;=\frac{1}{\sqrt{2}}\left(1+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
+|\Omega_0,S=0\rangle&amp;=\frac{1}{\sqrt{2}}\left(1+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
 |\Omega,S=1\rangle&amp;=
 \begin{cases}
 a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; (S_z=+1)\\
@@ -798,6 +804,19 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle &amp; (S_z=+1)\\
 a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; (S_z=-1)
 \end{cases}
 \end{align}\]</span></p>
+</div>
+</div><div class="column" style="width:50%;">
+<div style="font-size:80%">
+<div class="r-stack">
+<p><span class="math display">\[ \mathcal{E}_\Omega+V_{d,d;d,d} \]</span></p>
+</div>
+<p><span class="math display">\[\begin{align}
+|\Omega_1,S=0\rangle&amp;=\frac{1}{\sqrt{2}}\left(1-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\\
+|\Omega_2,S=0\rangle&amp;=
+\frac{1}{\sqrt{2}}\left(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}+a^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle
+\end{align}\]</span></p>
+</div>
+</div></div>
 <p>where <span class="math inline">\(|\Omega\rangle\)</span> is defined in <a href="#/eq-groundStateDeg" class="quarto-xref">Equation&nbsp;7</a>.</p>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -831,7 +850,7 @@ a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}|\Omega\rangle &amp; (S_z=-1)
 <h3 id="nd-order-degenerate-perturbation-theory">2nd order (degenerate) perturbation theory</h3>
 <p>I want to consider first the singlet ground state case,</p>
 <p><span class="math display">\[\begin{equation}
-\sum_{n\ne \pm d}\langle\Omega,S=0|\tilde V|n\rangle\frac{1}{\langle\Omega,S=0|\tilde H_0|\Omega,S=0\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=0\rangle
+\sum_{n\ne \pm d} \langle\Omega_0,S=0|\tilde V|n\rangle\frac{1}{\langle\Omega_0,S=0|\tilde H_0|\Omega_0,S=0\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega_0,S=0\rangle
 \end{equation}\]</span></p>
 <p>There are three terms that contribute to this effect<sup>1</sup>. The first term is</p>
 <p><span class="math display">\[\begin{equation}
@@ -1256,6 +1275,57 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 &+\sum_{k',k,l\ne d}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}\\
 -->
 <p>A lot of symmetries was used to obtain this compact expression!<sup>1</sup></p>
+<p>So this was for the state <span class="math inline">\(|\Omega_0,S=0\rangle=\frac{1}{\sqrt{2}}\left(1+a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\)</span>. A simple inspection easily shows that the higher energy singlet state <span class="math inline">\(|\Omega_1,S=0\rangle=\frac{1}{\sqrt{2}}\left(1-a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}\right)|\Omega\rangle\)</span> will give the exact same result<sup>2</sup>. However, as Lin points out, these two states mix at second order perturbation theory! A little work shows that</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega_0,S=0|\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega_1,S=0\rangle
+=\frac{1}{2}\left(E_1-E_{aabb}\right)
+\end{equation}\]</span></p>
+</div>
+<p>where</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{align}
+E_1&amp;=-4\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}\\
+E_{aabb}&amp;=
+-4\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\end{align}\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn16"><p>I hope it’s correct!</p></li><li id="fn17"><p>This is because the cross terms vanish.</p></li></ol></aside></section>
+<section class="slide level2">
+
+<p>So using the basis</p>
+<span class="math display">\[\begin{pmatrix}
+|\Omega_0,S=0\rangle\\
+|\Omega_1,S=0\rangle
+\end{pmatrix}\]</span>
+<p>the combination of 1st and 2nd order perturbation theory gives</p>
+<p><span class="math display">\[\begin{equation}
+\underbrace{
+\begin{pmatrix}
+-V_{d,d;d,d} &amp; 0\\
+0 &amp; V_{d,d;d,d}
+\end{pmatrix}}_{1st\ order}
++
+\underbrace{
+\frac{1}{2}
+\begin{pmatrix}
+E_1+E_{aabb}&amp; E_1-E_{aabb}\\
+E_1-E_{aabb} &amp; E_1+E_{aabb}
+\end{pmatrix}}_{2nd\ order}
+\end{equation}\]</span></p>
+<p>Diagonalizing this system gives eigenvalues</p>
+<p><span class="math display">\[\begin{equation}
+\frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
+\end{equation}\]</span></p>
+<p>When <span class="math inline">\(N_U\to\infty\)</span> the eigenvalues go to <span class="math inline">\(E_1\)</span> and <span class="math inline">\(E_{aabb}\)</span> with eigenvectors <span class="math inline">\(|\Omega\rangle\)</span> and <span class="math inline">\(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{d,\uparrow}b^\dagger_{d,\downarrow}|\Omega\rangle\)</span>, respectively.</p>
+</section>
+<section class="slide level2">
+
 <p>I now to consider the spin-triplet ground state case and only consider the <span class="math inline">\(S_z=1\)</span> case since the <span class="math inline">\(S_z=0,-1\)</span> cases should be the same due to SU(2) symmetry,</p>
 <p><span class="math display">\[\begin{equation}
 \sum_{n\ne \pm d}\langle\Omega,S=1;S_z=1|\tilde V|n\rangle\frac{1}{\langle\Omega,S=1|\tilde H_0|\Omega,S=1\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega,S=1;S_z=1\rangle
@@ -1294,7 +1364,7 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 </table>
 </div>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn16"><p>I hope it’s correct!</p></li></ol></aside></section>
+</section>
 <section class="slide level2">
 
 <p>Let’s do all pairs at the same time</p>
@@ -1586,7 +1656,7 @@ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}
 b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle
 \end{equation}\]</span></p>
 <p><span class="math display">\[\begin{equation}
-=\sum_{n\ne \pm d}\langle\Omega|b_{d,\uparrow}
+=\sum_{n\ne \pm d}\langle\Omega|
 \left\{
 V_{d,d;\kappa,\lambda}b_{d,\uparrow}a^{}_{\kappa,\downarrow}a^{}_{\lambda,\uparrow}
 \right\}
@@ -1854,6 +1924,91 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This result is the same as <a href="#/eq-Q1" class="quarto-xref">Equation&nbsp;9</a></p>
 </div>
 </div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Now the state <span class="math inline">\(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>.</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}\]</span></p>
+</div>
+<p>The pairs of terms from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> that contribute are</p>
+<div class="r-stack">
+<div style="font-size:80%">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: center;">left <span class="math inline">\(\tilde V\)</span></th>
+<th style="text-align: center;">right <span class="math inline">\(\tilde V\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;">16</td>
+<td style="text-align: center;">16</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">15</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">12</td>
+<td style="text-align: center;">15</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">4</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">9</td>
+<td style="text-align: center;">9</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">7</td>
+<td style="text-align: center;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;">11</td>
+<td style="text-align: center;">6</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;">14</td>
+<td style="text-align: center;">13</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>First off, the (12,15) pair vanishes because of the 3<span class="math inline">\(d\)</span> scenario.</p>
+<ul>
+<li>Now consider (16,16):</li>
+</ul>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}
+\left\{
+V_{-\kappa',-\lambda';-\kappa,-\lambda}b^\dagger_{-\kappa,\downarrow}b^\dagger_{-\lambda,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}
+\right\}
+a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\sum_{n\ne \pm d}\langle\Omega|
+\left\{
+-V_{-\kappa',-\lambda';-d,-d}a_{d,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}
+\right\}
+|n\rangle\frac{1}{\mathcal{E}_\Omega-\frac{U\Lambda}{2}-\langle n|\tilde H_0|n\rangle}\langle n|\left\{
+-V_{-d,-d;-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}
+\right\}
+|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\sum_{k,l\ne d}\frac{V_{d,d;l,k}V_{k,l;d,d}}{-\epsilon_{l}-\epsilon_{k}}
+\end{equation}\]</span></p>
 </div>
 
 </section></section>
