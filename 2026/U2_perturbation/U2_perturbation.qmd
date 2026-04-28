@@ -1263,7 +1263,7 @@ Diagonalizing this system gives eigenvalues
 \frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
 \end{equation}
 
-When $N_U\to\infty$ the eigenvalues go to $E_1$ and $E_{aabb}$ with eigenvectors $|\Omega\rangle$ and $a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{d,\uparrow}b^\dagger_{d,\downarrow}|\Omega\rangle$, respectively.
+When $N_U\to\infty$ the eigenvalues go to $E_1$ and $E_{aabb}$ with eigenvectors $|\Omega\rangle$ and $a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$, respectively.
 
 ---
 
@@ -1369,6 +1369,9 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 :::{.callout-note}
 ## Spin triplet 2nd-order shift
 
+$S=1$, $S_z=\pm 1$, $Q=0$
+
+$$
 \begin{equation}
 \boxed{
 -2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
@@ -1378,6 +1381,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
+$${#eq-Q0S1Sz1}
 
 None of the indices can be equal to $d$.
 
@@ -1416,6 +1420,89 @@ V_{k,d;-d,-d}&=0
 
 
 :::
+
+---
+
+## The $S_z=0$ Singlet and Triplet $Q=0$ states
+
+I now consider the other $Q=0$ singlet and triplet states with $S_z=0$.  To do this, I will need the following terms,
+
+:::{style='font-size:80%'}
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\uparrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}a_{d,\downarrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\downarrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
+\end{equation}
+
+\begin{equation}
+2\times\frac{1}{2}\sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}a_{d,\downarrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde Va^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}|\Omega\rangle
+\end{equation}
+:::
+
+The first two terms give the same result, and when ***added together*** gives
+
+:::{style='font-size:80%'}
+\begin{equation}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-6\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\end{equation}
+:::
+
+The third represents the ***cross term***, and gives
+
+:::{style='font-size:80%'}
+\begin{equation}
+-2\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\end{equation}
+:::
+
+---
+
+With these results I obtain the following:
+
+:::{.callout-note}
+## Spin triplet 2nd-order shift
+
+$S=1$, $S_z=0$, $Q=0$
+
+\begin{equation}
+\boxed{
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+
+None of the indices can be equal to $d$.  This agrees with @eq-Q0S1Sz1, as it should!
+
+:::
+
+:::{.callout-note}
+## Spin Singlet 2nd-order shift $|\Omega_2\rangle$
+
+$S=0$, $Q=0$
+
+\begin{equation}
+\boxed{
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-8\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+
+None of the indices can be equal to $d$.
+
+:::
+
 
 ---
 
