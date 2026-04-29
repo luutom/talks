@@ -354,6 +354,21 @@ $$
 $\therefore\quad$ the energy difference $E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p$
 :::
 
+---
+
+### Two-body excitation
+
+Any two-body excitation of the form $b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle$ will have energy
+
+\begin{equation}
+\langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\end{equation}
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V^0)$
+$\therefore\quad$ the two-body excitation energy difference $=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}$.
+:::
+
 ## First order in $\tilde V$
 
 ### Ground state $|\Omega\rangle$
@@ -456,12 +471,12 @@ As an example, I calculate the LO shift for the $|I=0,S=1,S_z=1\rangle=\frac{1}{
 
 ---
 
-A similar calculation for $|I=1,I_z=0,,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle$ state gives
+A similar calculation for $|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle$ state gives
 
 :::{style='font-size:70%'}
 
 \begin{equation}
-\langle I=1,I_z=0,,S=1,S_z=1|\tilde V|I=1,I_z=0,,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}+a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\langle I=1,I_z=0,S=1,S_z=1|\tilde V|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}+a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
 \end{equation}
 
 \begin{equation}
