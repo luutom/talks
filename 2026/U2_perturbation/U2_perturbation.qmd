@@ -1219,6 +1219,7 @@ So this was for the state $|\Omega_0,S=0\rangle=\frac{1}{\sqrt{2}}\left(1+a^\dag
 where
 
 :::{style='font-size:80%'}
+$$
 \begin{align}
 E_1&=-4\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
@@ -1229,6 +1230,7 @@ E_{aabb}&=
 -6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 -4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 \end{align}
+$${#eq-EaabbE1}
 :::
 
 ---
@@ -1259,11 +1261,13 @@ E_1-E_{aabb} & E_1+E_{aabb}
 
 Diagonalizing this system gives eigenvalues
 
+$$
 \begin{equation}
-\frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
+E^{Q=0,S=0}_{\pm}\equiv\frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
 \end{equation}
+$${#eq-Epm}
 
-When $N_U\to\infty$ the eigenvalues go to $E_1$ and $E_{aabb}$ with eigenvectors $|\Omega\rangle$ and $a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$, respectively.
+When $N_U\to\infty$ the eigenvalues go to $E^{0,0}_{+}\to E_1$ and $E^{0,0}_{-}\to E_{aabb}$ with eigenvectors $|\Omega\rangle$ and $a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$, respectively, and $E_1$ and $E_{aabb}$ are defined in @eq-EaabbE1.
 
 ---
 
@@ -1500,6 +1504,29 @@ $S=0$, $Q=0$
 \end{equation}
 
 None of the indices can be equal to $d$.
+
+:::
+
+Combining 1st and 2nd order perturbation theory gives
+
+:::{style='font-size:70%'}
+
+$$
+E^{Q=0,S=1}=-V_{dd;dd}-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+$${#eq-EQ0S1}
+
+$$
+E^{Q=0,S=0}_2=V_{dd;dd}-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-8\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+$${#eq-EQ0S02}
+
 
 :::
 
@@ -1801,6 +1828,7 @@ Collecting everything and massaging the terms gives
 :::{.callout-note}
 ## Single particle $b^\dagger_{-d,\sigma}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle$ 2nd-order shift
 
+$$
 \begin{equation}
 \boxed{
 -\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
@@ -1810,12 +1838,11 @@ Collecting everything and massaging the terms gives
 -5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
+$${#eq-blah}
 
 None of the indices can be equal to $d$.
 
 :::
-
----
 
 Now I first consider the state $b^\dagger_{-d,\uparrow}|\Omega\rangle$,
 
@@ -1837,6 +1864,8 @@ The pairs of terms from @eq-tildeV that contribute are
 :::
 
 :::
+
+---
 
 This gives
 
@@ -1899,8 +1928,6 @@ None of the indices can be equal to $d$. This result is the same as @eq-Q1
 
 :::
 
----
-
 Now the state $a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$.
 
 :::{style='font-size:70%'}
@@ -1908,6 +1935,8 @@ Now the state $a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downa
 \sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}
 :::
+
+---
 
 The pairs of terms from @eq-tildeV that contribute are
 
@@ -1924,9 +1953,14 @@ The pairs of terms from @eq-tildeV that contribute are
 | 7               | 10               |
 | 11              | 6                |
 | 14              | 13               |
+
+: {#tbl-here}
+
 :::
 
 :::
+
+<!--
 
 First off, the (12,15) pair vanishes because of the 3$d$ scenario.
 
@@ -1958,4 +1992,80 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\ra
 \begin{equation}
 =\sum_{k,l\ne d}\frac{V_{d,d;l,k}V_{k,l;d,d}}{-\epsilon_{l}-\epsilon_{k}}
 \end{equation}
+:::
+
+-->
+
+Ok, I'm tired.  I've coded up a *Mathematica* routine that helps automate the normal ordering of terms, and it confirms @tbl-here.  So I will assume that this state will give the result
+
+:::{.callout-note}
+## Single particle $a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle$ 2nd-order shift
+
+$$
+\begin{equation}
+\boxed{
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+$$
+
+None of the indices can be equal to $d$. This is the same as @eq-blah^[Please confirm Lin!].
+
+:::
+
+---
+
+So I make the following definitions for the single particle/hole excitations
+
+:::{style='font-size:70%'}
+
+$$
+E^{Q=\pm 1,S=\frac{1}{2}}_{1}=-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+$${#eq-EQ1plus}
+
+$$
+E^{Q=\pm 1,S=\frac{1}{2}}_{3}=-\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+$${#eq-EQ1minus}
+
+:::
+
+From some numerical investigations I find the folloiwng splitting at 2nd order perturbation theory
+
+:::{.columns}
+
+:::{.column width=50%}
+
+
+:::{.r-stack}
++ $E^{0,0}_{\pm}$ @eq-Epm
+
++ $E^{0,1}$ @eq-EQ0S1
+
++ $E^{0,0}_2$ @eq-EQ0S02
+
++ $E^{1,\frac{1}{2}}_1$ @eq-EQ1plus
+
++ $E^{1,\frac{1}{2}}_3$ @eq-EQ1minus
+:::
+
+:::
+
+:::{.column width=50%}
+
+![](assets/splittingNLO.png){.nostretch fig-align='center' width=60%}
+
+:::
+
 :::

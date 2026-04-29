@@ -1284,7 +1284,8 @@ a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{
 </div>
 <p>where</p>
 <div style="font-size:80%">
-<p><span class="math display">\[\begin{align}
+<p><span id="eq-EaabbE1"><span class="math display">\[
+\begin{align}
 E_1&amp;=-4\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}\\
@@ -1293,7 +1294,8 @@ E_{aabb}&amp;=
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 -4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
-\end{align}\]</span></p>
+\end{align}
+\tag{9}\]</span></span></p>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn16"><p>I hope it’s correct!</p></li><li id="fn17"><p>This is because the cross terms vanish.</p></li></ol></aside></section>
 <section class="slide level2">
@@ -1319,10 +1321,12 @@ E_1-E_{aabb} &amp; E_1+E_{aabb}
 \end{pmatrix}}_{2nd\ order}
 \end{equation}\]</span></p>
 <p>Diagonalizing this system gives eigenvalues</p>
-<p><span class="math display">\[\begin{equation}
-\frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
-\end{equation}\]</span></p>
-<p>When <span class="math inline">\(N_U\to\infty\)</span> the eigenvalues go to <span class="math inline">\(E_1\)</span> and <span class="math inline">\(E_{aabb}\)</span> with eigenvectors <span class="math inline">\(|\Omega\rangle\)</span> and <span class="math inline">\(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>, respectively.</p>
+<p><span id="eq-Epm"><span class="math display">\[
+\begin{equation}
+E^{Q=0,S=0}_{\pm}\equiv\frac{1}{2}\left(E_1+E_{aabb}\pm\sqrt{(E_1-E_{aabb})^2+4V_{d,d;d,d}^2}\right)
+\end{equation}
+\tag{10}\]</span></span></p>
+<p>When <span class="math inline">\(N_U\to\infty\)</span> the eigenvalues go to <span class="math inline">\(E^{0,0}_{+}\to E_1\)</span> and <span class="math inline">\(E^{0,0}_{-}\to E_{aabb}\)</span> with eigenvectors <span class="math inline">\(|\Omega\rangle\)</span> and <span class="math inline">\(a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>, respectively, and <span class="math inline">\(E_1\)</span> and <span class="math inline">\(E_{aabb}\)</span> are defined in <a href="#/eq-EaabbE1" class="quarto-xref">Equation&nbsp;9</a>.</p>
 </section>
 <section class="slide level2">
 
@@ -1453,7 +1457,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
-\tag{9}\]</span></span></p>
+\tag{11}\]</span></span></p>
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
 </div>
 </div>
@@ -1544,7 +1548,7 @@ V_{k,d;-d,-d}&amp;=0
 -4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}\]</span></p>
-<p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This agrees with <a href="#/eq-Q0S1Sz1" class="quarto-xref">Equation&nbsp;9</a>, as it should!</p>
+<p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This agrees with <a href="#/eq-Q0S1Sz1" class="quarto-xref">Equation&nbsp;11</a>, as it should!</p>
 </div>
 </div>
 </div>
@@ -1570,6 +1574,23 @@ V_{k,d;-d,-d}&amp;=0
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
 </div>
 </div>
+</div>
+<p>Combining 1st and 2nd order perturbation theory gives</p>
+<div style="font-size:70%">
+<p><span id="eq-EQ0S1"><span class="math display">\[
+E^{Q=0,S=1}=-V_{dd;dd}-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\tag{12}\]</span></span></p>
+<p><span id="eq-EQ0S02"><span class="math display">\[
+E^{Q=0,S=0}_2=V_{dd;dd}-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-8\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\tag{13}\]</span></span></p>
 </div>
 </section>
 <section class="slide level2">
@@ -1665,7 +1686,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
-\tag{10}\]</span></span></p>
+\tag{14}\]</span></span></p>
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
 </div>
 </div>
@@ -1902,7 +1923,8 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 <p><strong>Single particle <span class="math inline">\(b^\dagger_{-d,\sigma}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\rangle\)</span> 2nd-order shift</strong></p>
 </div>
 <div class="callout-content">
-<p><span class="math display">\[\begin{equation}
+<p><span id="eq-blah"><span class="math display">\[
+\begin{equation}
 \boxed{
 -\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
@@ -1910,14 +1932,12 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 -3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
 -5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
-\end{equation}\]</span></p>
+\end{equation}
+\tag{15}\]</span></span></p>
 <p>None of the indices can be equal to <span class="math inline">\(d\)</span>.</p>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 <p>Now I first consider the state <span class="math inline">\(b^\dagger_{-d,\uparrow}|\Omega\rangle\)</span>,</p>
 <div style="font-size:70%">
 <p><span class="math display">\[\begin{equation}
@@ -1947,6 +1967,9 @@ b^\dagger_{-d,\uparrow}a^\dagger_{d,\uparrow}a^\dagger_{d,\downarrow}|\Omega\ran
 </table>
 </div>
 </div>
+</section>
+<section class="slide level2">
+
 <p>This gives</p>
 <div style="font-size:70%">
 <p><span class="math display">\[\begin{equation}
@@ -2005,22 +2028,28 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 -3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}\]</span></p>
-<p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This result is the same as <a href="#/eq-Q1" class="quarto-xref">Equation&nbsp;10</a></p>
+<p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This result is the same as <a href="#/eq-Q1" class="quarto-xref">Equation&nbsp;14</a></p>
 </div>
 </div>
 </div>
-</section>
-<section class="slide level2">
-
 <p>Now the state <span class="math inline">\(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span>.</p>
 <div style="font-size:70%">
 <p><span class="math display">\[\begin{equation}
 \sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}\tilde V|n\rangle\frac{1}{\mathcal{E}_\Omega-U\Lambda/2-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
 \end{equation}\]</span></p>
 </div>
+</section>
+<section class="slide level2">
+
 <p>The pairs of terms from <a href="#/eq-tildeV" class="quarto-xref">Equation&nbsp;5</a> that contribute are</p>
 <div class="r-stack">
 <div style="font-size:80%">
+<div id="tbl-here" class="quarto-float quarto-figure quarto-figure-center">
+<figure class="quarto-float quarto-float-tbl">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl quarto-uncaptioned" id="tbl-here-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+Table&nbsp;1
+</figcaption>
+<div aria-describedby="tbl-here-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 <table class="caption-top">
 <thead>
 <tr class="header">
@@ -2064,13 +2093,18 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 </tbody>
 </table>
 </div>
+</figure>
 </div>
-<p>First off, the (12,15) pair vanishes because of the 3<span class="math inline">\(d\)</span> scenario.</p>
-<ul>
-<li>Now consider (16,16):</li>
-</ul>
-<div style="font-size:70%">
-<p><span class="math display">\[\begin{equation}
+</div>
+</div>
+<!--
+
+First off, the (12,15) pair vanishes because of the 3$d$ scenario.
+
++ Now consider (16,16):
+
+:::{style='font-size:70%'}
+\begin{equation}
 \sum_{n\ne \pm d}\langle\Omega|b_{-d,\downarrow}b_{-d,\uparrow}a_{d,\uparrow}
 \left\{
 V_{-\kappa',-\lambda';-\kappa,-\lambda}b^\dagger_{-\kappa,\downarrow}b^\dagger_{-\lambda,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}
@@ -2079,8 +2113,9 @@ V_{-\kappa',-\lambda';-\kappa,-\lambda}b^\dagger_{-\kappa,\downarrow}b^\dagger_{
 V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}
 \right\}
 a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle
-\end{equation}\]</span></p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+
+\begin{equation}
 =\sum_{n\ne \pm d}\langle\Omega|
 \left\{
 -V_{-\kappa',-\lambda';-d,-d}a_{d,\uparrow}b^{}_{-\kappa',\uparrow}b^{}_{-\lambda',\downarrow}
@@ -2089,11 +2124,78 @@ a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\ra
 -V_{-d,-d;-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}a^\dagger_{d,\uparrow}
 \right\}
 |\Omega\rangle
-\end{equation}\]</span></p>
-<p><span class="math display">\[\begin{equation}
+\end{equation}
+
+\begin{equation}
 =\sum_{k,l\ne d}\frac{V_{d,d;l,k}V_{k,l;d,d}}{-\epsilon_{l}-\epsilon_{k}}
-\end{equation}\]</span></p>
+\end{equation}
+:::
+
+-->
+<p>Ok, I’m tired. I’ve coded up a <em>Mathematica</em> routine that helps automate the normal ordering of terms, and it confirms <a href="#/tbl-here" class="quarto-xref">Table&nbsp;1</a>. So I will assume that this state will give the result</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
+<p><strong>Single particle <span class="math inline">\(a^\dagger_{d,\uparrow}b^\dagger_{-d,\uparrow}b^\dagger_{-d,\downarrow}|\Omega\rangle\)</span> 2nd-order shift</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{equation}
+\boxed{
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+}
+\end{equation}
+\]</span></p>
+<p>None of the indices can be equal to <span class="math inline">\(d\)</span>. This is the same as <a href="#/eq-blah" class="quarto-xref">Equation&nbsp;15</a><sup>1</sup>.</p>
+</div>
+</div>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn18"><p>Please confirm Lin!</p></li></ol></aside></section>
+<section class="slide level2">
+
+<p>So I make the following definitions for the single particle/hole excitations</p>
+<div style="font-size:70%">
+<p><span id="eq-EQ1plus"><span class="math display">\[
+E^{Q=\pm 1,S=\frac{1}{2}}_{1}=-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-3\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\tag{16}\]</span></span></p>
+<p><span id="eq-EQ1minus"><span class="math display">\[
+E^{Q=\pm 1,S=\frac{1}{2}}_{3}=-\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-3\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
+-\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
+-3\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
+-5\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+\tag{17}\]</span></span></p>
+</div>
+<p>From some numerical investigations I find the folloiwng splitting at 2nd order perturbation theory</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="r-stack">
+<ul>
+<li><p><span class="math inline">\(E^{0,0}_{\pm}\)</span> <a href="#/eq-Epm" class="quarto-xref">Equation&nbsp;10</a></p></li>
+<li><p><span class="math inline">\(E^{0,1}\)</span> <a href="#/eq-EQ0S1" class="quarto-xref">Equation&nbsp;12</a></p></li>
+<li><p><span class="math inline">\(E^{0,0}_2\)</span> <a href="#/eq-EQ0S02" class="quarto-xref">Equation&nbsp;13</a></p></li>
+<li><p><span class="math inline">\(E^{1,\frac{1}{2}}_1\)</span> <a href="#/eq-EQ1plus" class="quarto-xref">Equation&nbsp;16</a></p></li>
+<li><p><span class="math inline">\(E^{1,\frac{1}{2}}_3\)</span> <a href="#/eq-EQ1minus" class="quarto-xref">Equation&nbsp;17</a></p></li>
+</ul>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/splittingNLO.png" class="quarto-figure quarto-figure-center" style="width:60.0%"></p>
+</figure>
+</div>
+</div></div>
 
 </section></section>
 
