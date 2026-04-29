@@ -396,7 +396,7 @@ $\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p
 
 ### Two-body excitations
 
-To build all (back-to-back) two-body excitations, I first perform an intermediate step to obtain the following^[All repeated indices are summed!]
+To build all two-body excitations, I first perform an intermediate step to obtain the following^[All repeated indices are summed!]
 
 :::{style='font-size:60%'}
 
@@ -408,7 +408,7 @@ $$
 +a_{l,\downarrow }^{\dagger }b_{-k,\downarrow }^{\dagger }|\Omega \rangle(-V_{-k,l,-p_1,p_2})
 +a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\uparrow }^{\dagger }|\Omega \rangle(-V_{-p_1,l,-m,-n})\\
 \tilde V b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle &
-=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,_2p,-n})
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,p_2,-n})
 +a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
 +a_{k,\uparrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,-p_1,p_2,-n})
 +a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,-p_1,-m,-n})\\
