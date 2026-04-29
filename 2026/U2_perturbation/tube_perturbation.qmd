@@ -316,14 +316,6 @@ V_{-k,l;p,m}&=V_{k,-l;,-p,-m}\\
 V_{k,l;-m,-p}&=V_{k,l;m,p}
 \end{align}
 
-+ Matrix elements with three $d$'s of any sign vanish, e.g.
-\begin{align}
-V_{-d,d;d,m}&=0\\
-V_{k,d;-d,-d}&=0
-\end{align}
-
-
-
 :::
 
 

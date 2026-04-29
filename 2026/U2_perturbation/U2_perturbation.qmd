@@ -2041,7 +2041,7 @@ $${#eq-EQ1minus}
 
 :::
 
-From some numerical investigations I find the folloiwng splitting at 2nd order perturbation theory
+From some numerical investigations I find the following splitting at 2nd order perturbation theory
 
 :::{.columns}
 
