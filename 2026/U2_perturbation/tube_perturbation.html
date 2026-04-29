@@ -464,21 +464,84 @@ V_{k,d;-d,-d}&amp;=0
 <p>To build all (back-to-back) two-body excitations, I first perform an intermediate step to obtain the following<sup>1</sup></p>
 <div style="font-size:60%">
 <p><span id="eq-Vstate"><span class="math display">\[
-\begin{equation}
 \begin{split}
-\tilde V b^\dagger_{-p,\uparrow}a^\dagger_{p,\uparrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,l,-m,p})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\uparrow }^{\dagger }a_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{l,\downarrow }^{\dagger }b_{-k,\downarrow }^{\dagger }|\Omega \rangle(-V_{-k,l,-p,p})+a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p,\uparrow }^{\dagger }|\Omega \rangle(-V_{-p,l,-m,-n})\\
-\tilde V b^\dagger_{-p,\downarrow}a^\dagger_{p,\downarrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,p,-n})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\downarrow }^{\dagger }a_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{k,\uparrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,-p,p,-n})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,-p,-m,-n})\\
-\tilde V a^\dagger_{-p,\uparrow}b^\dagger_{p,\uparrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-p})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\uparrow }^{\dagger }b_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{l,\downarrow }^{\dagger }b_{-k,\downarrow }^{\dagger }|\Omega \rangle(V_{-k,l,p,-p})+a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\uparrow }^{\dagger }|\Omega \rangle(V_{p,l,-m,-n})\\
-\tilde V a^\dagger_{-p,\downarrow}b^\dagger_{p,\downarrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{p,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,l,-p,-n})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\downarrow }^{\dagger }b_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{k,\uparrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(V_{k,p,-p,-n})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,p,-m,-n})\\
-\tilde V b^\dagger_{-p,\downarrow}a^\dagger_{p,\uparrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,l,-m,p})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\downarrow }^{\dagger }a_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }|\Omega \rangle(V_{k,-p,-m,p})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,-p,-m,-n})\\
-\tilde V a^\dagger_{-p,\downarrow}b^\dagger_{p,\uparrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{p,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,l,-p,-n})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\downarrow }^{\dagger }b_{p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(-V_{p,l,-p,-n})a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\downarrow }^{\dagger }|\Omega \rangle(V_{p,l,-m,-n})\\
-\tilde V b^\dagger_{-p,\uparrow}a^\dagger_{p,\downarrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,p,-n})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p,\uparrow }^{\dagger }a_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(V_{-p,l,p,-n})+a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p,\downarrow }^{\dagger }|\Omega \rangle(-V_{-p,l,-m,-n})\\
-\tilde V a^\dagger_{-p,\uparrow}b^\dagger_{p,\downarrow}|\Omega\rangle &amp;=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-p})+a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\uparrow }^{\dagger }b_{p,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,p,-m,-p})+a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{-p,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,p,-m,-n})
+\tilde V b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p_1,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,l,-m,p_2})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\uparrow }^{\dagger }a_{p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{l,\downarrow }^{\dagger }b_{-k,\downarrow }^{\dagger }|\Omega \rangle(-V_{-k,l,-p_1,p_2})
++a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\uparrow }^{\dagger }|\Omega \rangle(-V_{-p_1,l,-m,-n})\\
+\tilde V b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,_2p,-n})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{k,\uparrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,-p_1,p_2,-n})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,-p_1,-m,-n})\\
+\tilde V a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,p_1})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\uparrow }^{\dagger }b_{-p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{l,\downarrow }^{\dagger }b_{-k,\downarrow }^{\dagger }|\Omega \rangle(V_{-k,l,-p_2,p_1})
++a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\uparrow }^{\dagger }|\Omega \rangle(V_{-p_2,l,-m,-n})\\
+\tilde V a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_2,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,l,p_1,-n})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\downarrow }^{\dagger }b_{-p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{k,\uparrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(V_{k,-p_2,p_1,-n})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,-p_2,-m,-n})\\
+\tilde V b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,l,-m,p_2})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\downarrow }^{\dagger }a_{p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }|\Omega \rangle(V_{k,-p_1,-m,p_2})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,-p_1,-m,-n})\\
+\tilde V a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\uparrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_2,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,l,p_1,-n})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\downarrow }^{\dagger }b_{-p_2,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(-V_{-p_2,l,p_1,-n})
++a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\downarrow }^{\dagger }|\Omega \rangle(V_{-p_2,l,-m,-n})\\
+\tilde V b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\uparrow }^{\dagger }|\Omega \rangle(V_{k,l,p_2,-n})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }b_{-p_1,\uparrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{l,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }|\Omega \rangle(V_{-p_1,l,p_2,-n})
++a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_2,\downarrow }^{\dagger }|\Omega \rangle(-V_{-p_1,l,-m,-n})\\
+\tilde V a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}|\Omega\rangle &amp;
+=a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,p_1})
++a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\uparrow }^{\dagger }b_{-p_2,\downarrow }^{\dagger }|\Omega \rangle(V_{k,l,-m,-n})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,-p_2,-m,p_1})
++a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,-p_2,-m,-n})
 \end{split}
-\end{equation}
 \tag{6}\]</span></span></p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn9"><p>All repeated indices are summed, except for <span class="math inline">\(p\)</span>!</p></li></ol></aside></section>
+<p>As an example, I calculate the LO shift for the <span class="math inline">\(|I=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\)</span> state. I have</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\langle I=0,S=1,S_z=1|\tilde V|I=0,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}-a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}-a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\left(a^\dagger_{k,\uparrow}b^\dagger_{-m,\downarrow}(-V_{k,-p_2,-m,p_1})-a^\dagger_{k,\uparrow}b^\dagger_{-m,\downarrow}(V_{k,-p_1,-m,p_2})\right)|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\left(-V_{p_1,-p_2,-p_2,p_1}-V_{p_2,-p_1,-p_1,p_2}-V_{p_1,-p_1,-p_2,p_2}-V_{p_2,-p_2,-p_1,p_1}\right)
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=-2V_{p_1,p_1,p_2,p_2}
+\end{equation}\]</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn9"><p>All repeated indices are summed!</p></li></ol></aside></section>
+<section class="slide level2">
+
+<p>A similar calculation for <span class="math inline">\(|I=1,I_z=0,,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\)</span> state gives</p>
+<div style="font-size:70%">
+<p><span class="math display">\[\begin{equation}
+\langle I=1,I_z=0,,S=1,S_z=1|\tilde V|I=1,I_z=0,,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}+a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}+a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\left(a^\dagger_{k,\uparrow}b^\dagger_{-m,\downarrow}(-V_{k,-p_2,-m,p_1})+a^\dagger_{k,\uparrow}b^\dagger_{-m,\downarrow}(V_{k,-p_1,-m,p_2})\right)|\Omega\rangle
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=\frac{1}{2}\left(-V_{p_1,-p_2,-p_2,p_1}-V_{p_2,-p_1,-p_1,p_2}+V_{p_1,-p_1,-p_2,p_2}+V_{p_2,-p_2,-p_1,p_1}\right)
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+=0
+\end{equation}\]</span></p>
+</div>
+</section>
 <section id="second-order-in-tilde-v" class="slide level2">
 <h2>Second order in <span class="math inline">\(\tilde V\)</span></h2>
 <h3 id="sec-2ndOrderGroundState">Ground state <span class="math inline">\(|\Omega\rangle\)</span></h3>
