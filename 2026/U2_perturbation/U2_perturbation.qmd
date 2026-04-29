@@ -2047,8 +2047,12 @@ From some numerical investigations I find the folloiwng splitting at 2nd order p
 
 :::{.column width=50%}
 
+:::{.r-stack}
+$E^{Q,S}_x$
+:::
 
 :::{.r-stack}
+
 + $E^{0,0}_{\pm}$ @eq-Epm
 
 + $E^{0,1}$ @eq-EQ0S1
