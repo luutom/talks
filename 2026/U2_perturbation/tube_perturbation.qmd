@@ -24,7 +24,7 @@ The Hamiltonian is
 H = -\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}-c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)^2\ ,
 \end{equation}
 
-where $U$ is the (dimensionless) Hubbard ratio ($=U/\kappa$) and the operator $c^\dagger_{x,s}$ creates an electron at site $x$ with spin $s$.  The sum ${\langle x,y\rangle}$ is over nearest neighbor sites only (i.e. Tight-binding model).   I now expand the quadratic term in eq.~\eqref{eqn:Hstart}, giving
+where $U$ is the (dimensionless) Hubbard ratio ($=U/\kappa$) and the operator $c^\dagger_{x,s}$ creates an electron at site $x$ with spin $s$.  The sum ${\langle x,y\rangle}$ is over nearest neighbor sites only (i.e. Tight-binding model).   I now expand the quadratic term giving
 
 \begin{align}
 H =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}-2c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)\\
