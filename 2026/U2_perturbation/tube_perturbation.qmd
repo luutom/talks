@@ -353,13 +353,15 @@ $\therefore\quad$ the energy difference $E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p
 Any two-body excitation of the form $b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle$ will have energy
 
 \begin{equation}
-\langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_{p_1,p_2}
 \end{equation}
 
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V^0)$
-$\therefore\quad$ the two-body excitation energy difference $=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}$.
+$\therefore\quad$ the two-body excitation energy difference $E^{(0)}_{p_1,p_2}-E^{(0)}_\Omega=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}$.
 :::
+
+Note that $-\epsilon_{-p}=\epsilon_p$.
 
 ## First order in $\tilde V$
 
@@ -485,6 +487,77 @@ A similar calculation for $|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a
 
 :::
 
+
+After some calculations^[Petar, please confirm!!], I get the following LO shifts
+
+:::{.columns}
+
+:::{.column width=35%}
+
+:::{.r-stack}
+| $S=0\  I=0$ | $I_z=0$ |
+|:----------|:-------:|
+| $S_z=0$   | $0$     |
+
+:::
+
+:::{.r-stack}
+--
+:::
+
+:::{.r-stack}
+| $S=1\  I=0$ | $I_z=0$                |
+|:----------|:----------------------:|
+| $S_z=+1$   | $-2V_{p_1,p_1;p_2,p_2}$ |
+| $S_z=0$   | $-2V_{p_1,p_1;p_2,p_2}$ |
+| $S_z=-1$  | $-2V_{p_1,p_1;p_2,p_2}$ |
+
+:::
+
+:::
+
+:::{.column width=65%}
+
+:::{.r-stack}
+| $S=0\  I=1$ | $I_z=+1$                | $I_z=0$                 | $I_z=-1$                |
+|:------------|:-----------------------:|:-----------------------:|:-----------------------:|
+| $S_z=0$     | $+2V_{p_1,p_1;p_2,p_2}$ | $+2V_{p_1,p_1;p_2,p_2}$ | $+2V_{p_1,p_1;p_2,p_2}$ |
+
+:::
+
+:::{.r-stack}
+--
+:::
+
+:::{.r-stack}
+| $S=1\  I=1$ | $I_z=+1$ | $I_z=0$ | $I_z=-1$ |
+|:------------|:--------:|:-------:|:--------:|
+| $S_z=+1$    | $0$      | $0$     | $0$      |
+| $S_z=0$     | $0$      | $0$     | $0$      |
+| $S_z=-1$    | $0$      | $0$     | $0$      |
+
+:::
+
+:::
+
+
+:::
+
+---
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V)$
+$\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are the following:
+
+- $I=1,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}$
+
+- $I=1,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}$
+
+- $I=0,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}$
+
+- $I=0,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}$
+
+:::
 
 
 ## Second order in $\tilde V$

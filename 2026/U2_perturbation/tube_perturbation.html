@@ -433,7 +433,7 @@ V_{k,l;-m,-p}&amp;=V_{k,l;m,p}
 <h3 id="two-body-excitation">Two-body excitation</h3>
 <p>Any two-body excitation of the form <span class="math inline">\(b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle\)</span> will have energy</p>
 <p><span class="math display">\[\begin{equation}
-\langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
+\langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_{p_1,p_2}
 \end{equation}\]</span></p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -444,10 +444,11 @@ V_{k,l;-m,-p}&amp;=V_{k,l;m,p}
 <p><strong>Energy difference at <span class="math inline">\(\mathcal{O}(V^0)\)</span></strong></p>
 </div>
 <div class="callout-content">
-<p><span class="math inline">\(\therefore\quad\)</span> the two-body excitation energy difference <span class="math inline">\(=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}\)</span>.</p>
+<p><span class="math inline">\(\therefore\quad\)</span> the two-body excitation energy difference <span class="math inline">\(E^{(0)}_{p_1,p_2}-E^{(0)}_\Omega=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}\)</span>.</p>
 </div>
 </div>
 </div>
+<p>Note that <span class="math inline">\(-\epsilon_{-p}=\epsilon_p\)</span>.</p>
 </section>
 <section id="first-order-in-tilde-v" class="slide level2">
 <h2>First order in <span class="math inline">\(\tilde V\)</span></h2>
@@ -558,6 +559,137 @@ V_{k,l;-m,-p}&amp;=V_{k,l;m,p}
 =0
 \end{equation}\]</span></p>
 </div>
+<p>After some calculations<sup>1</sup>, I get the following LO shifts</p>
+<div class="columns">
+<div class="column" style="width:35%;">
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(S=0\  I=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="r-stack">
+<p>–</p>
+</div>
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(S=1\  I=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=0\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2V_{p_1,p_1;p_2,p_2}\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(S_z=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2V_{p_1,p_1;p_2,p_2}\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(-2V_{p_1,p_1;p_2,p_2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div><div class="column" style="width:65%;">
+<div class="r-stack">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 14%">
+<col style="width: 28%">
+<col style="width: 28%">
+<col style="width: 28%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(S=0\  I=1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=+1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=-1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+2V_{p_1,p_1;p_2,p_2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+2V_{p_1,p_1;p_2,p_2}\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(+2V_{p_1,p_1;p_2,p_2}\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="r-stack">
+<p>–</p>
+</div>
+<div class="r-stack">
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: left;"><span class="math inline">\(S=1\  I=1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=+1\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=0\)</span></th>
+<th style="text-align: center;"><span class="math inline">\(I_z=-1\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=+1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><span class="math inline">\(S_z=0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><span class="math inline">\(S_z=-1\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+<td style="text-align: center;"><span class="math inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div></div>
+<aside><ol class="aside-footnotes"><li id="fn10"><p>Petar, please confirm!!</p></li></ol></aside></section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Energy difference at <span class="math inline">\(\mathcal{O}(V)\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(\therefore\quad\)</span> the energy differences <span class="math inline">\(E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega\)</span> are the following:</p>
+<ul>
+<li><p><span class="math inline">\(I=1,\ S=0\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}\)</span></p></li>
+<li><p><span class="math inline">\(I=1,\ S=1\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}\)</span></p></li>
+<li><p><span class="math inline">\(I=0,\ S=0\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}\)</span></p></li>
+<li><p><span class="math inline">\(I=0,\ S=1\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}\)</span></p></li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="second-order-in-tilde-v" class="slide level2">
 <h2>Second order in <span class="math inline">\(\tilde V\)</span></h2>
@@ -579,7 +711,7 @@ V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
 \]</span></p>
-<aside><ol class="aside-footnotes"><li id="fn10"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
+<aside><ol class="aside-footnotes"><li id="fn11"><p>Repeated momentum indices are summed over.</p></li></ol></aside></section>
 <section class="slide level2">
 
 <div class="columns">
