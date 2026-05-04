@@ -1408,7 +1408,7 @@ V_{k',l';-k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\do
 \begin{equation}
 +\sum_{k',k}\frac{V_{d,-k;-d,k'}V_{k',-d;-k,d}}{\epsilon_{-k}-\epsilon_{k'}}
 +
-\sum_{k'\ne d,k, l,l'}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
+\sum_{k'\ne d,k, l}\frac{V_{-l,-k;-d,k'}V_{k',-d;-k,-l}}{\epsilon_{-k}+\epsilon_{-l}-\epsilon_{k'}}
 \end{equation}
 
 :::{.callout-note}
@@ -1494,17 +1494,11 @@ The first two terms give the same result, and when ***added together*** gives
 -2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--6\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 \end{equation}
 :::
 
-The third represents the ***cross term***, and gives
-
-:::{style='font-size:80%'}
-\begin{equation}
--2\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
-\end{equation}
-:::
+The third represents the ***cross term***, and vanishes!
 
 ---
 
@@ -1540,7 +1534,7 @@ $S=0$, $Q=0$
 -2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--8\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
@@ -1565,7 +1559,7 @@ E^{Q=0,S=0}_2=V_{dd;dd}-2\sum_{k,l,m\ne d}\frac{V_{k,l;m,d}V_{d,m;l,k}}{\epsilon
 -2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -2\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--8\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
+-4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 $${#eq-EQ0S02}
 
 
