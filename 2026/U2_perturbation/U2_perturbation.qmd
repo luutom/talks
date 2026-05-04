@@ -895,7 +895,7 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 
 :::{style='font-size: 70%'}
 
-:::{.column width=33%}
+:::{.column width=25%}
 
 :::{.r-stack}
 | left $\tilde V$ | right $\tilde V$ |
@@ -909,7 +909,7 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 
 :::
 
-:::{.column width=33%}
+:::{.column width=25%}
 
 :::{.r-stack}
 | left $\tilde V$ | right $\tilde V$ |
@@ -924,7 +924,7 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 
 :::
 
-:::{.column width=33%}
+:::{.column width=25%}
 
 :::{.r-stack}
 | left $\tilde V$ | right $\tilde V$ |
@@ -934,6 +934,20 @@ Unfortunately there are a lot of terms in @eq-tildeV that can contribute.  They 
 | 10              | 7                |
 | 15              | 12               |
 | 14              | 13               |
+:::
+
+:::
+
+:::{.column width=25%}
+
+:::{.r-stack}
+| left $\tilde V$ | right $\tilde V$ |
+|:---------------:|:----------------:|
+| 5               | 12               |
+| 4               | 13               |
+| 15              | 2                |
+| 14              | 3                |
+
 :::
 
 :::
@@ -1161,6 +1175,35 @@ The final pairs (1,1) and (16,16) can be done by inspection
 
 ---
 
+I will just write out the remaining pairs:
+
++ $(5,12)$ pair
+
+\begin{equation}
+-\frac{1}{2}\frac{V_{-d,d,\kappa ,\lambda }^2}{-\epsilon _{\kappa }-\epsilon _{\lambda }}
+\end{equation}
+
++ $(4,13)$ pair
+
+\begin{equation}
+-\frac{1}{2}\frac{V_{-d,d,\kappa ,\lambda }^2}{-\epsilon _{\kappa }-\epsilon _{\lambda }}
+\end{equation}
+
++ $(15,2)$ pair
+
+\begin{equation}
+-\frac{1}{2}\frac{V_{-d,d,\kappa ,\lambda }^2}{-\epsilon _{\kappa }-\epsilon _{\lambda }}
+\end{equation}
+
++ $(13,3)$ pair
+
+\begin{equation}
+-\frac{1}{2}\frac{V_{-d,d,\kappa ,\lambda }^2}{-\epsilon _{\kappa }-\epsilon _{\lambda }}
+\end{equation}
+
+
+---
+
 I will now collect all terms for the singlet ground state shift
 
 :::{.callout-note}
@@ -1172,7 +1215,6 @@ I will now collect all terms for the singlet ground state shift
 -2\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--2\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 }
 \end{equation}
 
@@ -1228,7 +1270,6 @@ E_{aabb}&=
 -4\sum_{k,l,m\ne d}\frac{V_{k,l;m,-d}V_{-d,m;l,k}}{\epsilon_{l}+\epsilon_{k}+\epsilon_m}
 -\sum_{k,l,m,p\ne d}\frac{V_{k,l;m,p}V_{p,m;l,k}}{\epsilon_{k}+\epsilon_{l}+\epsilon_m+\epsilon_p}
 -6\sum_{k,l\ne d}\frac{V_{d,d;k,l}V_{l,k;d,d}}{\epsilon_{k}+\epsilon_{l}}
--4\sum_{k,l\ne d}\frac{V_{d,-d;k,l}V_{l,k;-d,d}}{\epsilon_{k}+\epsilon_{l}}
 \end{align}
 $${#eq-EaabbE1}
 :::
