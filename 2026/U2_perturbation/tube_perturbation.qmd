@@ -685,7 +685,7 @@ $$
 
 ### Two-body excitations
 
-+ $I=0,\ S=1$  I find the following energy shift:
++ $I=0,\ S=1$  I find the following energy shift^[I assume that $\epsilon_{p_2}=\epsilon_{p_1}$.]:
 
 :::{style='font-size:70%'}
 \begin{multline}
