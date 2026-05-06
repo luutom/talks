@@ -696,3 +696,45 @@ $$
 \end{multline}
 :::
 This result is independent of $S_z$ (as it should be!)
+
++ $I=1,\ S=1$ :
+
+:::{style='font-size:70%'}
+\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
+   +\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
+   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{-p_1,p_1,m,n}
+   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+   \end{multline}
+:::
+This result is independent of $S_z$ ***and*** $I_z$!
+
++ $I=0,\ S=0$:
+
+:::{style='font-size:70%'}
+\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
+   +\frac{6 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{6 V_{-p_1,p_1,m,n}
+   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+   \end{multline}
+:::
+
+---
+
++ $I=1,\ S=0$ :
+
+:::{style='font-size:70%'}
+\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
+   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2
+   V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
+   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}
+:::
+This result is ***independent*** of $I_z$ and is exactly the same as $I=0,\ S=1$.
