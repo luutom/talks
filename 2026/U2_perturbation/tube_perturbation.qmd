@@ -681,4 +681,18 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 $$
 :::
 
+---
 
+### Two-body excitations
+
++ $I=0,\ S=1$  I find the following energy shift:
+
+:::{style='font-size:70%'}
+\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
+   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
+   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}
+:::
+This result is independent of $S_z$ (as it should be!)
