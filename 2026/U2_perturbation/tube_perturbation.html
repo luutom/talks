@@ -792,16 +792,24 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 </section>
 <section class="slide level2">
 
-<h3 id="two-body-excitations-1">Two-body excitations</h3>
+<h3 id="two-body-excitations-p_1ne-p_2">Two-body excitations (<span class="math inline">\(p_1\ne p_2\)</span>)</h3>
 <ul>
-<li><span class="math inline">\(I=0,\ S=1\)</span> I find the following energy shift<sup>1</sup>:</li>
+<li><span class="math inline">\(I=0,\ S=1\)</span> I find the following energy shift:</li>
 </ul>
 <div style="font-size:70%">
-<p><span class="math display">\[\begin{multline}
+<!--
+\begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
    -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
    V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}
+-->
+<p><span class="math display">\[\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}\]</span></p>
 </div>
 <p>This result is independent of <span class="math inline">\(S_z\)</span> (as it should be!)</p>
@@ -809,42 +817,68 @@ E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;
 <li><span class="math inline">\(I=1,\ S=1\)</span> :</li>
 </ul>
 <div style="font-size:70%">
-<p><span class="math display">\[\begin{multline}
+<!--
+\begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
    +\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
    -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{-p_1,p_1,m,n}
    V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-   \end{multline}\]</span></p>
+   \end{multline}
+-->
+<p><span class="math display">\[\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
+   _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}\]</span></p>
 </div>
 <p>This result is independent of <span class="math inline">\(S_z\)</span> <strong><em>and</em></strong> <span class="math inline">\(I_z\)</span>!</p>
 <ul>
 <li><span class="math inline">\(I=0,\ S=0\)</span>:</li>
 </ul>
 <div style="font-size:70%">
-<p><span class="math display">\[\begin{multline}
+<!--
+\begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
    +\frac{6 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{6 V_{-p_1,p_1,m,n}
    V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-   \end{multline}\]</span></p>
+   \end{multline}
+-->
+<p><span class="math display">\[\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
+   +\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
+   _{p_2}}+\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}\]</span></p>
 </div>
-<aside><ol class="aside-footnotes"><li id="fn12"><p>I assume that <span class="math inline">\(\epsilon_{p_2}=\epsilon_{p_1}\)</span>.</p></li></ol></aside></section>
+</section>
 <section class="slide level2">
 
 <ul>
 <li><span class="math inline">\(I=1,\ S=0\)</span> :</li>
 </ul>
 <div style="font-size:70%">
-<p><span class="math display">\[\begin{multline}
+<!--
+\begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
    -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2
    V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
    V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
+\end{multline}
+-->
+<p><span class="math display">\[\begin{multline}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}\]</span></p>
 </div>
 <p>This result is <strong><em>independent</em></strong> of <span class="math inline">\(I_z\)</span> and is exactly the same as <span class="math inline">\(I=0,\ S=1\)</span>.</p>
