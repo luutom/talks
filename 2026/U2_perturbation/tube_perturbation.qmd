@@ -546,7 +546,7 @@ After some calculations^[Petar, please confirm!!], I get the following LO shifts
 ---
 
 :::{.callout-note}
-## Energy difference at $\mathcal{O}(V)$
+## Energy difference at $\mathcal{O}(V)$ when $p_1\ne p_2$
 $\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are the following:
 
 - $I=1,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}$
@@ -556,6 +556,18 @@ $\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are 
 - $I=0,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}$
 
 - $I=0,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}$
+
+:::
+
+The results above are valid when $p_1\ne p_2$.  When $p_1=p_2$ a quick calculation gives^[The $I=0,\ S=0$ and $I=1,\ S=1$ channels vanish when $p_1=p_2=p$.]
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V)$ when $p_1=p_2=p$
+$\therefore\quad$ the energy differences $E^{(1)}_{p,p}-E^{(1)}_\Omega$ are the following:
+
+- $I=1,\ S=0\ $: $\ 2\epsilon_{p}+V_{p,p;p,p}$
+
+- $I=0,\ S=1\ $: $\ 2\epsilon_{p}-V_{p,p;p,p}$
 
 :::
 
@@ -604,7 +616,7 @@ So we have (sum over all momentum indices)
 
 $$
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
--\frac{V_{-k',-l';k,l}V_{l,k;-l',-k'}}{\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}}
+\frac{V^2_{k,l;m,n}}{-\epsilon_k-\epsilon_l-\epsilon_{m}-\epsilon_{n}}
 $${#eq-groundStateV2}
 
 :::
@@ -675,10 +687,15 @@ Notice that the second term is *almost* like the ground state shift at second or
 :::{.callout-note}
 ## Energy difference at $\mathcal{O}(V^2)$
 A little work shows that (I now add the explicit summation symbols)
+$$E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{l,m,=n}\frac{V^2_{-p,l;m,n}}{-\epsilon_l-\epsilon_m-\epsilon_{n}+\epsilon_p} -
+\sum_{l,m,n}\frac{V^2_{p,l;m,n}}{-\epsilon_{l}-\epsilon_{m}-\epsilon_{n}-\epsilon_{p}}
+$$
+<!--
 $$
 E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} +
 \sum_{-k',-l',k}\frac{V_{-k',-l';k,p}V_{p,k;-l',-k'}}{\epsilon_{p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
 $$
+-->
 :::
 
 ---
@@ -772,3 +789,69 @@ This result is independent of $S_z$ ***and*** $I_z$!
 \end{multline}
 :::
 This result is ***independent*** of $I_z$ and is exactly the same as $I=0,\ S=1$.
+
+### Two-body excitations ($p_1= p_2=p$)
+
+When $p_1=p_2=p$, only the channels $I=0,\ S=1$ and $I=1,\ S=0$ have non-trivial results, since the interpolating operators for the $I=1,\ S=1$ and $I=0\ ,S=0$ channels vanish due to anti-commutation relations.  Furthermore, the non-trivial results for $I=0,\ S=1$ and $I=1,\ S=0$ are the same
+
++ $I=0,\ S=0$ and $I=1,\ S=0$:
+
+:::{style='font-size:70%'}
+\begin{equation}
+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
+-\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
+   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}
+\end{equation}
+:::
+
+---
+
+:::{style='font-size:70%'}
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V^2)$ when $p_1\ne p_2$
+$\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are the following:
+
+- $I=1,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
+
+- $I=1,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
+   _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
+
+- $I=0,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
+   +\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
+   _{p_2}}+\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
+
+- $I=0,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
+   -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
+
+:::
+
+The results above are valid when $p_1\ne p_2$.  When $p_1=p_2$ a quick calculation gives
+
+:::{.callout-note}
+## Energy difference at $\mathcal{O}(V^2)$ when $p_1=p_2=p$
+$\therefore\quad$ the energy differences $E^{(1)}_{p,p}-E^{(1)}_\Omega$ are the following:
+
+- $I=1,\ S=0\ $: $\ 2\epsilon_{p}+V_{p,p;p,p}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
+-\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
+   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}$
+
+- $I=0,\ S=1\ $: $\ 2\epsilon_{p}-V_{p,p;p,p}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
+-\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
+   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}$
+
+:::
+
+:::
+
+## Degenerate perturbation theory for tubes
