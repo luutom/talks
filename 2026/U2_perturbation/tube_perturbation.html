@@ -935,12 +935,12 @@ $$
 _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
 -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
 _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)</span></p></li>
-<li><p><span class="math inline">\(I=1,\ S=1\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+<li><p><span class="math inline">\(I=1,\ S=1\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
 _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
 _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
 -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
 _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)</span></p></li>
-<li><p><span class="math inline">\(I=0,\ S=0\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+<li><p><span class="math inline">\(I=0,\ S=0\ \)</span>: <span class="math inline">\(\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
 _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
 _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
 +\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
@@ -979,6 +979,240 @@ _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}\)
 </section>
 <section id="degenerate-perturbation-theory-for-tubes" class="slide level2">
 <h2>Degenerate perturbation theory for tubes</h2>
+<p>For Petar’s tubes, e.g.&nbsp;(10,2), (9,4), (8,6), etc., there is an additional complication coming from the fact that the lowest single-particle conduction band energy is two-fold degenerate, and the highest valence energy is also two-fold degenerate. This means that one must, in principle, resort to degenerate perturbation theory for two-body excitations involving these states. So let’s do this.</p>
+<p>I will denote the two degenerate conduction band energies by indices <span class="math inline">\(p_1,p_2\)</span>, and the two degenerate valence energies as <span class="math inline">\(-p_1, -p_2\)</span>. The first step in degenerate perturbation theory is to diagonalize the leading order (in <span class="math inline">\(\tilde V\)</span>) contribution in the basisi of degenerate states. Since I know that the Hubbard interaction preserves net spin and net iso(pseudo)spin, I can just focus on specific <span class="math inline">\(I_z,S_z\)</span> cases.</p>
+<p>I first consider the <span class="math inline">\(I_z=0\)</span>, <span class="math inline">\(S_z=1\)</span> sector. The degenerate states that span this subspace are</p>
+<p><span class="math display">\[\begin{equation}
+|I_z=0,\ S_z=1\rangle\equiv
+\begin{pmatrix}
+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle
+\end{pmatrix}
+\end{equation}\]</span></p>
+<p>All these states have non-interacting energies <span class="math inline">\(\epsilon_{p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_1}=\epsilon_{p_2}+\epsilon_{p_2}=2\epsilon_{p_1}\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<p>I now look at LO order perturbation theory,</p>
+<p><span class="math display">\[\begin{equation}
+\langle I_z=0,\ S_z=1|\tilde V|I_z=0,\ S_z=1\rangle=-
+\begin{pmatrix}
+V_{p_1,p_1,p_1,p_1} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0\\
+V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_1,p_1} &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2}\\
+0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2}
+\end{pmatrix}
+\end{equation}\]</span></p>
+<p>Here I used the fact that <span class="math inline">\(V_{p_2,p_2,p_2,p_2}=V_{p_1,p_1,p_1,p_1}\)</span> and <span class="math inline">\(V_{\pm p_i,p_j,p_j,p_j}=0\)</span>. Diagonalizing this matrix gives the following eigenvalues/eigenvectors</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(I_z=0,\ S_z=1\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{align}
+-2V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+0 &amp;\quad :: &amp;  \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+-V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+-V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>The top two results should look familiar.</p>
+</section>
+<section class="slide level2">
+
+<p>Now consider <span class="math inline">\(I_z=1,\  S_z=0\)</span>. The degenerate states that span this subspace are</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{equation}
+|I_z=0,\ S_z=1\rangle\equiv
+\begin{pmatrix}
+a^\dagger_{p_1,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle\\
+a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+a^\dagger_{p_2,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle
+\end{pmatrix}
+\end{equation}\]</span></p>
+</div>
+<p>with corresponding matrix</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{equation}
+\langle I_z=1,\ S_z=0|\tilde V|I_z=1,\ S_z=0\rangle=
+\begin{pmatrix}
+V_{p_1,p_1,p_1,p_1} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0\\
+V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_1,p_1} &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2}\\
+0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2}
+\end{pmatrix}
+\end{equation}\]</span></p>
+</div>
+<p>This results in</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(I_z=1,\ S_z=0\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{align}
+2V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\downarrow}-a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+0 &amp;\quad :: &amp;  \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\downarrow}+a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<p>Let’s do an easy case now (before the final hard one), <span class="math inline">\(I_z=1,\ S_z=1\)</span>. There is only one state in this case,</p>
+<p><span class="math display">\[\begin{equation}
+a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle
+\end{equation}\]</span></p>
+<p>This simply gives</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(I_z=1,\ S_z=1\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{align}
+0 &amp;\quad :: &amp; a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>Now the <span class="math inline">\(I_z=0,\ S_z=0\)</span> states</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{equation}
+|I_z=0,\ S_z=0\rangle\equiv
+\begin{pmatrix}
+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_1,\downarrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle\\
+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle\\
+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle\\
+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_1,\downarrow}|\Omega\rangle
+\end{pmatrix}
+\end{equation}\]</span></p>
+</div>
+</section>
+<section class="slide level2">
+
+<p>The matrix is then</p>
+<div style="font-size:80%">
+<p><span class="math display">\[\begin{equation}
+\langle I_z=0,\ S_z=0|\tilde V|I_z=0,\ S_z=0\rangle=
+\begin{pmatrix}
+0 &amp; 0 &amp; V_{p_1,p_1,p_1,p_1} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 \\
+0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_1,p_1} &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+V_{p_1,p_1,p_1,p_1} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_1,p_1} &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2} \\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0\\
+0 &amp; 0 &amp; 0 &amp; 0 &amp; V_{p_1,p_1,p_2,p_2} &amp; V_{p_1,p_1,p_2,p_2} &amp; 0 &amp; 0
+\end{pmatrix}
+\end{equation}\]</span></p>
+</div>
+<p>which gives</p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(I_z=0,\ S_z=0\)</span></strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{align}
+0 &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+0 &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+-2V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
++2V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong><span class="math inline">\(I_z=0,\ S_z=0\)</span> continued</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">\[
+\begin{align}
+-V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
+-V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
++V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
++V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &amp;\quad :: &amp; \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
+<p>These results suggest the following when dealing with degenerate <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span> cases:</p>
+<ul>
+<li><p>When constructing two-body interpolating operators with different indices <span class="math inline">\(p_1\)</span> and <span class="math inline">\(p_2\)</span>, use the standard interpolating operators derived by Berkowitz and Luu</p></li>
+<li><p>When using the same indices, one has two different <span class="math inline">\(I=0,\ S=1\)</span> channels and two different <span class="math inline">\(I=1,\  S=0\)</span> channels</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Interpolating operators for equal momenta two-body excitations (degenerate case)</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math inline">\(I=1,\ S=0\)</span> : <span class="math display">\[
+\begin{align}
+I_z=-1\quad  &amp;\quad I_z=0 &amp; I_z=+1 &amp;\\
+\frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &amp;\quad \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &amp;\\
+\frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &amp;\quad  \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &amp;
+\end{align}
+\]</span></p>
+<p><span class="math inline">\(I=0,\ S=1\)</span> : <span class="math display">\[
+\begin{align}
+S_z=-1\quad  &amp;\quad S_z=0 &amp; S_z=+1 &amp;\\
+\frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &amp;\quad \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &amp;\\
+\frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &amp;\quad  \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) &amp; \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)&amp;
+\end{align}
+\]</span></p>
+</div>
+</div>
+</div>
 
 </section></section>
 
