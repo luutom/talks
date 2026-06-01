@@ -6,8 +6,8 @@
 <script src="tube_perturbation_files/libs/quarto-html/tippy.umd.min.js"></script>
 <link href="tube_perturbation_files/libs/quarto-html/tippy.css" rel="stylesheet">
 <link href="tube_perturbation_files/libs/quarto-html/light-border.css" rel="stylesheet">
-<link href="tube_perturbation_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
-  <meta name="generator" content="quarto-1.9.37">
+<link href="tube_perturbation_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.9.38">
 
   <meta name="author" content="Thomas Luu">
   <title>Perturbative tubes</title>
@@ -977,6 +977,20 @@ _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}\)
 </div>
 </div>
 </section>
+<section class="slide level2">
+
+<h3 id="benchmarking-with-exact-results">Benchmarking with exact results</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/2sites.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/4sites.png" class="quarto-figure quarto-figure-center" style="width:70.0%"></p>
+</figure>
+</div>
+</section>
 <section id="degenerate-perturbation-theory-for-tubes" class="slide level2">
 <h2>Degenerate perturbation theory for tubes</h2>
 <p>For Petar’s tubes, e.g.&nbsp;(10,2), (9,4), (8,6), etc., there is an additional complication coming from the fact that the lowest single-particle conduction band energy is two-fold degenerate, and the highest valence energy is also two-fold degenerate. This means that one must, in principle, resort to degenerate perturbation theory for two-body excitations involving these states. So let’s do this.</p>
@@ -1265,6 +1279,14 @@ _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsil
 </div>
 </div>
 <p>In determining these results, I used the fact that under the sum, <span class="math inline">\(\frac{V_{\pm p_2,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}=\frac{V_{\pm p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}\)</span>, for example, and so on.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="benchmarking-to-dqmc-simulations">Benchmarking to dQMC simulations</h3>
+
+<img data-src="assets/tube10x2.png" class="quarto-figure quarto-figure-center r-stretch"><div class="r-stack">
+<p>Data points were obtained from fitting to two-body correlators obtained from dQMC simulations</p>
+</div>
 
 </section></section>
 

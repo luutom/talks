@@ -854,6 +854,15 @@ $\therefore\quad$ the energy differences $E^{(1)}_{p,p}-E^{(1)}_\Omega$ are the 
 
 :::
 
+---
+
+### Benchmarking with exact results
+
+![](assets/2sites.png){fig-align='center' width=70%}
+
+![](assets/4sites.png){fig-align='center' width=70%}
+
+
 ## Degenerate perturbation theory for tubes
 
 For Petar's tubes, e.g. (10,2), (9,4), (8,6), etc., there is an additional complication coming from the fact that the lowest single-particle conduction band energy is two-fold degenerate, and the highest valence energy is also two-fold degenerate. This means that one must, in principle, resort to degenerate perturbation theory for two-body excitations involving these states.  So let's do this.
@@ -1116,3 +1125,16 @@ And after some tedious calculations, I find the energy shifts. . .
 :::
 
 In determining these results, I used the fact that under the sum, $\frac{V_{\pm p_2,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}=\frac{V_{\pm p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}$, for example, and so on.
+
+---
+
+### Benchmarking to dQMC simulations
+
+
+![](assets/tube10x2.png){fig-align='center'}
+
+:::{.r-stack}
+
+Data points were obtained from fitting to two-body correlators obtained from dQMC simulations
+
+:::
