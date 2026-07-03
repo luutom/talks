@@ -1,22 +1,197 @@
----
-title: 'Perturbative tubes'
-abstract: "I document my efforts to calculate the tubes in perturbation theory"
-author:
-  name: Thomas Luu
-  affiliation: IAS-4, FZJ & HISKP, Uni. Bonn
-  email: t.luu@fz-juelich.de
-format:
-  revealjs:
-    slide-number: true
-    incremental: false
-    smaller: true
-from: markdown+emoji
----
+% Options for packages loaded elsewhere
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+  letterpaper,
+  DIV=11,
+  numbers=noendperiod]{scrartcl}
+\usepackage{xcolor}
+\usepackage{amsmath,amssymb}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+% Make \paragraph and \subparagraph free-standing
+\makeatletter
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}{
+    \@ifstar
+      \xxxParagraphStar
+      \xxxParagraphNoStar
+  }
+  \newcommand{\xxxParagraphStar}[1]{\oldparagraph*{#1}\mbox{}}
+  \newcommand{\xxxParagraphNoStar}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}{
+    \@ifstar
+      \xxxSubParagraphStar
+      \xxxSubParagraphNoStar
+  }
+  \newcommand{\xxxSubParagraphStar}[1]{\oldsubparagraph*{#1}\mbox{}}
+  \newcommand{\xxxSubParagraphNoStar}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+\makeatother
 
 
-# Setup
+\usepackage{longtable,booktabs,array}
+\newcounter{none} % for unnumbered tables
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\newsavebox\pandoc@box
+\newcommand*\pandocbounded[1]{% scales image to fit in text height/width
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi% select the smaller of both
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+% Set default figure placement to htbp
+\def\fps@figure{htbp}
+\makeatother
 
-## Hamiltonian
+
+
+
+
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+
+
+
+ 
+
+
+\KOMAoption{captions}{tableheading}
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{Figure}
+\else
+  \newcommand\figurename{Figure}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Perturbative tubes},
+  pdfauthor={Thomas Luu},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+
+\title{Perturbative tubes}
+\author{Thomas Luu}
+\date{}
+\begin{document}
+\maketitle
+\begin{abstract}
+I document my efforts to calculate the tubes in perturbation theory
+\end{abstract}
+
+
+\section{Setup}\label{setup}
+
+\subsection{Hamiltonian}\label{hamiltonian}
 
 The Hamiltonian is
 
@@ -24,7 +199,10 @@ The Hamiltonian is
 H = -\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}-c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)^2\ ,
 \end{equation}
 
-where $U$ is the (dimensionless) Hubbard ratio ($=U/\kappa$) and the operator $c^\dagger_{x,s}$ creates an electron at site $x$ with spin $s$.  The sum ${\langle x,y\rangle}$ is over nearest neighbor sites only (i.e. Tight-binding model).   I now expand the quadratic term giving
+where \(U\) is the (dimensionless) Hubbard ratio (\(=U/\kappa\)) and the
+operator \(c^\dagger_{x,s}\) creates an electron at site \(x\) with spin
+\(s\). The sum \({\langle x,y\rangle}\) is over nearest neighbor sites
+only (i.e.~Tight-binding model). I now expand the quadratic term giving
 
 \begin{align}
 H =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{y,\downarrow}\right)-\frac{U}{2}\sum_x\left(c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}+c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}-2c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^\dagger_{x,\downarrow}c^{}_{x,\downarrow}\right)\\
@@ -33,10 +211,9 @@ H =&-\sum_{\langle x,y\rangle}\left(c^\dagger_{x,\uparrow}c^{}_{y,\uparrow}+c^\d
 =&H_0+H_1+H_2\ .
 \end{align}
 
-I cast the last "interaction" term ($H_2$) in normal order.
+I cast the last ``interaction'' term (\(H_2\)) in normal order.
 
-
-## "Momentum Space"
+\subsection{``Momentum Space''}\label{momentum-space}
 
 I rewrite the kinetic term as
 
@@ -44,18 +221,25 @@ I rewrite the kinetic term as
 H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,y,s}\left(c^\dagger_{x,s}\kappa_{x,y}c^{}_{y,s}\right)
 \end{equation}
 
-where $\kappa$ is the "connectivity", or "adjacency" matrix and $s=\uparrow,\downarrow$.
+where \(\kappa\) is the ``connectivity'', or ``adjacency'' matrix and
+\(s=\uparrow,\downarrow\).
 
-To go to "momentum space", I first diagonalize $\kappa$ (I assume bi-partite and symmetric)
+To go to ``momentum space'', I first diagonalize \(\kappa\) (I assume
+bi-partite and symmetric)
 
 \begin{equation}
 -\kappa\to O^{}.(-\kappa).O^{-1}=\operatorname{diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
 \end{equation}
 
-where $O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}$ and $\epsilon_{k}$ is an (non-interacting) eigenenergie with "momentum $k$"^[The index $k$ represents multiple quantum numbers.  For example, for a ribbon, $k=(k_x,n,\sigma)$, where $k_x$ is the momentum in the $x$-direction, $n<W$ where $W$ is the width of the ribbon, and $\sigma=\pm 1$ is the band.].
-The orthogonal matrix $O$ can be constructed from the eigenfunctions of $\kappa$.
+where \(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\) and \(\epsilon_{k}\) is an
+(non-interacting) eigenenergie with ``momentum \(k\)''\footnote{The
+  index \(k\) represents multiple quantum numbers. For example, for a
+  ribbon, \(k=(k_x,n,\sigma)\), where \(k_x\) is the momentum in the
+  \(x\)-direction, \(n<W\) where \(W\) is the width of the ribbon, and
+  \(\sigma=\pm 1\) is the band.}. The orthogonal matrix \(O\) can be
+constructed from the eigenfunctions of \(\kappa\).
 
-I now have (I suppress summation symbols over $x,y,s$)
+I now have (I suppress summation symbols over \(x,y,s\))
 
 \begin{equation}
 H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.\operatorname{diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
@@ -68,31 +252,37 @@ This defines the diagonal momentum basis
 c^{}_{k,s}=\sum_{x}O_{k;x}c^{}_{x,s}\quad;\quad c^{\dagger}_{k,s}=\sum_{x}c^{\dagger}_{x,s}O^{-1}_{x;k}
 \end{equation}
 
-## Non-Interacting Ground state $|\Omega\rangle$
+\subsection{\texorpdfstring{Non-Interacting Ground state
+\(|\Omega\rangle\)}{Non-Interacting Ground state \textbar\textbackslash Omega\textbackslash rangle}}\label{non-interacting-ground-state-omegarangle}
 
-The ground state $|\Omega\rangle$ is defined by filling all negative energy states^[$s.t.=$ "such that"]
+The ground state \(|\Omega\rangle\) is defined by filling all negative
+energy states\footnote{\(s.t.=\) ``such that''}
 
 \begin{equation}
 |\Omega\rangle=\left(\prod_{k\ s.t.\ \epsilon_k<0,s}c^\dagger_{k,s}\right)|0\rangle
 \end{equation}
 
-where $|0\rangle$ is the vacuum state^[Definition of vacuum state is such that $c_{k,s}|0\rangle=0\ \forall\ k,s$] and
+where \(|0\rangle\) is the vacuum state\footnote{Definition of vacuum
+  state is such that \(c_{k,s}|0\rangle=0\ \forall\ k,s\)} and
 
 \begin{equation}
 H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
 \end{equation}
 
-with^[Factor of 2 comes from summing over $\uparrow$ and $\downarrow$ fermions.]
+with\footnote{Factor of 2 comes from summing over \(\uparrow\) and
+  \(\downarrow\) fermions.}
 
 \begin{equation}
 \mathcal{E}_{\Omega}=\sum_{k\ s.t.\  \epsilon_k<0,s}\epsilon_{k}=2\sum_{k\ s.t.\  \epsilon_k<0}\epsilon_{k}
 \end{equation}
 
-## Canonical Transformation to Fermi Surface
+\subsection{Canonical Transformation to Fermi
+Surface}\label{canonical-transformation-to-fermi-surface}
 
-I introduce the following operators^[e.g. see~\cite{fetter2003quantum} eq.(7.34)]
+I introduce the following operators\footnote{e.g.~see\textasciitilde{}\cite{fetter2003quantum}
+  eq.(7.34)}
 
-$$
+\begin{equation}\protect\phantomsection\label{eq-CanTrans}{
 \begin{equation}
 c_{k,s}=
 \begin{cases}
@@ -100,17 +290,17 @@ a^{}_{k,s} & \forall\ k\ s.t.\ \epsilon_k>0 \quad\operatorname{"particles"}\\
 b^{\dagger}_{-k,s}& \forall\ k\ s.t.\ \epsilon_k<0 \quad \operatorname{"holes"}\ .
 \end{cases}
 \end{equation}
-$${#eq-CanTrans}
+}\end{equation}
 
 With this definition it is clear that
 
-$$
+\begin{equation}\protect\phantomsection\label{eq-vanish}{
 \begin{equation}
 a^{}_{k,s}|\Omega\rangle=b^{}_{k,s}|\Omega\rangle=0\ \forall\ k,s
 \end{equation}
-$${#eq-vanish}
+}\end{equation}
 
-### $H_0$
+\subsubsection{\texorpdfstring{\(H_0\)}{H\_0}}\label{h_0}
 
 With this canonical transformation we have
 
@@ -119,23 +309,26 @@ H_0=&\sum_{k,s}\epsilon_{k}\ c^{\dagger}_{k,s}c^{}_{k,s}\\
 =&\sum_{k\ s.t.\ \epsilon_k>0,s}\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}\epsilon_{k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}\ .
 \end{align}
 
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
----
+\subsubsection{\texorpdfstring{\(H_1\)}{H\_1}}\label{h_1}
 
-### $H_1$
-This term acts like a "mass term"
+This term acts like a ``mass term''
 
 \begin{align}
 H_1=&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}+\sum_{k\ s.t.\ \epsilon_k<0,s}b^{}_{-k,s}b^{\dagger}_{-k,s}\right)\\
 =&-\frac{U}{2}\left(\sum_{k\ s.t.\ \epsilon_k>0,s}a^{\dagger}_{k,s}a^{}_{k,s}-\sum_{k\ s.t.\ \epsilon_k<0,s}b^{\dagger}_{-k,s}b^{}_{-k,s}\right)-U\Lambda\ .
 \end{align}
 
-where $\Lambda=N_x/2$ and $N_x$ is the number of lattice points^[$\Lambda$ is also the number of hexagonal unit cells.].
+where \(\Lambda=N_x/2\) and \(N_x\) is the number of lattice
+points\footnote{\(\Lambda\) is also the number of hexagonal unit cells.}.
 
-The canonical transformation of $H_1$ results in an overall constant shift $-U\Lambda$ to the Hamiltonian, which is irrelevant.
+The canonical transformation of \(H_1\) results in an overall constant
+shift \(-U\Lambda\) to the Hamiltonian, which is irrelevant.
 
-### $H_2$
-Now things get messy.  I have
+\subsubsection{\texorpdfstring{\(H_2\)}{H\_2}}\label{h_2}
+
+Now things get messy. I have
 
 \begin{align}
 H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_{x,\downarrow}
@@ -144,23 +337,34 @@ H_2&=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c^{}_
 \equiv\sum_{k',l',k,l}V_{k',l';k,l}c^\dagger_{k',\downarrow}c^\dagger_{l',\uparrow}c^{}_{k,\uparrow}c^{}_{l,\downarrow}
 \end{align}
 
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
----
+I want express \(H_2\) in the canonical basis of \texttt{holes} and
+\texttt{particles}. To do this, I need to simplify the notation,
+otherwise things get crazy. I will assume that we have a bipartite
+lattice and the Fermi surface is defined such that
+\(\epsilon_{\operatorname{fermi}}=0\)\footnote{This corresponds to
+  half-filling.}. This implies the following things:
 
-I want express $H_2$ in the canonical basis of ``holes`` and ``particles``.
-To do this, I need to simplify the notation, otherwise things get crazy.  I will assume that we have a bipartite lattice and the Fermi surface is defined such that $\epsilon_{\operatorname{fermi}}=0$^[This corresponds to half-filling.].
-This implies the following things:
+\begin{itemize}
+\item
+  For each momentum index \(k\) there exist \(\epsilon_k\ge 0\) and
+  \(-\epsilon_k\le 0\) as eigenenergies
+\item
+  The positive energies are associated with \texttt{particle} operators
+  \(a^{}_k,a^\dagger_k\)
+\item
+  The negative energies are associated with \texttt{hole} operators
+  \(b^{}_{-k},b^\dagger_{-k}\) (see Equation~\ref{eq-CanTrans})
+\end{itemize}
 
-+ For each momentum index $k$ there exist $\epsilon_k\ge 0$ and $-\epsilon_k\le 0$ as eigenenergies
+So to refer to the negative energy associated with a momentum index
+\(k\) I add a minus sign to the index: \(-k\). This allows me to express
+\(H_2\) as (switching to
+\href{https://en.wikipedia.org/wiki/Einstein_notation}{Einstein
+summation convention})
 
-+ The positive energies are associated with ``particle`` operators $a^{}_k,a^\dagger_k$ 
-
-+ The negative energies are associated with ``hole`` operators $b^{}_{-k},b^\dagger_{-k}$ (see @eq-CanTrans)
-
-So to refer to the negative energy associated with a momentum index $k$ I add a minus sign to the index: $-k$.
-This allows me to express $H_2$ as (switching to [Einstein summation convention](https://en.wikipedia.org/wiki/Einstein_notation))
-
-$$
+\begin{equation}\protect\phantomsection\label{eq-H2_1}{
 \begin{align}
 H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}+V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
 +&V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}\\
@@ -172,15 +376,21 @@ H_2= &V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\down
 +&V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
 +&V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
 \end{align}
-$${#eq-H2_1}
+}\end{equation}
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-#### Normal ordering $H_2$
+\paragraph{\texorpdfstring{Normal ordering
+\(H_2\)}{Normal ordering H\_2}}\label{normal-ordering-h_2}
 
-Unfortunately I'm not done.  I also want to express $H_2$ in *normal ordered* form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of @eq-H2_1) are already in normal-ordered form (in [blue]{style="color:blue;"} below).
-Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes.  I'll do that now ([red]{style="color:red;"} terms)
-$$
+Unfortunately I'm not done. I also want to express \(H_2\) in
+\emph{normal ordered} form, as this greatly simplifies calculations
+later. Terms 1, 3, 4, 6, and 11 (on the RHS of Equation~\ref{eq-H2_1})
+are already in normal-ordered form (in
+\(\color{blue}\operatorname{blue}\) below). Term 2, 5, 7, and 10 are
+simple to normal order, requiring only simple permutations and potential
+sign changes. I'll do that now (\(\color{red}\operatorname{red}\) terms)
+\begin{equation}\protect\phantomsection\label{eq-H2_2}{
 \begin{align}
 H_2&=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\color{red}{-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^{}_{k,\downarrow}}\\
 &\color{blue}{+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\\
@@ -192,88 +402,82 @@ H_2&=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}
 &+V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}\\
 &+V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}\ .
 \end{align}
-$${#eq-H2_2}
+}\end{equation}
 
 The remaining (black) terms require some work to normal order.
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 Let's look at term 8.
 
-$$
 \begin{align}
 V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&=V_{-k',l';k,-l}\left(\delta_{-k',-l}-b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}\right)a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}\\
 &=\delta_{-k',-l}V_{-k',l';k,-l}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}
 \end{align}
-$$
-We can simplify the first term (remember that there is a sum over all momentum indices)
-$$
+We can simplify the first term (remember that there is a sum over all
+momentum indices) \[
 \delta_{-k',-l}V_{-k',l';k,-l}=V_{-l,l';k,-l}=U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}
-$$
-Now $\sum_{-l}O^{-1}_{x,-l}O^{}_{-l,x}=1/2$^[I have verified this numerically.] since we are only summing over the negative energies, which corresponds to only half of all possible states. This means we get
-$$
+\] Now \(\sum_{-l}O^{-1}_{x,-l}O^{}_{-l,x}=1/2\)\footnote{I have
+  verified this numerically.} since we are only summing over the
+negative energies, which corresponds to only half of all possible
+states. This means we get \[
 U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}=\frac{U}{2}\sum_xO^{-1}_{x,l'}O^{}_{k,x}=\frac{U}{2}\delta_{l',k}
-$$
-Thus term 8 becomes
-$$
+\] Thus term 8 becomes \[
 V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}
 =\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad\operatorname{(term\ 8)}
-$$
+\]
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 A similar calculation for term 9 gives
 
-$$
+\[
 V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}
 =\frac{U}{2}a^\dagger_{k,\uparrow}a^{}_{k,\uparrow}-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\downarrow}b^{}_{-k,\downarrow}a^{}_{l,\uparrow}\quad\operatorname{(term\ 9)}
-$$
+\]
 
 Now consider term 12
 
-$$
 \begin{align}
 V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}=&V_{k',-l';-k,-l}\left(\delta_{-l',-k}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\right)\\
 =&\underbrace{V_{k',-k;-k,-l}}_{=\frac{U}{2} \delta_{k',-l}=0}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\\
 &=V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\quad\operatorname{(term\ 12)}
 \end{align}
-$$
 Similar thing happens for terms 13-15,
-$$
 \begin{align}
 V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}&=-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}&\quad\operatorname{(term\ 13)}\\
 V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&=-V_{-k',-l';k,-l}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}&\quad\operatorname{(term\ 14)}\\
 V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}&=+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}&\quad\operatorname{(term\ 15)}
 \end{align}
-$$
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Now we come to the final term 16, which is the most difficult to normal order
+Now we come to the final term 16, which is the most difficult to normal
+order
 
-$$
+\[
 V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
-$$
+\]
 
-I will write this out in more detail shortly.  I just give the final result here
+I will write this out in more detail shortly. I just give the final
+result here
 
-:::{style='font-size:80%'}
-$$
 \begin{align}
 V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
 &= \underbrace{V_{-k',-k;-k,-k'}}_{=\frac{U}{2}\Lambda}-\underbrace{V_{-k',-l';-k,-k'}}_{=\frac{U}{2}\delta_{-l',-k}}b^\dagger_{-k\downarrow}b^{}_{-l',\downarrow}-\underbrace{V_{-k',-k;-k,-l}}_{=\frac{U}{2}\delta_{-k',-l}}b^\dagger_{-l\uparrow}b^{}_{-k',\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
 &=\frac{U}{2}\Lambda-\frac{U}{2}\left(b^\dagger_{-k\downarrow}b^{}_{-k,\downarrow}+b^\dagger_{-k\uparrow}b^{}_{-k,\uparrow}\right)+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\quad\operatorname{(term\ 16)}
 \end{align}
-$$
-:::
 
-Note that the bilinear terms in this expression and those from terms 8 and 9 exactly cancel the bilinear terms in $H_1$. 
+Note that the bilinear terms in this expression and those from terms 8
+and 9 exactly cancel the bilinear terms in \(H_1\).
 
-## The final expression for $H$
+\subsection{\texorpdfstring{The final expression for
+\(H\)}{The final expression for H}}\label{the-final-expression-for-h}
 
-We finally come to the final expression for $H$.  Combining all terms, I get (repeated indices are summed)
+We finally come to the final expression for \(H\). Combining all terms,
+I get (repeated indices are summed)
 
-$$
+\begin{equation}\protect\phantomsection\label{eq-tildeV}{
 \begin{align}
 H&=H_0+H_1+H_2\\
 &=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\\
@@ -289,112 +493,132 @@ H&=H_0+H_1+H_2\\
 &+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
 &\equiv \tilde H_0+\tilde V
 \end{align}
-$${#eq-tildeV}
+}\end{equation}
 
-where $\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda$ and $\tilde V$ is all terms with $V$.
+where
+\(\tilde H_0=\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\)
+and \(\tilde V\) is all terms with \(V\).
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::{.callout-note}
-## Symmetries of the matrix element $V_{k,l;m,p}$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Symmetries of the matrix element \(V_{k,l;m,p}\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-Lin has demonstrated the following properties of the matrix element $V_{k,l;m,p}$.
+Lin has demonstrated the following properties of the matrix element
+\(V_{k,l;m,p}\).
 
-+ Indices can be freely swapped, e.g.
-\begin{equation}
-V_{k,l;p,m}=V_{l,k;,p,m}=V_{m,l;k,p}=V_{p,l;m,k}
-\end{equation}
+\begin{itemize}
+\item
+  Indices can be freely swapped, e.g. \begin{equation}
+  V_{k,l;p,m}=V_{l,k;,p,m}=V_{m,l;k,p}=V_{p,l;m,k}
+  \end{equation}
+\item
+  The sign of an index can be moved to any other index \begin{equation}
+  V_{-k,l;p,m}=V_{k,-l;,p,m}=V_{k,l;-m,p}=V_{k,l;m,-p}
+  \end{equation}
+\item
+  Matrix elements are equivalent if their product of signs are the same
+  \begin{align}
+  V_{-k,l;p,m}&=V_{k,-l;,-p,-m}\\
+  V_{k,l;-m,-p}&=V_{k,l;m,p}
+  \end{align}
+\end{itemize}
 
-+ The sign of an index can be moved to any other index
-\begin{equation}
-V_{-k,l;p,m}=V_{k,-l;,p,m}=V_{k,l;-m,p}=V_{k,l;m,-p}
-\end{equation}
+\end{tcolorbox}
 
-+ Matrix elements are equivalent if their product of signs are the same
-\begin{align}
-V_{-k,l;p,m}&=V_{k,-l;,-p,-m}\\
-V_{k,l;-m,-p}&=V_{k,l;m,p}
-\end{align}
+\section{Perturbation theory}\label{perturbation-theory}
 
-:::
+\subsection{\texorpdfstring{Zeroth order in
+\(\tilde V\)}{Zeroth order in \textbackslash tilde V}}\label{zeroth-order-in-tilde-v}
 
-
-# Perturbation theory
-
-## Zeroth order in $\tilde V$
-
-### Ground state $|\Omega\rangle$
+\subsubsection{\texorpdfstring{Ground state
+\(|\Omega\rangle\)}{Ground state \textbar\textbackslash Omega\textbackslash rangle}}\label{ground-state-omegarangle}
 
 The zeroth order term for the ground state is
 
-$$
+\[
 \langle \Omega|\tilde H_0|\Omega\rangle=\langle\Omega|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|\Omega\rangle=\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_\Omega
-$$
+\]
 
-### Single-particle state $|p,s\rangle$
+\subsubsection{\texorpdfstring{Single-particle state
+\(|p,s\rangle\)}{Single-particle state \textbar p,s\textbackslash rangle}}\label{single-particle-state-psrangle}
 
-Now let me consider a single-particle state with momentum index $p$ above the fermi energy, $|p,s\rangle=a^\dagger_{p,s}|\Omega\rangle$.
+Now let me consider a single-particle state with momentum index \(p\)
+above the fermi energy, \(|p,s\rangle=a^\dagger_{p,s}|\Omega\rangle\).
 
 The zeroth order energy for this state is
 
-$$
+\[
 \langle p,s|\tilde H_0|p,s\rangle=\langle p,s|\epsilon_{k}a^{\dagger}_{k,s}a^{}_{k,s}-\epsilon_{-k}b^{\dagger}_{-k,s}b^{}_{-k,s}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda|p,s\rangle=\epsilon_p+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_{p,s}
-$$
+\]
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^0)$
-$\therefore\quad$ the energy difference $E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p$
-:::
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^0)\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
----
+\(\therefore\quad\) the energy difference
+\(E^{(0)}_{p,s}-E^{(0)}_\Omega=\epsilon_p\)
 
-### Two-body excitation
+\end{tcolorbox}
 
-Any two-body excitation of the form $b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle$ will have energy
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\subsubsection{Two-body excitation}\label{two-body-excitation}
+
+Any two-body excitation of the form
+\(b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle\) will
+have energy
 
 \begin{equation}
 \langle\Omega|a_{p_2,\sigma'}b_{-p_1,\sigma}\tilde H_0 b^\dagger_{-p_1,\sigma}a^\dagger_{p_2,\sigma'}|\Omega\rangle=-\epsilon_{-p_1}+\epsilon_{p_2}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda\equiv E^{(0)}_{p_1,p_2}
 \end{equation}
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^0)$
-$\therefore\quad$ the two-body excitation energy difference $E^{(0)}_{p_1,p_2}-E^{(0)}_\Omega=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}$.
-:::
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^0)\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-Note that $-\epsilon_{-p}=\epsilon_p$.
+\(\therefore\quad\) the two-body excitation energy difference
+\(E^{(0)}_{p_1,p_2}-E^{(0)}_\Omega=-\epsilon_{-p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_2}\).
 
-## First order in $\tilde V$
+\end{tcolorbox}
 
-### Ground state $|\Omega\rangle$
-Here having the the interaction term $\tilde V$ in normal order makes the calculation trivial
-$$
+Note that \(-\epsilon_{-p}=\epsilon_p\).
+
+\subsection{\texorpdfstring{First order in
+\(\tilde V\)}{First order in \textbackslash tilde V}}\label{first-order-in-tilde-v}
+
+\subsubsection{\texorpdfstring{Ground state
+\(|\Omega\rangle\)}{Ground state \textbar\textbackslash Omega\textbackslash rangle}}\label{ground-state-omegarangle-1}
+
+Here having the the interaction term \(\tilde V\) in normal order makes
+the calculation trivial \[
 \langle \Omega|\tilde V|\Omega\rangle=0
-$$
-due to @eq-vanish.
+\] due to Equation~\ref{eq-vanish}.
 
-### Single-particle state $|p,s\rangle$
-A less obvious case, but just as trivial due to @eq-vanish, is
+\subsubsection{\texorpdfstring{Single-particle state
+\(|p,s\rangle\)}{Single-particle state \textbar p,s\textbackslash rangle}}\label{single-particle-state-psrangle-1}
 
-$$
+A less obvious case, but just as trivial due to
+Equation~\ref{eq-vanish}, is
+
+\[
 \langle p,s|\tilde V|p,s\rangle=0
-$$
+\]
 
-So to order $\tilde V$ ($\propto U$) there is no contribution to the energy shift for both ground state and single particle state (above the ground state).
+So to order \(\tilde V\) (\(\propto U\)) there is no contribution to the
+energy shift for both ground state and single particle state (above the
+ground state).
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V)$
-$\therefore\quad$ the energy difference $E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p$
-:::
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V)\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
----
+\(\therefore\quad\) the energy difference
+\(E^{(1)}_{p,s}-E^{(1)}_\Omega=\epsilon_p\)
 
-### Two-body excitations
+\end{tcolorbox}
 
-To build all two-body excitations, I first perform an intermediate step to obtain the following^[All repeated indices are summed!]
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::{style='font-size:60%'}
+\subsubsection{Two-body excitations}\label{two-body-excitations}
 
-$$
+To build all two-body excitations, I first perform an intermediate step
+to obtain the following\footnote{All repeated indices are summed!}
+
+\begin{equation}\protect\phantomsection\label{eq-Vstate}{
 \begin{split}
 \tilde V b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle &
 =a_{k,\uparrow }^{\dagger }a_{l,\downarrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-p_1,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,l,-m,p_2})
@@ -437,13 +661,11 @@ $$
 +a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }|\Omega \rangle(-V_{k,-p_2,-m,p_1})
 +a_{k,\uparrow }^{\dagger }b_{-m,\downarrow }^{\dagger }b_{-n,\uparrow }^{\dagger }a_{p_1,\uparrow }^{\dagger }|\Omega \rangle(-V_{k,-p_2,-m,-n})
 \end{split}
-$${#eq-Vstate}
+}\end{equation}
 
-:::
-
-As an example, I calculate the LO shift for the $|I=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle$ state.  I have
-
-:::{style='font-size:70%'}
+As an example, I calculate the LO shift for the
+\(|I=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\)
+state. I have
 
 \begin{equation}
 \langle I=0,S=1,S_z=1|\tilde V|I=0,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}-a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
@@ -461,13 +683,11 @@ As an example, I calculate the LO shift for the $|I=0,S=1,S_z=1\rangle=\frac{1}{
 =-2V_{p_1,p_1,p_2,p_2}
 \end{equation}
 
-:::
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
----
-
-A similar calculation for $|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle$ state gives
-
-:::{style='font-size:70%'}
+A similar calculation for
+\(|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\)
+state gives
 
 \begin{equation}
 \langle I=1,I_z=0,S=1,S_z=1|\tilde V|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{2}\langle\Omega|\left(b_{-p_2,\downarrow}a_{p_1,\uparrow}+a_{p_2,\uparrow}b_{-p_1,\downarrow}\right)\tilde V\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
@@ -485,96 +705,123 @@ A similar calculation for $|I=1,I_z=0,S=1,S_z=1\rangle=\frac{1}{\sqrt{2}}\left(a
 =0
 \end{equation}
 
-:::
+After some calculations\footnote{Petar, please confirm!!}, I get the
+following LO shifts
 
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lc@{}}
+\toprule\noalign{}
+\(S=0\  I=0\) & \(I_z=0\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(S_z=0\) & \(0\) \\
+\end{longtable}
+}
 
-After some calculations^[Petar, please confirm!!], I get the following LO shifts
-
-:::{.columns}
-
-:::{.column width=35%}
-
-:::{.r-stack}
-| $S=0\  I=0$ | $I_z=0$ |
-|:----------|:-------:|
-| $S_z=0$   | $0$     |
-
-:::
-
-:::{.r-stack}
 --
-:::
 
-:::{.r-stack}
-| $S=1\  I=0$ | $I_z=0$                |
-|:----------|:----------------------:|
-| $S_z=+1$   | $-2V_{p_1,p_1;p_2,p_2}$ |
-| $S_z=0$   | $-2V_{p_1,p_1;p_2,p_2}$ |
-| $S_z=-1$  | $-2V_{p_1,p_1;p_2,p_2}$ |
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lc@{}}
+\toprule\noalign{}
+\(S=1\  I=0\) & \(I_z=0\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(S_z=+1\) & \(-2V_{p_1,p_1;p_2,p_2}\) \\
+\(S_z=0\) & \(-2V_{p_1,p_1;p_2,p_2}\) \\
+\(S_z=-1\) & \(-2V_{p_1,p_1;p_2,p_2}\) \\
+\end{longtable}
+}
 
-:::
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1477}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2841}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2841}}
+  >{\centering\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.2841}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\(S=0\  I=1\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(I_z=+1\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(I_z=0\)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\centering
+\(I_z=-1\)
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(S_z=0\) & \(+2V_{p_1,p_1;p_2,p_2}\) & \(+2V_{p_1,p_1;p_2,p_2}\) &
+\(+2V_{p_1,p_1;p_2,p_2}\) \\
+\end{longtable}
+}
 
-:::
-
-:::{.column width=65%}
-
-:::{.r-stack}
-| $S=0\  I=1$ | $I_z=+1$                | $I_z=0$                 | $I_z=-1$                |
-|:------------|:-----------------------:|:-----------------------:|:-----------------------:|
-| $S_z=0$     | $+2V_{p_1,p_1;p_2,p_2}$ | $+2V_{p_1,p_1;p_2,p_2}$ | $+2V_{p_1,p_1;p_2,p_2}$ |
-
-:::
-
-:::{.r-stack}
 --
-:::
 
-:::{.r-stack}
-| $S=1\  I=1$ | $I_z=+1$ | $I_z=0$ | $I_z=-1$ |
-|:------------|:--------:|:-------:|:--------:|
-| $S_z=+1$    | $0$      | $0$     | $0$      |
-| $S_z=0$     | $0$      | $0$     | $0$      |
-| $S_z=-1$    | $0$      | $0$     | $0$      |
+{\def\LTcaptype{none} % do not increment counter
+\begin{longtable}[]{@{}lccc@{}}
+\toprule\noalign{}
+\(S=1\  I=1\) & \(I_z=+1\) & \(I_z=0\) & \(I_z=-1\) \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\(S_z=+1\) & \(0\) & \(0\) & \(0\) \\
+\(S_z=0\) & \(0\) & \(0\) & \(0\) \\
+\(S_z=-1\) & \(0\) & \(0\) & \(0\) \\
+\end{longtable}
+}
 
-:::
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V)\) when \(p_1\ne p_2\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
+\(\therefore\quad\) the energy differences
+\(E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega\) are the following:
 
-:::
+\begin{itemize}
+\item
+  \(I=1,\ S=0\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}\)
+\item
+  \(I=1,\ S=1\ \): \(\ \epsilon_{p_1}+\epsilon_{p_2}\)
+\item
+  \(I=0,\ S=0\ \): \(\ \epsilon_{p_1}+\epsilon_{p_2}\)
+\item
+  \(I=0,\ S=1\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}\)
+\end{itemize}
 
----
+\end{tcolorbox}
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V)$ when $p_1\ne p_2$
-$\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are the following:
+The results above are valid when \(p_1\ne p_2\). When \(p_1=p_2\) a
+quick calculation gives\footnote{The \(I=0,\ S=0\) and \(I=1,\ S=1\)
+  channels vanish when \(p_1=p_2=p\).}
 
-- $I=1,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V)\) when \(p_1=p_2=p\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-- $I=1,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}$
+\(\therefore\quad\) the energy differences
+\(E^{(1)}_{p,p}-E^{(1)}_\Omega\) are the following:
 
-- $I=0,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}$
+\begin{itemize}
+\item
+  \(I=1,\ S=0\ \): \(\ 2\epsilon_{p}+V_{p,p;p,p}\)
+\item
+  \(I=0,\ S=1\ \): \(\ 2\epsilon_{p}-V_{p,p;p,p}\)
+\end{itemize}
 
-- $I=0,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}$
+\end{tcolorbox}
 
-:::
+\subsection{\texorpdfstring{Second order in
+\(\tilde V\)}{Second order in \textbackslash tilde V}}\label{second-order-in-tilde-v}
 
-The results above are valid when $p_1\ne p_2$.  When $p_1=p_2$ a quick calculation gives^[The $I=0,\ S=0$ and $I=1,\ S=1$ channels vanish when $p_1=p_2=p$.]
-
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V)$ when $p_1=p_2=p$
-$\therefore\quad$ the energy differences $E^{(1)}_{p,p}-E^{(1)}_\Omega$ are the following:
-
-- $I=1,\ S=0\ $: $\ 2\epsilon_{p}+V_{p,p;p,p}$
-
-- $I=0,\ S=1\ $: $\ 2\epsilon_{p}-V_{p,p;p,p}$
-
-:::
-
-
-## Second order in $\tilde V$
-
-### Ground state $|\Omega\rangle$ {#sec-2ndOrderGroundState}
+\subsubsection{\texorpdfstring{Ground state
+\(|\Omega\rangle\)}{Ground state \textbar\textbackslash Omega\textbackslash rangle}}\label{sec-2ndOrderGroundState}
 
 The second order contribution is
 
@@ -582,159 +829,122 @@ The second order contribution is
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle
 \end{equation}
 
-where the sum is over all possible states $|n\rangle$ in the Fock space.
+where the sum is over all possible states \(|n\rangle\) in the Fock
+space.
 
-Again the normal ordering of $\tilde V$ simplifies things.  The only terms in $\tilde V$ that can contribute are terms 6 and 11^[Repeated momentum indices are summed over.]
-$$
+Again the normal ordering of \(\tilde V\) simplifies things. The only
+terms in \(\tilde V\) that can contribute are terms 6 and 11\footnote{Repeated
+  momentum indices are summed over.}
 \begin{multline}
 \sum_{n}\langle\Omega|V_{-k',-l';k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k',\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle\\
 =
 V_{-k',-l';k,l}V_{\tilde k',\tilde l';-\tilde k,-\tilde l}\sum_{n}\langle\Omega|b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|\Omega\rangle
 \end{multline}
-$$
 
 Non-vanishing matrix elements implies that
 
-$$
+\[
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l',\tilde l=k'
-$$
+\]
 
----
-
-:::{.columns}
-
-:::{.column width="60%"}
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 It is straightforward to show that
 
-$$
+\[
 \langle n|\tilde H_0|n\rangle=\epsilon_l+\epsilon_k-\epsilon_{-l'}-\epsilon_{-k'}+\mathcal{E}_{\Omega}-\frac{U}{2}\Lambda
-$$
+\]
 
 So we have (sum over all momentum indices)
 
-$$
+\begin{equation}\protect\phantomsection\label{eq-groundStateV2}{
 \sum_{n}\langle\Omega|\tilde V|n\rangle\frac{1}{\langle\Omega|\tilde H_0|\Omega\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|\Omega\rangle=
 \frac{V^2_{k,l;m,n}}{-\epsilon_k-\epsilon_l-\epsilon_{m}-\epsilon_{n}}
-$${#eq-groundStateV2}
+}\end{equation}
 
-:::
+\hfill
+\includegraphics[width=0.65\linewidth,height=\textheight,keepaspectratio]{assets/groundState.png}
 
-:::{.column width="40%"}
+\subsubsection{\texorpdfstring{Single-particle state
+\(|p,\uparrow\rangle\)}{Single-particle state \textbar p,\textbackslash uparrow\textbackslash rangle}}\label{single-particle-state-puparrowrangle}
 
-![](assets/groundState.png){fig-align='right' width='65%'}
-
-:::
-
-:::
-
-### Single-particle state $|p,\uparrow\rangle$
-
-$$
+\[
 \sum_{n}\langle p,\uparrow|\tilde V|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|\tilde V|p,\uparrow\rangle
-$$
+\]
 
-There are two pairs of terms in this case that contribute: terms 3 and 4, and terms 6 and 11 (as for the ground state), but with restrictions
+There are two pairs of terms in this case that contribute: terms 3 and
+4, and terms 6 and 11 (as for the ground state), but with restrictions
 
-:::{style='font-size:70%'}
-$$
 \begin{multline}
 \sum_{n}\langle p,\uparrow|V_{p,-l';k,l}a^\dagger_{p,\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{k',l';-k,p}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{p,\uparrow}|p,\uparrow\rangle\\
 +
 \sum_{n}\langle p,\uparrow|V_{-k',-l';k,l\ne p}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}|n\rangle\frac{1}{\langle p,\uparrow|\tilde H_0|p,\uparrow\rangle-\langle n|\tilde H_0|n\rangle}\langle n|V_{\tilde k'\ne p,\tilde l';-\tilde k,-\tilde l}a^\dagger_{\tilde k',\uparrow}a^\dagger_{\tilde l',\downarrow}b^\dagger_{-\tilde k,\downarrow}b^\dagger_{-\tilde l,\uparrow}|p,\uparrow\rangle
 \end{multline}
-$$
-:::
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 The first term requires
 
-$$
+\[
 |n\rangle=|l,\uparrow;k,\downarrow;-l',\downarrow\rangle=a^{\dagger}_{l,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}|\Omega\rangle
 \quad;\quad \tilde k'=l,\tilde l'=k,\tilde k=l'
-$$
+\]
 
 The second term requires
 
-$$
+\[
 |n\rangle=|l\ne p,\uparrow;k,\downarrow;-l',\downarrow;-k',\uparrow;p,\uparrow\rangle=a^{\dagger}_{l\ne p,\uparrow}a^{\dagger}_{k,\downarrow}b^{\dagger}_{-l',\downarrow}b^{\dagger}_{-k',\uparrow}a^{\dagger}_{p,\uparrow}|\Omega\rangle
 \quad;\quad \tilde k'=l\ne p,\tilde l'=k,\tilde k=l',\tilde l=k'
-$$
+\]
 
-:::{.columns}
-
-:::{.column width="50%"}
 When I apply these conditions I finally get
 
-$$
+\[
 \frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} -
 \frac{V_{-k',-l';k,l\ne p}V_{l\ne p,k;-l',-k'}}{\epsilon_{l\ne p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
-$$
-Notice that the second term is *almost* like the ground state shift at second order in @eq-groundStateV2.
+\] Notice that the second term is \emph{almost} like the ground state
+shift at second order in Equation~\ref{eq-groundStateV2}.
 
-:::
+\begin{center}
+\includegraphics[width=0.8\linewidth,height=\textheight,keepaspectratio]{assets/OrderU2_single.png}
+\end{center}
 
-:::{.column width="50%"}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^2)\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-![](assets/OrderU2_single.png){fig-align='center' width='80%'}
-
-:::
-
-:::
-
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^2)$
 A little work shows that (I now add the explicit summation symbols)
-$$E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{l,m,=n}\frac{V^2_{-p,l;m,n}}{-\epsilon_l-\epsilon_m-\epsilon_{n}+\epsilon_p} -
+\[E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{l,m,=n}\frac{V^2_{-p,l;m,n}}{-\epsilon_l-\epsilon_m-\epsilon_{n}+\epsilon_p} -
 \sum_{l,m,n}\frac{V^2_{p,l;m,n}}{-\epsilon_{l}-\epsilon_{m}-\epsilon_{n}-\epsilon_{p}}
-$$
-<!--
-$$
-E^{(2)}_{p,s}-E^{(2)}_\Omega=\epsilon_p+\sum_{-l',k,l}\frac{V_{p,-l';k,l}V_{l,k;-l',p}}{\epsilon_p-\epsilon_k-\epsilon_l+\epsilon_{-l'}} +
-\sum_{-k',-l',k}\frac{V_{-k',-l';k,p}V_{p,k;-l',-k'}}{\epsilon_{p}+\epsilon_{k}-\epsilon_{-l'}-\epsilon_{-k'}}
-$$
--->
-:::
+\]
 
----
+\end{tcolorbox}
 
-### Two-body excitations ($p_1\ne p_2$)
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-+ $I=0,\ S=1$  I find the following energy shift:
+\subsubsection{\texorpdfstring{Two-body excitations
+(\(p_1\ne p_2\))}{Two-body excitations (p\_1\textbackslash ne p\_2)}}\label{two-body-excitations-p_1ne-p_2}
 
-:::{style='font-size:70%'}
-<!--
-\begin{multline}
-\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
-   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
-   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-\end{multline}
--->
+\begin{itemize}
+\tightlist
+\item
+  \(I=0,\ S=1\) I find the following energy shift:
+\end{itemize}
+
 \begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
    _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}
-:::
-This result is independent of $S_z$ (as it should be!)
 
-+ $I=1,\ S=1$ :
+This result is independent of \(S_z\) (as it should be!)
 
-:::{style='font-size:70%'}
-<!--
-\begin{multline}
-\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
-   +\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
-   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{-p_1,p_1,m,n}
-   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-   \end{multline}
--->
+\begin{itemize}
+\tightlist
+\item
+  \(I=1,\ S=1\) :
+\end{itemize}
+
 \begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
@@ -742,21 +952,15 @@ This result is independent of $S_z$ (as it should be!)
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
    _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}
-:::
-This result is independent of $S_z$ ***and*** $I_z$!
 
-+ $I=0,\ S=0$:
+This result is independent of \(S_z\) \textbf{\emph{and}} \(I_z\)!
 
-:::{style='font-size:70%'}
-<!--
-\begin{multline}
-\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
-   +\frac{6 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{6 V_{-p_1,p_1,m,n}
-   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-   \end{multline}
--->
+\begin{itemize}
+\tightlist
+\item
+  \(I=0,\ S=0\):
+\end{itemize}
+
 \begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
@@ -764,112 +968,139 @@ This result is independent of $S_z$ ***and*** $I_z$!
    +\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
    _{p_2}}+\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}
-:::
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-+ $I=1,\ S=0$ :
+\begin{itemize}
+\tightlist
+\item
+  \(I=1,\ S=0\) :
+\end{itemize}
 
-:::{style='font-size:70%'}
-<!--
-\begin{multline}
-\frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
-   _{p_1}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}\\
-   -\frac{2 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2
-   V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n}
-   V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
-\end{multline}
--->
 \begin{multline}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}\\
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
    _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}
 \end{multline}
-:::
-This result is ***independent*** of $I_z$ and is exactly the same as $I=0,\ S=1$.
 
-### Two-body excitations ($p_1= p_2=p$)
+This result is \textbf{\emph{independent}} of \(I_z\) and is exactly the
+same as \(I=0,\ S=1\).
 
-When $p_1=p_2=p$, only the channels $I=0,\ S=1$ and $I=1,\ S=0$ have non-trivial results, since the interpolating operators for the $I=1,\ S=1$ and $I=0\ ,S=0$ channels vanish due to anti-commutation relations.  Furthermore, the non-trivial results for $I=0,\ S=1$ and $I=1,\ S=0$ are the same
+\subsubsection{\texorpdfstring{Two-body excitations
+(\(p_1= p_2=p\))}{Two-body excitations (p\_1= p\_2=p)}}\label{two-body-excitations-p_1-p_2p}
 
-+ $I=0,\ S=0$ and $I=1,\ S=0$:
+When \(p_1=p_2=p\), only the channels \(I=0,\ S=1\) and \(I=1,\ S=0\)
+have non-trivial results, since the interpolating operators for the
+\(I=1,\ S=1\) and \(I=0\ ,S=0\) channels vanish due to anti-commutation
+relations. Furthermore, the non-trivial results for \(I=0,\ S=1\) and
+\(I=1,\ S=0\) are the same
 
-:::{style='font-size:70%'}
+\begin{itemize}
+\tightlist
+\item
+  \(I=0,\ S=0\) and \(I=1,\ S=0\):
+\end{itemize}
+
 \begin{equation}
 \frac{V_{k,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m-\epsilon _n}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
 -\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
    _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}
 \end{equation}
-:::
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::{style='font-size:85%'}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^2)\) when \(p_1\ne p_2\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^2)$ when $p_1\ne p_2$
-$\therefore\quad$ the energy differences $E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega$ are the following:
+\(\therefore\quad\) the energy differences
+\(E^{(1)}_{p_1,p_2}-E^{(1)}_\Omega\) are the following:
 
-- $I=1,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+\begin{itemize}
+\item
+  \(I=1,\ S=0\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}+2V_{p_1,p_1;p_2,p_2}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
-   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=1,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=1,\ S=1\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
-   _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=0,\ S=0\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=0,\ S=0\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}+0+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
    +\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon
-   _{p_2}}+\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=0,\ S=1\ $: $\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _{p_2}}+\frac{3 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=0,\ S=1\ \):
+  \(\ \epsilon_{p_1}+\epsilon_{p_2}-2V_{p_1,p_1;p_2,p_2}+\frac{V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{V_{-p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_2}}-\frac{V_{p_2,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_2}}
    -\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}-\epsilon _{p_2}}-\frac{V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n-\epsilon _{p_1}+\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
-   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
+   _n-\epsilon _{p_1}-\epsilon _{p_2}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+\epsilon _{p_1}+\epsilon _{p_2}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\end{itemize}
 
-:::
+\end{tcolorbox}
 
-The results above are valid when $p_1\ne p_2$.  When $p_1=p_2$ a quick calculation gives
+The results above are valid when \(p_1\ne p_2\). When \(p_1=p_2\) a
+quick calculation gives
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^2)$ when $p_1=p_2=p$
-$\therefore\quad$ the energy differences $E^{(1)}_{p,p}-E^{(1)}_\Omega$ are the following:
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^2)\) when \(p_1=p_2=p\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-- $I=1,\ S=0\ $: $\ 2\epsilon_{p}+V_{p,p;p,p}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
--\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}$
+\(\therefore\quad\) the energy differences
+\(E^{(1)}_{p,p}-E^{(1)}_\Omega\) are the following:
 
-- $I=0,\ S=1\ $: $\ 2\epsilon_{p}-V_{p,p;p,p}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
--\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}$
+\begin{itemize}
+\item
+  \(I=1,\ S=0\ \):
+  \(\ 2\epsilon_{p}+V_{p,p;p,p}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
+  -\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
+   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}\)
+\item
+  \(I=0,\ S=1\ \):
+  \(\ 2\epsilon_{p}-V_{p,p;p,p}+\frac{2 V_{-p,l,m,n}^2}{-\epsilon _k-\epsilon _l-\epsilon _m+\epsilon _p}-\frac{2 V_{p,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _p}
+  -\frac{2 V_{-p,p,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon
+   _n-2 \epsilon _p}+\frac{V_{p,p,m,n}^2}{-\epsilon _m-\epsilon _n+2 \epsilon _p}\)
+\end{itemize}
 
-:::
+\end{tcolorbox}
 
-:::
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
----
+\subsubsection{Benchmarking with exact
+results}\label{benchmarking-with-exact-results}
 
-### Benchmarking with exact results
+\begin{center}
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{assets/2sites.png}
+\end{center}
 
-![](assets/2sites.png){fig-align='center' width=70%}
+\begin{center}
+\includegraphics[width=0.7\linewidth,height=\textheight,keepaspectratio]{assets/4sites.png}
+\end{center}
 
-![](assets/4sites.png){fig-align='center' width=70%}
+\subsection{Degenerate perturbation theory for
+tubes}\label{degenerate-perturbation-theory-for-tubes}
 
+For Petar's tubes, e.g.~(10,2), (9,4), (8,6), etc., there is an
+additional complication coming from the fact that the lowest
+single-particle conduction band energy is two-fold degenerate, and the
+highest valence energy is also two-fold degenerate. This means that one
+must, in principle, resort to degenerate perturbation theory for
+two-body excitations involving these states. So let's do this.
 
-## Degenerate perturbation theory for tubes
+I will denote the two degenerate conduction band energies by indices
+\(p_1,p_2\), and the two degenerate valence energies as \(-p_1, -p_2\).
+The first step in degenerate perturbation theory is to diagonalize the
+leading order (in \(\tilde V\)) contribution in the basisi of degenerate
+states. Since I know that the Hubbard interaction preserves net spin and
+net iso(pseudo)spin, I can just focus on specific \(I_z,S_z\) cases.
 
-For Petar's tubes, e.g. (10,2), (9,4), (8,6), etc., there is an additional complication coming from the fact that the lowest single-particle conduction band energy is two-fold degenerate, and the highest valence energy is also two-fold degenerate. This means that one must, in principle, resort to degenerate perturbation theory for two-body excitations involving these states.  So let's do this.
-
-I will denote the two degenerate conduction band energies by indices $p_1,p_2$, and the two degenerate valence energies as $-p_1, -p_2$.  The first step in degenerate perturbation theory is to diagonalize the leading order (in $\tilde V$) contribution in the basisi of degenerate states.  Since I know that the Hubbard interaction preserves net spin and net iso(pseudo)spin, I can just focus on specific $I_z,S_z$ cases.  
-
-I first consider the $I_z=0$, $S_z=1$ sector.  The degenerate states that span this subspace are
+I first consider the \(I_z=0\), \(S_z=1\) sector. The degenerate states
+that span this subspace are
 
 \begin{equation}
 |I_z=0,\ S_z=1\rangle\equiv
@@ -881,9 +1112,10 @@ b^\dagger_{-p_2,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle
 \end{pmatrix}
 \end{equation}
 
-All these states have non-interacting energies $\epsilon_{p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_1}=\epsilon_{p_2}+\epsilon_{p_2}=2\epsilon_{p_1}$.
+All these states have non-interacting energies
+\(\epsilon_{p_1}+\epsilon_{p_2}=\epsilon_{p_1}+\epsilon_{p_1}=\epsilon_{p_2}+\epsilon_{p_2}=2\epsilon_{p_1}\).
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 I now look at LO order perturbation theory,
 
@@ -897,27 +1129,28 @@ V_{p_1,p_1,p_2,p_2} & V_{p_1,p_1,p_1,p_1} & 0 & 0\\
 \end{pmatrix}
 \end{equation}
 
-Here I used the fact that $V_{p_2,p_2,p_2,p_2}=V_{p_1,p_1,p_1,p_1}$ and $V_{\pm p_i,p_j,p_j,p_j}=0$.  Diagonalizing this matrix gives the following eigenvalues/eigenvectors
+Here I used the fact that \(V_{p_2,p_2,p_2,p_2}=V_{p_1,p_1,p_1,p_1}\)
+and \(V_{\pm p_i,p_j,p_j,p_j}=0\). Diagonalizing this matrix gives the
+following eigenvalues/eigenvectors
 
-:::{.callout-note}
-## $I_z=0,\ S_z=1$
-$$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\(I_z=0,\ S_z=1\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
 \begin{align}
 -2V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 0 &\quad :: &  \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\downarrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 -V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 -V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
 \end{align}
-$$
-:::
+
+\end{tcolorbox}
 
 The top two results should look familiar.
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-Now consider $I_z=1,\  S_z=0$.  The degenerate states that span this subspace are
+Now consider \(I_z=1,\  S_z=0\). The degenerate states that span this
+subspace are
 
-:::{style='font-size:80%'}
 \begin{equation}
 |I_z=1,\ S_z=0\rangle\equiv
 \begin{pmatrix}
@@ -927,11 +1160,9 @@ a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle\\
 a^\dagger_{p_2,\downarrow}a^\dagger_{p_1,\uparrow}|\Omega\rangle
 \end{pmatrix}
 \end{equation}
-:::
 
 with corresponding matrix
 
-:::{style='font-size:80%'}
 \begin{equation}
 \langle I_z=1,\ S_z=0|\tilde V|I_z=1,\ S_z=0\rangle=
 \begin{pmatrix}
@@ -941,25 +1172,24 @@ V_{p_1,p_1,p_2,p_2} & V_{p_1,p_1,p_1,p_1} & 0 & 0\\
 0 & 0 & V_{p_1,p_1,p_2,p_2} & V_{p_1,p_1,p_2,p_2}
 \end{pmatrix}
 \end{equation}
-:::
 
 This results in
 
-:::{.callout-note}
-## $I_z=1,\ S_z=0$
-$$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\(I_z=1,\ S_z=0\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
 \begin{align}
 2V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\downarrow}-a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 0 &\quad :: &  \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\downarrow}+a^\dagger_{p_1,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
 \end{align}
-$$
-:::
 
----
+\end{tcolorbox}
 
-Let's do an easy case now (before the final hard one), $I_z=1,\ S_z=1$.  There is only one state in this case,
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+Let's do an easy case now (before the final hard one),
+\(I_z=1,\ S_z=1\). There is only one state in this case,
 
 \begin{equation}
 a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle
@@ -967,18 +1197,16 @@ a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle
 
 This simply gives
 
-:::{.callout-note}
-## $I_z=1,\ S_z=1$
-$$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\(I_z=1,\ S_z=1\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
 \begin{align}
 0 &\quad :: & a^\dagger_{p_1,\uparrow}a^\dagger_{p_2,\uparrow}|\Omega\rangle
 \end{align}
-$$
-:::
 
-Now the $I_z=0,\ S_z=0$ states
+\end{tcolorbox}
 
-:::{style='font-size:80%'}
+Now the \(I_z=0,\ S_z=0\) states
+
 \begin{equation}
 |I_z=0,\ S_z=0\rangle\equiv
 \begin{pmatrix}
@@ -992,13 +1220,11 @@ b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}|\Omega\rangle\\
 b^\dagger_{-p_2,\downarrow}a^\dagger_{p_1,\downarrow}|\Omega\rangle
 \end{pmatrix}
 \end{equation}
-:::
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 The matrix is then
 
-:::{style='font-size:80%'}
 \begin{equation}
 \langle I_z=0,\ S_z=0|\tilde V|I_z=0,\ S_z=0\rangle=
 \begin{pmatrix}
@@ -1012,129 +1238,143 @@ V_{p_1,p_1,p_2,p_2} & V_{p_1,p_1,p_1,p_1} & 0 & 0 & 0 & 0 & 0 & 0\\
 0 & 0 & 0 & 0 & V_{p_1,p_1,p_2,p_2} & V_{p_1,p_1,p_2,p_2} & 0 & 0
 \end{pmatrix}
 \end{equation}
-:::
 
 which gives
 
-:::{.callout-note}
-## $I_z=0,\ S_z=0$
-$$
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\(I_z=0,\ S_z=0\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
 \begin{align}
 0 &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 0 &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}+b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 -2V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 +2V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_2,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_2,\uparrow}-b^\dagger_{-p_1,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_1,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
 \end{align}
-$$
-:::
 
----
+\end{tcolorbox}
 
-:::{.callout-note}
-## $I_z=0,\ S_z=0$ continued
-$$
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
+
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{\(I_z=0,\ S_z=0\) continued}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
+
 \begin{align}
 -V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 -V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 +V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle\\
 +V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2} &\quad :: & \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right)|\Omega\rangle
 \end{align}
-$$
-:::
 
-These results suggest the following when dealing with degenerate $p_1$ and $p_2$ cases:
+\end{tcolorbox}
 
-+ When constructing two-body interpolating operators with different indices $p_1$ and $p_2$, use the standard interpolating operators derived by Berkowitz and Luu
+These results suggest the following when dealing with degenerate \(p_1\)
+and \(p_2\) cases:
 
-+ When using the same indices, one has two different $I=0,\ S=1$ channels and two different $I=1,\  S=0$ channels 
+\begin{itemize}
+\item
+  When constructing two-body interpolating operators with different
+  indices \(p_1\) and \(p_2\), use the standard interpolating operators
+  derived by Berkowitz and Luu
+\item
+  When using the same indices, one has two different \(I=0,\ S=1\)
+  channels and two different \(I=1,\  S=0\) channels
+\end{itemize}
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::{.callout-note}
-## Interpolating operators for equal momenta two-body excitations (degenerate case)
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Interpolating operators for equal momenta two-body excitations
+(degenerate case)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-$I=1,\ S=0$ :
-$$
+\(I=1,\ S=0\) :
 \begin{align}
 I_z=-1\quad  &\quad I_z=0 & I_z=+1 &\\
 \frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &\quad \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &\\
 \frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &\quad  \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}+a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &
 \end{align}
-$$
 
-$I=0,\ S=1$ :
-$$
+\(I=0,\ S=1\) :
 \begin{align}
 S_z=-1\quad  &\quad S_z=0 & S_z=+1 &\\
 \frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}a^\dagger_{p_1,\downarrow}+a^\dagger_{p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &\quad \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}-b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}+b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right) &\\
 \frac{1}{\sqrt{2}}\left(b^\dagger_{-p_1,\uparrow}a^\dagger_{p_1,\downarrow}-a^\dagger_{p_2,\downarrow}b^\dagger_{-p_2,\uparrow}\right) &\quad  \frac{1}{2}\left(a^\dagger_{p_1,\downarrow}b^\dagger_{-p_1,\downarrow}-a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\uparrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\downarrow}+b^\dagger_{-p_2,\uparrow}a^\dagger_{p_2,\uparrow}\right) & \frac{1}{\sqrt{2}}\left(a^\dagger_{p_1,\uparrow}b^\dagger_{-p_1,\downarrow}-b^\dagger_{-p_2,\downarrow}a^\dagger_{p_2,\uparrow}\right)&
 \end{align}
-$$
-:::
+
+\end{tcolorbox}
 
 And after some tedious calculations, I find the energy shifts. . .
 
----
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
-:::{style='font-size:95%'}
+\begin{tcolorbox}[enhanced jigsaw, arc=.35mm, bottomrule=.15mm, bottomtitle=1mm, breakable, colback=white, colbacktitle=quarto-callout-note-color!10!white, colframe=quarto-callout-note-color-frame, coltitle=black, left=2mm, leftrule=.75mm, opacityback=0, opacitybacktitle=0.6, rightrule=.15mm, title=\textcolor{quarto-callout-note-color}{\faInfo}\hspace{0.5em}{Energy difference at \(\mathcal{O}(V^2)\) when \(p_1\ne p_2\) but
+\(\epsilon_{p_1}=\epsilon_{p_2}\)}, titlerule=0mm, toprule=.15mm, toptitle=1mm]
 
-:::{.callout-note}
-## Energy difference at $\mathcal{O}(V^2)$ when $p_1\ne p_2$ but $\epsilon_{p_1}=\epsilon_{p_2}$
-
-- $I=1,\ S=0\ $: $\ 2\epsilon_{p_1}+2V_{p_1,p_1;p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
+\begin{itemize}
+\item
+  \(I=1,\ S=0\ \):
+  \(\ 2\epsilon_{p_1}+2V_{p_1,p_1;p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
    -\frac{2V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
-   _n-2\epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2\epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=1,\ S=1\ $: $\ 2\epsilon_{p_1}+0+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _n-2\epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2\epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=1,\ S=1\ \):
+  \(\ 2\epsilon_{p_1}+0+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
-   -\frac{2V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=0,\ S=0\ $: $\ 2\epsilon_{p_1}+0+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   -\frac{2V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=0,\ S=0\ \):
+  \(\ 2\epsilon_{p_1}+0+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
-      +\frac{6 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-
-- $I=0,\ S=1\ $: $\ 2\epsilon_{p_1}-2V_{p_1,p_1;p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
+      +\frac{6 V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{6 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=0,\ S=1\ \):
+  \(\ 2\epsilon_{p_1}-2V_{p_1,p_1;p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}
    -\frac{2V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon
-   _n-2\epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2\epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}$
-   
-- $I=1,\ S=0$: $\ 2\epsilon_{p_1}+V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _n-2\epsilon _{p_1}}+\frac{2 V_{p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n+2\epsilon _{p_1}}-\frac{2 V_{-p_1,p_1,m,n} V_{-p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n}\)
+\item
+  \(I=1,\ S=0\):
+  \(\ 2\epsilon_{p_1}+V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}-\frac{2
    V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{2V_{-p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n}^2}{
    -\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}$
-
-- $I=1,\ S=0$: $\ 2\epsilon_{p_1}+V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}\)
+\item
+  \(I=1,\ S=0\):
+  \(\ 2\epsilon_{p_1}+V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{2
    V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{2V_{-p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n}^2}{
    -\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}$
-   
-- $I=0,\ S=1$: $\ 2\epsilon_{p_1}-V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
+   _n-2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}\)
+\item
+  \(I=0,\ S=1\):
+  \(\ 2\epsilon_{p_1}-V_{p_1,p_1,p_1,p_1}+V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon
    _{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}+\frac{2
    V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{2V_{-p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n}^2}{
    -\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}$
-   
-- $I=0,\ S=1$: $\ 2\epsilon_{p_1}-V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon_{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}-\frac{2
+   _n-2 \epsilon _{p_1}}-\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}\)
+\item
+  \(I=0,\ S=1\):
+  \(\ 2\epsilon_{p_1}-V_{p_1,p_1,p_1,p_1}-V_{p_1,p_1,p_2,p_2}+\frac{2V_{-p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n+\epsilon_{p_1}}-\frac{2V_{p_1,l,m,n}^2}{-\epsilon _l-\epsilon _m-\epsilon _n-\epsilon _{p_1}}-\frac{2
    V_{-p_1,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}-\frac{2V_{-p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}+\frac{V_{p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n}^2}{
    -\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon
-   _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}$
+   _n-2 \epsilon _{p_1}}+\frac{V_{p_1,p_1,m,n} V_{p_2,p_2,m,n}}{-\epsilon _m-\epsilon _n+2 \epsilon _{p_1}}\)
+\end{itemize}
 
-:::
+\end{tcolorbox}
 
-:::
+In determining these results, I used the fact that under the sum,
+\(\frac{V_{\pm p_2,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}=\frac{V_{\pm p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}\),
+for example, and so on.
 
-In determining these results, I used the fact that under the sum, $\frac{V_{\pm p_2,p_2,m,n}^2}{-\epsilon _m-\epsilon _n}=\frac{V_{\pm p_1,p_1,m,n}^2}{-\epsilon _m-\epsilon _n}$, for example, and so on.
+\begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
----
+\subsubsection{Benchmarking to dQMC
+simulations}\label{benchmarking-to-dqmc-simulations}
 
-### Benchmarking to dQMC simulations
+\begin{center}
+\pandocbounded{\includegraphics[keepaspectratio]{assets/tube10x2.png}}
+\end{center}
+
+Data points were obtained from fitting to two-body correlators obtained
+from dQMC simulations
 
 
-![](assets/tube10x2.png){fig-align='center'}
 
-:::{.r-stack}
 
-Data points were obtained from fitting to two-body correlators obtained from dQMC simulations
-
-:::
+\end{document}

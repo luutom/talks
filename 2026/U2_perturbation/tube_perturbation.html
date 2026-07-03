@@ -176,12 +176,12 @@ H_0=-\sum_{\langle x,y\rangle,s}\left(c^\dagger_{x,s}c^{}_{y,s}\right)=-\sum_{x,
 <p>where <span class="math inline">\(\kappa\)</span> is the “connectivity”, or “adjacency” matrix and <span class="math inline">\(s=\uparrow,\downarrow\)</span>.</p>
 <p>To go to “momentum space”, I first diagonalize <span class="math inline">\(\kappa\)</span> (I assume bi-partite and symmetric)</p>
 <p><span class="math display">\[\begin{equation}
--\kappa\to O^{}.(-\kappa).O^{-1}={\rm diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
+-\kappa\to O^{}.(-\kappa).O^{-1}=\operatorname{diag}(\epsilon_{0},\epsilon_{1},\ldots, \epsilon_{k},\ldots )
 \end{equation}\]</span></p>
 <p>where <span class="math inline">\(O^{}.O^{-1}=O^{-1}.O^{}=\mathbb{1}\)</span> and <span class="math inline">\(\epsilon_{k}\)</span> is an (non-interacting) eigenenergie with “momentum <span class="math inline">\(k\)</span>”<sup>1</sup>. The orthogonal matrix <span class="math inline">\(O\)</span> can be constructed from the eigenfunctions of <span class="math inline">\(\kappa\)</span>.</p>
 <p>I now have (I suppress summation symbols over <span class="math inline">\(x,y,s\)</span>)</p>
 <p><span class="math display">\[\begin{equation}
-H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.{\rm diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
+H_0=c^\dagger_{s}.(-\kappa).c^{}_{s}=c^\dagger_{s}.O^{-1}.O^{}.(-\kappa).O^{-1}.O^{}.c^{}_{s}=c^\dagger_{s}.O^{-1}.\operatorname{diag}(\ldots \epsilon_{k}\ldots).O^{}.c^{}_{s}
 =\sum_{k,s}\epsilon_{k}c^{\dagger}_{k,s}c^{}_{k,s}
 \end{equation}\]</span></p>
 <p>This defines the diagonal momentum basis</p>
@@ -211,8 +211,8 @@ H_0|\Omega\rangle=\mathcal{E}_\Omega|\Omega\rangle
 \begin{equation}
 c_{k,s}=
 \begin{cases}
-a^{}_{k,s} &amp; \forall\ k\ s.t.\ \epsilon_k&gt;0 \quad{\rm "particles"}\\
-b^{\dagger}_{-k,s}&amp; \forall\ k\ s.t.\ \epsilon_k&lt;0 \quad {\rm "holes"}\ .
+a^{}_{k,s} &amp; \forall\ k\ s.t.\ \epsilon_k&gt;0 \quad\operatorname{"particles"}\\
+b^{\dagger}_{-k,s}&amp; \forall\ k\ s.t.\ \epsilon_k&lt;0 \quad \operatorname{"holes"}\ .
 \end{cases}
 \end{equation}
 \tag{1}\]</span></span></p>
@@ -250,7 +250,7 @@ H_2&amp;=U\sum_xc^\dagger_{x,\downarrow}c^\dagger_{x,\uparrow}c^{}_{x,\uparrow}c
 <aside><ol class="aside-footnotes"><li id="fn6"><p><span class="math inline">\(\Lambda\)</span> is also the number of hexagonal unit cells.</p></li></ol></aside></section>
 <section class="slide level2">
 
-<p>I want express <span class="math inline">\(H_2\)</span> in the canonical basis of <code>holes</code> and <code>particles</code>. To do this, I need to simplify the notation, otherwise things get crazy. I will assume that we have a bipartite lattice and the Fermi surface is defined such that <span class="math inline">\(\epsilon_{{\rm fermi}}=0\)</span><sup>1</sup>. This implies the following things:</p>
+<p>I want express <span class="math inline">\(H_2\)</span> in the canonical basis of <code>holes</code> and <code>particles</code>. To do this, I need to simplify the notation, otherwise things get crazy. I will assume that we have a bipartite lattice and the Fermi surface is defined such that <span class="math inline">\(\epsilon_{\operatorname{fermi}}=0\)</span><sup>1</sup>. This implies the following things:</p>
 <ul>
 <li><p>For each momentum index <span class="math inline">\(k\)</span> there exist <span class="math inline">\(\epsilon_k\ge 0\)</span> and <span class="math inline">\(-\epsilon_k\le 0\)</span> as eigenenergies</p></li>
 <li><p>The positive energies are associated with <code>particle</code> operators <span class="math inline">\(a^{}_k,a^\dagger_k\)</span></p></li>
@@ -274,7 +274,7 @@ H_2= &amp;V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\
 <section class="slide level2">
 
 <h4 id="normal-ordering-h_2">Normal ordering <span class="math inline">\(H_2\)</span></h4>
-<p>Unfortunately I’m not done. I also want to express <span class="math inline">\(H_2\)</span> in <em>normal ordered</em> form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of <a href="#/eq-H2_1" class="quarto-xref">Equation&nbsp;3</a>) are already in normal-ordered form (in <span class="math inline">\(\color{blue}{\rm blue}\)</span> below). Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes. I’ll do that now (<span class="math inline">\(\color{red}{\rm red}\)</span> terms) <span id="eq-H2_2"><span class="math display">\[
+<p>Unfortunately I’m not done. I also want to express <span class="math inline">\(H_2\)</span> in <em>normal ordered</em> form, as this greatly simplifies calculations later. Terms 1, 3, 4, 6, and 11 (on the RHS of <a href="#/eq-H2_1" class="quarto-xref">Equation&nbsp;3</a>) are already in normal-ordered form (in <span style="color:blue;">blue</span> below). Term 2, 5, 7, and 10 are simple to normal order, requiring only simple permutations and potential sign changes. I’ll do that now (<span style="color:red;">red</span> terms) <span id="eq-H2_2"><span class="math display">\[
 \begin{align}
 H_2&amp;=\color{blue}{ V_{k',l';k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\color{red}{-V_{k',l';k,-l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}a^{}_{k,\downarrow}}\\
 &amp;\color{blue}{+V_{k',l';-k,l}a^\dagger_{k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}+V_{k',-l';k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}a^{}_{l,\uparrow}}\\
@@ -303,7 +303,7 @@ V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^
 U\sum_xO^{-1}_{x,-l}O^{-1}_{x,l'}O^{}_{k,x}O^{}_{-l,x}=\frac{U}{2}\sum_xO^{-1}_{x,l'}O^{}_{k,x}=\frac{U}{2}\delta_{l',k}
 \]</span> Thus term 8 becomes <span class="math display">\[
 V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}
-=\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad{\rm (term\ 8)}
+=\frac{U}{2}a^\dagger_{k,\downarrow}a^{}_{k,\downarrow}-V_{-k',l';k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}a^{}_{k,\downarrow}\quad\operatorname{(term\ 8)}
 \]</span></p>
 <aside><ol class="aside-footnotes"><li id="fn8"><p>I have verified this numerically.</p></li></ol></aside></section>
 <section class="slide level2">
@@ -311,20 +311,20 @@ V_{-k',l';k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}a^{}_{k,\downarrow}b^
 <p>A similar calculation for term 9 gives</p>
 <p><span class="math display">\[
 V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}
-=\frac{U}{2}a^\dagger_{k,\uparrow}a^{}_{k,\uparrow}-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\downarrow}b^{}_{-k,\downarrow}a^{}_{l,\uparrow}\quad{\rm (term\ 9)}
+=\frac{U}{2}a^\dagger_{k,\uparrow}a^{}_{k,\uparrow}-V_{k',-l';-k,l}a^\dagger_{k',\uparrow}b^\dagger_{-l,\downarrow}b^{}_{-k,\downarrow}a^{}_{l,\uparrow}\quad\operatorname{(term\ 9)}
 \]</span></p>
 <p>Now consider term 12</p>
 <p><span class="math display">\[
 \begin{align}
 V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}=&amp;V_{k',-l';-k,-l}\left(\delta_{-l',-k}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\right)\\
 =&amp;\underbrace{V_{k',-k;-k,-l}}_{=\frac{U}{2} \delta_{k',-l}=0}a^\dagger_{k',\uparrow}b^\dagger_{-l,\uparrow}+V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\\
-&amp;=V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\quad{\rm (term\ 12)}
+&amp;=V_{k',-l';-k,-l}a^\dagger_{k',\uparrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-l',\downarrow}\quad\operatorname{(term\ 12)}
 \end{align}
 \]</span> Similar thing happens for terms 13-15, <span class="math display">\[
 \begin{align}
-V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}&amp;=-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}&amp;\quad{\rm (term\ 13)}\\
-V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&amp;=-V_{-k',-l';k,-l}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}&amp;\quad{\rm (term\ 14)}\\
-V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}&amp;=+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}&amp;\quad{\rm (term\ 15)}
+V_{-k',l';-k,-l}b^{}_{-k',\uparrow}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}&amp;=-V_{-k',l';-k,-l}a^\dagger_{l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}&amp;\quad\operatorname{(term\ 13)}\\
+V_{-k',-l';k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}b^\dagger_{-l,\uparrow}&amp;=-V_{-k',-l';k,-l}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{k,\downarrow}&amp;\quad\operatorname{(term\ 14)}\\
+V_{-k',-l';-k,l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}a^{}_{l,\uparrow}&amp;=+V_{-k',-l';-k,l}b^\dagger_{-k,\downarrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}a^{}_{l,\uparrow}&amp;\quad\operatorname{(term\ 15)}
 \end{align}
 \]</span></p>
 </section>
@@ -340,7 +340,7 @@ V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarro
 \begin{align}
 V_{-k',-l';-k,-l}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}
 &amp;= \underbrace{V_{-k',-k;-k,-k'}}_{=\frac{U}{2}\Lambda}-\underbrace{V_{-k',-l';-k,-k'}}_{=\frac{U}{2}\delta_{-l',-k}}b^\dagger_{-k\downarrow}b^{}_{-l',\downarrow}-\underbrace{V_{-k',-k;-k,-l}}_{=\frac{U}{2}\delta_{-k',-l}}b^\dagger_{-l\uparrow}b^{}_{-k',\uparrow}+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\\
-&amp;=\frac{U}{2}\Lambda-\frac{U}{2}\left(b^\dagger_{-k\downarrow}b^{}_{-k,\downarrow}+b^\dagger_{-k\uparrow}b^{}_{-k,\uparrow}\right)+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\quad{\rm (term\ 16)}
+&amp;=\frac{U}{2}\Lambda-\frac{U}{2}\left(b^\dagger_{-k\downarrow}b^{}_{-k,\downarrow}+b^\dagger_{-k\uparrow}b^{}_{-k,\uparrow}\right)+V_{-k',-l';-k,-l}b^\dagger_{-k,\downarrow}b^\dagger_{-l,\uparrow}b^{}_{-k',\uparrow}b^{}_{-l',\downarrow}\quad\operatorname{(term\ 16)}
 \end{align}
 \]</span></p>
 </div>
