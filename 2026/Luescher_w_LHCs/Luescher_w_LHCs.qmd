@@ -1,0 +1,141 @@
+---
+title: "Lüscher's formula and Left-hand Cuts"
+subtitle: "Is there a simple way to include them?"
+author: "Thomas Luu"
+date: last-modified
+format:
+  revealjs:
+    html-math-method: katex
+    theme: default
+    slide-number: true
+    logo: assets/juelich-logo.png
+    center: false
+    smaller: true
+    scrollable: true
+    width: 1280
+    height: 800
+---
+
+# Derivation of Lüscher's formula
+
+## Derivation with a simple $\delta$-function potential
+
+# Lüscher's formular in action
+
+## Toy Model
+
+I assume a Hamiltonian with potential of the form
+
+$$
+\langle \vec p' | \hat V | \vec p \rangle = V(p',p) = \frac{2\pi C_0}{\mu} f(p') f(p)
+$$
+$$
+f(p) = \exp\left(-\frac{\pi (p r)^2}{32}\right)
+$$
+$$
+C_0^{-1} = \frac{1}{a_0} - \frac{4}{\pi r} \, ,
+$$
+
+This is a separable potential with parameters chosen such that
+
+$$
+p \cot\delta(p) = \frac{1}{f(p)^2}\left(-\frac{1}{a_0} + \frac{2p}{\sqrt\pi} F\!\left(\tfrac{1}{4} p \sqrt\pi r\right)\right) \approx -\frac{1}{a_0} + \frac{r}{2} p^2 - \frac{r^3}{48} p^4 + \mathcal{O}(p^6)
+$$
+
+##
+
+![](assets/fig-toy-pcotdelta.png){fig-align="center" width="95%"}
+
+## Procedure when particles are put in a box
+
+In a box of side length $L$, the eigenenergies $E$ can be obtained by solving the following transcendental equation
+
+$$
+-\frac{L}{a_0} + \frac{4L}{\pi r} = \frac{1}{\pi} \sum_{\vec n \in \text{B.Z.}} \frac{f(\vec n)^2}{\vec n^2 - x} \, ,
+$$
+
+with $x = \dfrac{m E L^2}{4\pi^2}$ and $f(\vec n) = \exp\left(-\dfrac{\pi^3 r^2}{8 L^2} \vec n^2\right)$. I assume the two particles have equal mass $m$.
+
+Given $x$, I insert this into Lüscher's formula to get the phase shift
+
+$$
+p\cot\delta(p) = \frac{1}{\pi L} S(x)
+$$
+
+where
+
+$$
+S(x) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{\Lambda} \frac{1}{n^2 - x} - 4\pi\Lambda \right]
+$$
+
+## "deuteron" in a box
+
+![](assets/fig-deuteron-box.png){fig-align="center" width="70%"}
+
+## Closer look at the "deuteron" case
+
+![](assets/fig-deuteron-closer.png){fig-align="center" width="100%"}
+
+## Finite volume dependence of the bound state
+
+:::: {.columns}
+::: {.column width="50%"}
+Can be shown that the location of the bound state depends exponentially on $L$
+
+$$
+E_{-1}(L) = -\frac{\gamma^2}{m}\left(1 + \frac{12}{\gamma L} \frac{e^{-\gamma L}}{1 - 2\gamma\big(p\cot\delta\big)'} + \dots \right)
+$$
+$$
+\approx -\frac{\gamma^2}{m}\left(1 + \frac{12}{\gamma L} \frac{e^{-\gamma L}}{1 - \gamma r} \right)
+$$
+
+Here I define $p = i\gamma$
+:::
+::: {.column width="50%"}
+![](assets/fig-bound-state-L.png){fig-align="center" width="100%"}
+:::
+::::
+
+## Finite volume dependence of lowest scattering state
+
+Lowest scattering state has polynomial dependence on $L$:
+
+$$
+E_0(L) = \frac{4\pi a_0}{m L^3}\left(1 + 2.8372974794806 \frac{a_0}{L} + 6.375183165675\left(\frac{a_0}{L}\right)^2 + 8.582925664437\left(\frac{a_0}{L}\right)^3 + 2\pi \frac{a_0^2 r}{L^3} + \dots\right)
+$$
+
+Note: $m E_0 = p^2$
+
+![](assets/fig-scattering-state-L.png){fig-align="center" width="55%"}
+
+## Now let's consider a virtual state situation
+
+![](assets/fig-virtual-state.png){fig-align="center" width="75%"}
+
+## Zooming in again. . .
+
+![](assets/fig-virtual-zoom.png){fig-align="center" width="100%"}
+
+## Virtual state has same finite volume dependence as a scattering state
+
+Virtual state has polynomial dependence on $L$ just like a regular scattering state:
+
+$$
+E_0(L) = \frac{4\pi a_0}{m L^3}\left(1 + 2.8372974794806 \frac{a_0}{L} + 6.375183165675\left(\frac{a_0}{L}\right)^2 + 8.582925664437\left(\frac{a_0}{L}\right)^3 + 2\pi \frac{a_0^2 r}{L^3} + \dots\right)
+$$
+
+![](assets/fig-virtual-L-dependence.png){fig-align="center" width="60%"}
+
+## And now a repulsive state
+
+:::: {.columns}
+::: {.column width="50%"}
+![](assets/fig-repulsive-pcotdelta.png){fig-align="center" width="100%"}
+:::
+::: {.column width="50%"}
+Finite-volume dependence of lowest scattering state
+
+![](assets/fig-repulsive-L-dependence.png){fig-align="center" width="100%"}
+:::
+::::
+
