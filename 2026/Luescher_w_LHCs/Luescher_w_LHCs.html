@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Thomas Luu">
-  <meta name="dcterms.date" content="2026-09-20">
+  <meta name="dcterms.date" content="2026-09-23">
   <title>Lüscher’s formula and Left-hand Cuts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -162,19 +162,121 @@ Thomas Luu
 </div>
 </div>
 
-  <p class="date">2026-09-20</p>
+  <p class="date">2026-09-23</p>
 </section>
 <section>
 <section id="derivation-of-lüschers-formula" class="title-slide slide level1 center">
 <h1>Derivation of Lüscher’s formula</h1>
 
 </section>
-<section id="derivation-with-a-simple-delta-function-potential" class="slide level2">
-<h2>Derivation with a simple <span class="math inline">\delta</span>-function potential</h2>
+<section id="delta-function-interaction" class="slide level2">
+<h2><span class="math inline">\delta</span>-function interaction</h2>
+<p>The contact interaction is regulated by a hard cutoff <span class="math inline">\Lambda</span>,</p>
+<p><span class="math display">
+\langle \vec p\,' | \hat V_\delta | \vec p \rangle = \frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \, ,
+</span></p>
+<p>where <span class="math inline">a(\Lambda)</span> is tuned to reproduce the T-matrix at threshold,</p>
+<p><span class="math display">
+a(\Lambda) = \frac{a_0}{1 - \tfrac{2}{\pi} a_0 \Lambda} \, ,
+</span></p>
+<p>and <span class="math inline">a_0</span> is the physical s-wave scattering length.</p>
+</section>
+<section id="scattering-amplitude-in-free-space" class="slide level2">
+<h2>Scattering amplitude in free space</h2>
+<div class="columns">
+<div class="column" style="width:60%;">
+<p>Because my interaction is separable, the bubble sum can be summed geometrically to give</p>
+<div style="font-size:80%">
+<p><span class="math display">
+\begin{aligned}
+T(\vec p, -\vec p; E)
+&amp;= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{4\pi a(\Lambda)}{m}\int\! \tfrac{d^3 q}{(2\pi)^3}\, \tfrac{1}{E - q^2/m + i\epsilon}} \\[4pt]
+&amp;= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{2 a(\Lambda)}{\pi}\int\! dq\, \tfrac{q^2}{mE - q^2 + i\epsilon}} \\[4pt]
+&amp;= \frac{4\pi/m}{\tfrac{1}{a(\Lambda)} - \tfrac{2}{\pi}\int_0^\Lambda\! dq \left(\mathcal{P}\tfrac{q^2}{mE - q^2} - i\pi q^2 \delta(mE - q^2)\right)}
+\end{aligned}
+</span></p>
+</div>
+</div><div class="column" style="width:40%;">
+<div class="quarto-figure quarto-figure-center">
+<figure>
+<p><img data-src="assets/fig-bubble-sum.png" class="quarto-figure quarto-figure-center" style="width:100.0%"></p>
+</figure>
+</div>
+<div class="r-stack">
+<div style="font-size:80%">
+<p>The bubble sum using the contact interaction.</p>
+</div>
+</div>
+</div></div>
+</section>
+<section class="slide level2">
+
+<h3 id="evaluating-the-denominator">Evaluating the denominator</h3>
+<div style="font-size:80%">
+<p><span class="math display">
+\begin{aligned}
+\frac{1}{a(\Lambda)} &amp;- \frac{2}{\pi}\int_0^\Lambda\! dq \left(\mathcal{P}\tfrac{q^2}{mE - q^2} - i\pi q^2 \delta(mE - q^2)\right) \\[4pt]
+&amp;= \frac{1}{a(\Lambda)} + \frac{2}{\pi}\left(\Lambda - \tfrac{\sqrt{mE}}{2}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\tfrac{\pi}{2}\sqrt{mE}\right) \\[4pt]
+&amp;= \frac{1}{a_0} - \frac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\sqrt{mE} \, .
+\end{aligned}
+</span></p>
+</div>
+<h3 id="resulting-amplitude">Resulting amplitude</h3>
+<div style="font-size:80%">
+<p>Plugging this back in gives</p>
+<p><span class="math display">
+\begin{aligned}
+T(\vec p, -\vec p; E)
+&amp;= \frac{4\pi/m}{\tfrac{1}{a_0} - \tfrac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\sqrt{mE}} \\[4pt]
+&amp;\approx \frac{4\pi/m}{\tfrac{1}{a_0} - i\sqrt{mE} - \tfrac{2mE}{\pi}\tfrac{1}{\Lambda} + O(\Lambda^{-2})} \, .
+\end{aligned}
+</span></p>
+<ul>
+<li><p>At threshold one recovers the correct normalization, <span class="math inline">T(\vec 0, \vec 0; E=0) = 4\pi a_0/m</span>.</p></li>
+<li><p>Assuming the existence of a bound state <span class="math inline">E=-B</span>, one gets the familiar result from the pole of the amplitude: <span class="math inline">B=1/ma_0^2</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="lüschers-formula" class="slide level2">
+<h2>Lüscher’s formula</h2>
+<p>Within a finite cubic volume of size <span class="math inline">L^3</span>, the analog of the denominator evaluated above is</p>
+<p><span class="math display">
+\begin{aligned}
+\frac{1}{a(\Lambda)} - \frac{4\pi}{m}\frac{1}{L^3}\sum_{\vec n}^{2\pi n &lt; \Lambda L}\frac{1}{E - \tfrac{4\pi^2 n^2}{m L^2}}
+&amp;= \frac{1}{a(\Lambda)} - \frac{1}{\pi}\frac{1}{L}\sum_{\vec n}^{2\pi n &lt; \Lambda L}\frac{1}{\epsilon - n^2} \\[4pt]
+&amp;= \frac{1}{a_0} - \frac{2}{\pi}\Lambda - \frac{1}{\pi}\frac{1}{L}\sum_{\vec n}^{2\pi n &lt; \Lambda L}\frac{1}{\epsilon - n^2} \, ,
+\end{aligned}
+</span></p>
+<p>where I define <span class="math inline">\epsilon = \dfrac{E m L^2}{4\pi^2}</span>.</p>
+</section>
+<section id="lüschers-formula-cont." class="slide level2">
+<h2>Lüscher’s formula (cont.)</h2>
+<p><span class="math inline">\Lambda</span> above has dimension of inverse length. Moving to a dimensionless definition of <span class="math inline">\Lambda</span>,</p>
+<p><span class="math display">
+\Lambda \to \frac{2\pi}{L} \Lambda\, ,
+</span></p>
+<p>we now have</p>
+<p><span class="math display">
+\frac{1}{a_0} - 4\frac{\Lambda}{L} - \frac{1}{\pi}\frac{1}{L}\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{\epsilon - n^2}
+= \frac{1}{a_0} - \frac{1}{\pi L}\left(\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{\epsilon - n^2} + 4\pi\Lambda\right) \, ,
+</span></p>
+<p>which we can rewrite as</p>
+<p><span class="math display">
+-\frac{1}{a_0}=\frac{1}{\pi L}\lim_{\Lambda \to \infty}\left(\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right)\equiv \frac{1}{\pi L}S\left(\epsilon\right)
+</span></p>
+<p>and the RHS is now Lüscher’s formula. In particular, the zeros of this function correspond to the eigen-energies of the two-particle interacting system.</p>
 </section></section>
+<section id="interpreting-this-formula" class="title-slide slide level1 center">
+<h1>Interpreting this formula</h1>
+<p><span class="math display">
+-\frac{L}{a_0}=\frac{1}{\pi}S\left(\epsilon\right)
+</span></p>
+
+<img data-src="assets/luescher.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"></section>
+
 <section>
-<section id="lüschers-formular-in-action" class="title-slide slide level1 center">
-<h1>Lüscher’s formular in action</h1>
+<section id="lüschers-formula-in-action" class="title-slide slide level1 center">
+<h1>Lüscher’s formula in action</h1>
 
 </section>
 <section id="toy-model" class="slide level2">
@@ -200,16 +302,16 @@ p \cot\delta(p) = \frac{1}{f(p)^2}\left(-\frac{1}{a_0} + \frac{2p}{\sqrt\pi} F\!
 <h2>Procedure when particles are put in a box</h2>
 <p>In a box of side length <span class="math inline">L</span>, the eigenenergies <span class="math inline">E</span> can be obtained by solving the following transcendental equation</p>
 <p><span class="math display">
--\frac{L}{a_0} + \frac{4L}{\pi r} = \frac{1}{\pi} \sum_{\vec n \in \text{B.Z.}} \frac{f(\vec n)^2}{\vec n^2 - x} \, ,
+-\frac{L}{a_0} + \frac{4L}{\pi r} = \frac{1}{\pi} \sum_{\vec n \in \text{B.Z.}} \frac{f(\vec n)^2}{\vec n^2 - \epsilon} \, ,
 </span></p>
-<p>with <span class="math inline">x = \dfrac{m E L^2}{4\pi^2}</span> and <span class="math inline">f(\vec n) = \exp\left(-\dfrac{\pi^3 r^2}{8 L^2} \vec n^2\right)</span>. I assume the two particles have equal mass <span class="math inline">m</span>.</p>
-<p>Given <span class="math inline">x</span>, I insert this into Lüscher’s formula to get the phase shift</p>
+<p>with <span class="math inline">\epsilon = \dfrac{E mL^2}{4\pi^2}</span> and <span class="math inline">f(\vec n) = \exp\left(-\dfrac{\pi^3 r^2}{8 L^2} \vec n^2\right)</span>. I assume the two particles have equal mass <span class="math inline">m</span>.</p>
+<p>Given <span class="math inline">\epsilon</span>, I insert this into Lüscher’s formula to get the phase shift</p>
 <p><span class="math display">
 p\cot\delta(p) = \frac{1}{\pi L} S(x)
 </span></p>
 <p>where</p>
 <p><span class="math display">
-S(x) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{\Lambda} \frac{1}{n^2 - x} - 4\pi\Lambda \right]
+S(\epsilon) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{\Lambda} \frac{1}{n^2 - \epsilon} - 4\pi\Lambda \right]
 </span></p>
 </section>
 <section id="deuteron-in-a-box" class="slide level2">
@@ -226,9 +328,9 @@ S(x) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{\Lambda} \frac{1}{n^2 - x
 <div class="column" style="width:50%;">
 <p>Can be shown that the location of the bound state depends exponentially on <span class="math inline">L</span></p>
 <p><span class="math display">
-E_{-1}(L) = -\frac{\gamma^2}{m}\left(1 + \frac{12}{\gamma L} \frac{e^{-\gamma L}}{1 - 2\gamma\big(p\cot\delta\big)'} + \dots \right)
+E_{-1}(L) = -\frac{\gamma^2}{m}\left(1 + \tfrac{12}{\gamma L}\, \tfrac{e^{-\gamma L}}{1 - 2\gamma(p\cot\delta)'} + \dots \right)
 </span> <span class="math display">
-\approx -\frac{\gamma^2}{m}\left(1 + \frac{12}{\gamma L} \frac{e^{-\gamma L}}{1 - \gamma r} \right)
+\approx -\frac{\gamma^2}{m}\left(1 + \tfrac{12}{\gamma L}\, \tfrac{e^{-\gamma L}}{1 - \gamma r} \right)
 </span></p>
 <p>Here I define <span class="math inline">p = i\gamma</span></p>
 </div><div class="column" style="width:50%;">
@@ -243,7 +345,10 @@ E_{-1}(L) = -\frac{\gamma^2}{m}\left(1 + \frac{12}{\gamma L} \frac{e^{-\gamma L}
 <h2>Finite volume dependence of lowest scattering state</h2>
 <p>Lowest scattering state has polynomial dependence on <span class="math inline">L</span>:</p>
 <p><span class="math display">
-E_0(L) = \frac{4\pi a_0}{m L^3}\left(1 + 2.8372974794806 \frac{a_0}{L} + 6.375183165675\left(\frac{a_0}{L}\right)^2 + 8.582925664437\left(\frac{a_0}{L}\right)^3 + 2\pi \frac{a_0^2 r}{L^3} + \dots\right)
+\begin{aligned}
+E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&amp;1 + 2.8372974794806\,\tfrac{a_0}{L} + 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
+&amp;+ 8.582925664437\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
+\end{aligned}
 </span></p>
 <p>Note: <span class="math inline">m E_0 = p^2</span></p>
 
@@ -260,7 +365,10 @@ E_0(L) = \frac{4\pi a_0}{m L^3}\left(1 + 2.8372974794806 \frac{a_0}{L} + 6.37518
 <h2>Virtual state has same finite volume dependence as a scattering state</h2>
 <p>Virtual state has polynomial dependence on <span class="math inline">L</span> just like a regular scattering state:</p>
 <p><span class="math display">
-E_0(L) = \frac{4\pi a_0}{m L^3}\left(1 + 2.8372974794806 \frac{a_0}{L} + 6.375183165675\left(\frac{a_0}{L}\right)^2 + 8.582925664437\left(\frac{a_0}{L}\right)^3 + 2\pi \frac{a_0^2 r}{L^3} + \dots\right)
+\begin{aligned}
+E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&amp;1 + 2.8372974794806\,\tfrac{a_0}{L} + 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
+&amp;+ 8.582925664437\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
+\end{aligned}
 </span></p>
 
 <img data-src="assets/fig-virtual-L-dependence.png" class="quarto-figure quarto-figure-center r-stretch" style="width:60.0%"></section>
