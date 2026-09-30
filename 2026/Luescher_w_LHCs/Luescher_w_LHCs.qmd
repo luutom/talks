@@ -356,7 +356,7 @@ Finite-volume dependence of lowest scattering state
 + Lüscher's formula is derived assuming only short-ranged interactions ($\ll L$)
   - This results in power-law corrections ($1/L$) to on-shell scattering
   - Exponential corrections to bound states
-+ $t$-channel exchange via one-pion exchange (long range, near on-shell) can introduces a left-hand cut (lhc)
++ $t$-channel exchange via one-pion exchange (long range, near on-shell) introduces a left-hand cut (lhc)
   - $DD^*$ scattering example:
 $$
 \big(p^{1\pi}_{\rm lhc}\big)^2 = -\frac{\mu^2}{4}, \qquad \mu^2 = m_\pi^2 - \Delta M^2, \qquad \Delta M = M_{D^*}-M_D
@@ -369,7 +369,7 @@ $$
 + Keep the OPE explicit and apply Lüscher only to the short-range remainder
   + *Lüscher equation with long-range forces* [2402.12985](https://arxiv.org/abs/2402.12985)
 
-+ Go three-body, treating the pion as dynamical since it goes on-shell
++ Go full three-body, treating the pion as dynamical since it goes on-shell
   + *Incorporating $DD\pi$ effects and left-hand cuts in lattice QCD studies of the $T_{cc}(3875)^+$* [2401.06609](https://arxiv.org/abs/2401.06609)
 
 + Extend the formalism onto the cut itself
