@@ -1,5 +1,5 @@
 ---
-title: "Lüscher's formula and Left-hand Cuts"
+title: "Lüscher's Formula and Left-Hand Cuts"
 subtitle: "Is there a simple way to include them?"
 author: "Thomas Luu"
 date: last-modified
@@ -40,14 +40,14 @@ and $a_0$ is the physical s-wave scattering length.
 :::{.columns}
 
 :::{.column width="60%"}
-Because my interaction is separable, the bubble sum can be summed geometrically to give
+Because this interaction is separable, the bubble sum can be summed geometrically to give
 
 :::{style='font-size:80%'}
 $$
 \begin{aligned}
 T(\vec p, -\vec p; E)
-&= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{4\pi a(\Lambda)}{m}\int\! \tfrac{d^3 q}{(2\pi)^3}\, \tfrac{1}{E - q^2/m + i\epsilon}} \\[4pt]
-&= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{2 a(\Lambda)}{\pi}\int\! dq\, \tfrac{q^2}{mE - q^2 + i\epsilon}} \\[4pt]
+&= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{4\pi a(\Lambda)}{m}\int\! \tfrac{d^3 q}{(2\pi)^3}\, \tfrac{1}{E - q^2/m + i\varepsilon}} \\[4pt]
+&= \frac{4\pi a(\Lambda)/m}{1 - \tfrac{2 a(\Lambda)}{\pi}\int\! dq\, \tfrac{q^2}{mE - q^2 + i\varepsilon}} \\[4pt]
 &= \frac{4\pi/m}{\tfrac{1}{a(\Lambda)} - \tfrac{2}{\pi}\int_0^\Lambda\! dq \left(\mathcal{P}\tfrac{q^2}{mE - q^2} - i\pi q^2 \delta(mE - q^2)\right)}
 \end{aligned}
 $$
@@ -60,10 +60,8 @@ $$
 
 ![](assets/fig-bubble-sum.png){fig-align="center" width="100%"}
 
-:::{.r-stack}
 :::{style='font-size:80%'}
 The bubble sum using the contact interaction.
-:::
 :::
 
 :::
@@ -78,8 +76,8 @@ The bubble sum using the contact interaction.
 $$
 \begin{aligned}
 \frac{1}{a(\Lambda)} &- \frac{2}{\pi}\int_0^\Lambda\! dq \left(\mathcal{P}\tfrac{q^2}{mE - q^2} - i\pi q^2 \delta(mE - q^2)\right) \\[4pt]
-&= \frac{1}{a(\Lambda)} + \frac{2}{\pi}\left(\Lambda - \tfrac{\sqrt{mE}}{2}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\tfrac{\pi}{2}\sqrt{mE}\right) \\[4pt]
-&= \frac{1}{a_0} - \frac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\sqrt{mE} \, .
+&= \frac{1}{a(\Lambda)} + \frac{2}{\pi}\left(\Lambda - \tfrac{\sqrt{mE}}{2}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) + i\tfrac{\pi}{2}\sqrt{mE}\right) \\[4pt]
+&= \frac{1}{a_0} - \frac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) + i\sqrt{mE} \, .
 \end{aligned}
 $$
 :::
@@ -94,14 +92,14 @@ Plugging this back in gives
 $$
 \begin{aligned}
 T(\vec p, -\vec p; E)
-&= \frac{4\pi/m}{\tfrac{1}{a_0} - \tfrac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) - i\sqrt{mE}} \\[4pt]
-&\approx \frac{4\pi/m}{\tfrac{1}{a_0} - i\sqrt{mE} - \tfrac{2mE}{\pi}\tfrac{1}{\Lambda} + O(\Lambda^{-2})} \, .
+&= \frac{4\pi/m}{\tfrac{1}{a_0} - \tfrac{\sqrt{mE}}{\pi}\log\Big(\tfrac{\Lambda + \sqrt{mE}}{\Lambda - \sqrt{mE}}\Big) + i\sqrt{mE}} \\[4pt]
+&\approx \frac{4\pi/m}{\tfrac{1}{a_0} + i\sqrt{mE} - \tfrac{2mE}{\pi}\tfrac{1}{\Lambda} + O(\Lambda^{-2})} \, .
 \end{aligned}
 $$
 
 + At threshold one recovers the correct normalization, $T(\vec 0, \vec 0; E=0) = 4\pi a_0/m$.  
 
-+ Assuming the existence of a bound state $E=-B$, one gets the familiar result from the pole of the amplitude:  $B=1/ma_0^2$.
++ Assuming the existence of a bound state $E=-B$, one gets the familiar result from the pole of the amplitude:  $B=\frac{1}{ma_0^2}$.
 
 :::
 
@@ -127,7 +125,7 @@ $$
 \Lambda \to \frac{2\pi}{L} \Lambda\, ,
 $$
 
-we now have
+we now have^[The limit $\Lambda \to \infty$ is tacitly assumed, but sometimes I write it explicitly.]
 
 $$
 \frac{1}{a_0} - 4\frac{\Lambda}{L} - \frac{1}{\pi}\frac{1}{L}\sum_{\vec n}^{n < \Lambda}\frac{1}{\epsilon - n^2}
@@ -140,15 +138,53 @@ $$
 -\frac{1}{a_0}=\frac{1}{\pi L}\lim_{\Lambda \to \infty}\left(\sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right)\equiv \frac{1}{\pi L}S\left(\epsilon\right)
 $$
 
-and the RHS is now Lüscher's formula. In particular, the zeros of this function correspond to the eigen-energies of the two-particle interacting system.
+and the RHS is now Lüscher's formula. In particular, values of $\epsilon$ that satisfy this equality correspond to the eigen-energies of the two-particle interacting system.
 
-# Interpreting this formula
-
-$$
--\frac{L}{a_0}=\frac{1}{\pi}S\left(\epsilon\right)
-$$
+## Interpretation: $-\frac{L}{a_0}=\frac{1}{\pi}S\left(\epsilon\right)$
 
 ![](assets/luescher.png){fig-align="center" width="100%"}
+
+:::{style='font-size:80%'}
++ Given horizontal line $-L/a_0$, the allowed quantized energies $\epsilon$ occur at the intersection of line with the dashed curves
+:::
+
+## The full expression
+:::{style='font-size:80%'}
+To obtain the full *model-independent* Lüscher formula, the idea is to generalize the potential
+
+$$
+\langle \vec p\,' | \hat V | \vec p \rangle = \theta(\Lambda - p')\left(C_0(\Lambda)+C_2(\Lambda)\frac{p'^2+p^2}{2}+\ldots\right)\theta(\Lambda - p) \, ,
+$$
+
+where the coefficients $C_i(\Lambda)$ are tuned such that the scattering amplitude gives the correct physical phase shift $\delta$,
+
+$$
+T(\vec p,-\vec p;E) = -\frac{4\pi}{m}\frac{1}{p\cot\delta - ip}
+$$
+
+When we repeat the calculation in a finite volume with this potential, it leads to the full Lüscher formula
+
+$$
+p\cot\delta = \frac{1}{\pi L}S(\epsilon)\ .
+$$
+where $\epsilon$ is defined as before.
+
+:::{.callout-note}
+
+For detailed derivations see
+
++ [Two Nucleons on a Lattice](https://arxiv.org/abs/hep-lat/0312004) by S.R. Beane, P.F.Bedaque, A. Parreno, M.J. Savage 
++ [Fitting two nucleons inside a box](https://arxiv.org/abs/hep-lat/0702021) by Paulo F. Bedaque, Ikuro Sato
+
+and of course the original sources by Lüscher (***Warning!!  Hard to understand!!***)
+
++ [Commun.Math.Phys. 104 (1986) 177](https://link.springer.com/article/10.1007/BF01211589) & [Commun.Math.Phys. 105 (1986) 153-188](https://link.springer.com/article/10.1007/BF01211097)
+
+:::
+
+:::
+
+
 
 # Lüscher's formula in action
 
@@ -189,13 +225,13 @@ with $\epsilon = \dfrac{E mL^2}{4\pi^2}$ and $f(\vec n) = \exp\left(-\dfrac{\pi^
 Given $\epsilon$, I insert this into Lüscher's formula to get the phase shift
 
 $$
-p\cot\delta(p) = \frac{1}{\pi L} S(x)
+p\cot\delta(p) = \frac{1}{\pi L} S(\epsilon)
 $$
 
 where
 
 $$
-S(\epsilon) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{\Lambda} \frac{1}{n^2 - \epsilon} - 4\pi\Lambda \right]
+S(\epsilon) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{n < \Lambda} \frac{1}{n^2 - \epsilon} - 4\pi\Lambda \right]
 $$
 
 ## "deuteron" in a box
@@ -226,20 +262,41 @@ Here I define $p = i\gamma$
 :::
 ::::
 
+:::{.callout-note}
++ See [Two Nucleons on a Lattice](https://arxiv.org/abs/hep-lat/0312004) by S.R. Beane, P.F.Bedaque, A. Parreno, M.J. Savage  
+:::
+
 ## Finite volume dependence of lowest scattering state
 
+:::{.style='font-size:80%'}
+:::{.columns}
+
+:::{.column width=50%}
 Lowest scattering state has polynomial dependence on $L$:
 
 $$
+\scriptsize
 \begin{aligned}
-E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&1 + 2.8372974794806\,\tfrac{a_0}{L} + 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
-&+ 8.582925664437\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
+E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&1 + 2.8372974794806\,\tfrac{a_0}{L}\\
+&+ 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
+&+ 8.311950724058\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
 \end{aligned}
 $$
 
 Note: $m E_0 = p^2$
+:::
 
-![](assets/fig-scattering-state-L.png){fig-align="center" width="55%"}
+:::{.column width=50%}
+![](assets/fig-scattering-state-L.png){fig-align="center" width="100%"}
+
+:::
+:::
+
+:::{.callout-note}
++ See [$n$-Boson Energies at Finite Volume and Three-Boson Interactions](https://arxiv.org/pdf/0707.1670) by S.R. Beane, W. Detmold, M.J. Savage  
+:::
+:::
+
 
 ## Now let's consider a virtual state situation
 
@@ -251,16 +308,30 @@ Note: $m E_0 = p^2$
 
 ## Virtual state has same finite volume dependence as a scattering state
 
+:::{.style='font-size:80%'}
+
+:::{.columns}
+
+:::{.column width=50%}
 Virtual state has polynomial dependence on $L$ just like a regular scattering state:
 
 $$
+\scriptsize
 \begin{aligned}
-E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&1 + 2.8372974794806\,\tfrac{a_0}{L} + 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
-&+ 8.582925664437\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
+E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&1 + 2.8372974794806\,\tfrac{a_0}{L} \\
+&+ 6.375183165675\left(\tfrac{a_0}{L}\right)^2 \\
+&+ 8.311950724058\left(\tfrac{a_0}{L}\right)^3 + 2\pi\,\tfrac{a_0^2 r}{L^3} + \dots\Big)
 \end{aligned}
 $$
+:::
 
-![](assets/fig-virtual-L-dependence.png){fig-align="center" width="60%"}
+:::{.column width=50%}
+
+![](assets/fig-virtual-L-dependence.png){fig-align="center" width="100%"}
+
+:::
+:::
+:::
 
 ## And now a repulsive state
 
@@ -271,10 +342,38 @@ $$
 
 :::
 ::: {.column width="50%"}
-Finite-volume dependence of lowest scattering state
 
 ![](assets/fig-repulsive-L-dependence.png){fig-align="center" width="100%"}
 
+:::{.r-stack}
+Finite-volume dependence of lowest scattering state
+:::
 :::
 ::::
 
+## When does Lüscher's formula fail?
+
++ Lüscher's formula is derived assuming only short-ranged interactions ($\ll L$)
+  - This results in power-law corrections ($1/L$) to on-shell scattering
+  - Exponential corrections to bound states
++ $t$-channel exchange via one-pion exchange (long range, near on-shell) can introduces a left-hand cut (lhc)
+  - $DD^*$ scattering example:
+$$
+\big(p^{1\pi}_{\rm lhc}\big)^2 = -\frac{\mu^2}{4}, \qquad \mu^2 = m_\pi^2 - \Delta M^2, \qquad \Delta M = M_{D^*}-M_D
+$$
+![](assets/lhc.png){fig-align="center"}
++ When $m_\pi^2\lesssim \Delta M^2$ then lhc is near threshold and ERE breakes down$\implies$ Lüscher's formula no longer applicable
+
+## Current strategies to deal with left-hand cuts
+
++ Keep the OPE explicit and apply Lüscher only to the short-range remainder
+  + *Lüscher equation with long-range forces* [2402.12985](https://arxiv.org/abs/2402.12985)
+
++ Go three-body, treating the pion as dynamical since it goes on-shell
+  + *Incorporating $DD\pi$ effects and left-hand cuts in lattice QCD studies of the $T_{cc}(3875)^+$* [2401.06609](https://arxiv.org/abs/2401.06609)
+
++ Extend the formalism onto the cut itself
+  + *Finite-volume scattering on the left-hand cut* [2311.18793](https://arxiv.org/abs/2311.18793)
+
++ Solve a finite-volume Schrödinger equation in a plane-wave basis with chiral EFT potentials, using half-off-shell potentials that stay analytic below threshold and dodging partial-wave truncation
+  + *Left-hand cut problem in lattice QCD and an EFT-based solution* [2503.23944](https://arxiv.org/abs/2503.23944)
