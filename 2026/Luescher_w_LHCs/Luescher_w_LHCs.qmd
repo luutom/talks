@@ -362,7 +362,7 @@ $$
 \big(p^{1\pi}_{\rm lhc}\big)^2 = -\frac{\mu^2}{4}, \qquad \mu^2 = m_\pi^2 - \Delta M^2, \qquad \Delta M = M_{D^*}-M_D
 $$
 ![](assets/lhc.png){fig-align="center"}
-+ When $m_\pi^2\lesssim \Delta M^2$ then lhc is near threshold and ERE breakes down$\implies$ Lüscher's formula no longer applicable
++ When $m_\pi^2\sim \Delta M^2$ then lhc is near threshold and ERE breakes down$\implies$ Lüscher's formula no longer applicable
 
 ## Current strategies to deal with left-hand cuts
 
