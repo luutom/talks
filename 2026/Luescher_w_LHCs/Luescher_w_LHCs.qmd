@@ -408,7 +408,7 @@ $$
 
 ## $V_{\rm cut}(p',p)$: a separable potential that reproduces (most of) the branch cut
 
-:::{style='font-size:75%'}
+:::{style='font-size:70%'}
 
 + So here's an idea: Consider the following expression:
 
@@ -449,6 +449,8 @@ $$
 $$
 V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
 $$
+
++ The functions $g_i(p)$ are analytic in the complex plane
 
 :::
 
