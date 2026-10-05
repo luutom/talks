@@ -453,3 +453,14 @@ $$
 :::
 
 ## Let's add this potential to the $\delta$-term from before
+
+:::{style='font-size:80%'}
+$$
+\begin{align}
+\langle \vec p\,' | \hat V | \vec p \rangle &= V^{l=0}_\pi(p',p)+V_\delta(p',p) \nonumber\\
+&= V^{l=0}_\pi(p',p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber\\
+&=V_{\rm cut}(p',p) + V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber\\
+&=-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]+\sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber
+\end{align}
+$$
+:::
