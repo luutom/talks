@@ -404,7 +404,7 @@ $$
 
 ---
 
-:::{style='font-size:100%'}
+:::{style='font-size:80%'}
 
 + The question is then: what is a good choice of basis functions $g_i(p)$ (or *form factors*) that can reproduce the branch cut?
 
@@ -426,5 +426,11 @@ $$
   - symmetric in $p$ and $p'$
   - it is separable
 :::
+
++ So the idea is to use the following expression:
+
+$$
+V^{l=0}_{\rm sep}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\rm sep}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
+$$
 
 :::
