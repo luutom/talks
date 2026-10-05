@@ -380,7 +380,7 @@ $$
 
 ## Can we use separable potentials to include left-hand cuts?
 
-:::{style='font-size:80%'}
+:::{style='font-size:70%'}
 
 + I will only consider s-wave scattering to keep life as simple as possible.
 
@@ -400,17 +400,18 @@ $$
 V^{l=0}_{\pi}(p',p) = \sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)\approx \sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)
 $$
 
-:::
-
----
-
-:::{style='font-size:80%'}
-
 + The question is then: what is a good choice of basis functions $g_i(p)$ (or *form factors*) that can reproduce the branch cut?
 
   - Typically, one would use a polynomial basis that is analytic in the complex plane (i.e. "entire"), but this will not reproduce the branch cut.
 
+:::
+
+## $V_{\rm cut}(p',p)$: a separable potential that reproduces (most of) the branch cut
+
+:::{style='font-size:75%'}
+
 + So here's an idea: Consider the following expression:
+
 $$
 V_{\rm cut}(p',p)\equiv-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]
 $$
@@ -419,18 +420,36 @@ $$
 h(p) = \frac{\mu^2}{4p^2} \log\left(\frac{4 p^2+\mu^2}{\mu^2}\right)
 $$
 
+:::{.columns}
+
+:::{.column width="50%"}
+
 :::{.callout-note}
 ## Properties of $V_{\rm cut}(p',p)$
 
-  - $V_{\rm cut}(p'=p)$ has the same branch cut structure as $V^{l=0}_{\pi}(p'=p)$
+  - $V_{\rm cut}(p'=p)$ has the same *on-shell* branch cut structure as $V^{l=0}_{\pi}(p'=p)$
   - symmetric in $p$ and $p'$
   - it is separable
+:::
+
+:::
+
+:::{.column width="50%"}
+
+:::{.callout-warning}
+ - $V_{\rm cut}(p',p)$ does not reproduce the correct full *off-shell* singularity structure!!!
+:::
+
+:::
+
 :::
 
 + So the idea is to use the following expression:
 
 $$
-V^{l=0}_{\rm sep}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\rm sep}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
+V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
 $$
 
 :::
+
+## Let's add this potential to the $\delta$-term from before

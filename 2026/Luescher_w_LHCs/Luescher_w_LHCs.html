@@ -525,7 +525,7 @@ E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&amp;1 + 2.8372974794806\,\tfrac{a_0}{L} \\
 </section>
 <section id="can-we-use-separable-potentials-to-include-left-hand-cuts" class="slide level2 scrollable">
 <h2>Can we use separable potentials to include left-hand cuts?</h2>
-<div style="font-size:80%">
+<div style="font-size:70%">
 <ul>
 <li><p>I will only consider s-wave scattering to keep life as simple as possible.</p></li>
 <li><p>The “long-range” part is modeled by one-pion exchange (OPE)<sup>1</sup></p></li>
@@ -543,22 +543,27 @@ V^{l=0}_{\pi}(p',p) = -\frac{g^2}{4p'p}\log\left(\frac{(p+p')^2+\mu^2}{(p-p')^2+
 <p><span class="math display">
 V^{l=0}_{\pi}(p',p) = \sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)\approx \sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)
 </span></p>
-</div>
-<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\mu\sim m_\pi</span> is the pion mass and <span class="math inline">g</span> is the pion coupling constant.</p></li></ol></aside></section>
-<section class="slide level2">
-
-<div style="font-size:80%">
 <ul>
 <li><p>The question is then: what is a good choice of basis functions <span class="math inline">g_i(p)</span> (or <em>form factors</em>) that can reproduce the branch cut?</p>
 <ul>
 <li>Typically, one would use a polynomial basis that is analytic in the complex plane (i.e.&nbsp;“entire”), but this will not reproduce the branch cut.</li>
 </ul></li>
-<li><p>So here’s an idea: Consider the following expression: <span class="math display">
+</ul>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\mu\sim m_\pi</span> is the pion mass and <span class="math inline">g</span> is the pion coupling constant.</p></li></ol></aside></section>
+<section id="v_rm-cutpp-a-separable-potential-that-reproduces-most-of-the-branch-cut" class="slide level2">
+<h2><span class="math inline">V_{\rm cut}(p',p)</span>: a separable potential that reproduces (most of) the branch cut</h2>
+<div style="font-size:75%">
+<ul>
+<li>So here’s an idea: Consider the following expression:</li>
+</ul>
+<p><span class="math display">
 V_{\rm cut}(p',p)\equiv-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]
 </span> where <span class="math display">
 h(p) = \frac{\mu^2}{4p^2} \log\left(\frac{4 p^2+\mu^2}{\mu^2}\right)
-</span></p></li>
-</ul>
+</span></p>
+<div class="columns">
+<div class="column" style="width:50%;">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -569,20 +574,40 @@ h(p) = \frac{\mu^2}{4p^2} \log\left(\frac{4 p^2+\mu^2}{\mu^2}\right)
 </div>
 <div class="callout-content">
 <ul>
-<li><span class="math inline">V_{\rm cut}(p'=p)</span> has the same branch cut structure as <span class="math inline">V^{l=0}_{\pi}(p'=p)</span></li>
+<li><span class="math inline">V_{\rm cut}(p'=p)</span> has the same <em>on-shell</em> branch cut structure as <span class="math inline">V^{l=0}_{\pi}(p'=p)</span></li>
 <li>symmetric in <span class="math inline">p</span> and <span class="math inline">p'</span></li>
 <li>it is separable</li>
 </ul>
 </div>
 </div>
 </div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="math inline">V_{\rm cut}(p',p)</span> does not reproduce the correct full <em>off-shell</em> singularity structure!!!</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div>
 <ul>
 <li>So the idea is to use the following expression:</li>
 </ul>
 <p><span class="math display">
-V^{l=0}_{\rm sep}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\rm sep}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
+V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
 </span></p>
 </div>
+</section>
+<section id="lets-add-this-potential-to-the-delta-term-from-before" class="slide level2">
+<h2>Let’s add this potential to the <span class="math inline">\delta</span>-term from before</h2>
 
 </section></section>
 
