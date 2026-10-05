@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Thomas Luu">
-  <meta name="dcterms.date" content="2026-10-03">
+  <meta name="dcterms.date" content="2026-10-05">
   <title>Lüscher’s Formula and Left-Hand Cuts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -162,7 +162,7 @@ Thomas Luu
 </div>
 </div>
 
-  <p class="date">2026-10-03</p>
+  <p class="date">2026-10-05</p>
 </section>
 <section>
 <section id="derivation-of-lüschers-formula" class="title-slide slide level1 center">
@@ -522,6 +522,61 @@ E_0(L) = \frac{4\pi a_0}{m L^3}\Big(&amp;1 + 2.8372974794806\,\tfrac{a_0}{L} \\
 <li><em>Left-hand cut problem in lattice QCD and an EFT-based solution</em> <a href="https://arxiv.org/abs/2503.23944">2503.23944</a></li>
 </ul></li>
 </ul>
+</section>
+<section id="can-we-use-separable-potentials-to-include-left-hand-cuts" class="slide level2 scrollable">
+<h2>Can we use separable potentials to include left-hand cuts?</h2>
+<div style="font-size:80%">
+<ul>
+<li><p>I will only consider s-wave scattering to keep life as simple as possible.</p></li>
+<li><p>The “long-range” part is modeled by one-pion exchange (OPE)<sup>1</sup></p></li>
+</ul>
+<p><span class="math display">
+V^{l=0}_{\pi}(p',p) = -\frac{g^2}{4p'p}\log\left(\frac{(p+p')^2+\mu^2}{(p-p')^2+\mu^2}\right)
+</span></p>
+<ul>
+<li>The branch cut can be seen by setting <span class="math inline">p' = p</span> and noting that the log’s argument becomes negative for</li>
+</ul>
+<p><span class="math display">p^2 &lt; -\mu^2/4</span></p>
+<ul>
+<li>Assuming there is a way to do this, I want to exapnd this long-range potential in a separable basis, i.e.</li>
+</ul>
+<p><span class="math display">
+V^{l=0}_{\pi}(p',p) = \sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)\approx \sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)
+</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn2"><p><span class="math inline">\mu\sim m_\pi</span> is the pion mass and <span class="math inline">g</span> is the pion coupling constant.</p></li></ol></aside></section>
+<section class="slide level2">
+
+<div style="font-size:100%">
+<ul>
+<li><p>The question is then: what is a good choice of basis functions <span class="math inline">g_i(p)</span> (or <em>form factors</em>) that can reproduce the branch cut?</p>
+<ul>
+<li>Typically, one would use a polynomial basis that is analytic in the complex plane (i.e.&nbsp;“entire”), but this will not reproduce the branch cut.</li>
+</ul></li>
+<li><p>So here’s an idea: Consider the following expression: <span class="math display">
+V_{\rm cut}(p',p)\equiv-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]
+</span> where <span class="math display">
+h(p) = \frac{\mu^2}{4p^2} \log\left(\frac{4 p^2+\mu^2}{\mu^2}\right)
+</span></p></li>
+</ul>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Properties of <span class="math inline">V_{\rm cut}(p',p)</span></strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="math inline">V_{\rm cut}(p'=p)</span> has the same branch cut structure as <span class="math inline">V^{l=0}_{\pi}(p'=p)</span></li>
+<li>symmetric in <span class="math inline">p</span> and <span class="math inline">p'</span></li>
+<li>it is separable</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 
 </section></section>
 

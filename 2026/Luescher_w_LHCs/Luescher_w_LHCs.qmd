@@ -377,3 +377,54 @@ $$
 
 + Solve a finite-volume Schrödinger equation in a plane-wave basis with chiral EFT potentials, using half-off-shell potentials that stay analytic below threshold and dodging partial-wave truncation
   + *Left-hand cut problem in lattice QCD and an EFT-based solution* [2503.23944](https://arxiv.org/abs/2503.23944)
+
+## Can we use separable potentials to include left-hand cuts?
+
+:::{style='font-size:80%'}
+
++ I will only consider s-wave scattering to keep life as simple as possible.
+
++ The "long-range" part is modeled by one-pion exchange (OPE)^[$\mu\sim m_\pi$ is the pion mass and $g$ is the pion coupling constant.]
+
+$$
+V^{l=0}_{\pi}(p',p) = -\frac{g^2}{4p'p}\log\left(\frac{(p+p')^2+\mu^2}{(p-p')^2+\mu^2}\right)
+$$
+
++ The branch cut can be seen by setting $p' = p$ and noting that the log's argument becomes negative for 
+
+$$p^2 < -\mu^2/4$$
+
++ Assuming there is a way to do this, I want to exapnd this long-range potential in a separable basis, i.e.
+
+$$
+V^{l=0}_{\pi}(p',p) = \sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)\approx \sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)
+$$
+
+:::
+
+---
+
+:::{style='font-size:100%'}
+
++ The question is then: what is a good choice of basis functions $g_i(p)$ (or *form factors*) that can reproduce the branch cut?
+
+  - Typically, one would use a polynomial basis that is analytic in the complex plane (i.e. "entire"), but this will not reproduce the branch cut.
+
++ So here's an idea: Consider the following expression:
+$$
+V_{\rm cut}(p',p)\equiv-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]
+$$
+where
+$$
+h(p) = \frac{\mu^2}{4p^2} \log\left(\frac{4 p^2+\mu^2}{\mu^2}\right)
+$$
+
+:::{.callout-note}
+## Properties of $V_{\rm cut}(p',p)$
+
+  - $V_{\rm cut}(p'=p)$ has the same branch cut structure as $V^{l=0}_{\pi}(p'=p)$
+  - symmetric in $p$ and $p'$
+  - it is separable
+:::
+
+:::
