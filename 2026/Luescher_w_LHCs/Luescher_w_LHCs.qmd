@@ -467,4 +467,134 @@ $$
 $$
 :::
 
-+ When solving for the $T$-matrix, I first sum the contact term to all orders to get the "dressed" propagator. This is equivalent to summing the bubble diagrams with the contact interaction to all orders, and then inserting the separable potential in between.
++ I first sum the contact term to all orders to get the "dressed" propagator $G_\delta(E)$
+
+$$
+G_\delta(E) = [G_0(E)^{-1}-V_\delta]^{-1}
+=G_0(E)+G_0(E)\frac{4\pi/m}{\frac{1}{a_0}+\frac{1}{\pi L}S(\epsilon)}G_0(E)
+$$
+
+## What do I mean by a potential of *rank* $N$?
+
+:::{style='font-size:70%'}
+
++ Think of the kernel $V(p',p)=\langle \vec p\,'|\hat V|\vec p\rangle$ as a matrix with row index $p'$ and column index $p$. Its *rank* is the dimension of its range.
+
++ A rank-$N$ separable potential is one built from $N$ form factors $g_i(p)$,
+
+$$
+\hat V = \sum_{i,j=1}^{N} |g_i\rangle\, \lambda_{ij}\, \langle g_j |
+\qquad\Longleftrightarrow\qquad
+V(p',p) = \sum_{i,j=1}^{N} g_i(p')\, \lambda_{ij}\, g_j(p) \, ,
+$$
+
+  where $\lambda_{ij}$ is an $N\times N$ matrix of couplings.
+
++ My toy model is **rank 1**: $\hat V = \frac{2\pi C_0}{\mu}|f\rangle\langle f|$. The interaction couples to a *single* mode $|f\rangle$ — anything orthogonal to it passes through untouched.
+
++ Rank is the quantity that matters because for *any* finite rank the Lippmann-Schwinger equation collapses to finite-dimensional linear algebra,
+
+$$
+T(p',p) = \sum_{i,j} g_i(p')\, \tau_{ij}(E)\, g_j(p) \, ,
+\qquad \tau^{-1} = \lambda^{-1} - G(E) \, ,
+\qquad G_{ij}(E) = \int\!\frac{d^3q}{(2\pi)^3}\, \frac{g_i(q)\, g_j(q)}{E - q^2/m + i\varepsilon} \, .
+$$
+
++ **The rank is the size of the matrix I have to invert.** Rank 1 is the scalar inversion that gave me the geometric bubble sum at the start of the talk.
+
+:::
+
+## $V_{\rm cut}$ is a *rank-2* separable potential
+
+:::{style='font-size:70%'}
+
++ Take the two form factors $g_1(p) = 1$ and $g_2(p) = h(p)$, with an **off-diagonal** coupling matrix
+
+$$
+\lambda = \begin{pmatrix} 0 & \lambda_{12} \\ \lambda_{12} & 0 \end{pmatrix} \, ,
+\qquad \lambda_{12} = -\frac{g^2}{2\mu^2} \, ,
+\qquad \lambda^{-1} = \begin{pmatrix} 0 & 1/\lambda_{12} \\ 1/\lambda_{12} & 0 \end{pmatrix} \, .
+$$
+
++ Then
+
+$$
+\hat V_{\rm cut} = \lambda_{12}\Big( |1\rangle\langle h| + |h\rangle\langle 1| \Big)
+\qquad\Longrightarrow\qquad
+V_{\rm cut}(p',p) = -\frac{g^2}{2\mu^2}\big[\, h(p') + h(p) \,\big] \, ,
+$$
+
+  which is exactly the expression from before.
+
++ It is rank **2**, not rank 1, because $h(p')+h(p)$ cannot be collapsed into a single product $F(p')G(p)$. It is a sum of two rank-1 pieces, and $|1\rangle$ and $|h\rangle$ are linearly independent.
+
++ Because $h$ enters **linearly** rather than squared, the logarithmic cut comes out correct in $p'$ at fixed $p$, and in $p$ at fixed $p'$.
+
++ On-shell it is *exact*:
+
+$$
+V_{\rm cut}(p,p) = 2\lambda_{12}\, h(p) = -\frac{g^2}{4p^2}\log\left(\frac{4p^2+\mu^2}{\mu^2}\right) = V^{l=0}_\pi(p,p) \, .
+$$
+
+:::
+
+## This is just the contact expansion, resummed
+
+:::{style='font-size:70%'}
+
++ The $C_2$ term of the model-independent potential is *already* rank 2:
+
+$$
+C_0 + C_2\frac{p'^2+p^2}{2}
+= \begin{pmatrix} 1 & p'^2 \end{pmatrix}
+\begin{pmatrix} C_0 & C_2/2 \\ C_2/2 & 0 \end{pmatrix}
+\begin{pmatrix} 1 \\ p^2 \end{pmatrix} \, ,
+$$
+
+  i.e. form factors $\{1,\,p^2\}$ with $C_2$ sitting off-diagonal — the *same* structure as $V_{\rm cut}$, with $p^2$ in place of $h(p)$.
+
++ And the two are not unrelated. Expanding $h$,
+
+$$
+h(p) = \frac{\mu^2}{4p^2}\log\left(\frac{4p^2+\mu^2}{\mu^2}\right)
+= 1 - \frac{2p^2}{\mu^2} + \frac{16}{3}\frac{p^4}{\mu^4} - \dots
+$$
+
++ So $\{1,h\}$ spans the same space as $\{1,p^2\}$ at low momentum: $V_{\rm cut}$ *is* the contact theory, resummed to all orders rather than truncated.
+
++ The series converges only for $|p^2| < \mu^2/4$ — **the branch point is the radius of convergence**.
+
+  - Truncating at order $p^2$ throws the cut away.
+  - Keeping $h$ intact retains it, at no extra cost in rank.
+
+:::
+
+## What this does to the finite-volume condition
+
+:::{style='font-size:70%'}
+
++ In a finite volume the integral becomes a discrete sum, and the quantization condition for a rank-$N$ potential is
+
+$$
+\det\left[\lambda^{-1} - G(E,L)\right] = 0 \, ,
+\qquad
+G_{ij}(E,L) = \frac{1}{L^3}\sum_{\vec n} \frac{g_i(p_n)\, g_j(p_n)}{E - E_n} \, ,
+$$
+
+  where $G_0 \to G_\delta$ once the contact term has been summed as above.
+
++ For $V_{\rm cut}$, with $\{g_1,g_2\}=\{1,h\}$, this needs only three sums:
+
+$$
+G_{11} = \frac{1}{L^3}\sum_{\vec n} \frac{1}{E-E_n} \, , \qquad
+G_{12} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)}{E-E_n} \, , \qquad
+G_{22} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)^2}{E-E_n} \, .
+$$
+
++ $G_{11}$ is divergent and needs the $4\pi\Lambda$ subtraction — **it is nothing but $S(\epsilon)$ again**.
+
++ $G_{12}$ and $G_{22}$ converge on their own, since $h(p)\sim \log(p^2)/p^2$ at large $p$ beats the $n^2$ growth in the density of states.
+
++ So I still get a *single* transcendental equation — now a $2\times 2$ determinant instead of a scalar.
+
+:::

@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.18">
 
   <meta name="author" content="Thomas Luu">
-  <meta name="dcterms.date" content="2026-10-05">
+  <meta name="dcterms.date" content="2026-10-06">
   <title>Lüscher’s Formula and Left-Hand Cuts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -162,7 +162,7 @@ Thomas Luu
 </div>
 </div>
 
-  <p class="date">2026-10-05</p>
+  <p class="date">2026-10-06</p>
 </section>
 <section>
 <section id="derivation-of-lüschers-formula" class="title-slide slide level1 center">
@@ -622,8 +622,126 @@ V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm
 </span></p>
 </div>
 <ul>
-<li>When solving for the <span class="math inline">T</span>-matrix, I first sum the contact term to all orders to get the “dressed” propagator. This is equivalent to summing the bubble diagrams with the contact interaction to all orders, and then inserting the separable potential in between.</li>
+<li>I first sum the contact term to all orders to get the “dressed” propagator <span class="math inline">G_\delta(E)</span></li>
 </ul>
+<p><span class="math display">
+G_\delta(E) = [G_0(E)^{-1}-V_\delta]^{-1}
+=G_0(E)+G_0(E)\frac{4\pi/m}{\frac{1}{a_0}+\frac{1}{\pi L}S(\epsilon)}G_0(E)
+</span></p>
+</section>
+<section id="what-do-i-mean-by-a-potential-of-rank-n" class="slide level2">
+<h2>What do I mean by a potential of <em>rank</em> <span class="math inline">N</span>?</h2>
+<div style="font-size:70%">
+<ul>
+<li><p>Think of the kernel <span class="math inline">V(p',p)=\langle \vec p\,'|\hat V|\vec p\rangle</span> as a matrix with row index <span class="math inline">p'</span> and column index <span class="math inline">p</span>. Its <em>rank</em> is the dimension of its range.</p></li>
+<li><p>A rank-<span class="math inline">N</span> separable potential is one built from <span class="math inline">N</span> form factors <span class="math inline">g_i(p)</span>,</p></li>
+</ul>
+<p><span class="math display">
+\hat V = \sum_{i,j=1}^{N} |g_i\rangle\, \lambda_{ij}\, \langle g_j |
+\qquad\Longleftrightarrow\qquad
+V(p',p) = \sum_{i,j=1}^{N} g_i(p')\, \lambda_{ij}\, g_j(p) \, ,
+</span></p>
+<p>where <span class="math inline">\lambda_{ij}</span> is an <span class="math inline">N\times N</span> matrix of couplings.</p>
+<ul>
+<li><p>My toy model is <strong>rank 1</strong>: <span class="math inline">\hat V = \frac{2\pi C_0}{\mu}|f\rangle\langle f|</span>. The interaction couples to a <em>single</em> mode <span class="math inline">|f\rangle</span> — anything orthogonal to it passes through untouched.</p></li>
+<li><p>Rank is the quantity that matters because for <em>any</em> finite rank the Lippmann-Schwinger equation collapses to finite-dimensional linear algebra,</p></li>
+</ul>
+<p><span class="math display">
+T(p',p) = \sum_{i,j} g_i(p')\, \tau_{ij}(E)\, g_j(p) \, ,
+\qquad \tau^{-1} = \lambda^{-1} - G(E) \, ,
+\qquad G_{ij}(E) = \int\!\frac{d^3q}{(2\pi)^3}\, \frac{g_i(q)\, g_j(q)}{E - q^2/m + i\varepsilon} \, .
+</span></p>
+<ul>
+<li><strong>The rank is the size of the matrix I have to invert.</strong> Rank 1 is the scalar inversion that gave me the geometric bubble sum at the start of the talk.</li>
+</ul>
+</div>
+</section>
+<section id="v_rm-cut-is-a-rank-2-separable-potential" class="slide level2">
+<h2><span class="math inline">V_{\rm cut}</span> is a <em>rank-2</em> separable potential</h2>
+<div style="font-size:70%">
+<ul>
+<li>Take the two form factors <span class="math inline">g_1(p) = 1</span> and <span class="math inline">g_2(p) = h(p)</span>, with an <strong>off-diagonal</strong> coupling matrix</li>
+</ul>
+<p><span class="math display">
+\lambda = \begin{pmatrix} 0 &amp; \lambda_{12} \\ \lambda_{12} &amp; 0 \end{pmatrix} \, ,
+\qquad \lambda_{12} = -\frac{g^2}{2\mu^2} \, ,
+\qquad \lambda^{-1} = \begin{pmatrix} 0 &amp; 1/\lambda_{12} \\ 1/\lambda_{12} &amp; 0 \end{pmatrix} \, .
+</span></p>
+<ul>
+<li>Then</li>
+</ul>
+<p><span class="math display">
+\hat V_{\rm cut} = \lambda_{12}\Big( |1\rangle\langle h| + |h\rangle\langle 1| \Big)
+\qquad\Longrightarrow\qquad
+V_{\rm cut}(p',p) = -\frac{g^2}{2\mu^2}\big[\, h(p') + h(p) \,\big] \, ,
+</span></p>
+<p>which is exactly the expression from before.</p>
+<ul>
+<li><p>It is rank <strong>2</strong>, not rank 1, because <span class="math inline">h(p')+h(p)</span> cannot be collapsed into a single product <span class="math inline">F(p')G(p)</span>. It is a sum of two rank-1 pieces, and <span class="math inline">|1\rangle</span> and <span class="math inline">|h\rangle</span> are linearly independent.</p></li>
+<li><p>Because <span class="math inline">h</span> enters <strong>linearly</strong> rather than squared, the logarithmic cut comes out correct in <span class="math inline">p'</span> at fixed <span class="math inline">p</span>, and in <span class="math inline">p</span> at fixed <span class="math inline">p'</span>.</p></li>
+<li><p>On-shell it is <em>exact</em>:</p></li>
+</ul>
+<p><span class="math display">
+V_{\rm cut}(p,p) = 2\lambda_{12}\, h(p) = -\frac{g^2}{4p^2}\log\left(\frac{4p^2+\mu^2}{\mu^2}\right) = V^{l=0}_\pi(p,p) \, .
+</span></p>
+</div>
+</section>
+<section id="this-is-just-the-contact-expansion-resummed" class="slide level2">
+<h2>This is just the contact expansion, resummed</h2>
+<div style="font-size:70%">
+<ul>
+<li>The <span class="math inline">C_2</span> term of the model-independent potential is <em>already</em> rank 2:</li>
+</ul>
+<p><span class="math display">
+C_0 + C_2\frac{p'^2+p^2}{2}
+= \begin{pmatrix} 1 &amp; p'^2 \end{pmatrix}
+\begin{pmatrix} C_0 &amp; C_2/2 \\ C_2/2 &amp; 0 \end{pmatrix}
+\begin{pmatrix} 1 \\ p^2 \end{pmatrix} \, ,
+</span></p>
+<p>i.e.&nbsp;form factors <span class="math inline">\{1,\,p^2\}</span> with <span class="math inline">C_2</span> sitting off-diagonal — the <em>same</em> structure as <span class="math inline">V_{\rm cut}</span>, with <span class="math inline">p^2</span> in place of <span class="math inline">h(p)</span>.</p>
+<ul>
+<li>And the two are not unrelated. Expanding <span class="math inline">h</span>,</li>
+</ul>
+<p><span class="math display">
+h(p) = \frac{\mu^2}{4p^2}\log\left(\frac{4p^2+\mu^2}{\mu^2}\right)
+= 1 - \frac{2p^2}{\mu^2} + \frac{16}{3}\frac{p^4}{\mu^4} - \dots
+</span></p>
+<ul>
+<li><p>So <span class="math inline">\{1,h\}</span> spans the same space as <span class="math inline">\{1,p^2\}</span> at low momentum: <span class="math inline">V_{\rm cut}</span> <em>is</em> the contact theory, resummed to all orders rather than truncated.</p></li>
+<li><p>The series converges only for <span class="math inline">|p^2| &lt; \mu^2/4</span> — <strong>the branch point is the radius of convergence</strong>.</p>
+<ul>
+<li>Truncating at order <span class="math inline">p^2</span> throws the cut away.</li>
+<li>Keeping <span class="math inline">h</span> intact retains it, at no extra cost in rank.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="what-this-does-to-the-finite-volume-condition" class="slide level2">
+<h2>What this does to the finite-volume condition</h2>
+<div style="font-size:70%">
+<ul>
+<li>In a finite volume the integral becomes a discrete sum, and the quantization condition for a rank-<span class="math inline">N</span> potential is</li>
+</ul>
+<p><span class="math display">
+\det\left[\lambda^{-1} - G(E,L)\right] = 0 \, ,
+\qquad
+G_{ij}(E,L) = \frac{1}{L^3}\sum_{\vec n} \frac{g_i(p_n)\, g_j(p_n)}{E - E_n} \, ,
+</span></p>
+<p>where <span class="math inline">G_0 \to G_\delta</span> once the contact term has been summed as above.</p>
+<ul>
+<li>For <span class="math inline">V_{\rm cut}</span>, with <span class="math inline">\{g_1,g_2\}=\{1,h\}</span>, this needs only three sums:</li>
+</ul>
+<p><span class="math display">
+G_{11} = \frac{1}{L^3}\sum_{\vec n} \frac{1}{E-E_n} \, , \qquad
+G_{12} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)}{E-E_n} \, , \qquad
+G_{22} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)^2}{E-E_n} \, .
+</span></p>
+<ul>
+<li><p><span class="math inline">G_{11}</span> is divergent and needs the <span class="math inline">4\pi\Lambda</span> subtraction — <strong>it is nothing but <span class="math inline">S(\epsilon)</span> again</strong>.</p></li>
+<li><p><span class="math inline">G_{12}</span> and <span class="math inline">G_{22}</span> converge on their own, since <span class="math inline">h(p)\sim \log(p^2)/p^2</span> at large <span class="math inline">p</span> beats the <span class="math inline">n^2</span> growth in the density of states.</p></li>
+<li><p>So I still get a <em>single</em> transcendental equation — now a <span class="math inline">2\times 2</span> determinant instead of a scalar.</p></li>
+</ul>
+</div>
 
 </section></section>
 
