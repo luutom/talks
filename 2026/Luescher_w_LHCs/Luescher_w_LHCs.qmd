@@ -136,7 +136,7 @@ which we can rewrite as
 
 $$
 -\frac{1}{a_0}=\frac{1}{\pi L}\lim_{\Lambda \to \infty}\left(\sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right)\equiv \frac{1}{\pi L}S\left(\epsilon\right)
-$$
+$${#eq-contact-luescher}
 
 and the RHS is now Lüscher's formula. In particular, values of $\epsilon$ that satisfy this equality correspond to the eigen-energies of the two-particle interacting system.
 
@@ -397,7 +397,7 @@ $$p^2 < -\mu^2/4$$
 + Assuming there is a way to do this, I want to expand this long-range potential in a separable basis, i.e.
 
 $$
-V^{l=0}_{\pi}(p',p) = \sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)\approx \sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)
+V^{l=0}_{\pi}(p',p) = \sum_{i,j}^{\infty} g_i(p') \lambda_{ij} g_j(p)\approx \sum_{i,j}^{N} g_i(p') \lambda_{ij} g_j(p)
 $$
 
 + The question is then: what is a good choice of basis functions $g_i(p)$ (or *form factors*) that can reproduce the branch cut?
@@ -447,7 +447,7 @@ $$
 + So the idea is to use the following expression:
 
 $$
-V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i=1}^{N} g_i(p') \lambda_{i} g_i(p)}
+V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)}_{\approx\sum_{i,j=2}^{N} g_i(p') \lambda_{ij} g_j(p)}
 $$
 
 + The functions $g_i(p)$ are analytic in the complex plane
@@ -457,24 +457,128 @@ $$
 ## Let's add this potential to the $\delta$-term from before
 
 :::{style='font-size:80%'}
+
+\begin{align}
+\hat V &= \hat V^{l=0}_\pi + \hat V_\delta \nonumber\\
+&= \hat V_{\rm cut} + ( \hat V^{l=0}_\pi - \hat V_{\rm cut} ) + \hat V_\delta \nonumber\\
+&= -\frac{g^2}{2\mu^2}\left[\hat h \hat\delta_\Lambda+ \hat\delta_\Lambda\hat h\right] + \sum_{i,j=2}^{N} \hat g_i \hat\delta_\Lambda \lambda_{ij}\hat g_j + \frac{4\pi a(\Lambda)}{m} \hat\delta_\Lambda\nonumber
+\end{align}
+:::
+
+where $\hat\delta_\Lambda$ is the regulated delta function defined as $\langle p'| \hat\delta_\Lambda|p\rangle=\theta(\Lambda - p')\,\theta(\Lambda - p)$, and $\hat h$ and $\hat g_i$ are operators defined such that $\hat h|p\rangle = h(p)|p\rangle$ and $\hat g_i|p\rangle = g_i(p)|p\rangle$.
+
+I can rexpress this potential in rank-$(N+1)$ form.  I first define the vector of form factors $\hat{\bf f} = (1,\hat h,\hat g_2,\ldots,\hat g_N)$.  The potential is then $\hat V = \hat{\bf f}^T {\hat\lambda} \hat{\bf f}$, where $\lambda$ is
+
+:::{style='font-size:70%'}
+$$
+{\hat \lambda} = \begin{pmatrix}
+\frac{4\pi a(\Lambda)}{m} & -\frac{g^2}{2\mu^2} & 0 & \cdots & 0 \\
+-\frac{g^2}{2\mu^2} & 0 & 0 & \cdots & 0 \\
+0 & 0 & \lambda_{22} & \cdots & \lambda_{2N} \\
+\vdots & \vdots & \vdots & \ddots & \vdots \\
+0 & 0 & \lambda_{N2} & \cdots & \lambda_{NN}
+\end{pmatrix}\  \hat\delta_\Lambda \, .
+$$
+:::
+
+---
+
+### Now consider the $T$-matrix
+
+$$
+\hat T(E)=\hat V + \hat V \hat G_0(E) \hat T(E)
+$$
+
+Assume
+
+$$
+\hat T(E) = \hat{\bf f}^T \tau(E) \hat{\bf f}
+$$
+
+and the beauty of separability comes into play:
+
+$$
+\tau^{-1}(E) = \lambda^{-1} - \frac{1}{L^3}\sum_n^\Lambda f(p_n) G_0(p_n;E) f^T(p_n)
+$$
+
+:::{.callout-important}
+## Quantization condition
 $$
 \begin{align}
-\langle \vec p\,' | \hat V | \vec p \rangle &= V^{l=0}_\pi(p',p)+V_\delta(p',p) \nonumber\\
-&= V^{l=0}_\pi(p',p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber\\
-&=V_{\rm cut}(p',p) + V^{l=0}_{\pi}(p',p)-V_{\rm cut}(p',p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber\\
-&=-\frac{g^2}{2\mu^2}\left[h(p')+h(p)\right]+\sum_{i=1}^{\infty} g_i(p') \lambda_{i} g_i(p)+\frac{4\pi a(\Lambda)}{m}\,\theta(\Lambda - p')\,\theta(\Lambda - p) \nonumber
+\det\left[\lambda^{-1} - \frac{1}{L^3}\sum_n^\Lambda f(p_n) G_0(p_n;E) f^T(p_n)\right] &= 
+\det\left[\lambda^{-1} - \frac{1}{L^3}\sum_n^\Lambda f\left(\frac{2\pi |n|}{L}\right) \frac{1}{E - \frac{4\pi^2 n^2}{mL^2} } f^T\left(\frac{2\pi |n|}{L}\right)\right]\nonumber\\
+&=\det\left[\lambda^{-1} +\frac{m}{4\pi^2 L}\sum_n^\Lambda f\left(\frac{2\pi |n|}{L}\right) \frac{1}{n^2-\epsilon} f^T\left(\frac{2\pi |n|}{L}\right)\right]\nonumber
+= 0
 \end{align}
 $$
 :::
 
-+ I first sum the contact term to all orders to get the "dressed" propagator $G_\delta(E)$
+:::{style='font-size:60%'}
+This expression recovers the contact Lüscher formula @eq-contact-luescher in the limit $N\to 1$, $h\to0$, and $g_i\to 0\ \forall\  i$.
+:::
+
+## Test case: $N=2$ with $g_i(p)=0\  \forall\ i$
+
+In this case we have $f(p) = (1,h(p))$ and
+$$
+\lambda = \begin{pmatrix}
+\frac{4\pi a(\Lambda)}{m} & -\frac{g^2}{2\mu^2} \\
+-\frac{g^2}{2\mu^2} & 0
+\end{pmatrix}
+\implies
+\lambda^{-1} = \begin{pmatrix}
+0 & -\frac{2\mu^2}{g^2} \\
+-\frac{2\mu^2}{g^2} & -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}
+\end{pmatrix}
+$$
+
+and
+
+:::{style='font-size:80%'}
+$$
+\frac{m}{4\pi^2 L}\sum_n^\Lambda f\left(\frac{2\pi |n|}{L}\right) \frac{1}{n^2-\epsilon} f^T\left(\frac{2\pi |n|}{L}\right)
+=
+\frac{m}{4\pi^2 L}\sum_n^\Lambda 
+\begin{pmatrix}
+\frac{1}{n^2-\epsilon} & \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} \\
+\frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} & \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
+\end{pmatrix}
+$$
+:::
+
+So the quantization condition is explicitly
 
 $$
-G_\delta(E) = [G_0(E)^{-1}-V_\delta]^{-1}
-=G_0(E)+G_0(E)\frac{4\pi/m}{\frac{1}{a_0}+\frac{1}{\pi L}S(\epsilon)}G_0(E)
+\det
+\begin{pmatrix}
+\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{1}{n^2-\epsilon} & -\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} \\
+-\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon}& -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}+\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
+\end{pmatrix}=0
 $$
 
-## What do I mean by a potential of *rank* $N$?
+---
+
+### . . . skipping many steps . . .
+
+I find the following result
+
+:::{style='font-size:80%'}
+$$
+-\frac{1}{a}=\frac{g^4 \Lambda ^2 m^2 S_2(\epsilon )}{4 \pi ^3 \mu ^4 L^3}-\frac{g^4 \Lambda  m^2 S_1(\epsilon ){}^2}{16 \pi ^4 \mu ^4 L^3}+\frac{g^4 \Lambda  m^2 S_0(\epsilon ) S_2(\epsilon )}{16 \pi ^4 \mu ^4 L^3}+\frac{g^2 \Lambda  m S_1(\epsilon )}{\pi ^2 \mu ^2 L^2}+\frac{S_0(\epsilon )}{\pi  L}+\mathcal{O}(1/\Lambda)
+$$
+:::
+
+where
+
+$$
+\begin{align}
+S_0(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \nonumber\\
+S_1(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon}\nonumber\\
+S_2(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}\nonumber
+\end{align}
+$$
+
+<!-- ## What do I mean by a potential of *rank* $N$?
 
 :::{style='font-size:70%'}
 
@@ -597,4 +701,6 @@ $$
 
 + So I still get a *single* transcendental equation — now a $2\times 2$ determinant instead of a scalar.
 
-:::
+::: 
+
+-->
