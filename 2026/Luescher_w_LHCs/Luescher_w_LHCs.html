@@ -710,17 +710,19 @@ V^{l=0}_{\pi}(p',p) = V_{\rm cut}(p',p) + \underbrace{V^{l=0}_{\pi}(p',p)-V_{\rm
 <p>I find the following result</p>
 <div style="font-size:80%">
 <p><span class="math display">
--\frac{1}{a}=\frac{g^4 \Lambda ^2 m^2 S_2(\epsilon )}{4 \pi ^3 \mu ^4 L^3}-\frac{g^4 \Lambda  m^2 S_1(\epsilon ){}^2}{16 \pi ^4 \mu ^4 L^3}+\frac{g^4 \Lambda  m^2 S_0(\epsilon ) S_2(\epsilon )}{16 \pi ^4 \mu ^4 L^3}+\frac{g^2 \Lambda  m S_1(\epsilon )}{\pi ^2 \mu ^2 L^2}+\frac{S_0(\epsilon )}{\pi  L}+\mathcal{O}(1/\Lambda)
+-\frac{1}{a}=\frac{g^4 \Lambda ^2 (mL)^2 S_2(\epsilon )}{1024 \pi ^7 L}-\frac{g^4 \Lambda  (mL)^2 S_1(\epsilon ){}^2}{4096 \pi ^8 L}+\frac{g^4 \Lambda  (mL)^2 S_0(\epsilon ) S_2(\epsilon )}{4096 \pi ^8 L}+\frac{g^2 \Lambda  mL S_1(\epsilon )}{16 \pi^4 L}+\frac{S_0(\epsilon )}{\pi  L}+\mathcal{O}(1/\Lambda)
 </span></p>
 </div>
 <p>where</p>
+<div style="font-size:80%">
 <p><span class="math display">
 \begin{align}
 S_0(\epsilon)&amp;= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \nonumber\\
-S_1(\epsilon)&amp;= \sum_{\vec n}^{n &lt; \Lambda}\frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon}\nonumber\\
-S_2(\epsilon)&amp;= \sum_{\vec n}^{n &lt; \Lambda}\frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}\nonumber
+S_1(\epsilon)&amp;= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}\log\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\nonumber\\
+S_2(\epsilon)&amp;= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\nonumber
 \end{align}
 </span></p>
+</div>
 <!-- ## What do I mean by a potential of *rank* $N$?
 
 :::{style='font-size:70%'}
