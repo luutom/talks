@@ -3,6 +3,7 @@ title: "Lüscher's Formula and Left-Hand Cuts"
 subtitle: "Is there a simple way to include them?"
 author: "Thomas Luu"
 date: last-modified
+from: markdown+emoji
 format:
   revealjs:
     html-math-method: katex
@@ -384,7 +385,7 @@ $$
 
 + I will only consider s-wave scattering to keep life as simple as possible.
 
-+ The "long-range" part is modeled by one-pion exchange (OPE)^[$\mu\sim m_\pi$ is the pion mass and $g$ is the pion coupling constant.]
++ The "long-range" part is modeled by one-pion exchange (OPE)^[$\mu\sim m_\pi$ is the pion mass and $g$ is the dimensionless pion coupling constant ($g=\frac{g_A\mu}{2f_\pi}$).]
 
 $$
 V^{l=0}_{\pi}(p',p) = -\frac{g^2}{4p'p}\log\left(\frac{(p+p')^2+\mu^2}{(p-p')^2+\mu^2}\right)
@@ -498,8 +499,15 @@ $$
 and the beauty of separability comes into play:
 
 $$
-\tau^{-1}(E) = \lambda^{-1} - \frac{1}{L^3}\sum_n^\Lambda f(p_n) G_0(p_n;E) f^T(p_n)
+\tau^{-1}(E) = 
+\begin{cases}
+\lambda^{-1} - \frac{1}{(2\pi)^3}\int^\Lambda d^3pf(p) G_0 (p;E) f^T(p) & {\rm \infty\  volume}\\
+\lambda^{-1} - \frac{1}{L^3}\sum_n^\Lambda f(p_n) G_0 (p_n;E) f^T(p_n) & {\rm finite\  volume}
+\end{cases}
 $$
+
+<!-- 
+## Quantization condition
 
 :::{.callout-important}
 ## Quantization condition
@@ -513,13 +521,15 @@ $$
 $$
 :::
 
-:::{style='font-size:60%'}
+:::{style='font-size:80%'}
 This expression recovers the contact Lüscher formula @eq-contact-luescher in the limit $N\to 1$, $h\to0$, and $g_i\to 0\ \forall\  i$.
-:::
+::: 
+-->
 
-## Test case: $N=2$ with $g_i(p)=0\  \forall\ i$
+## Test case: $N=2$
 
-In this case we have $f(p) = (1,h(p))$ and
+This is equivalent to setting $g_i(p)=0\  \forall\ i \implies f(p) = (1,h(p))$.  We thus have
+
 $$
 \lambda = \begin{pmatrix}
 \frac{4\pi a(\Lambda)}{m} & -\frac{g^2}{2\mu^2} \\
@@ -532,7 +542,103 @@ $$
 \end{pmatrix}
 $$
 
-and
+#### Re-tuning $a(\Lambda)$
+
+We have to retune $a(\Lambda)$ to give the correct scattering amplitude at threshold in the continuum.  Note that $V_{\rm cut}$ is also linearly divergent.  However, we will see that we still only need a single counterterm to subtract this divergence.  
+
+So the condition I want to match is
+
+:::{style='font-size:80%'}
+$$
+T(p'=p=0;E=0)=\frac{4\pi a_0}{m}={\bf f}^T(0)\tau(0){\bf f}(0)=\tau_{11}(0)+\tau_{12}(0)+\tau_{21}(0)+\tau_{22}(0)
+$$
+:::
+
+---
+
+We have then that
+
+:::{style='font-size:70%'}
+$$
+\begin{align}
+\tau^{-1}(0)&=
+\underbrace{
+\begin{pmatrix}
+0 & -\frac{2\mu^2}{g^2} \\
+-\frac{2\mu^2}{g^2} & -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}
+\end{pmatrix}}_{\lambda^{-1}}
+-
+\underbrace{
+\int^\Lambda \frac{d^3p}{(2\pi)^3}
+\begin{pmatrix}
+\frac{-1}{p^2/m} & -\left(\frac{\mu}{2p}\right)^2\frac{\log\left(1+\frac{4p^2}{\mu^2}\right)}{p^2/m}\\
+-\left(\frac{\mu}{2p}\right)^2\frac{\log\left(1+\frac{4p^2}{\mu^2}\right)}{p^2/m} & -\left(\frac{\mu}{2p}\right)^4\frac{\log^2\left(1+\frac{4p^2}{\mu^2}\right)}{p^2/m}
+\end{pmatrix}}_{\frac{1}{(2\pi)^3}\int^\Lambda d^3pf(p) G_0 (p;E=0) f^T(p)}\nonumber\\
+&=
+\begin{pmatrix}
+0 & -\frac{2\mu^2}{g^2} \\
+-\frac{2\mu^2}{g^2} & -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}
+\end{pmatrix}+
+\frac{m}{2\pi^2}\int^\Lambda dp
+\begin{pmatrix}
+1 & \left(\frac{\mu}{2}\right)^2\frac{\log\left(1+\frac{4p^2}{\mu^2}\right)}{p^2}\\
+\left(\frac{\mu}{2}\right)^2\frac{\log\left(1+\frac{4p^2}{\mu^2}\right)}{p^2} & \left(\frac{\mu}{2}\right)^4\frac{\log^2\left(1+\frac{4p^2}{\mu^2}\right)}{p^4}
+\end{pmatrix}\nonumber\\
+&=
+\begin{pmatrix}
+0 & -\frac{2\mu^2}{g^2} \\
+-\frac{2\mu^2}{g^2} & -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}
+\end{pmatrix}+
+\frac{m}{2\pi^2}
+\begin{pmatrix}
+\Lambda & \frac{\pi  \mu }{2}-\Delta_1(\Lambda)\\
+\frac{\pi  \mu }{2}-\Delta_1(\Lambda)& \frac{2 \pi  \mu }{3}(1-\log (2))-\Delta_2(\Lambda)
+\end{pmatrix}\nonumber
+\end{align}
+$$
+
+:::
+
+where
+
+:::{style='font-size:60%'}
+$$
+\begin{align}
+\Delta_1(\Lambda)&=\frac{\mu ^2 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{4 \Lambda }+\mu  \cot ^{-1}\left(\frac{2 \Lambda }{\mu }\right)\sim\mathcal{O}\left(\frac{\log(\Lambda)}{\Lambda}\right)\nonumber\\
+\Delta_2(\Lambda)&=\frac{1}{144} \mu  \left[96 \left(\log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)+2 \log \left(\frac{2 \mu }{\mu +2 i \Lambda }\right)-2\right) \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)+\frac{3 \mu  \log \left(\frac{4 \Lambda
+   ^2}{\mu ^2}+1\right) \left(\mu ^2 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)+16 \Lambda ^2\right)}{\Lambda ^3}\right.\nonumber\\
+   &\left.\qquad\qquad\qquad\qquad+96 i \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)^2+96 i \text{Li}_2\left(\frac{4 i \Lambda }{2 i \Lambda +\mu
+   }-1\right)+8 \pi  (12+i \pi -6 \log (4))\right]\sim\mathcal{O}\left(\frac{\log^2(\Lambda)}{\Lambda^3}\right)\nonumber
+\end{align}
+$$
+:::
+
+
+---
+
+:::{.callout-important}
+## Re-tuning $a(\Lambda)$
+With $V_{\rm cut}$ I need to re-tune $a(\Lambda)$ such that I reproduce the correct scattering amplitude at threshold.  I find 
+
+:::{style='font-size:70%'}
+$$
+\begin{align}
+a(\Lambda)&=\frac{a_0+\frac{g^2}{\pi} \left(\frac{a_0 m \Delta _1(\Lambda )}{2 \pi  \mu ^2}-\frac{a_0 m}{4 \mu }+\frac{m}{4 \mu ^2}\right)+\frac{g^4}{\pi} \left(\frac{a_0 m^2 \Delta _1(\Lambda ){}^2}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^3}+\Lambda  \left(\frac{a_0 m^2 \Delta _2(\Lambda )}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
+   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}+\frac{m^2}{32 \pi ^2 \mu ^4}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}+\frac{m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^4}-\frac{m^2 \Delta _2(\Lambda )}{32 \pi ^2 \mu ^4}-\frac{m^2}{96 \pi 
+   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber\\
+   &=\frac{a_0+\frac{g^2}{\pi} \left(\frac{m}{4 \mu ^2}-\frac{a_0 m}{4 \mu }\right)+\frac{g^4}{\pi} \left(\Lambda  \left(\frac{m^2}{32 \pi ^2 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
+   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}-\frac{m^2}{96 \pi 
+   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)+\mathcal{O}\left(\frac{\log(\Lambda)}{\Lambda}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber
+\end{align}
+$$
+:::
+
+Note that as $g^2/\mu\to 0$ I recover $\frac{a_0}{1-2a_0\Lambda/\pi}$, as I should.
+:::
+
+---
+
+In a finite volume I have
 
 :::{style='font-size:80%'}
 $$
@@ -556,6 +662,30 @@ $$
 \end{pmatrix}=0
 $$
 
+I rewrite this as
+
+:::{style="font-size:80%"}
+$$
+\det
+\begin{pmatrix}
+\frac{m}{4\pi^2 L}\left(S_0(\epsilon)+4\pi\Lambda\right) & -\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^2S_1(\epsilon) \\
+-\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^2S_1(\epsilon) & -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}+\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^4S_2(\epsilon)
+\end{pmatrix}=0
+$$
+:::
+
+where
+
+:::{style='font-size:60%'}
+$$
+S_0(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \quad;\quad
+S_1(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}\log\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\quad;\quad
+S_2(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)
+$$
+:::
+
+Note that the sums in $S_1(\epsilon)$ and $S_2(\epsilon)$ converge and require no regulator.
+
 ---
 
 ### . . . skipping many steps . . .
@@ -568,16 +698,12 @@ $$
 $$
 :::
 
-where
+:::{.callout-note}
+## Properties of this expression
 
-:::{style='font-size:80%'}
-$$
-\begin{align}
-S_0(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \nonumber\\
-S_1(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}\log\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\nonumber\\
-S_2(\epsilon)&= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\nonumber
-\end{align}
-$$
++ In the limit that the coupling $g\to0$ I recover the original contact Lüscher expression :heavy_check_mark:
++ But the counterterm $\Lambda$ gets mixed up with $S_1(\epsilon)$ and $S_2(\epsilon)$ ❌
++ $g$ should not get renormalized.  So is there a way to redifine $a(\Lambda)$ in the presence of $V_{\rm cut}$ :exclamation::question:
 :::
 
 <!-- ## What do I mean by a potential of *rank* $N$?
