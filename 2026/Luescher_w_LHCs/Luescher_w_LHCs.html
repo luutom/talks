@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Thomas Luu">
-  <meta name="dcterms.date" content="2026-10-09">
+  <meta name="dcterms.date" content="2026-10-19">
   <title>Lüscher’s Formula and Left-Hand Cuts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -162,7 +162,7 @@ Thomas Luu
 </div>
 </div>
 
-  <p class="date">2026-10-09</p>
+  <p class="date">2026-10-19</p>
 </section>
 <section>
 <section id="derivation-of-lüschers-formula" class="title-slide slide level1 center">
@@ -260,12 +260,12 @@ T(\vec p, -\vec p; E)
 </span></p>
 <p>which we can rewrite as</p>
 <p><span id="eq-contact-luescher"><span class="math display">
--\frac{1}{a_0}=\frac{1}{\pi L}\lim_{\Lambda \to \infty}\left(\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right)\equiv \frac{1}{\pi L}S\left(\epsilon\right)
+-\frac{1}{a_0}=\frac{1}{\pi L}\lim_{\Lambda \to \infty}\left(\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right)\equiv \frac{1}{\pi L}S_0\left(\epsilon\right)
 \tag{1}</span></span></p>
 <p>and the RHS is now Lüscher’s formula. In particular, values of <span class="math inline">\epsilon</span> that satisfy this equality correspond to the eigen-energies of the two-particle interacting system.</p>
 <aside><ol class="aside-footnotes"><li id="fn1"><p>The limit <span class="math inline">\Lambda \to \infty</span> is tacitly assumed, but sometimes I write it explicitly.</p></li></ol></aside></section>
-<section id="interpretation--fracla_0frac1pisleftepsilonright" class="slide level2">
-<h2>Interpretation: <span class="math inline">-\frac{L}{a_0}=\frac{1}{\pi}S\left(\epsilon\right)</span></h2>
+<section id="interpretation--fracla_0frac1pis_0leftepsilonright" class="slide level2">
+<h2>Interpretation: <span class="math inline">-\frac{L}{a_0}=\frac{1}{\pi}S_0\left(\epsilon\right)</span></h2>
 
 <img data-src="assets/luescher.png" class="quarto-figure quarto-figure-center r-stretch" style="width:100.0%"><div style="font-size:80%">
 <ul>
@@ -286,7 +286,7 @@ T(\vec p,-\vec p;E) = -\frac{4\pi}{m}\frac{1}{p\cot\delta - ip}
 </span></p>
 <p>When we repeat the calculation in a finite volume with this potential, it leads to the full Lüscher formula</p>
 <p><span class="math display">
-p\cot\delta = \frac{1}{\pi L}S(\epsilon)\ .
+p\cot\delta = \frac{1}{\pi L}S_0(\epsilon)\ .
 </span> where <span class="math inline">\epsilon</span> is defined as before.</p>
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
@@ -344,11 +344,11 @@ p \cot\delta(p) = \frac{1}{f(p)^2}\left(-\frac{1}{a_0} + \frac{2p}{\sqrt\pi} F\!
 <p>with <span class="math inline">\epsilon = \dfrac{E mL^2}{4\pi^2}</span> and <span class="math inline">f(\vec n) = \exp\left(-\dfrac{\pi^3 r^2}{8 L^2} \vec n^2\right)</span>. I assume the two particles have equal mass <span class="math inline">m</span>.</p>
 <p>Given <span class="math inline">\epsilon</span>, I insert this into Lüscher’s formula to get the phase shift</p>
 <p><span class="math display">
-p\cot\delta(p) = \frac{1}{\pi L} S(\epsilon)
+p\cot\delta(p) = \frac{1}{\pi L} S_0(\epsilon)
 </span></p>
 <p>where</p>
 <p><span class="math display">
-S(\epsilon) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{n &lt; \Lambda} \frac{1}{n^2 - \epsilon} - 4\pi\Lambda \right]
+S_0(\epsilon) = \lim_{\Lambda \to \infty} \left[ \sum_{\vec n}^{n &lt; \Lambda} \frac{1}{n^2 - \epsilon} - 4\pi\Lambda \right]
 </span></p>
 </section>
 <section id="deuteron-in-a-box" class="slide level2">
@@ -685,7 +685,7 @@ This expression recovers the contact Lüscher formula @eq-contact-luescher in th
 \end{pmatrix}
 </span></p>
 <h4 id="re-tuning-alambda">Re-tuning <span class="math inline">a(\Lambda)</span></h4>
-<p>We have to retune <span class="math inline">a(\Lambda)</span> to give the correct scattering amplitude at threshold in the continuum. Note that <span class="math inline">V_{\rm cut}</span> is also linearly divergent. However, we will see that we still only need a single counterterm to subtract this divergence.</p>
+<p>We have to retune <span class="math inline">a(\Lambda)</span> to give the correct scattering amplitude at threshold in the continuum. Note that <span class="math inline">V_{\rm cut}</span> is also linearly divergent. This complicates things, as we will see.</p>
 <p>So the condition I want to match is</p>
 <div style="font-size:80%">
 <p><span class="math display">
@@ -748,68 +748,94 @@ T(p'=p=0;E=0)=\frac{4\pi a_0}{m}={\bf f}^T(0)\tau(0){\bf f}(0)=\tau_{11}(0)+\tau
 </span></p>
 </div>
 </section>
-<section class="slide level2">
+<section class="slide level2 scrollable">
 
-<div class="callout callout-important callout-titled callout-style-default">
-<div class="callout-body">
-<div class="callout-title">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<p><strong>Re-tuning <span class="math inline">a(\Lambda)</span></strong></p>
-</div>
-<div class="callout-content">
-<p>With <span class="math inline">V_{\rm cut}</span> I need to re-tune <span class="math inline">a(\Lambda)</span> such that I reproduce the correct scattering amplitude at threshold. I find</p>
-<div style="font-size:70%">
+<!-- 
+:::{.callout-important}
+## Re-tuning $a(\Lambda)$
+With $V_{\rm cut}$ I need to re-tune $a(\Lambda)$ such that I reproduce the correct scattering amplitude at threshold.  I find 
+
+:::{style='font-size:70%'}
+$$
+\begin{align}
+a(\Lambda)&=\frac{a_0+\frac{g^2}{\pi} \left(\frac{a_0 m \Delta _1(\Lambda )}{2 \pi  \mu ^2}-\frac{a_0 m}{4 \mu }+\frac{m}{4 \mu ^2}\right)+\frac{g^4}{\pi} \left(\frac{a_0 m^2 \Delta _1(\Lambda ){}^2}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^3}+\Lambda  \left(\frac{a_0 m^2 \Delta _2(\Lambda )}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
+   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}+\frac{m^2}{32 \pi ^2 \mu ^4}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}+\frac{m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^4}-\frac{m^2 \Delta _2(\Lambda )}{32 \pi ^2 \mu ^4}-\frac{m^2}{96 \pi 
+   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber\\
+   &=\frac{a_0+\frac{g^2}{\pi} \left(\frac{m}{4 \mu ^2}-\frac{a_0 m}{4 \mu }\right)+\frac{g^4}{\pi} \left(\Lambda  \left(\frac{m^2}{32 \pi ^2 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
+   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}-\frac{m^2}{96 \pi 
+   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)+\mathcal{O}\left(\frac{\log(\Lambda)}{\Lambda}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber
+\end{align}
+$$
+:::
+
+Note that as $g^2/\mu\to 0$ I recover $\frac{a_0}{1-2a_0\Lambda/\pi}$, as I should.
+::: 
+-->
+<p>I can solve for <span class="math inline">a(\Lambda)</span><sup>1</sup></p>
+<div style="font-size:50%">
 <p><span class="math display">
 \begin{align}
-a(\Lambda)&amp;=\frac{a_0+\frac{g^2}{\pi} \left(\frac{a_0 m \Delta _1(\Lambda )}{2 \pi  \mu ^2}-\frac{a_0 m}{4 \mu }+\frac{m}{4 \mu ^2}\right)+\frac{g^4}{\pi} \left(\frac{a_0 m^2 \Delta _1(\Lambda ){}^2}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^3}+\Lambda  \left(\frac{a_0 m^2 \Delta _2(\Lambda )}{16 \pi ^3 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
-   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}+\frac{m^2}{32 \pi ^2 \mu ^4}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}+\frac{m^2 \Delta _1(\Lambda )}{16 \pi ^2 \mu ^4}-\frac{m^2 \Delta _2(\Lambda )}{32 \pi ^2 \mu ^4}-\frac{m^2}{96 \pi
-   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber\\
-   &amp;=\frac{a_0+\frac{g^2}{\pi} \left(\frac{m}{4 \mu ^2}-\frac{a_0 m}{4 \mu }\right)+\frac{g^4}{\pi} \left(\Lambda  \left(\frac{m^2}{32 \pi ^2 \mu ^4}-\frac{a_0 m^2}{24 \pi ^2 \mu
-   ^3}+\frac{a_0 m^2 \log (2)}{24 \pi ^2 \mu ^3}\right)+\frac{a_0 m^2}{64 \pi  \mu ^2}-\frac{m^2}{96 \pi
-   \mu ^3}-\frac{m^2 \log (4)}{96 \pi  \mu ^3}\right)+\mathcal{O}\left(\frac{\log(\Lambda)}{\Lambda}\right)}{1 -2 a_0 \Lambda/\pi }\nonumber
+\left(1-\frac{2}{\pi}a_0\Lambda\right)a(\Lambda)&amp;=a_0
++g^2 m \left(\frac{a_0 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{8 \pi ^2 \Lambda }-\frac{a_0 \tan ^{-1}\left(\frac{2 \Lambda }{\mu
+   }\right)}{2 \pi ^2 \mu }+\frac{1}{4 \pi  \mu ^2}\right)\nonumber\\
+&amp; + g^4 m^2 \left[\frac{a_0 \log ^2\left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{192 \pi ^4 \Lambda ^2}+\frac{a_0 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{48 \pi ^4 \mu
+   ^2}+\frac{\frac{\log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{192 \pi ^3 \mu ^2}-\frac{a_0 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right) \tan ^{-1}\left(\frac{2
+   \Lambda }{\mu }\right)}{32 \pi ^4 \mu }}{\Lambda }+\frac{a_0 \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)^2}{16 \pi ^4 \mu ^2}+\Lambda  \left(\frac{1}{32 \pi ^3 \mu
+   ^4}-\frac{a_0 \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)}{12 \pi ^4 \mu ^3}\right)+\right.\nonumber\\
+   &amp;\qquad\left.(\pi -2 a_0 \Lambda ) \left(\left(-\frac{\log \left(\frac{4 \Lambda ^2}{\mu
+   ^2}+1\right)}{48 \pi ^4 \mu ^3}-\frac{\log \left(\frac{2 \mu }{\mu +2 i \Lambda }\right)}{24 \pi ^4 \mu ^3}\right) \tan ^{-1}\left(\frac{2 \Lambda }{\mu
+   }\right)-\frac{i \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)^2}{48 \pi ^4 \mu ^3}+\frac{-8 i \pi ^2 \mu -96 i \mu  \text{Li}_2\left(\frac{4 i \Lambda }{2 i \Lambda
+   +\mu }-1\right)}{4608 \pi ^4 \mu ^4}\right)-\frac{\log ^2\left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)}{1536 \pi ^3 \Lambda ^3}-\frac{\tan ^{-1}\left(\frac{2 \Lambda }{\mu
+   }\right)}{48 \pi ^3 \mu ^3}\right]\nonumber
 \end{align}
 </span></p>
 </div>
-<p>Note that as <span class="math inline">g^2/\mu\to 0</span> I recover <span class="math inline">\frac{a_0}{1-2a_0\Lambda/\pi}</span>, as I should.</p>
+<p>In the limit that <span class="math inline">g\to0</span> I find</p>
+<div style="font-size:60%">
+<p><span class="math display">
+\frac{a_0}{1-\frac{2}{\pi}a_0\Lambda}+\frac{g^2 m \left(a_0 \mu ^2 \log \left(\frac{4 \Lambda ^2}{\mu ^2}+1\right)-4 a_0 \Lambda  \mu  \tan ^{-1}\left(\frac{2 \Lambda }{\mu }\right)+2 \pi  \Lambda \right)}{(1-\frac{2}{\pi}a_0\Lambda)8 \pi
+   ^2 \Lambda  \mu ^2}+\mathcal{O}\left(g^3\right)
+</span></p>
 </div>
+<p>which shows that one recovers the <span class="math inline">\delta</span>-function result at <span class="math inline">g=0</span>.</p>
+<p>However, in the limit <span class="math inline">\Lambda\to\infty</span> I get instead the following result:</p>
+<div style="font-size:60%">
+<p><span class="math display">
+\begin{align}
+\frac{1}{1-\frac{2}{\pi}a_0\Lambda}&amp;\left[a_0 +\frac{g^2 m \left(3 a_0 g^2 \mu  m-48 \pi  a_0 \mu ^2-2 g^2 m
+   \log \left(\frac{4 \Lambda ^2}{\mu ^2}\right) +4 g^2 m \log (\Lambda )-4 g^2 m \log (\mu )-2 g^2 m+48 \pi  \mu \right)}{192 \pi ^2 \mu ^3}\right.\nonumber\\
+   &amp;+\left.\Lambda  \left(\frac{a_0 g^4 m^2 \log \left(\frac{4 \Lambda ^2}{\mu ^2}\right)}{48 \pi ^3 \mu ^3}-\frac{a_0 g^4 m^2 \log (\Lambda )}{24 \pi ^3 \mu ^3}-\frac{a_0 g^4 m^2}{24
+   \pi ^3 \mu ^3}+\frac{a_0 g^4 m^2 \log (\mu )}{24 \pi ^3 \mu ^3}+\frac{g^4 m^2}{32 \pi ^3 \mu ^4}\right)
+  +\mathcal{O}\left(\Lambda^{-1}\right)\right]\nonumber
+\end{align}
+</span></p>
 </div>
-</div>
-</section>
-<section class="slide level2">
+<p>The limits <span class="math inline">g\to0</span> and <span class="math inline">\Lambda\to\infty</span> do not commute.</p>
+<aside><ol class="aside-footnotes"><li id="fn3"><p>Note that <span class="math inline">\Lambda</span> is <em>dimensionful</em>.</p></li></ol></aside></section>
+<section class="slide level2 scrollable">
 
-<p>In a finite volume I have</p>
+<p>In a finite volume I have<sup>1</sup></p>
 <div style="font-size:80%">
 <p><span class="math display">
+\begin{align}
 \frac{m}{4\pi^2 L}\sum_n^\Lambda f\left(\frac{2\pi |n|}{L}\right) \frac{1}{n^2-\epsilon} f^T\left(\frac{2\pi |n|}{L}\right)
-=
+=&amp;
 \frac{m}{4\pi^2 L}\sum_n^\Lambda
 \begin{pmatrix}
 \frac{1}{n^2-\epsilon} &amp; \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} \\
 \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} &amp; \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
+\end{pmatrix}\nonumber\\
+=&amp;
+\frac{m}{4\pi^2 L}\sum_n^\Lambda
+\begin{pmatrix}
+S_0(\epsilon)+4\pi\Lambda &amp; (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
+(\frac{\mu m}{4\pi})^2S_1(\epsilon) &amp; (\frac{\mu m}{4\pi})^4S_2(\epsilon)
 \end{pmatrix}
+\equiv {\color{red}-}\mathcal{G}(\epsilon)\nonumber
+\end{align}
 </span></p>
 </div>
-<p>So the quantization condition is explicitly</p>
-<p><span class="math display">
-\det
-\begin{pmatrix}
-\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{1}{n^2-\epsilon} &amp; -\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} \\
--\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon}&amp; -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}+\frac{m}{4\pi^2 L}\sum_n^\Lambda \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
-\end{pmatrix}=0
-</span></p>
-<p>I rewrite this as</p>
-<div style="font-size:80%">
-<p><span class="math display">
-\det
-\begin{pmatrix}
-\frac{m}{4\pi^2 L}\left(S_0(\epsilon)+4\pi\Lambda\right) &amp; -\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^2S_1(\epsilon) \\
--\frac{2\mu^2}{g^2} +\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^2S_1(\epsilon) &amp; -\frac{4\mu^4}{g^4}\frac{4\pi a(\Lambda)}{m}+\frac{m}{4\pi^2 L}\left(\frac{\mu L}{4\pi}\right)^4S_2(\epsilon)
-\end{pmatrix}=0
-</span></p>
-</div>
-<p>where</p>
+<p>where I define</p>
 <div style="font-size:60%">
 <p><span class="math display">
 S_0(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \quad;\quad
@@ -817,34 +843,119 @@ S_1(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}
 S_2(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)
 </span></p>
 </div>
-<p>Note that the sums in <span class="math inline">S_1(\epsilon)</span> and <span class="math inline">S_2(\epsilon)</span> converge and require no regulator.</p>
-</section>
-<section class="slide level2">
-
-<h3 id="skipping-many-steps-.-.-.">. . . skipping many steps . . .</h3>
-<p>I find the following result</p>
+<p>Note that the sums in <span class="math inline">S_1(\epsilon)</span> and <span class="math inline">S_2(\epsilon)</span> converge and require no counterterm.</p>
+<p>I obtain the quantization condition (QC) by demanding</p>
 <div style="font-size:80%">
 <p><span class="math display">
--\frac{1}{a}=\frac{g^4 \Lambda ^2 (mL)^2 S_2(\epsilon )}{1024 \pi ^7 L}-\frac{g^4 \Lambda  (mL)^2 S_1(\epsilon ){}^2}{4096 \pi ^8 L}+\frac{g^4 \Lambda  (mL)^2 S_0(\epsilon ) S_2(\epsilon )}{4096 \pi ^8 L}+\frac{g^2 \Lambda  mL S_1(\epsilon )}{16 \pi^4 L}+\frac{S_0(\epsilon )}{\pi  L}+\mathcal{O}(1/\Lambda)
+\det(\mathbb{1}_2-\lambda\mathcal{G}(\epsilon))=
+\det
+\begin{pmatrix}
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L} &amp; \frac{\mu ^2 m^2 a(\Lambda ) S_1(\epsilon )}{16
+   \pi ^3 L}-\frac{g^2 \mu ^2 m^5 S_2(\epsilon )}{2048 \pi ^6 L} \\
+-\frac{g^2 m \left(\frac{4 \Lambda }{L}+\frac{S_0(\epsilon )}{\pi  L}\right)}{8 \pi  \mu ^2} &amp; 1-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L}
+\end{pmatrix}=0
 </span></p>
 </div>
+<p>The QC then gives</p>
+<div style="font-size:70%">
+<p><span class="math display">
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{64 \pi ^4 L}+g^4 m^6 \left(-\frac{\Lambda  S_2(\epsilon )}{4096 \pi ^7 L^2}+\frac{S_1(\epsilon ){}^2}{16384
+   \pi ^8 L^2}-\frac{S_0(\epsilon ) S_2(\epsilon )}{16384 \pi ^8 L^2}\right)=0
+</span></p>
+</div>
+<aside><ol class="aside-footnotes"><li id="fn4"><p>Note that <span class="math inline">\Lambda</span> in this case is <em>dimensionless</em>! (i.e.&nbsp;dimensionful <span class="math inline">\Lambda\to\frac{2\pi}{L}\Lambda</span>)</p></li></ol></aside></section>
+<section class="slide level2 scrollable">
+
+<p>I can solve for <span class="math inline">a_0</span>, and this gives a very complicated expression which I won’t write out here. If I consider the <span class="math inline">g\to 0</span> limit (holding <span class="math inline">\Lambda</span> fixed), I find<sup>1</sup></p>
+<div style="font-size:70%">
+<p><span id="eq-QC1"><span class="math display">
+\begin{align}
+-\frac{1}{a_0}&amp;=\frac{S_0(\epsilon )}{\pi  L}\nonumber\\
+&amp;+g^2m \left[\Lambda  \left(\frac{m^2 S_1(\epsilon )}{16 \pi ^4 L^2}-\frac{ \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu  L}\right)+S_0(\epsilon )\right)}{\pi ^2
+   \mu ^2 L^2}\right)\right.\nonumber\\
+   &amp; \qquad\left.+\frac{m^2 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{ S_0(\epsilon ) \log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)}{16 \pi ^4
+   \Lambda }+\frac{\left(\log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)-\frac{S_0(\epsilon ) \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu
+   L}\right)+S_0(\epsilon )\right)}{\mu ^2 L^2}\right)}{4 \pi ^3}\right]+\mathcal{O}(g^4)\nonumber
+\end{align}
+\tag{2}</span></span></p>
+</div>
+<p>which recovers the <span class="math inline">\delta</span>-function Lüscher formula <a href="#/eq-contact-luescher" class="quarto-xref">Equation&nbsp;1</a> when <span class="math inline">g=0</span>.</p>
+<p>On the other hand, if I do <span class="math inline">\Lambda\to\infty</span> (while holding <span class="math inline">g</span> fixed), I get</p>
+<p><span class="math display">
+-\frac{1}{a_0}=\frac{4}{3} \mu  (\log (2)-1)+\frac{\mu ^4 m^4 S_2(\epsilon )}{256 \pi ^5 L}+\mathcal{O}(\Lambda^{-1})
+</span></p>
+<p>Again these two limits do not commute with each other.</p>
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Again we have <span class="math inline">\Lambda</span> dimensionless.</p></li></ol></aside></section>
+<section id="strategy-1-finite-cutoff-eft" class="slide level2">
+<h2>Strategy #1: Finite-cutoff EFT</h2>
+<ul>
+<li>Never take the <span class="math inline">\Lambda\to\infty</span> limit</li>
+<li>The correct limit is <span class="math inline">g\to 0</span></li>
+<li>Assume <span class="math inline">g^4\Lambda\ll 1</span></li>
+<li>For fixed <span class="math inline">g</span>, <span class="math inline">m</span>, and <span class="math inline">\mu</span>, use <a href="#/eq-QC1" class="quarto-xref">Equation&nbsp;2</a> and
+<ul>
+<li>vary <span class="math inline">\Lambda</span> and look for regions where it is relatively insensitive to <span class="math inline">\Lambda</span>.<br>
+</li>
+<li>the window in <span class="math inline">\Lambda</span> where it is insensitive gives a systematic error in this effective theory</li>
+</ul></li>
+</ul>
+<div class="fragment">
 <div class="callout callout-note callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>Properties of this expression</strong></p>
+<p><strong>Note</strong></p>
 </div>
 <div class="callout-content">
-<ul>
-<li>In the limit that the coupling <span class="math inline">g\to0</span> I recover the original contact Lüscher expression <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
-<li>But the counterterm <span class="math inline">\Lambda</span> gets mixed up with <span class="math inline">S_1(\epsilon)</span> and <span class="math inline">S_2(\epsilon)</span> ❌</li>
-<li><span class="math inline">g</span> should not get renormalized. So is there a way to redifine <span class="math inline">a(\Lambda)</span> in the presence of <span class="math inline">V_{\rm cut}</span> <span class="emoji" data-emoji="exclamation">❗</span><span class="emoji" data-emoji="question">❓</span></li>
-</ul>
+<p>I will do this!</p>
 </div>
 </div>
 </div>
+</div>
+</section>
+<section id="strategy-2-remove-the-g4lambda-divergence" class="slide level2">
+<h2>Strategy #2: Remove the <span class="math inline">g^4\Lambda</span> divergence</h2>
+<p>To do this, I introduce another coefficient</p>
+<p><span class="math display">
+\lambda = \begin{pmatrix}
+\frac{4\pi a(\Lambda)}{m} &amp; -\frac{g^2}{2\mu^2} \\
+-\frac{g^2}{2\mu^2} &amp; \frac{4\pi r(\Lambda)}{m}
+\end{pmatrix}
+\implies
+\lambda^{-1} = \begin{pmatrix}
+\frac{4 \pi  r(\Lambda )}{m \left(\frac{16 \pi ^2 a(\Lambda ) r(\Lambda )}{m^2}-\frac{g^4}{4 \mu ^4}\right)} &amp; \frac{g^2}{2 \mu ^2 \left(\frac{16 \pi ^2 a(\Lambda )
+   r(\Lambda )}{m^2}-\frac{g^4}{4 \mu ^4}\right)} \\
+\frac{g^2}{2 \mu ^2 \left(\frac{16 \pi ^2 a(\Lambda ) r(\Lambda )}{m^2}-\frac{g^4}{4 \mu ^4}\right)} &amp; \frac{4 \pi  a(\Lambda )}{m \left(\frac{16 \pi ^2 a(\Lambda )
+   r(\Lambda )}{m^2}-\frac{g^4}{4 \mu ^4}\right)}
+\end{pmatrix}
+</span></p>
+<p>I have now two coefficients to tune, and I do this such that I match <span class="math inline">p\cot\delta=-\frac{1}{a_0}+\frac{1}{2}r_0p^2+\mathcal{O}(p^4)</span>. In terms of the <span class="math inline">T</span>-matrix, I should match</p>
+<p><span class="math display">
+T(p'=p;E=p^2/m)=-\frac{4 \pi  a_0}{m}-\frac{2 \pi  a_0^2 r_0}{m}p^2+\mathcal{O}(p^4)
+</span></p>
+<!-- 
+---
+
+### . . . skipping many steps . . .
+
+I find the following result
+
+:::{style='font-size:80%'}
+$$
+-\frac{1}{a}=\frac{g^4 \Lambda ^2 (mL)^2 S_2(\epsilon )}{1024 \pi ^7 L}-\frac{g^4 \Lambda  (mL)^2 S_1(\epsilon ){}^2}{4096 \pi ^8 L}+\frac{g^4 \Lambda  (mL)^2 S_0(\epsilon ) S_2(\epsilon )}{4096 \pi ^8 L}+\frac{g^2 \Lambda  mL S_1(\epsilon )}{16 \pi^4 L}+\frac{S_0(\epsilon )}{\pi  L}+\mathcal{O}(1/\Lambda)
+$$
+:::
+
+:::{.callout-note}
+## Properties of this expression
+
++ In the limit that the coupling $g\to0$ I recover the original contact Lüscher expression :heavy_check_mark:
++ But the counterterm $\Lambda$ gets mixed up with $S_1(\epsilon)$ and $S_2(\epsilon)$ ❌
++ $g$ should not get renormalized.  So is there a way to redifine $a(\Lambda)$ in the presence of $V_{\rm cut}$ :exclamation::question:
+::: 
+-->
 <!-- ## What do I mean by a potential of *rank* $N$?
 
 :::{style='font-size:70%'}
@@ -962,7 +1073,7 @@ G_{12} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)}{E-E_n} \, , \qquad
 G_{22} = \frac{1}{L^3}\sum_{\vec n} \frac{h(p_n)^2}{E-E_n} \, .
 $$
 
-+ $G_{11}$ is divergent and needs the $4\pi\Lambda$ subtraction — **it is nothing but $S(\epsilon)$ again**.
++ $G_{11}$ is divergent and needs the $4\pi\Lambda$ subtraction — **it is nothing but $S_0(\epsilon)$ again**.
 
 + $G_{12}$ and $G_{22}$ converge on their own, since $h(p)\sim \log(p^2)/p^2$ at large $p$ beats the $n^2$ growth in the density of states.
 
