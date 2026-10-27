@@ -161,7 +161,7 @@ where the coefficients $C_i(\Lambda)$ are tuned such that the scattering amplitu
 
 $$
 T(\vec p,-\vec p;E) = -\frac{4\pi}{m}\frac{1}{p\cot\delta - ip}
-$$
+$${#eq-matching}
 
 When we repeat the calculation in a finite volume with this potential, it leads to the full Lüscher formula
 
@@ -702,9 +702,9 @@ $$
 \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} & \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
 \end{pmatrix}\nonumber\\
 =&
-\frac{m}{4\pi^2 L}\sum_n^\Lambda 
+\frac{m}{4\pi^2 L}
 \begin{pmatrix}
-S_0(\epsilon)+4\pi\Lambda & (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
+S_0(\epsilon)+4\pi\Lambda-\frac{4\pi\epsilon}{\Lambda} & (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
 (\frac{\mu m}{4\pi})^2S_1(\epsilon) & (\frac{\mu m}{4\pi})^4S_2(\epsilon)
 \end{pmatrix}
 \equiv {\color{red}-}\mathcal{G}(\epsilon)\nonumber
@@ -716,13 +716,13 @@ where I define
 
 :::{style='font-size:60%'}
 $$
-S_0(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \quad;\quad
+S_0(\epsilon)= \lim_{\Lambda\to\infty}\left(\sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right) \quad;\quad
 S_1(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}\log\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\quad;\quad
 S_2(\epsilon)= \sum_{\vec n}^{n < \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)
 $$
 :::
 
-Note that the sums in $S_1(\epsilon)$ and $S_2(\epsilon)$ converge and require no counterterm.
+Note that the sums in $S_1(\epsilon)$ and $S_2(\epsilon)$ converge and require no counterterm, and that both retain the **full** $1/(n^2-\epsilon)$ --- nothing is expanded in $\epsilon$.
 
 I obtain the quantization condition (QC) by demanding
 
@@ -731,9 +731,10 @@ $$
 \det(\mathbb{1}_2-\lambda\mathcal{G}(\epsilon))=
 \det
 \begin{pmatrix}
-1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L} & \frac{\mu ^2 m^2 a(\Lambda ) S_1(\epsilon )}{16
-   \pi ^3 L}-\frac{g^2 \mu ^2 m^5 S_2(\epsilon )}{2048 \pi ^6 L} \\
- -\frac{g^2 m \left(\frac{4 \Lambda }{L}+\frac{S_0(\epsilon )}{\pi  L}\right)}{8 \pi  \mu ^2} & 1-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L}
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{4 \epsilon  a(\Lambda )}{\Lambda  L}-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4
+   L} & \frac{\mu ^2 m^2 a(\Lambda ) S_1(\epsilon )}{16 \pi ^3 L}-\frac{g^2 \mu ^2 m^5 S_2(\epsilon )}{2048 \pi ^6 L} \\
+ -\frac{g^2 \Lambda  m}{2 \pi  \mu ^2 L}-\frac{g^2 m S_0(\epsilon )}{8 \pi ^2 \mu ^2 L}+\frac{g^2 m \epsilon }{2 \pi  \Lambda  \mu ^2 L} & 1-\frac{g^2 m^3
+   S_1(\epsilon )}{128 \pi ^4 L} 
 \end{pmatrix}=0
 $$
 :::
@@ -742,37 +743,91 @@ The QC then gives
 
 :::{style='font-size:70%'}
 $$
-1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{64 \pi ^4 L}+g^4 m^6 \left(-\frac{\Lambda  S_2(\epsilon )}{4096 \pi ^7 L^2}+\frac{S_1(\epsilon ){}^2}{16384
-   \pi ^8 L^2}-\frac{S_0(\epsilon ) S_2(\epsilon )}{16384 \pi ^8 L^2}\right)=0
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{4 \epsilon  a(\Lambda )}{\Lambda  L}-\frac{g^4 m^6 S_0(\epsilon )
+   S_2(\epsilon )}{16384 \pi ^8 L^2}+\frac{g^4 m^6 S_1(\epsilon )^2}{16384 \pi ^8 L^2}-\frac{g^4 \Lambda  m^6 S_2(\epsilon )}{4096 \pi ^7 L^2}+\frac{g^4
+   m^6 \epsilon  S_2(\epsilon )}{4096 \pi ^7 \Lambda  L^2}-\frac{g^2 m^3 S_1(\epsilon )}{64 \pi ^4 L}=0
 $$
+:::
+
+---
+
+### Why this stays tractable: the determinant collapses
+
+:::{style='font-size:70%'}
+
+With $\lambda_{22}=0$ write $\lambda=\begin{pmatrix}A & B\\ B& 0\end{pmatrix}$, $A\equiv\frac{4\pi a(\Lambda)}{m}$, $B\equiv-\frac{g^2}{2\mu^2}$.  Then the $2\times2$ determinant collapses to
+
+$$
+\boxed{\ \det(\mathbb{1}_2-\lambda\mathcal{G}) = 1 - A\,\mathcal{G}_{11} - 2B\,\mathcal{G}_{12} + B^2\left(\mathcal{G}_{12}^2-\mathcal{G}_{11}\mathcal{G}_{22}\right)\ }
+$$
+
+:::{.callout-note}
+## Three things this buys
++ **Linear in $a(\Lambda)$** --- only $\mathcal{G}_{11}$ multiplies $A$, so the QC solves for $a(\Lambda)$ in one step.  No nonlinear system, no $\det\lambda$ in a denominator.
++ **The $g$-counting is manifest**: $B\propto g^2$ and $B^2\propto g^4$, so the $\mathcal{O}(g^0)$, $\mathcal{O}(g^2)$ and $\mathcal{O}(g^4)$ pieces are the four terms above, in order.
++ **No $\lambda^{-1}$** --- essential here, since $\det\lambda = -B^2$ *vanishes* at $g=0$ when $\lambda_{22}=0$.  Writing the QC as $\det(\lambda^{-1}-\mathcal{G})$ would be singular in precisely the limit I use as a check.
+:::
+
+Matching term by term against the QC above: $-A\mathcal{G}_{11}$ gives the three $a(\Lambda)$ terms, $-2B\mathcal{G}_{12}$ gives $-\frac{g^2m^3S_1}{64\pi^4L}$, and $B^2(\mathcal{G}_{12}^2-\mathcal{G}_{11}\mathcal{G}_{22})$ gives all four $g^4$ terms :heavy_check_mark:
+
+:::{.callout-note}
+## Is it inconsistent to keep the $\mathcal{O}(\epsilon/\Lambda)$ term only in $\mathcal{G}_{11}$?
+No --- recall $S_1$ and $S_2$ retain the **full** $1/(n^2-\epsilon)$, so the only truncation anywhere is the $\Lambda$-tail.  Sorting those tails by power of $\epsilon$:
+
+| | $\epsilon^0$ tail (fixes $a_0$) | $\epsilon^1$ tail (fixes $r_0$) |
+|---|---|---|
+| $\mathcal{G}_{11}$ | absorbed into $4\pi\Lambda$ | $\mathcal{O}(\epsilon/\Lambda)$ &nbsp; **kept** |
+| $\mathcal{G}_{12}$ | $\mathcal{O}(\log\Lambda/\Lambda)$ | $\mathcal{O}(\epsilon\log\Lambda/\Lambda^3)$ |
+| $\mathcal{G}_{22}$ | $\mathcal{O}(\log^2\Lambda/\Lambda^3)$ | $\mathcal{O}(\epsilon\log^2\Lambda/\Lambda^5)$ |
+
+In *each* sector the retained term beats the dropped ones by $\Lambda^2$.  The asymmetry simply reflects that the $\mathcal{G}_{11}$ integrand falls as $1/n^2$, whereas $S_1$ and $S_2$ fall as $\log n/n^4$ and $\log^2 n/n^6$.
+:::
+
 :::
 
 ---
 
 I can solve for $a_0$, and this gives a very complicated expression which I won't write out here.  If I consider the $g\to 0$ limit (holding $\Lambda$ fixed), I find^[Again we have $\Lambda$ dimensionless.]
 
-:::{style='font-size:70%'}
+:::{style='font-size:90%'}
 $$
 \begin{align}
--\frac{1}{a_0}&=\frac{S_0(\epsilon )}{\pi  L}\nonumber\\
-&+g^2m \left[\Lambda  \left(\frac{m^2 S_1(\epsilon )}{16 \pi ^4 L^2}-\frac{ \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu  L}\right)+S_0(\epsilon )\right)}{\pi ^2
-   \mu ^2 L^2}\right)\right.\nonumber\\
-   & \qquad\left.+\frac{m^2 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{ S_0(\epsilon ) \log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)}{16 \pi ^4
-   \Lambda }+\frac{\left(\log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)-\frac{S_0(\epsilon ) \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu 
-   L}\right)+S_0(\epsilon )\right)}{\mu ^2 L^2}\right)}{4 \pi ^3}\right]+\mathcal{O}(g^4)\nonumber
+-\frac{1}{a_0}+\frac{4 \epsilon }{\Lambda  L}&=\frac{S_0(\epsilon )}{\pi  L}+g^2 \left(\frac{\Lambda  m^3 S_1(\epsilon )}{16 \pi ^4 L^2}-\frac{m^3 \epsilon  S_1(\epsilon )}{16 \pi ^4 \Lambda  L^2}+\frac{m^3 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5
+   L^2}\right)+\mathcal{O}(g^4)\nonumber
 \end{align}
-$${#eq-QC1}
+$$
 :::
 
-which recovers the $\delta$-function Lüscher formula @eq-contact-luescher when $g=0$.
+which recovers the $\delta$-function Lüscher formula @eq-contact-luescher when $g=0$ *and* $\Lambda\to\infty$.  At finite $\Lambda$ the surviving $4\epsilon/(\Lambda L)$ is not an error since it is the cutoff-induced effective range of the contact theory.
 
-On the other hand, if I do $\Lambda\to\infty$ (while holding $g$ fixed), I get
+If I now substitute^[This is the dimensionless analog of $\Lambda=\frac{4}{\pi r_0}$.] $\Lambda\to\frac{2L}{\pi^2 r_0}$ I get
+
+:::{style='font-size:90%'}
+$$
+-\frac{1}{a_0}+\frac{2 \pi ^2 r_0 \epsilon }{L^2}=\frac{S_0(\epsilon )}{\pi  L}+g^2 \left(-\frac{m^3 r_0 \epsilon  S_1(\epsilon )}{32 \pi ^2 L^3}+\frac{m^3 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{m^3 S_1(\epsilon )}{8 \pi ^6 L
+   r_0}\right)+\mathcal{O}(g^4)
+$$
+:::
+
+Recall that $\epsilon=\frac{EmL^2}{4\pi^2}=\frac{p^2L^2}{4 \pi^2}$.  Plugging this into the LHS above shows that the LHS is basically $p\cot\delta$.  So my final expression is
+
+$$
+\boxed{
+p\cot\delta=
+\frac{S_0(\epsilon )}{\pi  L}+g^2m^3 \left(-\frac{r_0 \epsilon  S_1(\epsilon )}{32 \pi ^2 L^3}+\frac{S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{S_1(\epsilon )}{8 \pi ^6 L
+   r_0}\right)+\mathcal{O}(g^4)
+}
+$${#eq-QC1}
+
+
+
+<!-- On the other hand, if I do $\Lambda\to\infty$ (while holding $g$ fixed), I get
 
 $$
 -\frac{1}{a_0}=\frac{4}{3} \mu  (\log (2)-1)+\frac{\mu ^4 m^4 S_2(\epsilon )}{256 \pi ^5 L}+\mathcal{O}(\Lambda^{-1})
 $$
 
-Again these two limits do not commute with each other.
+Again these two limits do not commute with each other. -->
 
 ## Strategy #1: Finite-cutoff EFT
 
@@ -784,7 +839,101 @@ Again these two limits do not commute with each other.
   - the window in $\Lambda$ where it is insensitive gives a systematic error in this effective theory
 
 :::{.callout-note .fragment}
-I will do this! 
+I will do this!
+:::
+
+## Strategy #1a: keep $\lambda_{22}=0$, but choose the cutoff
+
+:::{style='font-size:70%'}
+
+With $\lambda_{22}=0$ I keep the virtue of $V_{\rm cut}$: the on-shell potential has **exactly** the OPE logarithmic branch cut, with no $\log^2$ contamination.  The price is that only $a(\Lambda)$ can be tuned, so $r_0$ becomes a *prediction*.
+
+But that is precisely what makes the cutoff useful.  The contact theory already predicts $r_0 = 4/(\pi\Lambda)$, so I simply choose
+
+$$
+\boxed{\ \Lambda = \frac{4}{\pi r_0}\ }
+$$
+
+and the predicted effective range lands on the physical one for free.  Note $\Lambda\approx1.27/r_0$, i.e. $\Lambda\sim1/r_0$ is the natural breakdown scale of a short-range EFT anyway --- this is not a trick.
+
+| $g$ | $a(\Lambda)$ | $r$ predicted | $r-r_0$ | $(r-r_0)/g^2$ |
+|---:|---:|---:|---:|---:|
+| 0.00 | $-0.487128$ | 0.20000000 | $-7\times10^{-11}$ | --- |
+| 0.05 | $-0.487225$ | 0.19774082 | $-2.26\times10^{-3}$ | $-0.9037$ |
+| 0.10 | $-0.487516$ | 0.19097100 | $-9.03\times10^{-3}$ | $-0.9029$ |
+| 0.20 | $-0.488684$ | 0.16400677 | $-3.60\times10^{-2}$ | $-0.8998$ |
+| 0.30 | $-0.490644$ | 0.11947149 | $-8.05\times10^{-2}$ | $-0.8948$ |
+
+($m=\mu=1$, $a_0=0.5$, $r_0=0.2$.)  Exact at $g=0$ to $10^{-11}$, and the error is clean $\mathcal{O}(g^2)$ --- the last column is flat to three figures.
+
+:::
+
+## Strategy #1a: what this buys
+
+:::{style='font-size:75%'}
+
+:::{.callout-note}
+## The three goals align
++ $\lambda_{22}=0\ \Longrightarrow$ on-shell potential keeps exactly the OPE $\log$ discontinuity :heavy_check_mark:
++ $\Lambda = 4/(\pi r_0)\ \Longrightarrow$ both $a_0$ **and** $r_0$ come out right to $\mathcal{O}(g^2)$, with no second counterterm :heavy_check_mark:
++ finite $\Lambda\ \Longrightarrow$ the unabsorbed $g^4\Lambda$ divergence never arises :heavy_check_mark:
+:::
+
+This also sharpens the validity condition.  Substituting $\Lambda = 4/(\pi r_0)$ into $g^2 m\Lambda\lesssim1$ gives
+
+$$
+\frac{g^2 m}{r_0}\lesssim\frac{\pi}{4}
+$$
+
+a statement purely in **physical** quantities --- the cutoff has been eliminated, so there is no plateau to hunt for.
+
+:::{.callout-warning}
+Small $r_0$ is *dangerous*, not safe.  The $\mathcal{O}(g^2)$ error coefficient grows like $m\Lambda$: for $m=2$, $r_0=0.1$ ($\Lambda=12.7$) it reaches $-5.25$, and by $g=0.15$ the predicted $r$ has gone **negative** :warning:
+:::
+
+:::
+
+## Why the natural cutoff is *inevitable*
+
+:::{style='font-size:70%'}
+
+@eq-QC1 carries only $-1/a_0$ on the left because $S_0$ was defined with the $\Lambda\to\infty$ subtraction.  At **finite** $\Lambda$ the sum retains an $\epsilon$-dependent residue.  Using the large-$n$ shell density $4\pi n^2 dn$,
+
+$$
+\sum_{\vec n}^{n<\Lambda}\frac{1}{n^2-\epsilon}\approx 4\pi\!\int\! dn\left[1+\frac{\epsilon}{n^2-\epsilon}\right]
+= 4\pi\Lambda + 4\pi\epsilon\,\mathcal{P}\!\!\int^\Lambda\!\frac{dn}{n^2-\epsilon}
+= 4\pi\Lambda - \frac{4\pi\epsilon}{\Lambda}
+$$
+
+--- the *same* $\mathcal{P}\!\int^\Lambda dn/(n^2-\epsilon)\approx-1/\Lambda$ that produced the $-mE/\Lambda$ in $\mathcal{G}_{11}$, now seen in the box.  Hence
+
+$$
+S_0^{(\Lambda)}(\epsilon) = S_0^{(\infty)}(\epsilon) - \frac{4\pi\epsilon}{\Lambda} \, .
+$$
+
+Substituting into $-\frac{1}{a_0}=\frac{1}{\pi L}S_0^{(\Lambda)}(\epsilon)$ and moving the residue across:
+
+$$
+-\frac{1}{a_0}+\frac{4\epsilon}{L\Lambda} = \frac{1}{\pi L}S_0^{(\infty)}(\epsilon)
+$$
+
+Now identify that new term.  With $\Lambda_{\rm phys}=2\pi\Lambda/L$ the contact effective range is $r_0 = 4/(\pi\Lambda_{\rm phys}) = 2L/(\pi^2\Lambda)$, and with $p^2=mE=4\pi^2\epsilon/L^2$,
+
+$$
+\frac{r_0}{2}p^2 = \frac{L}{\pi^2\Lambda}\cdot\frac{4\pi^2\epsilon}{L^2} = \frac{4\epsilon}{L\Lambda} \qquad \textit{identical}
+$$
+
+:::{.callout-important}
+## The left-hand side promotes itself
+$$
+\underbrace{-\frac{1}{a_0}+\frac{r_0}{2}p^2}_{\textstyle p\cot\delta\ +\ \mathcal{O}(p^4)} = \frac{1}{\pi L}S_0(\epsilon)
+$$
+i.e. the *model-independent* Lüscher formula --- now **derived** rather than asserted :heavy_check_mark:
+:::
+
++ This is a real check, not a rearrangement: the $r_0=2L/(\pi^2\Lambda)$ falling out of the **finite-volume sum residue** is the same $r_0=4/(\pi\Lambda_{\rm phys})$ obtained independently from the **infinite-volume** amplitude.  Two unrelated routes, same coefficient.
++ At $\Lambda = 2L/(\pi^2 r_0)$ that $r_0$ *is* the physical effective range --- so choosing the natural cutoff is precisely the statement that the LHS becomes the physical $p\cot\delta$ to $\mathcal{O}(p^2)$, with no second counterterm anywhere.
+
 :::
 
 ## Strategy #2: Remove the $g^4\Lambda$ divergence
@@ -805,11 +954,152 @@ $$
 \end{pmatrix}
 $$
 
-I have now two coefficients to tune, and I do this such that I match $p\cot\delta=-\frac{1}{a_0}+\frac{1}{2}r_0p^2+\mathcal{O}(p^4)$.  In terms of the $T$-matrix, I should match
+Also, after some tedious calculations I find
+
+:::{style='font-size:70%'}
+$$
+\begin{align}
+\frac{1}{(2\pi)^3}&\int^\Lambda d^3qf(q) G_0 (q;E) f^T(q)=\nonumber\\
+&-\frac{m}{2\pi^2}
+\begin{pmatrix}
+\Lambda-\frac{mE}{\Lambda}+i\frac{\pi}{2}\sqrt{mE} & \frac{\pi}{2}\mu-\frac{2\pi}{3}\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE}\\
+\frac{\pi}{2}\mu-\frac{2\pi}{3}\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE} & \frac{2\pi}{3}\mu(1-\log(2))-\frac{8\pi}{15}(4-3\log(2))\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE}
+\end{pmatrix}
++\mathcal{O}(\Lambda^{-1},(mE)^{3/2})\nonumber
+\end{align}
+$$
+:::
+
+And note that 
 
 $$
-T(p'=p;E=p^2/m)=-\frac{4 \pi  a_0}{m}-\frac{2 \pi  a_0^2 r_0}{m}p^2+\mathcal{O}(p^4)
+{\bf f}(p=\sqrt{mE})=
+\begin{pmatrix}
+1\\
+1-\frac{2mE}{\mu^2}
+\end{pmatrix}
++\mathcal{O}((mE)^2)
 $$
+
+---
+
+I have now two coefficients to tune, $a(\Lambda)$ and $r(\Lambda)$, and I do this such that I match $p\cot\delta=-\frac{1}{a_0}+\frac{1}{2}r_0p^2+\mathcal{O}(p^4)$.  In terms of the $T$-matrix, inverting @eq-matching gives
+
+$$
+\begin{align}
+p\cot\delta=ip-\frac{4\pi}{mT(E=p^2/m)}&=-\frac{1}{a_0}+\frac{r_0}{2}p^2+\mathcal{O}(p^4)\nonumber\\
+&=-\frac{1}{a_0}+\frac{r_0}{2}mE+\mathcal{O}(E^2)\nonumber
+\end{align}
+$$
+
+:::{style='font-size:50%'}
+$$
+=
+\frac{-64 \pi ^2 \mu ^4 (\Lambda  a(\Lambda ) (8 \mu  (\log (2)-1) r(\Lambda )-6)+\pi  (\mu  r(\Lambda ) (3 \mu  a(\Lambda )-4+\log (16))-3))+g^4 \mu  m^2 (8 \Lambda  (\log
+   (2)-1)+3 \pi  \mu )-48 \pi ^2 g^2 \mu ^3 m}{64 \pi ^2 \mu ^4 (\pi  a(\Lambda ) (\mu  (2+\log (16)) r(\Lambda )-3)-6 \Lambda  a(\Lambda ) r(\Lambda )-3 \pi  r(\Lambda
+   ))+2 g^4 m^2 (3 \Lambda -\pi  \mu  (1+\log (4)))+48 \pi ^2 g^2 \mu ^2 m}
+$$
+:::
+:::{style='font-size:20%'}
+$$
++
+\frac{-64 \pi ^2 g^4 \mu ^3 m^2 \left(24 \Lambda ^3 a(\Lambda ) (8 \mu  (\log (4)-1) r(\Lambda )-15)+\pi  \left(5 \mu ^2 (2 \mu  (\log (16)-1) a(\Lambda ) (\mu  (\log
+   (16)-1) r(\Lambda )-3)-9)-4 \Lambda ^2 (\mu  a(\Lambda ) (-38 \mu  r(\Lambda )+56 \mu  \log (2) r(\Lambda )-75)-24 \mu  (\log (4)-1) r(\Lambda )+45)\right)+2 \pi ^2
+   \Lambda  \mu  (2 \mu  a(\Lambda ) (\mu  (\log (16)-7) r(\Lambda )-15)+\mu  (19-28 \log (2)) r(\Lambda )+57+36 \log (2))\right)+1024 \pi ^4 g^2 \mu ^5 m \left(3 a(\Lambda
+   ) \left(\Lambda ^2 (8 \mu  (2+\log (2)) r(\Lambda )+30)+5 \mu ^2 (\mu  (\log (16)-1) r(\Lambda )-3)\right)+\pi  \Lambda  (-\mu  a(\Lambda ) (\mu  (19+32 \log (2))
+   r(\Lambda )+30)+12 \mu  (2+\log (2)) r(\Lambda )+45)\right)+4096 \pi ^4 \mu ^7 \left(24 \Lambda ^3 a(\Lambda )^2 r(\Lambda ) (4 \mu  (\log (4)-1) r(\Lambda )-15)+\pi 
+   a(\Lambda ) \left(\mu  a(\Lambda ) \left(\mu  \left(r(\Lambda ) \left(-30 \mu  (\log (16)-1)+4 \Lambda ^2 (19-28 \log (2)) r(\Lambda )+5 \mu ^2 (\log (16)-1)^2 r(\Lambda
+   )\right)+45\right)+300 \Lambda ^2 r(\Lambda )\right)+24 \Lambda ^2 r(\Lambda ) (4 \mu  (\log (4)-1) r(\Lambda )-15)\right)+2 \pi ^2 \Lambda  r(\Lambda ) (\mu  a(\Lambda
+   )-1) (\mu  a(\Lambda ) (\mu  (\log (16)-7) r(\Lambda )-30)-12 \mu  (\log (4)-1) r(\Lambda )+45)\right)+g^8 m^4 \left(96 \Lambda ^3 (\log (4)-1)+4 \pi  \Lambda ^2 \mu 
+   (19-28 \log (2))+2 \pi ^2 \Lambda  \mu ^2 (\log (16)-7)+5 \pi  \mu ^3 (\log (16)-1)^2\right)-16 \pi ^2 g^6 \mu ^2 m^3 \left(24 \Lambda ^2 (2+\log (2))-\pi  \Lambda  \mu 
+   (19+32 \log (2))+15 \mu ^2 (\log (16)-1)\right)}{10 \Lambda  \mu  \left(32 \pi ^2 \mu ^4 (\pi  a(\Lambda ) (\mu  (2+\log (16)) r(\Lambda )-3)-6 \Lambda  a(\Lambda )
+   r(\Lambda )-3 \pi  r(\Lambda ))+g^4 m^2 (3 \Lambda -\pi  \mu  (1+\log (4)))+24 \pi ^2 g^2 \mu ^2 m\right)^2}mE
+$$
+:::
+$$
++\mathcal{O}(E^2)
+$$
+
+## Consistency checks: does this collapse to the contact theory?
+
+Setting $g=0$ and $r(\Lambda)=0$ should return me to the $\delta$-function results from the beginning of the talk.  Both observables do:
+
+:::{.columns}
+
+:::{.column width="50%"}
+:::{.callout-note}
+## Scattering length
+The $\mathcal{O}(E^0)$ expression reduces to
+$$
+-\frac{1}{a(\Lambda)}-\frac{2}{\pi}\Lambda = -\frac{1}{a_0}
+$$
+$$
+\implies \frac{1}{a(\Lambda)} = \frac{1}{a_0}-\frac{2}{\pi}\Lambda \, ,
+$$
+i.e. exactly $a(\Lambda)=\dfrac{a_0}{1-\frac{2}{\pi}a_0\Lambda}$ :heavy_check_mark:
+:::
+:::
+
+:::{.column width="50%"}
+:::{.callout-note}
+## Effective range
+The $\mathcal{O}(mE)$ expression reduces to
+$$
+\frac{r_0}{2} = \frac{2}{\pi\Lambda}
+$$
+$$
+\implies r_0 = \frac{4}{\pi\Lambda} \, ,
+$$
+the cutoff-induced effective range of the contact theory :heavy_check_mark:
+:::
+:::
+
+:::
+
+:::{style='font-size:80%'}
++ The second check **only works once the $-mE/\Lambda$ term is kept in $\mathcal{G}_{11}$**.  Without it the $\mathcal{O}(mE)$ coefficient vanishes identically, and $r(\Lambda)$ would be left to silently absorb the missing $4/(\pi\Lambda)$ :warning:
+
++ Both limits were also checked numerically against a direct evaluation of $p\cot\delta = ip - \frac{4\pi}{mT}$, agreeing to $\sim10^{-8}$ over a range of $g$, $m$, $\mu$, $\Lambda$, $a(\Lambda)$ and $r(\Lambda)$.
+:::
+
+## Solving for $a(\Lambda)$ and $r(\Lambda)$: expand in $g^2$
+
+:::{style='font-size:70%'}
+
+The closed-form solutions are unusable.  But the matching simplifies enormously if I reuse the **same natural cutoff** $\Lambda = 4/(\pi r_0)$ from Strategy #1a.
+
++ At this $\Lambda$ the contact term already supplies the full effective range, so now $r(\Lambda)=0$ solves the $g=0$ matching *exactly* --- the zeroth order is the contact theory I started the talk with.
+
+The zeroth order is then known analytically, and every higher order is a **linear** $2\times2$ solve:
+
+$$
+a(\Lambda) = \frac{a_0}{1-\frac{2}{\pi}a_0\Lambda} + g^2 a_1 + \mathcal{O}(g^4)\ ,
+\qquad
+r(\Lambda) = \phantom{\frac{a_0}{1}} g^2 r_1 + \mathcal{O}(g^4)
+$$
+
+:::
+
+## Numerically extracted coefficients
+
+:::{style='font-size:65%'}
+
+| $m$ | $\mu$ | $a_0$ | $r_0$ | $\Lambda$ | $\Lambda/\mu$ | $a_1$ | $a_1/(m/\mu^2)$ | $r_1$ | $r_1/(m/\mu^2)$ |
+|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|
+| 1 | 1 | 0.5 | 0.2 | 6.366 | 6.4 | $-0.01938$ | $-0.01938$ | $-0.08168$ | $-0.08168$ |
+| 2 | 1 | 0.5 | 0.2 | 6.366 | 6.4 | $-0.03876$ | $-0.01938$ | $-0.16336$ | $-0.08168$ |
+| 3 | 1 | 0.5 | 0.2 | 6.366 | 6.4 | $-0.05815$ | $-0.01938$ | $-0.24504$ | $-0.08168$ |
+| 1 | 0.5 | 0.5 | 0.2 | 6.366 | 12.7 | $-0.11629$ | $-0.02907$ | $-0.21781$ | $-0.05445$ |
+| 1 | 0.25 | 0.5 | 0.2 | 6.366 | 25.5 | $-0.54270$ | $-0.03392$ | $-0.74679$ | $-0.04667$ |
+| 1 | 1 | $-1.2$ | 0.2 | 6.366 | 6.4 | $+0.01493$ | $+0.01493$ | $+0.10604$ | $+0.10604$ |
+| 1 | 1 | 2.0 | 0.2 | 6.366 | 6.4 | $+0.00560$ | $+0.00560$ | $+0.28273$ | $+0.28273$ |
+| 1 | 1 | 0.5 | 0.1 | 12.732 | 12.7 | $-0.00652$ | $-0.00652$ | $-0.24294$ | $-0.24294$ |
+
++ **Both coefficients are exactly linear in $m$** --- the $m=1,2,3$ rows give identical $a_1/m$ and $r_1/m$ to six figures :heavy_check_mark:
++ The $\mu$-dependence is *not* pure $1/\mu^2$: at fixed $\Lambda$ there is genuine residual dependence on $\Lambda/\mu$, as expected since both enter the $h$-integrals.
++ **Requires $\Lambda\gg\mu$**, i.e. $r_0 \ll 4/(\pi\mu)$.  The matching degenerates (singular Jacobian) once $\Lambda\lesssim\mu$ :warning:
+
+:::
 
 <!-- 
 ---

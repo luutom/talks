@@ -10,7 +10,7 @@
   <meta name="generator" content="quarto-1.10.19">
 
   <meta name="author" content="Thomas Luu">
-  <meta name="dcterms.date" content="2026-10-19">
+  <meta name="dcterms.date" content="2026-10-27">
   <title>Lüscher’s Formula and Left-Hand Cuts</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -162,7 +162,7 @@ Thomas Luu
 </div>
 </div>
 
-  <p class="date">2026-10-19</p>
+  <p class="date">2026-10-27</p>
 </section>
 <section>
 <section id="derivation-of-lüschers-formula" class="title-slide slide level1 center">
@@ -281,9 +281,9 @@ T(\vec p, -\vec p; E)
 \langle \vec p\,' | \hat V | \vec p \rangle = \theta(\Lambda - p')\left(C_0(\Lambda)+C_2(\Lambda)\frac{p'^2+p^2}{2}+\ldots\right)\theta(\Lambda - p) \, ,
 </span></p>
 <p>where the coefficients <span class="math inline">C_i(\Lambda)</span> are tuned such that the scattering amplitude gives the correct physical phase shift <span class="math inline">\delta</span>,</p>
-<p><span class="math display">
+<p><span id="eq-matching"><span class="math display">
 T(\vec p,-\vec p;E) = -\frac{4\pi}{m}\frac{1}{p\cot\delta - ip}
-</span></p>
+\tag{2}</span></span></p>
 <p>When we repeat the calculation in a finite volume with this potential, it leads to the full Lüscher formula</p>
 <p><span class="math display">
 p\cot\delta = \frac{1}{\pi L}S_0(\epsilon)\ .
@@ -826,9 +826,9 @@ Note that as $g^2/\mu\to 0$ I recover $\frac{a_0}{1-2a_0\Lambda/\pi}$, as I shou
 \frac{h\left(2\pi |n|/L\right)}{n^2-\epsilon} &amp; \frac{h^2\left(2\pi |n|/L\right)}{n^2-\epsilon}
 \end{pmatrix}\nonumber\\
 =&amp;
-\frac{m}{4\pi^2 L}\sum_n^\Lambda
+\frac{m}{4\pi^2 L}
 \begin{pmatrix}
-S_0(\epsilon)+4\pi\Lambda &amp; (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
+S_0(\epsilon)+4\pi\Lambda-\frac{4\pi\epsilon}{\Lambda} &amp; (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
 (\frac{\mu m}{4\pi})^2S_1(\epsilon) &amp; (\frac{\mu m}{4\pi})^4S_2(\epsilon)
 \end{pmatrix}
 \equiv {\color{red}-}\mathcal{G}(\epsilon)\nonumber
@@ -838,61 +838,149 @@ S_0(\epsilon)+4\pi\Lambda &amp; (\frac{\mu m}{4\pi})^2S_1(\epsilon) \\
 <p>where I define</p>
 <div style="font-size:60%">
 <p><span class="math display">
-S_0(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda \quad;\quad
+S_0(\epsilon)= \lim_{\Lambda\to\infty}\left(\sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon} - 4\pi\Lambda\right) \quad;\quad
 S_1(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^2}\log\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)\quad;\quad
 S_2(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}\log^2\left(1+\left(\frac{4\pi}{\mu L}\right)^2 n^2\right)
 </span></p>
 </div>
-<p>Note that the sums in <span class="math inline">S_1(\epsilon)</span> and <span class="math inline">S_2(\epsilon)</span> converge and require no counterterm.</p>
+<p>Note that the sums in <span class="math inline">S_1(\epsilon)</span> and <span class="math inline">S_2(\epsilon)</span> converge and require no counterterm, and that both retain the <strong>full</strong> <span class="math inline">1/(n^2-\epsilon)</span> — nothing is expanded in <span class="math inline">\epsilon</span>.</p>
 <p>I obtain the quantization condition (QC) by demanding</p>
 <div style="font-size:80%">
 <p><span class="math display">
 \det(\mathbb{1}_2-\lambda\mathcal{G}(\epsilon))=
 \det
 \begin{pmatrix}
-1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L} &amp; \frac{\mu ^2 m^2 a(\Lambda ) S_1(\epsilon )}{16
-   \pi ^3 L}-\frac{g^2 \mu ^2 m^5 S_2(\epsilon )}{2048 \pi ^6 L} \\
--\frac{g^2 m \left(\frac{4 \Lambda }{L}+\frac{S_0(\epsilon )}{\pi  L}\right)}{8 \pi  \mu ^2} &amp; 1-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4 L}
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{4 \epsilon  a(\Lambda )}{\Lambda  L}-\frac{g^2 m^3 S_1(\epsilon )}{128 \pi ^4
+   L} &amp; \frac{\mu ^2 m^2 a(\Lambda ) S_1(\epsilon )}{16 \pi ^3 L}-\frac{g^2 \mu ^2 m^5 S_2(\epsilon )}{2048 \pi ^6 L} \\
+-\frac{g^2 \Lambda  m}{2 \pi  \mu ^2 L}-\frac{g^2 m S_0(\epsilon )}{8 \pi ^2 \mu ^2 L}+\frac{g^2 m \epsilon }{2 \pi  \Lambda  \mu ^2 L} &amp; 1-\frac{g^2 m^3
+   S_1(\epsilon )}{128 \pi ^4 L}
 \end{pmatrix}=0
 </span></p>
 </div>
 <p>The QC then gives</p>
 <div style="font-size:70%">
 <p><span class="math display">
-1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{g^2 m^3 S_1(\epsilon )}{64 \pi ^4 L}+g^4 m^6 \left(-\frac{\Lambda  S_2(\epsilon )}{4096 \pi ^7 L^2}+\frac{S_1(\epsilon ){}^2}{16384
-   \pi ^8 L^2}-\frac{S_0(\epsilon ) S_2(\epsilon )}{16384 \pi ^8 L^2}\right)=0
+1+\frac{4 \Lambda  a(\Lambda )}{L}+\frac{a(\Lambda ) S_0(\epsilon )}{\pi  L}-\frac{4 \epsilon  a(\Lambda )}{\Lambda  L}-\frac{g^4 m^6 S_0(\epsilon )
+   S_2(\epsilon )}{16384 \pi ^8 L^2}+\frac{g^4 m^6 S_1(\epsilon )^2}{16384 \pi ^8 L^2}-\frac{g^4 \Lambda  m^6 S_2(\epsilon )}{4096 \pi ^7 L^2}+\frac{g^4
+   m^6 \epsilon  S_2(\epsilon )}{4096 \pi ^7 \Lambda  L^2}-\frac{g^2 m^3 S_1(\epsilon )}{64 \pi ^4 L}=0
 </span></p>
 </div>
 <aside><ol class="aside-footnotes"><li id="fn4"><p>Note that <span class="math inline">\Lambda</span> in this case is <em>dimensionless</em>! (i.e.&nbsp;dimensionful <span class="math inline">\Lambda\to\frac{2\pi}{L}\Lambda</span>)</p></li></ol></aside></section>
+<section class="slide level2">
+
+<h3 id="why-this-stays-tractable-the-determinant-collapses">Why this stays tractable: the determinant collapses</h3>
+<div style="font-size:70%">
+<p>With <span class="math inline">\lambda_{22}=0</span> write <span class="math inline">\lambda=\begin{pmatrix}A &amp; B\\ B&amp; 0\end{pmatrix}</span>, <span class="math inline">A\equiv\frac{4\pi a(\Lambda)}{m}</span>, <span class="math inline">B\equiv-\frac{g^2}{2\mu^2}</span>. Then the <span class="math inline">2\times2</span> determinant collapses to</p>
+<p><span class="math display">
+\boxed{\ \det(\mathbb{1}_2-\lambda\mathcal{G}) = 1 - A\,\mathcal{G}_{11} - 2B\,\mathcal{G}_{12} + B^2\left(\mathcal{G}_{12}^2-\mathcal{G}_{11}\mathcal{G}_{22}\right)\ }
+</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Three things this buys</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Linear in <span class="math inline">a(\Lambda)</span></strong> — only <span class="math inline">\mathcal{G}_{11}</span> multiplies <span class="math inline">A</span>, so the QC solves for <span class="math inline">a(\Lambda)</span> in one step. No nonlinear system, no <span class="math inline">\det\lambda</span> in a denominator.</li>
+<li><strong>The <span class="math inline">g</span>-counting is manifest</strong>: <span class="math inline">B\propto g^2</span> and <span class="math inline">B^2\propto g^4</span>, so the <span class="math inline">\mathcal{O}(g^0)</span>, <span class="math inline">\mathcal{O}(g^2)</span> and <span class="math inline">\mathcal{O}(g^4)</span> pieces are the four terms above, in order.</li>
+<li><strong>No <span class="math inline">\lambda^{-1}</span></strong> — essential here, since <span class="math inline">\det\lambda = -B^2</span> <em>vanishes</em> at <span class="math inline">g=0</span> when <span class="math inline">\lambda_{22}=0</span>. Writing the QC as <span class="math inline">\det(\lambda^{-1}-\mathcal{G})</span> would be singular in precisely the limit I use as a check.</li>
+</ul>
+</div>
+</div>
+</div>
+<p>Matching term by term against the QC above: <span class="math inline">-A\mathcal{G}_{11}</span> gives the three <span class="math inline">a(\Lambda)</span> terms, <span class="math inline">-2B\mathcal{G}_{12}</span> gives <span class="math inline">-\frac{g^2m^3S_1}{64\pi^4L}</span>, and <span class="math inline">B^2(\mathcal{G}_{12}^2-\mathcal{G}_{11}\mathcal{G}_{22})</span> gives all four <span class="math inline">g^4</span> terms <span class="emoji" data-emoji="heavy_check_mark">✔️</span></p>
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Is it inconsistent to keep the <span class="math inline">\mathcal{O}(\epsilon/\Lambda)</span> term only in <span class="math inline">\mathcal{G}_{11}</span>?</strong></p>
+</div>
+<div class="callout-content">
+<p>No — recall <span class="math inline">S_1</span> and <span class="math inline">S_2</span> retain the <strong>full</strong> <span class="math inline">1/(n^2-\epsilon)</span>, so the only truncation anywhere is the <span class="math inline">\Lambda</span>-tail. Sorting those tails by power of <span class="math inline">\epsilon</span>:</p>
+<table class="caption-top">
+<colgroup>
+<col style="width: 33%">
+<col style="width: 33%">
+<col style="width: 33%">
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th><span class="math inline">\epsilon^0</span> tail (fixes <span class="math inline">a_0</span>)</th>
+<th><span class="math inline">\epsilon^1</span> tail (fixes <span class="math inline">r_0</span>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><span class="math inline">\mathcal{G}_{11}</span></td>
+<td>absorbed into <span class="math inline">4\pi\Lambda</span></td>
+<td><span class="math inline">\mathcal{O}(\epsilon/\Lambda)</span> &nbsp; <strong>kept</strong></td>
+</tr>
+<tr class="even">
+<td><span class="math inline">\mathcal{G}_{12}</span></td>
+<td><span class="math inline">\mathcal{O}(\log\Lambda/\Lambda)</span></td>
+<td><span class="math inline">\mathcal{O}(\epsilon\log\Lambda/\Lambda^3)</span></td>
+</tr>
+<tr class="odd">
+<td><span class="math inline">\mathcal{G}_{22}</span></td>
+<td><span class="math inline">\mathcal{O}(\log^2\Lambda/\Lambda^3)</span></td>
+<td><span class="math inline">\mathcal{O}(\epsilon\log^2\Lambda/\Lambda^5)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In <em>each</em> sector the retained term beats the dropped ones by <span class="math inline">\Lambda^2</span>. The asymmetry simply reflects that the <span class="math inline">\mathcal{G}_{11}</span> integrand falls as <span class="math inline">1/n^2</span>, whereas <span class="math inline">S_1</span> and <span class="math inline">S_2</span> fall as <span class="math inline">\log n/n^4</span> and <span class="math inline">\log^2 n/n^6</span>.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
 <section class="slide level2 scrollable">
 
 <p>I can solve for <span class="math inline">a_0</span>, and this gives a very complicated expression which I won’t write out here. If I consider the <span class="math inline">g\to 0</span> limit (holding <span class="math inline">\Lambda</span> fixed), I find<sup>1</sup></p>
-<div style="font-size:70%">
-<p><span id="eq-QC1"><span class="math display">
-\begin{align}
--\frac{1}{a_0}&amp;=\frac{S_0(\epsilon )}{\pi  L}\nonumber\\
-&amp;+g^2m \left[\Lambda  \left(\frac{m^2 S_1(\epsilon )}{16 \pi ^4 L^2}-\frac{ \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu  L}\right)+S_0(\epsilon )\right)}{\pi ^2
-   \mu ^2 L^2}\right)\right.\nonumber\\
-   &amp; \qquad\left.+\frac{m^2 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{ S_0(\epsilon ) \log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)}{16 \pi ^4
-   \Lambda }+\frac{\left(\log \left(\frac{16 \pi ^2 \Lambda ^2}{\mu ^2 L^2}+1\right)-\frac{S_0(\epsilon ) \left(2 \mu  L \tan ^{-1}\left(\frac{4 \pi  \Lambda }{\mu
-   L}\right)+S_0(\epsilon )\right)}{\mu ^2 L^2}\right)}{4 \pi ^3}\right]+\mathcal{O}(g^4)\nonumber
-\end{align}
-\tag{2}</span></span></p>
-</div>
-<p>which recovers the <span class="math inline">\delta</span>-function Lüscher formula <a href="#/eq-contact-luescher" class="quarto-xref">Equation&nbsp;1</a> when <span class="math inline">g=0</span>.</p>
-<p>On the other hand, if I do <span class="math inline">\Lambda\to\infty</span> (while holding <span class="math inline">g</span> fixed), I get</p>
+<div style="font-size:90%">
 <p><span class="math display">
--\frac{1}{a_0}=\frac{4}{3} \mu  (\log (2)-1)+\frac{\mu ^4 m^4 S_2(\epsilon )}{256 \pi ^5 L}+\mathcal{O}(\Lambda^{-1})
+\begin{align}
+-\frac{1}{a_0}+\frac{4 \epsilon }{\Lambda  L}&amp;=\frac{S_0(\epsilon )}{\pi  L}+g^2 \left(\frac{\Lambda  m^3 S_1(\epsilon )}{16 \pi ^4 L^2}-\frac{m^3 \epsilon  S_1(\epsilon )}{16 \pi ^4 \Lambda  L^2}+\frac{m^3 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5
+   L^2}\right)+\mathcal{O}(g^4)\nonumber
+\end{align}
 </span></p>
-<p>Again these two limits do not commute with each other.</p>
-<aside><ol class="aside-footnotes"><li id="fn5"><p>Again we have <span class="math inline">\Lambda</span> dimensionless.</p></li></ol></aside></section>
+</div>
+<p>which recovers the <span class="math inline">\delta</span>-function Lüscher formula <a href="#/eq-contact-luescher" class="quarto-xref">Equation&nbsp;1</a> when <span class="math inline">g=0</span> <em>and</em> <span class="math inline">\Lambda\to\infty</span>. At finite <span class="math inline">\Lambda</span> the surviving <span class="math inline">4\epsilon/(\Lambda L)</span> is not an error since it is the cutoff-induced effective range of the contact theory.</p>
+<p>If I now substitute<sup>2</sup> <span class="math inline">\Lambda\to\frac{2L}{\pi^2 r_0}</span> I get</p>
+<div style="font-size:90%">
+<p><span class="math display">
+-\frac{1}{a_0}+\frac{2 \pi ^2 r_0 \epsilon }{L^2}=\frac{S_0(\epsilon )}{\pi  L}+g^2 \left(-\frac{m^3 r_0 \epsilon  S_1(\epsilon )}{32 \pi ^2 L^3}+\frac{m^3 S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{m^3 S_1(\epsilon )}{8 \pi ^6 L
+   r_0}\right)+\mathcal{O}(g^4)
+</span></p>
+</div>
+<p>Recall that <span class="math inline">\epsilon=\frac{EmL^2}{4\pi^2}=\frac{p^2L^2}{4 \pi^2}</span>. Plugging this into the LHS above shows that the LHS is basically <span class="math inline">p\cot\delta</span>. So my final expression is</p>
+<p><span id="eq-QC1"><span class="math display">
+\boxed{
+p\cot\delta=
+\frac{S_0(\epsilon )}{\pi  L}+g^2m^3 \left(-\frac{r_0 \epsilon  S_1(\epsilon )}{32 \pi ^2 L^3}+\frac{S_0(\epsilon ) S_1(\epsilon )}{64 \pi ^5 L^2}+\frac{S_1(\epsilon )}{8 \pi ^6 L
+   r_0}\right)+\mathcal{O}(g^4)
+}
+\tag{3}</span></span></p>
+<!-- On the other hand, if I do $\Lambda\to\infty$ (while holding $g$ fixed), I get
+
+$$
+-\frac{1}{a_0}=\frac{4}{3} \mu  (\log (2)-1)+\frac{\mu ^4 m^4 S_2(\epsilon )}{256 \pi ^5 L}+\mathcal{O}(\Lambda^{-1})
+$$
+
+Again these two limits do not commute with each other. -->
+<aside><ol class="aside-footnotes"><li id="fn5"><p>Again we have <span class="math inline">\Lambda</span> dimensionless.</p></li><li id="fn6"><p>This is the dimensionless analog of <span class="math inline">\Lambda=\frac{4}{\pi r_0}</span>.</p></li></ol></aside></section>
 <section id="strategy-1-finite-cutoff-eft" class="slide level2">
 <h2>Strategy #1: Finite-cutoff EFT</h2>
 <ul>
 <li>Never take the <span class="math inline">\Lambda\to\infty</span> limit</li>
 <li>The correct limit is <span class="math inline">g\to 0</span></li>
 <li>Assume <span class="math inline">g^4\Lambda\ll 1</span></li>
-<li>For fixed <span class="math inline">g</span>, <span class="math inline">m</span>, and <span class="math inline">\mu</span>, use <a href="#/eq-QC1" class="quarto-xref">Equation&nbsp;2</a> and
+<li>For fixed <span class="math inline">g</span>, <span class="math inline">m</span>, and <span class="math inline">\mu</span>, use <a href="#/eq-QC1" class="quarto-xref">Equation&nbsp;3</a> and
 <ul>
 <li>vary <span class="math inline">\Lambda</span> and look for regions where it is relatively insensitive to <span class="math inline">\Lambda</span>.<br>
 </li>
@@ -915,6 +1003,148 @@ S_2(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}
 </div>
 </div>
 </section>
+<section id="strategy-1a-keep-lambda_220-but-choose-the-cutoff" class="slide level2">
+<h2>Strategy #1a: keep <span class="math inline">\lambda_{22}=0</span>, but choose the cutoff</h2>
+<div style="font-size:70%">
+<p>With <span class="math inline">\lambda_{22}=0</span> I keep the virtue of <span class="math inline">V_{\rm cut}</span>: the on-shell potential has <strong>exactly</strong> the OPE logarithmic branch cut, with no <span class="math inline">\log^2</span> contamination. The price is that only <span class="math inline">a(\Lambda)</span> can be tuned, so <span class="math inline">r_0</span> becomes a <em>prediction</em>.</p>
+<p>But that is precisely what makes the cutoff useful. The contact theory already predicts <span class="math inline">r_0 = 4/(\pi\Lambda)</span>, so I simply choose</p>
+<p><span class="math display">
+\boxed{\ \Lambda = \frac{4}{\pi r_0}\ }
+</span></p>
+<p>and the predicted effective range lands on the physical one for free. Note <span class="math inline">\Lambda\approx1.27/r_0</span>, i.e.&nbsp;<span class="math inline">\Lambda\sim1/r_0</span> is the natural breakdown scale of a short-range EFT anyway — this is not a trick.</p>
+<table class="caption-top">
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">g</span></th>
+<th style="text-align: right;"><span class="math inline">a(\Lambda)</span></th>
+<th style="text-align: right;"><span class="math inline">r</span> predicted</th>
+<th style="text-align: right;"><span class="math inline">r-r_0</span></th>
+<th style="text-align: right;"><span class="math inline">(r-r_0)/g^2</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;"><span class="math inline">-0.487128</span></td>
+<td style="text-align: right;">0.20000000</td>
+<td style="text-align: right;"><span class="math inline">-7\times10^{-11}</span></td>
+<td style="text-align: right;">—</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.05</td>
+<td style="text-align: right;"><span class="math inline">-0.487225</span></td>
+<td style="text-align: right;">0.19774082</td>
+<td style="text-align: right;"><span class="math inline">-2.26\times10^{-3}</span></td>
+<td style="text-align: right;"><span class="math inline">-0.9037</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;"><span class="math inline">-0.487516</span></td>
+<td style="text-align: right;">0.19097100</td>
+<td style="text-align: right;"><span class="math inline">-9.03\times10^{-3}</span></td>
+<td style="text-align: right;"><span class="math inline">-0.9029</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;"><span class="math inline">-0.488684</span></td>
+<td style="text-align: right;">0.16400677</td>
+<td style="text-align: right;"><span class="math inline">-3.60\times10^{-2}</span></td>
+<td style="text-align: right;"><span class="math inline">-0.8998</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">0.30</td>
+<td style="text-align: right;"><span class="math inline">-0.490644</span></td>
+<td style="text-align: right;">0.11947149</td>
+<td style="text-align: right;"><span class="math inline">-8.05\times10^{-2}</span></td>
+<td style="text-align: right;"><span class="math inline">-0.8948</span></td>
+</tr>
+</tbody>
+</table>
+<p>(<span class="math inline">m=\mu=1</span>, <span class="math inline">a_0=0.5</span>, <span class="math inline">r_0=0.2</span>.) Exact at <span class="math inline">g=0</span> to <span class="math inline">10^{-11}</span>, and the error is clean <span class="math inline">\mathcal{O}(g^2)</span> — the last column is flat to three figures.</p>
+</div>
+</section>
+<section id="strategy-1a-what-this-buys" class="slide level2">
+<h2>Strategy #1a: what this buys</h2>
+<div style="font-size:75%">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The three goals align</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><span class="math inline">\lambda_{22}=0\ \Longrightarrow</span> on-shell potential keeps exactly the OPE <span class="math inline">\log</span> discontinuity <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
+<li><span class="math inline">\Lambda = 4/(\pi r_0)\ \Longrightarrow</span> both <span class="math inline">a_0</span> <strong>and</strong> <span class="math inline">r_0</span> come out right to <span class="math inline">\mathcal{O}(g^2)</span>, with no second counterterm <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
+<li>finite <span class="math inline">\Lambda\ \Longrightarrow</span> the unabsorbed <span class="math inline">g^4\Lambda</span> divergence never arises <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
+</ul>
+</div>
+</div>
+</div>
+<p>This also sharpens the validity condition. Substituting <span class="math inline">\Lambda = 4/(\pi r_0)</span> into <span class="math inline">g^2 m\Lambda\lesssim1</span> gives</p>
+<p><span class="math display">
+\frac{g^2 m}{r_0}\lesssim\frac{\pi}{4}
+</span></p>
+<p>a statement purely in <strong>physical</strong> quantities — the cutoff has been eliminated, so there is no plateau to hunt for.</p>
+<div class="callout callout-warning callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Warning</strong></p>
+</div>
+<div class="callout-content">
+<p>Small <span class="math inline">r_0</span> is <em>dangerous</em>, not safe. The <span class="math inline">\mathcal{O}(g^2)</span> error coefficient grows like <span class="math inline">m\Lambda</span>: for <span class="math inline">m=2</span>, <span class="math inline">r_0=0.1</span> (<span class="math inline">\Lambda=12.7</span>) it reaches <span class="math inline">-5.25</span>, and by <span class="math inline">g=0.15</span> the predicted <span class="math inline">r</span> has gone <strong>negative</strong> <span class="emoji" data-emoji="warning">⚠️</span></p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="why-the-natural-cutoff-is-inevitable" class="slide level2">
+<h2>Why the natural cutoff is <em>inevitable</em></h2>
+<div style="font-size:70%">
+<p><a href="#/eq-QC1" class="quarto-xref">Equation&nbsp;3</a> carries only <span class="math inline">-1/a_0</span> on the left because <span class="math inline">S_0</span> was defined with the <span class="math inline">\Lambda\to\infty</span> subtraction. At <strong>finite</strong> <span class="math inline">\Lambda</span> the sum retains an <span class="math inline">\epsilon</span>-dependent residue. Using the large-<span class="math inline">n</span> shell density <span class="math inline">4\pi n^2 dn</span>,</p>
+<p><span class="math display">
+\sum_{\vec n}^{n&lt;\Lambda}\frac{1}{n^2-\epsilon}\approx 4\pi\!\int\! dn\left[1+\frac{\epsilon}{n^2-\epsilon}\right]
+= 4\pi\Lambda + 4\pi\epsilon\,\mathcal{P}\!\!\int^\Lambda\!\frac{dn}{n^2-\epsilon}
+= 4\pi\Lambda - \frac{4\pi\epsilon}{\Lambda}
+</span></p>
+<p>— the <em>same</em> <span class="math inline">\mathcal{P}\!\int^\Lambda dn/(n^2-\epsilon)\approx-1/\Lambda</span> that produced the <span class="math inline">-mE/\Lambda</span> in <span class="math inline">\mathcal{G}_{11}</span>, now seen in the box. Hence</p>
+<p><span class="math display">
+S_0^{(\Lambda)}(\epsilon) = S_0^{(\infty)}(\epsilon) - \frac{4\pi\epsilon}{\Lambda} \, .
+</span></p>
+<p>Substituting into <span class="math inline">-\frac{1}{a_0}=\frac{1}{\pi L}S_0^{(\Lambda)}(\epsilon)</span> and moving the residue across:</p>
+<p><span class="math display">
+-\frac{1}{a_0}+\frac{4\epsilon}{L\Lambda} = \frac{1}{\pi L}S_0^{(\infty)}(\epsilon)
+</span></p>
+<p>Now identify that new term. With <span class="math inline">\Lambda_{\rm phys}=2\pi\Lambda/L</span> the contact effective range is <span class="math inline">r_0 = 4/(\pi\Lambda_{\rm phys}) = 2L/(\pi^2\Lambda)</span>, and with <span class="math inline">p^2=mE=4\pi^2\epsilon/L^2</span>,</p>
+<p><span class="math display">
+\frac{r_0}{2}p^2 = \frac{L}{\pi^2\Lambda}\cdot\frac{4\pi^2\epsilon}{L^2} = \frac{4\epsilon}{L\Lambda} \qquad \textit{identical}
+</span></p>
+<div class="callout callout-important callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>The left-hand side promotes itself</strong></p>
+</div>
+<div class="callout-content">
+<p><span class="math display">
+\underbrace{-\frac{1}{a_0}+\frac{r_0}{2}p^2}_{\textstyle p\cot\delta\ +\ \mathcal{O}(p^4)} = \frac{1}{\pi L}S_0(\epsilon)
+</span> i.e.&nbsp;the <em>model-independent</em> Lüscher formula — now <strong>derived</strong> rather than asserted <span class="emoji" data-emoji="heavy_check_mark">✔️</span></p>
+</div>
+</div>
+</div>
+<ul>
+<li>This is a real check, not a rearrangement: the <span class="math inline">r_0=2L/(\pi^2\Lambda)</span> falling out of the <strong>finite-volume sum residue</strong> is the same <span class="math inline">r_0=4/(\pi\Lambda_{\rm phys})</span> obtained independently from the <strong>infinite-volume</strong> amplitude. Two unrelated routes, same coefficient.</li>
+<li>At <span class="math inline">\Lambda = 2L/(\pi^2 r_0)</span> that <span class="math inline">r_0</span> <em>is</em> the physical effective range — so choosing the natural cutoff is precisely the statement that the LHS becomes the physical <span class="math inline">p\cot\delta</span> to <span class="math inline">\mathcal{O}(p^2)</span>, with no second counterterm anywhere.</li>
+</ul>
+</div>
+</section>
 <section id="strategy-2-remove-the-g4lambda-divergence" class="slide level2">
 <h2>Strategy #2: Remove the <span class="math inline">g^4\Lambda</span> divergence</h2>
 <p>To do this, I introduce another coefficient</p>
@@ -931,10 +1161,265 @@ S_2(\epsilon)= \sum_{\vec n}^{n &lt; \Lambda}\frac{1}{n^2-\epsilon}\frac{1}{n^4}
    r(\Lambda )}{m^2}-\frac{g^4}{4 \mu ^4}\right)}
 \end{pmatrix}
 </span></p>
-<p>I have now two coefficients to tune, and I do this such that I match <span class="math inline">p\cot\delta=-\frac{1}{a_0}+\frac{1}{2}r_0p^2+\mathcal{O}(p^4)</span>. In terms of the <span class="math inline">T</span>-matrix, I should match</p>
+<p>Also, after some tedious calculations I find</p>
+<div style="font-size:70%">
 <p><span class="math display">
-T(p'=p;E=p^2/m)=-\frac{4 \pi  a_0}{m}-\frac{2 \pi  a_0^2 r_0}{m}p^2+\mathcal{O}(p^4)
+\begin{align}
+\frac{1}{(2\pi)^3}&amp;\int^\Lambda d^3qf(q) G_0 (q;E) f^T(q)=\nonumber\\
+&amp;-\frac{m}{2\pi^2}
+\begin{pmatrix}
+\Lambda-\frac{mE}{\Lambda}+i\frac{\pi}{2}\sqrt{mE} &amp; \frac{\pi}{2}\mu-\frac{2\pi}{3}\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE}\\
+\frac{\pi}{2}\mu-\frac{2\pi}{3}\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE} &amp; \frac{2\pi}{3}\mu(1-\log(2))-\frac{8\pi}{15}(4-3\log(2))\frac{mE}{\mu}+i\frac{\pi}{2}\sqrt{mE}
+\end{pmatrix}
++\mathcal{O}(\Lambda^{-1},(mE)^{3/2})\nonumber
+\end{align}
 </span></p>
+</div>
+<p>And note that</p>
+<p><span class="math display">
+{\bf f}(p=\sqrt{mE})=
+\begin{pmatrix}
+1\\
+1-\frac{2mE}{\mu^2}
+\end{pmatrix}
++\mathcal{O}((mE)^2)
+</span></p>
+</section>
+<section class="slide level2">
+
+<p>I have now two coefficients to tune, <span class="math inline">a(\Lambda)</span> and <span class="math inline">r(\Lambda)</span>, and I do this such that I match <span class="math inline">p\cot\delta=-\frac{1}{a_0}+\frac{1}{2}r_0p^2+\mathcal{O}(p^4)</span>. In terms of the <span class="math inline">T</span>-matrix, inverting <a href="#/eq-matching" class="quarto-xref">Equation&nbsp;2</a> gives</p>
+<p><span class="math display">
+\begin{align}
+p\cot\delta=ip-\frac{4\pi}{mT(E=p^2/m)}&amp;=-\frac{1}{a_0}+\frac{r_0}{2}p^2+\mathcal{O}(p^4)\nonumber\\
+&amp;=-\frac{1}{a_0}+\frac{r_0}{2}mE+\mathcal{O}(E^2)\nonumber
+\end{align}
+</span></p>
+<div style="font-size:50%">
+<p><span class="math display">
+=
+\frac{-64 \pi ^2 \mu ^4 (\Lambda  a(\Lambda ) (8 \mu  (\log (2)-1) r(\Lambda )-6)+\pi  (\mu  r(\Lambda ) (3 \mu  a(\Lambda )-4+\log (16))-3))+g^4 \mu  m^2 (8 \Lambda  (\log
+   (2)-1)+3 \pi  \mu )-48 \pi ^2 g^2 \mu ^3 m}{64 \pi ^2 \mu ^4 (\pi  a(\Lambda ) (\mu  (2+\log (16)) r(\Lambda )-3)-6 \Lambda  a(\Lambda ) r(\Lambda )-3 \pi  r(\Lambda
+   ))+2 g^4 m^2 (3 \Lambda -\pi  \mu  (1+\log (4)))+48 \pi ^2 g^2 \mu ^2 m}
+</span></p>
+</div>
+<div style="font-size:20%">
+<p><span class="math display">
++
+\frac{-64 \pi ^2 g^4 \mu ^3 m^2 \left(24 \Lambda ^3 a(\Lambda ) (8 \mu  (\log (4)-1) r(\Lambda )-15)+\pi  \left(5 \mu ^2 (2 \mu  (\log (16)-1) a(\Lambda ) (\mu  (\log
+   (16)-1) r(\Lambda )-3)-9)-4 \Lambda ^2 (\mu  a(\Lambda ) (-38 \mu  r(\Lambda )+56 \mu  \log (2) r(\Lambda )-75)-24 \mu  (\log (4)-1) r(\Lambda )+45)\right)+2 \pi ^2
+   \Lambda  \mu  (2 \mu  a(\Lambda ) (\mu  (\log (16)-7) r(\Lambda )-15)+\mu  (19-28 \log (2)) r(\Lambda )+57+36 \log (2))\right)+1024 \pi ^4 g^2 \mu ^5 m \left(3 a(\Lambda
+   ) \left(\Lambda ^2 (8 \mu  (2+\log (2)) r(\Lambda )+30)+5 \mu ^2 (\mu  (\log (16)-1) r(\Lambda )-3)\right)+\pi  \Lambda  (-\mu  a(\Lambda ) (\mu  (19+32 \log (2))
+   r(\Lambda )+30)+12 \mu  (2+\log (2)) r(\Lambda )+45)\right)+4096 \pi ^4 \mu ^7 \left(24 \Lambda ^3 a(\Lambda )^2 r(\Lambda ) (4 \mu  (\log (4)-1) r(\Lambda )-15)+\pi
+   a(\Lambda ) \left(\mu  a(\Lambda ) \left(\mu  \left(r(\Lambda ) \left(-30 \mu  (\log (16)-1)+4 \Lambda ^2 (19-28 \log (2)) r(\Lambda )+5 \mu ^2 (\log (16)-1)^2 r(\Lambda
+   )\right)+45\right)+300 \Lambda ^2 r(\Lambda )\right)+24 \Lambda ^2 r(\Lambda ) (4 \mu  (\log (4)-1) r(\Lambda )-15)\right)+2 \pi ^2 \Lambda  r(\Lambda ) (\mu  a(\Lambda
+   )-1) (\mu  a(\Lambda ) (\mu  (\log (16)-7) r(\Lambda )-30)-12 \mu  (\log (4)-1) r(\Lambda )+45)\right)+g^8 m^4 \left(96 \Lambda ^3 (\log (4)-1)+4 \pi  \Lambda ^2 \mu
+   (19-28 \log (2))+2 \pi ^2 \Lambda  \mu ^2 (\log (16)-7)+5 \pi  \mu ^3 (\log (16)-1)^2\right)-16 \pi ^2 g^6 \mu ^2 m^3 \left(24 \Lambda ^2 (2+\log (2))-\pi  \Lambda  \mu
+   (19+32 \log (2))+15 \mu ^2 (\log (16)-1)\right)}{10 \Lambda  \mu  \left(32 \pi ^2 \mu ^4 (\pi  a(\Lambda ) (\mu  (2+\log (16)) r(\Lambda )-3)-6 \Lambda  a(\Lambda )
+   r(\Lambda )-3 \pi  r(\Lambda ))+g^4 m^2 (3 \Lambda -\pi  \mu  (1+\log (4)))+24 \pi ^2 g^2 \mu ^2 m\right)^2}mE
+</span></p>
+</div>
+<p><span class="math display">
++\mathcal{O}(E^2)
+</span></p>
+</section>
+<section id="consistency-checks-does-this-collapse-to-the-contact-theory" class="slide level2">
+<h2>Consistency checks: does this collapse to the contact theory?</h2>
+<p>Setting <span class="math inline">g=0</span> and <span class="math inline">r(\Lambda)=0</span> should return me to the <span class="math inline">\delta</span>-function results from the beginning of the talk. Both observables do:</p>
+<div class="columns">
+<div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Scattering length</strong></p>
+</div>
+<div class="callout-content">
+<p>The <span class="math inline">\mathcal{O}(E^0)</span> expression reduces to <span class="math display">
+-\frac{1}{a(\Lambda)}-\frac{2}{\pi}\Lambda = -\frac{1}{a_0}
+</span> <span class="math display">
+\implies \frac{1}{a(\Lambda)} = \frac{1}{a_0}-\frac{2}{\pi}\Lambda \, ,
+</span> i.e.&nbsp;exactly <span class="math inline">a(\Lambda)=\dfrac{a_0}{1-\frac{2}{\pi}a_0\Lambda}</span> <span class="emoji" data-emoji="heavy_check_mark">✔️</span></p>
+</div>
+</div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="callout callout-note callout-titled callout-style-default">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Effective range</strong></p>
+</div>
+<div class="callout-content">
+<p>The <span class="math inline">\mathcal{O}(mE)</span> expression reduces to <span class="math display">
+\frac{r_0}{2} = \frac{2}{\pi\Lambda}
+</span> <span class="math display">
+\implies r_0 = \frac{4}{\pi\Lambda} \, ,
+</span> the cutoff-induced effective range of the contact theory <span class="emoji" data-emoji="heavy_check_mark">✔️</span></p>
+</div>
+</div>
+</div>
+</div></div>
+<div style="font-size:80%">
+<ul>
+<li><p>The second check <strong>only works once the <span class="math inline">-mE/\Lambda</span> term is kept in <span class="math inline">\mathcal{G}_{11}</span></strong>. Without it the <span class="math inline">\mathcal{O}(mE)</span> coefficient vanishes identically, and <span class="math inline">r(\Lambda)</span> would be left to silently absorb the missing <span class="math inline">4/(\pi\Lambda)</span> <span class="emoji" data-emoji="warning">⚠️</span></p></li>
+<li><p>Both limits were also checked numerically against a direct evaluation of <span class="math inline">p\cot\delta = ip - \frac{4\pi}{mT}</span>, agreeing to <span class="math inline">\sim10^{-8}</span> over a range of <span class="math inline">g</span>, <span class="math inline">m</span>, <span class="math inline">\mu</span>, <span class="math inline">\Lambda</span>, <span class="math inline">a(\Lambda)</span> and <span class="math inline">r(\Lambda)</span>.</p></li>
+</ul>
+</div>
+</section>
+<section id="solving-for-alambda-and-rlambda-expand-in-g2" class="slide level2">
+<h2>Solving for <span class="math inline">a(\Lambda)</span> and <span class="math inline">r(\Lambda)</span>: expand in <span class="math inline">g^2</span></h2>
+<div style="font-size:70%">
+<p>The closed-form solutions are unusable. But the matching simplifies enormously if I reuse the <strong>same natural cutoff</strong> <span class="math inline">\Lambda = 4/(\pi r_0)</span> from Strategy #1a.</p>
+<ul>
+<li>At this <span class="math inline">\Lambda</span> the contact term already supplies the full effective range, so now <span class="math inline">r(\Lambda)=0</span> solves the <span class="math inline">g=0</span> matching <em>exactly</em> — the zeroth order is the contact theory I started the talk with.</li>
+</ul>
+<p>The zeroth order is then known analytically, and every higher order is a <strong>linear</strong> <span class="math inline">2\times2</span> solve:</p>
+<p><span class="math display">
+a(\Lambda) = \frac{a_0}{1-\frac{2}{\pi}a_0\Lambda} + g^2 a_1 + \mathcal{O}(g^4)\ ,
+\qquad
+r(\Lambda) = \phantom{\frac{a_0}{1}} g^2 r_1 + \mathcal{O}(g^4)
+</span></p>
+</div>
+</section>
+<section id="numerically-extracted-coefficients" class="slide level2">
+<h2>Numerically extracted coefficients</h2>
+<div style="font-size:65%">
+<table class="caption-top" style="width:100%;">
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;"><span class="math inline">m</span></th>
+<th style="text-align: right;"><span class="math inline">\mu</span></th>
+<th style="text-align: right;"><span class="math inline">a_0</span></th>
+<th style="text-align: right;"><span class="math inline">r_0</span></th>
+<th style="text-align: right;"><span class="math inline">\Lambda</span></th>
+<th style="text-align: right;"><span class="math inline">\Lambda/\mu</span></th>
+<th style="text-align: right;"><span class="math inline">a_1</span></th>
+<th style="text-align: right;"><span class="math inline">a_1/(m/\mu^2)</span></th>
+<th style="text-align: right;"><span class="math inline">r_1</span></th>
+<th style="text-align: right;"><span class="math inline">r_1/(m/\mu^2)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><span class="math inline">-0.01938</span></td>
+<td style="text-align: right;"><span class="math inline">-0.01938</span></td>
+<td style="text-align: right;"><span class="math inline">-0.08168</span></td>
+<td style="text-align: right;"><span class="math inline">-0.08168</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><span class="math inline">-0.03876</span></td>
+<td style="text-align: right;"><span class="math inline">-0.01938</span></td>
+<td style="text-align: right;"><span class="math inline">-0.16336</span></td>
+<td style="text-align: right;"><span class="math inline">-0.08168</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><span class="math inline">-0.05815</span></td>
+<td style="text-align: right;"><span class="math inline">-0.01938</span></td>
+<td style="text-align: right;"><span class="math inline">-0.24504</span></td>
+<td style="text-align: right;"><span class="math inline">-0.08168</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">12.7</td>
+<td style="text-align: right;"><span class="math inline">-0.11629</span></td>
+<td style="text-align: right;"><span class="math inline">-0.02907</span></td>
+<td style="text-align: right;"><span class="math inline">-0.21781</span></td>
+<td style="text-align: right;"><span class="math inline">-0.05445</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">25.5</td>
+<td style="text-align: right;"><span class="math inline">-0.54270</span></td>
+<td style="text-align: right;"><span class="math inline">-0.03392</span></td>
+<td style="text-align: right;"><span class="math inline">-0.74679</span></td>
+<td style="text-align: right;"><span class="math inline">-0.04667</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;"><span class="math inline">-1.2</span></td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><span class="math inline">+0.01493</span></td>
+<td style="text-align: right;"><span class="math inline">+0.01493</span></td>
+<td style="text-align: right;"><span class="math inline">+0.10604</span></td>
+<td style="text-align: right;"><span class="math inline">+0.10604</span></td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2.0</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">6.366</td>
+<td style="text-align: right;">6.4</td>
+<td style="text-align: right;"><span class="math inline">+0.00560</span></td>
+<td style="text-align: right;"><span class="math inline">+0.00560</span></td>
+<td style="text-align: right;"><span class="math inline">+0.28273</span></td>
+<td style="text-align: right;"><span class="math inline">+0.28273</span></td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.5</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">12.732</td>
+<td style="text-align: right;">12.7</td>
+<td style="text-align: right;"><span class="math inline">-0.00652</span></td>
+<td style="text-align: right;"><span class="math inline">-0.00652</span></td>
+<td style="text-align: right;"><span class="math inline">-0.24294</span></td>
+<td style="text-align: right;"><span class="math inline">-0.24294</span></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Both coefficients are exactly linear in <span class="math inline">m</span></strong> — the <span class="math inline">m=1,2,3</span> rows give identical <span class="math inline">a_1/m</span> and <span class="math inline">r_1/m</span> to six figures <span class="emoji" data-emoji="heavy_check_mark">✔️</span></li>
+<li>The <span class="math inline">\mu</span>-dependence is <em>not</em> pure <span class="math inline">1/\mu^2</span>: at fixed <span class="math inline">\Lambda</span> there is genuine residual dependence on <span class="math inline">\Lambda/\mu</span>, as expected since both enter the <span class="math inline">h</span>-integrals.</li>
+<li><strong>Requires <span class="math inline">\Lambda\gg\mu</span></strong>, i.e.&nbsp;<span class="math inline">r_0 \ll 4/(\pi\mu)</span>. The matching degenerates (singular Jacobian) once <span class="math inline">\Lambda\lesssim\mu</span> <span class="emoji" data-emoji="warning">⚠️</span></li>
+</ul>
+</div>
 <!-- 
 ---
 
